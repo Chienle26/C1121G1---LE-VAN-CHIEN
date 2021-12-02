@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <style>
+        body{
+            /* text-align: center; */
+        }
+        h1{
+            text-align: center;
+            color: blue;
+        }
+        hr{
+            /* height: 2px;
+            color: blue; */
+            border: solid 1px red;
+        }
+        .simpleform
+        {
+            font-family:'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular',  'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            /* border: solid 3px; */
+            /* width: 350px;    */
+            text-align: center;
+        }
+
+        .simpleform2 p{
+            display: inline;
+        }
+
+        .simpleform2 input{
+            margin: 5px 5px;
+        }
+        .simpleform2 .hobbybox{
+            margin-left: 59px;
+        }
+        .simpleform2 .travel{
+            margin-left: 65px;
+            text-align: left;
+        }
+        .google{
+            text-align: center;
+        }
+        .google .text{
+            width: 450px;
+        }
+        .user{
+            text-align: center;
+        }
+    </style>
+
+    <h1>THỰC HÀNH: TẠO FORM CƠ BẢN</h1>
+    <div class="simpleform">
+        
+        <form method="get" action="./simpleform.html" class="form">
+        <h2>Order Form</h2>
+        <p>What would you like to buy?</p>
+        <select>
+            <option>A</option>
+            <option>B (+0.5$)</option>
+            <option>C (+0.5$)</option>
+        </select>
+        <p>How many would you like to order?</p>
+        <input type="radio" name="rd">1 - $10 <br>
+        <input type="radio" name="rd">2 - $20 <br>
+        <input type="radio" name="rd">3 - $25 <br>
+        <p>Name <span style="color: red;">*</span></p>
+        <input type="text" name="FirstNamne" placeholder="FirstName" size="15" >
+        <input type="text" name="Lastname" placeholder="LastName" size="15">
+        <p>Email</p>
+        <input type="text" name="Email" size="35">
+        <p>Phone Number</p>
+        <input type="text" name="phone1" size="5"> -
+        <input type="text" name="phone2" size="5"> -
+        <input type="text" name="phone3" size="5"> <br><br>
+        <p><input type="button" value="Submit" name="btSubmit"></p>
+     </form>
+    </div>
+    <hr>
+    <div class="google">
+        <H1>THỰC HÀNH: TẠO FORM TÌM KIẾM GOOGLE</H1>
+        <form method="get" action="https://www.google.com/" target="_blank">
+        <input class="text" type="text" name="q">
+        <input type="submit" value="Tìm Kiếm">
+    </form>
+    </div> <br>
+    <hr>
+    <div class="simpleform2">
+        <h1>BÀI TẬP: TẠO FORM ĐƠN GIẢN</h1>
+        <form action="./simpleform.html">
+        <h2>SỞ THÍCH CỦA BẠN</h2>
+        <p>Họ và tên</p>
+        <input type="text" name="yourname"><br>        
+        <p>Email</p>
+        <input type="text" name="email"><br>
+        <p>Sở thích</p>  
+        <input type="checkbox" name="hobby"> Thể thao 
+        <input type="checkbox" name="hobby"> Âm nhạc 
+        <input type="checkbox" name="hobby"> Đọc sách <br>
+        <div class="hobbybox">
+        <input type="checkbox" name="hobby"> Lướt web 
+        <input type="checkbox" name="hobby"> Chơi game 
+        <input type="checkbox" name="hobby"> Điện ảnh <br>   
+        </div>
+        
+        <input class="travel" type="checkbox" name="hobby"> Du lịch <br>
+        <input type="submit" value="Gửi thông tin">
+        <input type="reset" value="Nhập lại">
+        </form>
+        <br>
+        <form action="">
+            <label for="name">Họ và tên</label>
+            <input type="text" name="name" id="name"><br>
+            <label for="">Ngày sinh</label>
+            <input type="text" name="dateofbirth"><br>
+            <label for="">Giới tính</label>
+            <input type="radio" name="Gender">Nam
+            <input type="radio" name="Gender">Nữ<br>
+            <p>Địa chỉ</p>
+            <textarea name="adress" id="" cols="35" rows="5"></textarea><br>
+            <label for="">Lớp</label>
+            <select name="Grade" id="">
+                <option value="">part-time</option>
+                <option value="">full-time</option>
+                <option value="">fullstack</option>
+            </select><br>
+            <label for="">Email</label>
+            <input type="text" name="email"><br>
+            <label for="">Điện thoại</label>
+            <input type="text" name="email"><br>
+            <input type="button" value="Đăng ký">
+            <input type="reset" value="Nhập lại">
+
+        </form>
+    <hr>
+    <div class="survey">
+        <h1>BÀI TẬP: FORM LẤY SERVEY KHÁCH HÀNG</h1>
+        <h2>Market Research Survey</h2>
+        <p>Please take a few moments to complete this satisfaction survey.</p><br>
+        <label for="">What is your age range?</label><br>
+        <select name="age" id="">
+            <option value="">18-24</option>
+            <option value="">25-44</option>
+            <option value="">35-50</option>
+            <option value="">50+</option>
+        </select><br>
+        <label for="">What is your yearly income range?</label><br>
+        <select name="age" id="">
+            <option value="">$0-$25,000</option>
+            <option value="">$25,001-$50,000</option>
+            <option value="">$51,000-$100,000</option>
+            <option value="">$100,000+</option>
+        </select><br>
+        <label for="">Gender Identity</label><br>
+        <input type="radio" name="gender" id="">Male <br>
+        <input type="radio" name="gender" id="">Female<br>
+        <input type="radio" name="gender" id="">Nonbinary<br>
+        <input type="radio" name="gender" id="">Other <input type="text" name="gender"><br>
+        <label for="">Which of the following products have your purchased in the last 2 months. Please check all that apply.</label> <br>
+        <input type="checkbox" name="product1" id="">Product 1 <br>
+        <input type="checkbox" name="product2" id="">Product 2 <br>
+        <input type="checkbox" name="product3" id="">Product 3 <br>
+        <label for="">How often would you use our new product?</label><br>
+        <input type="radio" name="time" id="">Daily <br>
+        <input type="radio" name="time" id="">Weekly<br>
+        <input type="radio" name="time" id="">Nonbinary<br>
+    </div>
+    <hr>
+    </div>
+    <div class="user">
+        <h1>BÀI TẬP TẠO GIAO DIỆN FORM ĐĂNG KÍ NGƯỜI DÙNG</h1>
+        <form action="./simpleform.html" method="post"> 
+        <p>Họ và tên:</p>
+        <input type="text" name="name">
+        <p>Email:</p>
+        <input type="text" name="email">
+        <p>Số điện thoại:</p>
+        <input type="text" name="phone">
+        <p>Giới tính:</p>
+        <input type="radio" name="gender">Nam
+        <input type="radio" name="gender">Nữ <br> <br>
+        <input type="submit" value="Đăng Ký">
+    </form>
+    </div>
+<br>
+    
+    
+</body>
+</html>
