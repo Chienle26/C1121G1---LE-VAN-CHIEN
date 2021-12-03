@@ -8,9 +8,13 @@
 </head>
 <body>
     <style>
+        table, td, th{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
         table{
             width: 50%;
-            border-collapse: collapse;
             margin-left: 320px;
         }
         h1{
@@ -24,17 +28,10 @@
             width: 25%;
             border: solid 1px red;
         }
-        /* body{
-            text-align: center;
+        body{
             font-family: arial, sans-serif;
         }
-
-        table{
-            width: 50%;
-            border-collapse: collapse;
-            margin-left: 320px;
-        }
-        
+  
         /* .simpletable{
             font-family: arial, sans-serif;
             border-collapse: collapse;
@@ -49,11 +46,16 @@
         /* .timetable{
             border-collapse: collapse;
         } */
-        .timetable2 .text{
-            width: 550px;
+        .tkb .tkb_textleft{
+            float: left;
+            width: 30%;
+            margin-left: 350px;
         }
-        .timetable2 .timetable{
-            width: 600px;
+        .tkb .tkb_textright{
+            float: 30%;
+            text-align: right;
+            margin-right: 330px;
+
         }
     </style>
 
@@ -155,21 +157,19 @@
             </tr>
         </table>
     </div>
-    <div class="timetable2">
+    <div class="tkb">
         <h2>THỜI KHÓA BIỂU</h2>
-        <Table class="text">
-            <tr>
-                <td>Lớp: TD 09081</td>
-                <td style="text-align: right;">Thời gian học: 13h30 - 17h30</td>
-            </tr>
-            <tr>
-                <td>Giáo viên: KhoaNV</td>
-                <td style="text-align: right;">Ngày học: Thứ 3, 5, </td>
-            </tr>
-            <tr>
-                <td>Phòng học: Class3/Lab3</td>
-                <td></td>
-            </tr>
+        <div class="tkb_textleft">
+            <p>Lớp: TD 09081</p>
+            <p>Giáo viên: KhoaNV</p>
+            <p>Phòng học: Class3/Lab3</p> 
+        </div>
+        <div class="tkb_textright">
+            <p>Thời gian học: 13h30 - 17h30</p>
+        <p>Ngày học: Thứ 3, 5</p>
+        </div>
+        <br>
+        <br>
         </Table>
         <table class="timetable">
             <tr>
@@ -215,7 +215,7 @@
     <br>
     <hr>
     <div class="simpletable">
-        <h1>BÀI TẬP: TẠO BẢNG NÂNG</h1>
+        <h1>BÀI TẬP: TẠO BẢNG NÂNG CAO</h1>
         <table border="1">
             <tr>
                 <th>Thứ 3</th>
