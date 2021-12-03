@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview JS</title>
+</head>
+
+<body>
+    <label for="money">Nhập số tiền:</label>
+    <input id="money" type="number"><br>
+    <label for="peoples">Nhập số người:</label>
+    <input id="peoples" type="number">
+    <button onclick="tinh()">Tính</button>
+</body>
+<script>
+    function tinh() {
+        let n1 = document.getElementById("money").value;
+        n1 = parseInt(n1);
+        let n2 = document.getElementById("peoples").value;
+        n2 = parseInt(n2);
+        let avg = n1/n2;
+        alert("Số tiền của mỗi người là: " + avg);
+    }
+</script>
+
+</html>
