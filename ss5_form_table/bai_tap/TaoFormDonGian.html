@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title> 
+
+    <style>
+        body{
+            /* text-align: center; */
+        }
+        h1{
+            text-align: center;
+            color: blue;
+        }
+        hr{
+            /* height: 2px;
+            color: blue; */
+            border: solid 1px red;
+        }
+    </style> 
+</head>
+<body>
+    <h1>BÀI TẬP: TẠO FORM ĐƠN GIẢN</h1>
+    <div class="form">
+        <div class="hobby">
+           
+            <form action="./simpleform.html">
+            <h2>SỞ THÍCH CỦA BẠN</h2>
+            <label>Họ và tên</label>
+            <input type="text" name="yourname"><br>        
+            <label>Email</label>
+            <input type="text" name="email"><br>
+            <label>Sở thích</label>
+            <table>
+                <tr>
+                    <td><input type="checkbox" name="hobby"> Thể thao</td>
+                    <td><input type="checkbox" name="hobby"> Âm nhạc</td>
+                    <td><input type="checkbox" name="hobby"> Đọc sách <br></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="hobby"> Lướt web </td>
+                    <td><input type="checkbox" name="hobby"> Chơi game </td>
+                    <td><input type="checkbox" name="hobby"> Điện ảnh  </td><br>
+                </tr>
+                <tr>
+                    <td><input class="travel" type="checkbox" name="hobby"> Du lịch <br></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>    
+            <input type="submit" value="Gửi thông tin">
+            <input type="reset" value="Nhập lại">
+            </form>
+            <br>
+        </div>
+            <hr>
+        <div class="register">
+            <form action="">
+                <h2>Đăng ký học viên</h2>
+                <label for="name">Họ và tên</label>
+                <input type="text" name="name" id="name"><br>
+                <label for="">Ngày sinh</label>
+                <input type="text" name="dateofbirth"><br>
+                <label for="">Giới tính</label>
+                <input type="radio" name="Gender">Nam
+                <input type="radio" name="Gender">Nữ<br>
+                <label>Địa chỉ</label>
+                <textarea name="adress" id="" cols="35" rows="5"></textarea><br>
+                <label for="">Lớp</label>
+                <select name="Grade" id="">
+                    <option value="">part-time</option>
+                    <option value="">full-time</option>
+                    <option value="">fullstack</option>
+                </select><br>
+                <label for="">Email</label>
+                <input type="text" name="email"><br>
+                <label for="">Điện thoại</label>
+                <input type="text" name="email"><br>
+                <input type="button" value="Đăng ký">
+                <input type="reset" value="Nhập lại">
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
