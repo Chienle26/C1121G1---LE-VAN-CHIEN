@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="alert('Xin Chào!');">Click Me!</button>
+    <button onclick="jsin();">Click file JS-in</button>
+    <button onclick="jsout();">Click file JS-out</button>
+</body>
+<!-- Nhúng file JS trong file HTML -->
+<script>
+    function jsin(){
+        alert('Bạn đang gọi từ file JS trong file HTML!');
+    }
+</script>
+<!-- Nhúng file JS ngoài -->
+<script src="./NhungJs.js"></script>
+</html>

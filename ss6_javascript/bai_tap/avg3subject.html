@@ -13,17 +13,18 @@
     <input id="ly" type="number"><br>
     <label for="hoa">Nhập Điểm Hóa:</label>
     <input id="hoa" type="number"><br>
-    <button onclick="tinh()">Tính điểm trung bình</button>
+    <button onclick="tinhDiemTrungBinh()">Tính điểm trung bình</button>
+    <input type="reset">
 </body>
 <script>
-    function tinh() {
-        t = document.getElementById("toan").value;
-        t = parseInt(t);
-        l = document.getElementById("ly").value;
-        l = parseInt(l);
-        h = document.getElementById("hoa").value;
-        h = parseInt(h);
-        avg = (t+l+h)/3;
+    function tinhDiemTrungBinh() {
+        toan = document.getElementById("toan").value;
+        toan = parseInt(toan);
+        ly = document.getElementById("ly").value;
+        ly = parseInt(ly);
+        hoa = document.getElementById("hoa").value;
+        hoa = parseInt(hoa);
+        avg = (toan+ly+hoa)/3;
         alert("Điểm trung bình 3 môn là: " + avg);
     }
 </script>

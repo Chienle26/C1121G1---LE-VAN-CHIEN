@@ -13,15 +13,15 @@
     <input id="money" type="number"><br>
     <label for="peoples">Nhập số người:</label>
     <input id="peoples" type="number">
-    <button onclick="tinh()">Tính</button>
+    <button onclick="tinhSoTienMoiNguoi()">Tính</button>
 </body>
 <script>
-    function tinh() {
-        let n1 = document.getElementById("money").value;
-        n1 = parseInt(n1);
-        let n2 = document.getElementById("peoples").value;
-        n2 = parseInt(n2);
-        let avg = n1/n2;
+    function tinhSoTienMoiNguoi() {
+        let money = document.getElementById("money").value;
+        money = parseInt(money);
+        let peoples = document.getElementById("peoples").value;
+        peoples = parseInt(peoples);
+        let avg = money/peoples;
         alert("Số tiền của mỗi người là: " + avg);
     }
 </script>
