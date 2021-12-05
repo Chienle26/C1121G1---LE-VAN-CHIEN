@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BienToanTu</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //Bài 1:
+    document.write('Bài 1:');
+    document.write('<br/>');
+    let inputly = prompt('Nhập điểm lý: ');
+    let ly = parseInt(inputly);
+    let inputhoa = prompt('Nhập điểm hóa: ');
+    let hoa = parseInt(inputhoa);
+    let inputsinh = prompt('Nhập điểm sinh: ');
+    let sinh = parseInt(inputsinh);
+    let total = ly + hoa + sinh;
+    let avg = total/3;
+    document.write('Tổng điểm là: ' + total);
+    document.write('<br/>');
+    document.write('Điểm trung bình là: ' + avg);
+    document.write('<br/>');
+    document.write('<br/>');
+
+    //Bài 2:
+    document.write('Bài 2:')
+    document.write('<br/>');
+    let inputC = prompt('Nhập độ C:');
+    let C = parseInt(inputC);
+    let F = C * 9/5 + 32;
+    document.write('T = ' + F + ' oF');
+    document.write('<br/>');
+    document.write('<br/>');
+
+    //Bài 3-4:
+    document.write('Bài 3:')
+    let inputR = prompt('Nhập bán kính hình tròn:');
+    document.write('<br/>');
+    let R = parseInt(inputR);
+    let S = 3.14 * R * R;
+    let C = 2* 3.14 * R;
+    document.write('Diện tích hình tròn là: S = ' + S);
+    document.write('<br/>');
+    document.write('Chu vi hình tròn là: C = ' + C);
+
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doi Tien Te</title>
+    <style>
+    select{
+        width: 120px;
+    }
+    th{
+        padding: 0 15px;
+    }
+    option, input{
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>
+                <p>Amount</p>
+                <input id="amount" type="number">  
+            </th>
+            <th>
+                <p>From Currency</p>
+                <select>
+                    <!-- <option>VND</option> -->
+                    <option>USD</option>
+                </select>
+            </th>
+            <th>
+                <p>From Currency</p>
+                <select>
+                    <option>VND</option>
+                    <!-- <option>USD</option> -->
+                </select>
+            </th>
+            <th>
+                <p><br></p>
+                <button onclick="convert()">Convert</button>
+            </th>
+        </tr>
+    </table>
+    
+</body>
+<script>
+    function convert(){
+        let inputamount = document.getElementById("amount").value;
+        let amount = parseInt(inputamount);
+        let VND = amount * 23000;
+        alert('Result: '+VND+ ' VND');
+    }
+</script>
+</html>
