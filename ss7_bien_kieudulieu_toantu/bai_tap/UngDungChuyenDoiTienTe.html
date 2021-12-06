@@ -26,16 +26,16 @@
             </th>
             <th>
                 <p>From Currency</p>
-                <select>
-                    <!-- <option>VND</option> -->
+                <select id="fromCurrency">
                     <option>USD</option>
+                    <option>VND</option>
                 </select>
             </th>
             <th>
-                <p>From Currency</p>
-                <select>
+                <p>To Currency</p>
+                <select id="toCurrency">
                     <option>VND</option>
-                    <!-- <option>USD</option> -->
+                    <option>USD</option>
                 </select>
             </th>
             <th>
@@ -44,14 +44,29 @@
             </th>
         </tr>
     </table>
+    <p id="result">Result: </p>
     
 </body>
 <script>
     function convert(){
-        let inputamount = document.getElementById("amount").value;
-        let amount = parseInt(inputamount);
-        let VND = amount * 23000;
-        alert('Result: '+VND+ ' VND');
+        let inputAmount = document.getElementById("amount").value;
+        let amount = parseInt(inputAmount);
+        let fromCurrency = document.getElementById('fromCurrency').value;
+        let toCurrency = document.getElementById('toCurrency').value;
+        let result = 0;
+        if (fromCurrency == 'USD' && toCurrency == 'VND'){
+            result = amount * 23000;
+            document.getElementById('result').innerText='Result: ' + result;
+        } else if (fromCurrency == 'VND' && toCurrency == 'USD'){
+            result = amount / 23000;
+            document.getElementById('result').innerText='Result: ' + result;
+        } else if (fromCurrency == 'VND' && toCurrency == 'VND'){
+            result = amount;
+            document.getElementById('result').innerText='Result: ' + result;
+        } else {
+            result = amount;
+            document.getElementById('result').innerText='Result: ' + result;
+        }
     }
 </script>
 </html>
