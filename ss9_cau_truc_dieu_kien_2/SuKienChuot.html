@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MouseEvent</title>
+</head>
+<style>
+    body{
+        font-size: 18px;
+    }
+    img {
+        width: 300px;
+        margin-left: 60px;
+    }
+    input {
+        margin-left: 150px;
+        font-weight: bold;
+        font-size: 15px;
+        width: 100px;
+        height: 50px;
+    }
+    p{
+       font-weight: bold;
+    }
+</style>
+<body>
+<form>
+    <img id="myImage" src="./100-1008644_ball-vietnam-png-clipart.png">
+    <p>Bấm vào nút bên dưới để di chuyển quả bóng sang phải</p>
+    <input type="button" value="Click me" onclick="moveRight();">
+</form>
+</body>
+<script>
+    let imgObj = null;
+    imgObj = document.getElementById('myImage');
+
+    function init() {
+        imgObj = document.getElementById('myImage');
+        imgObj.style.position = 'relative';
+        imgObj.style.left = '0px';
+    }
+
+    function moveRight() {
+        imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+    }
+
+    window.onload = init;
+</script>
+</html>
