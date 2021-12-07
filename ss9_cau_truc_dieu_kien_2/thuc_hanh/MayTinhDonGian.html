@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SimpleCalculator</title>
+    <style>
+        table {
+            border: 2px solid #000000;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+        }
+
+        .caculator {
+            margin-left: 500px;
+        }
+    </style>
+</head>
+<body>
+<!--<input type="button" value="+" onclick="nhapLieu('+')">-->
+<div class="caculator">
+    <table>
+        <tr>
+            <th colspan="4"><input id="window" type="number"></th>
+        </tr>
+        <tr>
+            <th>
+<!--                <input type="button" value="1" onclick="nhapLieu(this.value)">-->
+                <button onclick="nhapLieu(1)">1</button>
+            </th>
+            <th>
+<!--                <input type="button" value="2" onclick="nhapLieu(this.value)">-->
+                <button onclick="nhapLieu(2)">2</button>
+            </th>
+            <th>
+                <button onclick="nhapLieu(3)">3</button>
+            </th>
+            <th>
+<!--                    <input type="button" value="+" onclick="nhapLieu(this.value)">-->
+                <button onclick="nhapLieu(this.value)">+</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button onclick="nhapLieu(4)">4</button>
+            </th>
+            <th>
+                <button onclick="nhapLieu(5)">5</button>
+            </th>
+            <th>
+                <button onclick="nhapLieu(6)">6</button>
+            </th>
+            <th>
+                <button onclick="nhapLieu('-')">-</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button onclick="nhapLieu(7)">7</button>
+            </th>
+            <th>
+                <button onclick="nhapLieu(8)">8</button>
+            </th>
+            <th>
+                <button onclick="nhapLieu(9)">9</button>
+            </th>
+            <th>
+                <button onclick="nhapLieu('x')">x</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button type="reset" onclick="nhapLieu('C')">C</button>
+            </th>
+            <th>
+                <button onclick="nhapLieu(0)">0</button>
+            </th>
+            <th>
+                <button onclick="nhapLieu('+')">+</button>
+            </th>
+            <th>
+                <button onclick="tinh()">=</button>
+            </th>
+        </tr>
+    </table>
+</div>
+</body>
+<script>
+    function nhapLieu(val) {
+        document.getElementById('window').value += val;
+    }
+
+    function tinh() {
+        let bieuThuc = document.getElementById('window').value;
+        document.getElementById('window').value = eval(bieuThuc);
+    }
+</script>
+</html>

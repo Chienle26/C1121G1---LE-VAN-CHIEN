@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 7</title>
+</head>
+<body>
+
+</body>
+<script>
+    let phutNoiMang = parseInt(prompt('Nhập số phút gọi nội mạng: '));
+    let phutNgoaiMang = parseInt(prompt('Nhập số phút gọi ngoại mạng: '));
+    let tienDt=0;
+    if (phutNgoaiMang <50 && phutNoiMang <100 ){
+        tienDt=phutNgoaiMang*1500+phutNoiMang*700;
+        alert('Tiền điện thoại tháng này của bạn là:' + tienDt);
+    } else {
+        tienDt=phutNgoaiMang*2000+phutNoiMang*1000;
+        alert('Tiền điện thoại tháng này của bạn là:' + tienDt);
+    }
+</script>
+</html>
