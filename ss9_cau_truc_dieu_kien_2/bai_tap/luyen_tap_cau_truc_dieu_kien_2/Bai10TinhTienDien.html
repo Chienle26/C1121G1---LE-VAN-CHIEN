@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tien dien</title>
+</head>
+<body>
+
+</body>
+<script>
+    let chuDien = parseInt(prompt('Nhập số chữ điện tháng này'));
+    if (chuDien < 101) {
+        let tienDien = chuDien * 1500;
+        alert('Tiền điện tháng này là: ' + tienDien);
+    } else if (chuDien < 201) {
+        tienDien = chuDien * 1700;
+        alert('Tiền điện tháng này là: ' + tienDien);
+    } else if (chuDien < 301) {
+        tienDien = chuDien * 2000;
+        alert('Tiền điện tháng này là: ' + tienDien);
+    } else if (chuDien < 401) {
+        tienDien = chuDien * 2500;
+        alert('Tiền điện tháng này là: ' + tienDien);
+    } else {
+        tienDien = chuDien * 3000;
+        alert('Tiền điện tháng này là: ' + tienDien);
+    }
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thue</title>
+</head>
+<body>
+
+</body>
+<script>
+    let thuNhap = parseInt(prompt('Nhập thu nhập cá nhân hàng tháng của bạn: '));
+    if (thuNhap < 5000000) {
+        let thue = thuNhap * 0.05;
+        alert('Tiền thuế thu nhập cá nhân của bạn là: ' + thue);
+    } else if (thuNhap < 10000000) {
+        let thue = thuNhap * 0.1;
+        alert('Tiền thuế thu nhập cá nhân của bạn là: ' + thue);
+    } else if (thuNhap < 18000000) {
+        let thue = thuNhap * 0.15;
+        alert('Tiền thuế thu nhập cá nhân của bạn là: ' + thue);
+    } else if (thuNhap < 32000000) {
+        let thue = thuNhap * 0.2;
+        alert('Tiền thuế thu nhập cá nhân của bạn là: ' + thue);
+    } else if (thuNhap < 52000000) {
+        let thue = thuNhap * 0.25;
+        alert('Tiền thuế thu nhập cá nhân của bạn là: ' + thue);
+    } else if (thuNhap < 80000000) {
+        let thue = thuNhap * 0.3;
+        alert('Tiền thuế thu nhập cá nhân của bạn là: ' + thue);
+    } else {
+        let thue = thuNhap * 0.35;
+        alert('Tiền thuế thu nhập cá nhân của bạn là: ' + thue);
+    }
+</script>
+</html>

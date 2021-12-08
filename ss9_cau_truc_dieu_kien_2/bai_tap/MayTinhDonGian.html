@@ -17,27 +17,23 @@
     </style>
 </head>
 <body>
-<!--<input type="button" value="+" onclick="nhapLieu('+')">-->
 <div class="caculator">
     <table>
         <tr>
-            <th colspan="4"><input id="window" type="number"></th>
+            <th colspan="4"><input id="window" type="text"></th>
         </tr>
         <tr>
             <th>
-<!--                <input type="button" value="1" onclick="nhapLieu(this.value)">-->
                 <button onclick="nhapLieu(1)">1</button>
             </th>
             <th>
-<!--                <input type="button" value="2" onclick="nhapLieu(this.value)">-->
                 <button onclick="nhapLieu(2)">2</button>
             </th>
             <th>
                 <button onclick="nhapLieu(3)">3</button>
             </th>
             <th>
-<!--                    <input type="button" value="+" onclick="nhapLieu(this.value)">-->
-                <button onclick="nhapLieu(this.value)">+</button>
+                <button onclick="nhapLieu('+')">+</button>
             </th>
         </tr>
         <tr>
@@ -65,21 +61,21 @@
                 <button onclick="nhapLieu(9)">9</button>
             </th>
             <th>
-                <button onclick="nhapLieu('x')">x</button>
+                <button onclick="nhapLieu('*')">x</button>
             </th>
         </tr>
         <tr>
             <th>
-                <button type="reset" onclick="nhapLieu('C')">C</button>
+                <button type="button" onclick="xoa()">C</button>
             </th>
             <th>
                 <button onclick="nhapLieu(0)">0</button>
             </th>
             <th>
-                <button onclick="nhapLieu('+')">+</button>
+                <button onclick="tinh()">=</button>
             </th>
             <th>
-                <button onclick="tinh()">=</button>
+                <button onclick="nhapLieu('/')">/</button>
             </th>
         </tr>
     </table>
@@ -93,6 +89,10 @@
     function tinh() {
         let bieuThuc = document.getElementById('window').value;
         document.getElementById('window').value = eval(bieuThuc);
+    }
+
+    function xoa() {
+        document.getElementById('window').value='';
     }
 </script>
 </html>
