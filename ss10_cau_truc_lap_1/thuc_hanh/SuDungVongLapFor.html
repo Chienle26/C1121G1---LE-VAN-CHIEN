@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Su dung For</title>
+</head>
+<body>
+<h2>JavaScript Loops</h2>
+<p id="demo"></p>
+</body>
+<script>
+    //Bài 1:
+    let i;
+    let text = '';
+    for (i = 0; i <= 5; i++) {
+        text += 'The number is ' + i + '<br>';
+    }
+    document.getElementById('demo').innerHTML = text;
+</script>
+<script>
+    //Bài 2:
+    let num = parseInt(prompt('Nhập vào các số bất kỳ > 0 để tính tổng từ 1 đến nó:'));
+    let total = 0;
+    let i = 1;
+    for (; i <= num; i++) {
+        total += i;
+    }
+    alert('Tổng từ 1 đến ' + num + ' là: ' + total);
+</script>
+</html>
