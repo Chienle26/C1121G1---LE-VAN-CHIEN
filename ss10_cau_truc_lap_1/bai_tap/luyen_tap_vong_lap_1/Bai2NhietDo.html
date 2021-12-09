@@ -8,14 +8,18 @@
 
 </body>
 <script>
-    let heat = parseInt(prompt('Nhập nhiệt độ hiện tại:'));
-    if (heat > 100) {
-        alert('Hãy giảm nhiệt độ xuống!');
-    } else if (heat < 20) {
-        alert('Hãy tăng nhiệt độ lên!')
-    } else {
-        alert('Nhiệt độ hiện tại là ổn!')
+    let heat=0;
+    do {
+        heat = parseInt(prompt('Nhập nhiệt độ hiện tại:'));
+        if (heat > 100) {
+            alert('Hãy giảm nhiệt độ xuống!');
+        }
+        if (heat < 20) {
+            alert('Hãy tăng nhiệt độ lên!')
+        }
     }
+    while (heat > 100 || heat < 20) ;
+    alert('Nhiệt độ hiện tại là ổn!');
 
 </script>
 </html>

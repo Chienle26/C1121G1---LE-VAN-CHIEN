@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fibonacci</title>
+</head>
+<body>
+
+</body>
+<script>
+    let fn = 0;
+    let fn1 = 1;
+    let fn2 = 1;
+    let numbers = parseInt(prompt('Nhập số lượng số fibonacci bạn muốn in ra: '));
+    if (numbers < 3) {
+        numbers = parseInt(prompt('Không đúng. Vui lòng nhập lại số Fibonacci cần in ra: (n>2) '));
+    } else {
+        document.write(fn1 + '<br>');
+        document.write(fn2 + '<br>');
+        for (let i = 3; i <= numbers; i++) {
+            fn = fn1 + fn2;
+            document.write(fn + '<br>');
+            fn1 = fn2;
+            fn2 = fn;
+        }
+    }
+
+</script>
+</html>

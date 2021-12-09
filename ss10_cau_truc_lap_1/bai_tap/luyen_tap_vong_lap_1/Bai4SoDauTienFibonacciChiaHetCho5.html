@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fibonacci%5</title>
+</head>
+<body>
+
+</body>
+<script>
+    let fn = 0;
+    let fn1 = 1;
+    let fn2 = 1;
+    for (let i = 0; ; i++) {
+        fn = fn1 + fn2;
+        if (fn % 5 === 0) {
+            alert(fn + ' là số Fibonacci đầu tiên chia hết cho 5.');
+            break;
+        } else {
+            fn1 = fn2;
+            fn2 = fn;
+        }
+
+    }
+</script>
+</html>

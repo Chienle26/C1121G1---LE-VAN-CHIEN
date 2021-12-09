@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HienThi20SoFibonacciDauTien</title>
+    <title>TinhTong20SoFiboDauTien</title>
 </head>
 <body>
 
@@ -11,13 +11,13 @@
     let fn = 0;
     let fn1 = 1;
     let fn2 = 1;
-    document.write(fn1 + '<br>');
-    document.write(fn2 + '<br>');
+    let total = 2;
     for (let i = 3; i <= 20; i++) {
         fn = fn1 + fn2;
-        document.write(fn + '<br>');
+        total += fn;
         fn1 = fn2;
         fn2 = fn;
     }
+    alert('Tổng của 20 số Fibonacci đầu tiên là: ' + total);
 </script>
 </html>
