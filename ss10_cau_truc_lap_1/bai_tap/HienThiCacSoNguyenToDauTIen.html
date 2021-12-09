@@ -8,6 +8,26 @@
 
 </body>
 <script>
-    
+    let numbers = parseInt(prompt('Nhập số lượng số nguyên tố cần in ra: '));
+    let count = 0;
+    let n = 2;
+    if (n < 2) {
+        document.write('Không có số nguyên tố nào cả!');
+    } else {
+        while (count < numbers) {
+            for (let i = 2; i < (n - 1); i++) {
+                if (n % i === 0) {
+                    break;
+                } else {
+                    document.write(n);
+                    count++;
+                    break;
+                }
+            }
+        }
+
+    }
+
+
 </script>
 </html>
