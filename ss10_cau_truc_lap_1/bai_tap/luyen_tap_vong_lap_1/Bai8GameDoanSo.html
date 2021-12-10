@@ -9,24 +9,27 @@
 <button onclick="play()" id="play">Chơi</button>
 </body>
 <script>
-    let numbers = 0;
-    let khoangDoan;
-
     function play() {
-        khoangDoan = prompt('Nhập khoản bạn muốn đoán: 0-10 hoặc 0-100');
-        if (khoangDoan == '0-10' || khoangDoan == 10) {
-            numbers = Math.floor(Math.random() * 11);
-        } else if (khoangDoan == '0-100' || khoangDoan == 100) {
-            numbers = Math.floor(Math.random() * 101);
-        } else {
-            khoangDoan = prompt('Nhập khoản bạn muốn đoán: 0-10 hoặc 0-100');
-        }
-        let soDoan = parseInt(prompt('Nhập số bạn muốn đoán'));
-        if (soDoan === numbers) {
-            alert('Chúc mừng bạn đã đoán đúng số ' + numbers);
-        } else {
-            alert('Rất tiếc, số may mắn lần này là: ' + numbers);
-        }
+        let min = parseInt(prompt('Nhập giá trị nhỏ nhất muốn đoán: '));
+        let max = parseInt(prompt('Nhập giá trị lớn nhất muốn đoán: '));
+        let luckyNumber = Math.round(Math.random() * (max - min) + min);
+        let count = 0;
+        // alert('Con số may mắn là: ' + luckyNumber);
+        do {
+            count++;
+            let number = parseInt(prompt('Nhập số bạn đoán: '));
+            if (number === luckyNumber) {
+                alert('Chúc mừng bạn đã chọn đúng con số may mắn!^^');
+                break;
+            } else if (number > luckyNumber) {
+                alert('Con số bạn chọn lớn hơn con số may mắn, xin vui lòng chọn lại lần 2!');
+            } else {
+                alert('Con số bạn chọn nhỏ hơn con số may mắn, xin vui lòng chọn lại lần 2!');
+            }
+            if (count === 3) {
+                alert('Bạn đã hết số lần đoán lại, xin chia buồn nhé! :(');
+            }
+        } while (count < 3);
     }
 </script>
 </html>

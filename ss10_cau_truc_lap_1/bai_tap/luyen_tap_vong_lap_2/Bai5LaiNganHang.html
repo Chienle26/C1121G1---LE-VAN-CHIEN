@@ -12,7 +12,7 @@
     let soThangVay = parseInt(prompt('Nhập số tháng vay: '));
     let laiSuatHangThang = parseInt(prompt('Nhập lãi xuất hàng tháng: (%) '));
     let tienLai = 0;
-    for (i = 1; i <= soThangVay; i++) {
+    for (let i = 1; i <= soThangVay; i++) {
         tienLai += tienVay * laiSuatHangThang / 100;
         tienVay += tienLai;
     }
