@@ -11,23 +11,23 @@
     let numbers = parseInt(prompt('Nhập số lượng số nguyên tố cần in ra: '));
     let count = 0;
     let n = 2;
-    if (n < 2) {
-        document.write('Không có số nguyên tố nào cả!');
+    if (numbers < 2) {
+        numbers = parseInt(prompt('Nhập lại số lượng số nguyên tố cần in ra: (n>=2) '));
     } else {
         while (count < numbers) {
-            for (let i = 2; i < (n - 1); i++) {
+            let flag = true;
+            for (let i = 2; i <= Math.sqrt(n); i++) {
                 if (n % i === 0) {
-                    break;
-                } else {
-                    document.write(n);
-                    count++;
+                    flag = false;
                     break;
                 }
             }
+            if (flag) {
+                count++;
+                document.write(n + '<br>');
+            }
+            n++;
         }
-
     }
-
-
 </script>
 </html>
