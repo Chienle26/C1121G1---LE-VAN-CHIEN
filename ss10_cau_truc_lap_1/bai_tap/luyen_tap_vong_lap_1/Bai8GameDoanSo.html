@@ -5,6 +5,28 @@
     <title>GameDoanSo</title>
 </head>
 <body>
-
+<h1>GAME ĐOÁN SỐ</h1>
+<button onclick="play()" id="play">Chơi</button>
 </body>
+<script>
+    let numbers = 0;
+    let khoangDoan;
+
+    function play() {
+        khoangDoan = prompt('Nhập khoản bạn muốn đoán: 0-10 hoặc 0-100');
+        if (khoangDoan == '0-10' || khoangDoan == 10) {
+            numbers = Math.floor(Math.random() * 11);
+        } else if (khoangDoan == '0-100' || khoangDoan == 100) {
+            numbers = Math.floor(Math.random() * 101);
+        } else {
+            khoangDoan = prompt('Nhập khoản bạn muốn đoán: 0-10 hoặc 0-100');
+        }
+        let soDoan = parseInt(prompt('Nhập số bạn muốn đoán'));
+        if (soDoan === numbers) {
+            alert('Chúc mừng bạn đã đoán đúng số ' + numbers);
+        } else {
+            alert('Rất tiếc, số may mắn lần này là: ' + numbers);
+        }
+    }
+</script>
 </html>
