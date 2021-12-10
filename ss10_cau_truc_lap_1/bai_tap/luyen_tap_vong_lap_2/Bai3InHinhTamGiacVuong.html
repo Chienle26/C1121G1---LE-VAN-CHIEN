@@ -27,14 +27,42 @@
 
     document.write('<br>');
     //Ý 3:
-    document.write('<br>');
-    //Ý 2:
-    for (let i = 5; i >= 1; i--) {
-        for (let j = 1; j <= i; j++) {
-            document.write('0');
-        }document.write('*');
+
+    for (let i = 1; i <= 5; i++) {
+        for (let j = 5; j > i; j--) {
+            document.write('&ensp;');
+        }
+        for (let k = 1; k <= i; k++) {
+            document.write('*');
+        }
         document.write('<br>');
     }
+
+    document.write('<br>');
+    //Ý 4:
+
+    for (let i = 1; i <= 5; i++) {
+        for (let k = 1; k < i; k++) {
+            document.write('&ensp;');
+        }
+        for (let j = 5; j >= i; j--) {
+            document.write('*');
+        }
+        document.write('<br>');
+    }
+
+    //Cách 2
+    // for (let i = 5; i > 0; i--) {
+    //     for (let k=5;k>i;k--){
+    //         document.write("&ensp;");
+    //     }
+    //     for (let j = 0; j < i; j++) {
+    //         let sao = "*"
+    //         document.write(sao)
+    //     }
+    //     document.write("<br>")
+    // }
+    // document.write("<br><br>")
 
 </script>
 </html>
