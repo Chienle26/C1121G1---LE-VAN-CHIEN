@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GoodFastCheap</title>
+</head>
+<body>
+Good<input id="good" onclick="thayDoi('good')" type="range" min="0" max="1" value="0"><br>
+Fast<input id="fast" onclick="thayDoi('fast')" type="range" min="0" max="1" value="0"><br>
+Cheap<input id="cheap" onclick="thayDoi('cheap')" type="range" min="0" max="1" value="0">
+</body>
+<script>
+    let objGood = document.getElementById('good');
+    let objFast = document.getElementById('fast');
+    let objCheap = document.getElementById('cheap');
+
+    function thayDoi(choose) {
+        switch (choose) {
+            //Quy luật theo tầng:
+            case 'good':
+                if (objFast.value == 1) {
+                    objCheap.value = 0;
+                }
+                break;
+            case 'fast':
+                if (objCheap.value == 1) {
+                    objGood.value = 0;
+                }
+                break;
+            case 'cheap':
+                if (objGood.value == 1) {
+                    objFast.value = 0;
+                }
+                break;
+        }
+    }
+</script>
+</html>

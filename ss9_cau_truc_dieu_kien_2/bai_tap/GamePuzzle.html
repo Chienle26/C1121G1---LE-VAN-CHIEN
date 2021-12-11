@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GamePuzzle</title>
+    <style>
+        div {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img id="hinh1" onclick="doiHinh(1)" src="GiaDinh1.png" style="width: 400px"><br>
+    <img id="hinh2" onclick="doiHinh(2)" src="NhaGai2.png" style="width: 400px"><br>
+    <img id="hinh3" onclick="doiHinh(3)" src="NhaTho3.png" style="width: 400px">
+</div>
+</body>
+<script>
+    let objHinh1 = document.getElementById("hinh1");
+    let objHinh2 = document.getElementById("hinh2");
+    let objHinh3 = document.getElementById("hinh3");
+
+    function doiHinh(hinh) {
+        switch (hinh) {
+            case 1:
+                if (objHinh1.getAttribute('src') === 'GiaDinh1.png') {
+                    objHinh1.src = "NhaTho1.png";
+                } else if (objHinh1.getAttribute('src') === 'NhaTho1.png') {
+                    objHinh1.src = "NhaGai1.png";
+                } else {
+                    objHinh1.src = "GiaDinh1.png";
+                }
+                break;
+            case 2:
+                if (objHinh2.getAttribute('src') === 'NhaGai2.png') {
+                    objHinh2.src = "GiaDinh2.png";
+                } else if (objHinh2.getAttribute('src') === 'GiaDinh2.png') {
+                    objHinh2.src = "NhaTho2.png";
+                } else {
+                    objHinh2.src = "NhaGai2.png";
+                }
+                break;
+            case 3:
+                if (objHinh3.getAttribute('src') === 'NhaTho3.png') {
+                    objHinh3.src = "NhaGai3.png";
+                } else if (objHinh3.getAttribute('src') === 'NhaGai3.png') {
+                    objHinh3.src = "GiaDinh3.png";
+                } else {
+                    objHinh3.src = "NhaTho3.png";
+                }
+                break;
+        }
+        checkWin();
+    }
+
+    function checkWin() {
+        if (objHinh1.getAttribute('src') === 'GiaDinh1.png' && objHinh2.getAttribute('src') === 'GiaDinh2.png'
+            && objHinh3.getAttribute('src') === 'GiaDinh3.png') {
+            objHinh1.style.border = 'solid 2px red';
+            objHinh2.style.border = 'solid 2px red';
+            objHinh3.style.border = 'solid 2px red';
+        } else if (objHinh1.getAttribute('src') === 'NhaGai1.png' && objHinh2.getAttribute('src') === 'NhaGai2.png'
+            && objHinh3.getAttribute('src') === 'NhaGai3.png') {
+            objHinh1.style.border = 'solid 2px red';
+            objHinh2.style.border = 'solid 2px red';
+            objHinh3.style.border = 'solid 2px red';
+        } else if (objHinh1.getAttribute('src') === 'NhaTho1.png' && objHinh2.getAttribute('src') === 'NhaTho2.png'
+            && objHinh3.getAttribute('src') === 'NhaTho3.png') {
+            objHinh1.style.border = 'solid 2px red';
+            objHinh2.style.border = 'solid 2px red';
+            objHinh3.style.border = 'solid 2px red';
+        } else {
+            objHinh1.style.border = 'solid 2px white';
+            objHinh2.style.border = 'solid 2px white';
+            objHinh3.style.border = 'solid 2px white';
+        }
+    }
+</script>
