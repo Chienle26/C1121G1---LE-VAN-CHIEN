@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TaoVaThaoTacVoiMang</title>
+    <style>
+        body {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+<input id="txtvalue" type="text">
+<input id="btnAdd" onclick="addArray()" type="button" value="Add">
+<input id="btnDisplay" onclick="displayArray()" type="button" value="Display">
+<div id="result"></div>
+</body>
+<script>
+    let x = 0;
+    let array = Array();
+
+    function addArray() {
+        array[x] = document.getElementById('txtvalue').value;
+        alert('Element: ' + array[x] + ' Added at index ' + x);
+        x++;
+        document.getElementById('txtvalue').value = '';
+    }
+
+    function displayArray() {
+        let e = '<hr/>';
+        for (let i = 0; i < array.length; i++) {
+            e += 'Element ' + i + ' = ' + array[i] + '<br/>';
+        }
+        document.getElementById('result').innerHTML = e;
+    }
+</script>
+</html>
