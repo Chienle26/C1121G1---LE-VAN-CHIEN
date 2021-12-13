@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai2</title>
+</head>
+<body>
+
+</body>
+<script>
+    let arr = [1, 25, 7, 9, 12, 17, 6, 8, 12, 20];
+    let max = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    document.write('Phần tử có giá trị lớn nhất trong mảng là: ' + max + '<br>'
+        + 'Vị trí của nó trong mảng là: ' + arr.indexOf(max));
+</script>
+</html>

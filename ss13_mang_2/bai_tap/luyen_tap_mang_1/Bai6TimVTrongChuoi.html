@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai6</title>
+</head>
+<body>
+
+</body>55
+<script>
+    let arr = [1, 25, 7, 9, 5, 17, 6, 8, 12, 20];
+    document.write(arr);
+    let v = parseInt(prompt('Nhập vào số muốn kiểm tra: '));
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === v) {
+            arr[i] = arr[i + 1];
+            arr[arr.length - 1] = 0;
+            break;
+        }
+    }
+    document.write('<br>');
+    document.write(arr);
+</script>
+</html>

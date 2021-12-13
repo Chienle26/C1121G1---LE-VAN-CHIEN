@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SuDungCacHamCoSan</title>
+</head>
+<body>
+
+</body>
+<script>
+    //Bai 1:
+    let myColor = ['Red', 'Green', 'White', 'Black'];
+    document.write(myColor.join());
+    document.write('<br>');
+
+    //Bai 2:
+    const num = prompt('Nhập dãy số ngẫu nhiên: ');
+    const str = num.toString();
+    const result = [str[0]];
+    for (let i = 1; i < str.length; i++) {
+        if ((str[i - 1] % 2 === 0) && (str[i] % 2 === 0)) {
+            result.push('-', str[i]);
+        } else {
+            result.push(str[i]);
+        }
+    }
+    document.write(result.join(''));
+    document.write('<br>');
+
+    //Bai 3:
+    let string = prompt('Nhập vào một dòng chữ bất kỳ: ');
+    let upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let lower = 'abcdefghijklmnopqrstuvwxyz';
+    let result2 = [];
+    for (let i = 0; i < string.length; i++) {
+        if (upper.indexOf(string[i]) !== -1) {
+            result2.push(string[i].toLowerCase());
+        } else if (lower.indexOf(string[i]) !== -1) {
+            result2.push(string[i].toUpperCase());
+        } else {
+            result2.push(string[i]);
+        }
+    }
+    document.write(result2.join(''));
+</script>
+</html>

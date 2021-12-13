@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map</title>
+</head>
+<body>
+
+</body>
+<script>
+    const animals = [
+        {
+            'id': 1,
+            'name': 'cat',
+            'size': 'small'
+        },
+        {
+            'id': 2,
+            'name': 'dog',
+            'size': 'small'
+        }
+    ];
+    let newAnimals = animals.map(function (animal) {
+        if (animal.id == 1) {
+            animal.name = 'python';
+        }
+        return animal;
+    });
+    console.log(newAnimals);
+</script>
+</html>
