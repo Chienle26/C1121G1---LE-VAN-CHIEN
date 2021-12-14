@@ -11,13 +11,14 @@
     let size = parseInt(prompt('Nhập độ dài của mảng: '));
     let array = new Array(size);
     let count = 0;
+    let numbers = '0123456789';
     for (let i = 0; i < array.length; i++) {
         array[i] = prompt('Nhập vào phần tử thứ ' + i);
     }
     document.write(array);
     document.write('<br>');
     for (let i = 0; i < array.length; i++) {
-        if (!isNaN(size)) {
+        if (numbers.indexOf(array[i]) >= 0) {
             count++;
         }
     }

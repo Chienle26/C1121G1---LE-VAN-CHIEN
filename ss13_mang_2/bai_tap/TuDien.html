@@ -8,15 +8,15 @@
 
 </body>
 <script>
-    let englishWord=['love','hate','like'];
-    let vietnamWord=['yêu','ghét','thích'];
-    let search=prompt('Nhập từ bạn cần dịch: ');
-    for (let i=0;i<search.length;i++){
-        if(englishWord[i]==search){
-            for (let j=0;j<vietnamWord.length;j++){
-                if (vietnamWord[j]==)
-            }
+    let englishWord = ['red', 'blue', 'pink', 'orange', 'yellow', 'black', 'white', 'violet', 'green'];
+    let vietnamWord = ['đỏ', 'xanh dương', 'hồng', 'cam', 'vàng', 'đen', 'trắng', 'tím', 'xanh lá'];
+    let search = prompt('Nhập màu bạn cần dịch: ');
+    let translate;
+    for (let i = 0; i < englishWord.length; i++) {
+        if (search == englishWord[i]) {
+            translate = vietnamWord[i];
         }
     }
+    alert('Màu ' + translate);
 </script>
 </html>
