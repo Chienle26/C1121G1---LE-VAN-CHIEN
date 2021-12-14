@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai4</title>
+</head>
+<body>
+
+</body>
+<script>
+    let str = prompt('Nhập chuỗi cần đếm vào đây: ');
+    count = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str.indexOf(str[i]) !== -1) {
+            count++;
+        }
+    }
+    alert('Tổng số ký tự của chuỗi là: ' + count);
+</script>
+</html>

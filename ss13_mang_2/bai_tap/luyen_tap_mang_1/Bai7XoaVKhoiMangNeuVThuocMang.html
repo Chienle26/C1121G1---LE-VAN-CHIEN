@@ -8,13 +8,24 @@
 
 </body>
 <script>
+    //Cách 1:
     let arr = [1, 25, 7, 9, 5, 17, 6, 8, 12, 20];
+    let check = false;
     let v = parseInt(prompt('Nhập vào số muốn kiểm tra: '));
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] === v) {
-            break;
+            arr.splice(arr.indexOf(arr[i]), 1);
+            check = true;
         }
     }
+    if (check) {
+        alert('Mảng sau khi được cắt ' + v + 'là: ' + arr);
+    } else {
+        alert(v + ' không tồn tại trong mảng');
+    }
+
+
+    //Cách 2:
 
 </script>
 </html>
