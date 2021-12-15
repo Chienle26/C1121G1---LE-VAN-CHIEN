@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChuyenDoiFeetVaMeters</title>
+</head>
+<body>
+
+</body>
+<script>
+    let convert;
+    do {
+        convert = parseInt(prompt('Nhập vào số 1 (feet to meter) hoặc số 2 (meter to feet): '));
+    } while (!(convert == 1 || convert == 2));
+    let number = parseInt(prompt('Nhập vào giá trị muốn chuyển đổi: '));
+    if (convert == 1) {
+        feetToMeter(number);
+    } else if (convert == 2) {
+        meterToFeet(number);
+    }
+
+    function feetToMeter(feet) {
+        let meter = feet * 0.305;
+        alert(number + ' meter = ' + meter + ' feet');
+    }
+
+    function meterToFeet(meter) {
+        let feet = meter * 3.279;
+        alert(number + ' feet = ' + feet + ' meter');
+    }
+</script>
+</html>
