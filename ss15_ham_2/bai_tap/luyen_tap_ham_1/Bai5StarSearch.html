@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Star Search</title>
+</head>
+<body>
+<script>
+    let star = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+    let constell = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+
+    let starInput = prompt('Nhập vào Sao để tìm Chòm Sao tương ứng: ');
+    let check = false;
+    starSearch();
+
+    function starSearch() {
+        for (let i = 0; i < star.length; i++) {
+            if (starInput == star[i]) {
+                alert('Tên chòm sao của sao ' + starInput + ' là ' + constell[star.indexOf(star[i])]);
+                check = true;
+                break;
+            }
+        }
+        if (!check) {
+            alert('Không tìm thấy chòm sao nào!')
+        }
+    }
+</script>
+</body>
+</html>
