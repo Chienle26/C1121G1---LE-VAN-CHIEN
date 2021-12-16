@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem Tra Ky Tu Trong Mang</title>
+</head>
+<body>
+<script>
+    let size = parseInt(prompt('Nhập vào độ dài của mảng: '));
+    let array = new Array(size);
+    let count = 0;
+    for (let i = 0; i < size; i++) {
+        array[i] = prompt('Nhập vào phần tử thứ: ' + i);
+    }
+    let check = prompt('Nhập vào ký tự muốn kiểm tra trong mảng: ');
+    kiemTraKyTu(check);
+
+    function kiemTraKyTu(check) {
+        for (let i = 0; i < size; i++) {
+            if (check == array[i]) {
+                count++
+            }
+        }
+        if (count > 0) {
+            alert('Số lần xuất hiện của ký tự ' + check + ' trong mảng là: ' + count);
+        } else {
+            alert(-1 + " (không có ký tự '" + check + "' nào trong mảng cả!)"
+            )
+        }
+    }
+
+</script>
+</body>
+</html>
