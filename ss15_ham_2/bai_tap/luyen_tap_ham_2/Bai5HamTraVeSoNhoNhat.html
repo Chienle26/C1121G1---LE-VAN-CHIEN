@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Min</title>
+</head>
+<body>
+<script>
+    checkMin(1, 0, 7);
+
+    function checkMin(a, b, c) {
+        let number = [a, b, c];
+        let min = a;
+        for (i = 0; i < number.length; i++) {
+            if (number[i] < min) {
+                min = number[i];
+            }
+        }
+        alert('Min = ' + min);
+    }
+</script>
+</body>
+</html>
