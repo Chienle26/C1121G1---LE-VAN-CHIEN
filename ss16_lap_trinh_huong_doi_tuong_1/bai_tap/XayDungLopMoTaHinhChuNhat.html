@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HCN</title>
+</head>
+<body>
+<script>
+    class Rectangle {
+        constructor(width, height) {
+            this.width = width;
+            this.height = height;
+        }
+
+        area() {
+            return this.height * this.width;
+        }
+
+        circum() {
+            return (this.width + this.height) * 2;
+        }
+    }
+
+    let rectangle = new Rectangle(20, 10);
+    let area = rectangle.area();
+    let circum = rectangle.circum();
+    alert('Area = ' + area + '; Circum = ' + circum);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XayDungLopMoTaTemperature</title>
+</head>
+<body>
+<script>
+    class Temparature {
+        constructor(celsius) {
+            this.celsius = celsius;
+        }
+
+        cToF() {
+            return this.celsius * 9 / 5 + 32;
+        }
+
+        cToK() {
+            return this.celsius + 273.15;
+        }
+    }
+
+    let temparature = new Temparature(25);
+    let f = temparature.cToF();
+    let k = temparature.cToK();
+    alert('Với C=25 thì F=' + f + ' và K=' + k);
+</script>
+</body>
+</html>
