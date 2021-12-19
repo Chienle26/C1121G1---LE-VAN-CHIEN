@@ -5,7 +5,7 @@
     <title>HCN</title>
 </head>
 <body>
-<canvas id="myCanvas" ></canvas>
+<canvas id="myCanvas"></canvas>
 <script>
 
     class Rectangle {
@@ -22,24 +22,19 @@
             return (this.width + this.height) * 2;
         }
 
-        retangleDraw(x,y) {
-            let rectangle = document.getElementById('myCanvas');
-            let ctx = rectangle.getContext('2d');
-            ctx.lineTo(0, 0);
-            ctx.lineTo(x, 0);
-            ctx.lineTo(x, y);
-            ctx.lineTo(0, y);
-            ctx.lineTo(0, 0);
-            ctx.stroke();
-
+        retangleDraw() {
+            let c = document.getElementById("myCanvas");
+            let ctx = c.getContext("2d");
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(0,0,this.width, this.height);
         }
     }
 
-    let rectangle = new Rectangle(20, 10);
+    let rectangle = new Rectangle(200, 100);
     let area = rectangle.area();
     let circum = rectangle.circum();
     alert('Area = ' + area + '; Circum = ' + circum);
-    rectangle.retangleDraw(200,100);
+    rectangle.retangleDraw();
 
 
 </script>
