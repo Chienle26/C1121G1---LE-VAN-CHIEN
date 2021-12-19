@@ -11,9 +11,9 @@
 
     let starInput = prompt('Nhập vào Sao để tìm Chòm Sao tương ứng: ');
     let check = false;
-    starSearch();
+    starSearch(starInput);
 
-    function starSearch() {
+    function starSearch(starInput) {
         for (let i = 0; i < star.length; i++) {
             if (starInput == star[i]) {
                 alert('Tên chòm sao của sao ' + starInput + ' là ' + constell[star.indexOf(star[i])]);

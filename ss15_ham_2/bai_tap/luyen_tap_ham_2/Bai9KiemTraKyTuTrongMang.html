@@ -13,12 +13,12 @@
         array[i] = prompt('Nhập vào phần tử thứ: ' + i);
     }
     let check = prompt('Nhập vào ký tự muốn kiểm tra trong mảng: ');
-    kiemTraKyTu(check);
+    kiemTraKyTu(check, array);
 
-    function kiemTraKyTu(check) {
+    function kiemTraKyTu(check, array) {
         for (let i = 0; i < size; i++) {
             if (check == array[i]) {
-                count++
+                count++;
             }
         }
         if (count > 0) {

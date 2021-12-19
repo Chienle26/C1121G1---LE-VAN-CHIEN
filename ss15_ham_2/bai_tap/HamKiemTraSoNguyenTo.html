@@ -5,14 +5,13 @@
     <title>HamKiemTraSoNguyenTo</title>
 </head>
 <body>
-<label>Nhập vào số cần kiểm tra:</label>
-<input id="input" type="number">
-<input onclick="isPrime()" type="button" value="Check" id="check">
 </body>
 <script>
     let check = true;
-    function isPrime() {
-        let number = parseInt(document.getElementById('input').value);
+    let number = parseInt(prompt('Nhập một số bất kỳ vào kiểm tra: '));
+    isPrime(number);
+
+    function isPrime(number) {
         if (number > 1) {
             for (let i = 2; i <= Math.sqrt(number); i++) {
                 if (number % i === 0) {
@@ -23,12 +22,16 @@
         } else {
             check = false;
         }
+        message(check);
+    }
+
+    function message(check) {
         if (check) {
             alert(number + ' là số nguyên tố');
         } else {
             alert(number + ' không phải là số nguyên tố');
         }
-        check = true;
     }
+
 </script>
 </html>
