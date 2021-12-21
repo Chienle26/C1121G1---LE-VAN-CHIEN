@@ -16,7 +16,11 @@
         }
 
         isEmpty() {
-            return this.weight == 0;
+            if (this.weight == 0) {
+                return true;
+            } else {
+                return false;
+            }
         }
 
         getWeight() {
@@ -25,13 +29,13 @@
     }
 
     class Human {
-        constructor(gender, apple) {
-            this.name = null;
+        constructor(name, gender, weight) {
+            this.name = name;
             this.gender = gender;
-            this.weight = null;
+            this.weight = weight;
         }
 
-        setName() {
+        setName(name) {
             this.name = name;
         }
 
@@ -39,7 +43,15 @@
             return this.name;
         }
 
-        setWeight() {
+        setGender(gender) {
+            this.gender = gender;
+        }
+
+        getGender() {
+            return this.gender;
+        }
+
+        setWeight(weight) {
             this.weight = weight;
         }
 
@@ -48,42 +60,58 @@
         }
 
         isMale() {
-            return this.gender.toLowerCase() == "male";
-        }
-
-        setGender(gender) {
-            this.gender = gender;
+            if (this.gender == "male") {
+                return true;
+            } else {
+                return false;
+            }
         }
 
         checkApple(apple) {
-            console.log('Khối lượng quả táo: ' + apple.weight);
-            return apple.isEmpty();
+            if (apple.isEmpty()) {
+                return false;
+            } else {
+                return true;
+            }
         }
 
-        eat(apple) {
-            if (apple.getWeight() > 0) {
-                console.log("I'm eating!")
-                console.log(this.weight++);
-                console.log(apple.decrease());
+        eatAplle(apple) {
+            if (this.checkApple(apple)) {
+                apple.decrease();
+                this.weight++;
+            } else {
+                console.log(this.name + ' nói: táo đã hết');
             }
         }
 
         say(text) {
-            console.log(text);
+            console.log(this.name + ' nói: ' + text);
         }
     }
 
-    let apple = new Apple();
-    let person1 = new Human("Male", apple);
+    let tao = new Apple();
+    let adam = new Human('Adam', 'male', 70);
+    let eva = new Human('Eva', 'female', 45);
+    adam.say('Em ăn táo không?');
+    eva.say('Em muốn ăn táo!');
+    adam.say('Em ăn trước trước đi!');
+    eva.say('Ok anh');
+    eva.eatAplle(tao);
+    eva.eatAplle(tao);
+    eva.eatAplle(tao);
+    eva.eatAplle(tao);
+    eva.eatAplle(tao);
+    eva.say('Anh ăn đi, em ăn no rồi!');
+    adam.say('Ok em, để anh ăn cho');
+    adam.eatAplle(tao);
+    adam.eatAplle(tao);
+    adam.eatAplle(tao);
+    adam.eatAplle(tao);
+    adam.eatAplle(tao);
+    console.log('Cân nặng của Adam là: ' + adam.getWeight());
+    console.log('Cân nặng của Eva là: ' + eva.getWeight());
+    console.log('Cân nặng của táo là: ' + tao.getWeight());
 
-    person1.setName('Chiến');
-    person1.weight(70);
-    console.log(person1.getName());
-    console.log(person1.getWeight());
-    console.log(person1.isMale());
-    person1.say('Tôi là Chiến!!!');
-    person1.eat(apple);
-    person1.checkApple(apple);
 
 </script>
 </body>
