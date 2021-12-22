@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In số thành chữ</title>
+</head>
+<body>
+<script>
+    let inputNumber = '';
+    inputNumber = prompt('Nhập số của bạn vào đây: ');
+    let numberSearch = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    let numberWord = ['không', 'một', 'hai', 'ba', 'bốn', 'năm', 'sáu', 'bảy', 'tám', 'chín'];
+    for (let i = 0; i < inputNumber.length; i++) {
+        for (let j = 0; j < numberSearch.length; j++) {
+            if (inputNumber[i] == numberSearch[j]) {
+                document.write(numberWord[j] + ' ');
+            }
+        }
+    }
+</script>
+</body>
+</html>

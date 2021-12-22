@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let c = [1, 1, 1, 2];
+    for (let i = 0; i < c.length; i++) {
+        if (c[i] == c[i + 1]) {
+            c.splice(i, 1);
+        }
+    }
+    alert(c);
+</script>
+</body>
+</html>

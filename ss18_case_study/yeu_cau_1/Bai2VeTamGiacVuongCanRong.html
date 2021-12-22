@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tam giác vuồng cân rỗng</title>
+</head>
+<body>
+<script>
+    let h = parseInt(prompt('Nhập cạnh góc vuông của tam giác vuông: '));
+    for (let i = 0; i < h; i++) {
+        for (let j = 0; j < h; j++) {
+            if (i == h - 1 || j == 0 || j == i) {
+                document.write('*');
+            } else {
+                document.write('&ensp;');
+            }
+        }
+        document.write('<br>');
+    }
+</script>
+</body>
+</html>

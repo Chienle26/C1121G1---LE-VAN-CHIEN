@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gọi nước</title>
+</head>
+<body>
+<script>
+    let numberChoose = 0;
+    let amount = 0;
+    let money = 0;
+    let menu = ['1. Cafe', ' 2. Cam vắt', ' 3. Nước ép cà rốt',
+        ' 4.Nước ép cà chua', ' 5.Nước lọc', ' 6. Nước dừa', ' 7.Thoát gọi món.'];
+    let price = [10, 15, 15, 15, 10, 15,];
+    do {
+        alert(`Menu: ${menu}`);
+        numberChoose = parseInt(prompt('Nhập vào số ứng với món bạn muốn chọn: '));
+        if (numberChoose == 7) {
+            break;
+        }
+        alert(`Giá của ${menu[numberChoose - 1]} là ${price[numberChoose - 1]}k`);
+        amount = parseInt(prompt('Bạn muốn gọi bao nhiêu ly?'));
+        money += price[numberChoose - 1] * amount;
+    } while (numberChoose != 7);
+    alert(`Tổng số tiền bạn phải trả là: ${money}k`);
+    alert('Cảm ơn quý khách!');
+
+
+</script>
+</body>
+</html>

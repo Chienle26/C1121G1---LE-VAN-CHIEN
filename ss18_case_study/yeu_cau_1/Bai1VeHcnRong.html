@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ HCN rỗng</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt('Nhập chiều dài hình chữ nhật: '));
+    let m = parseInt(prompt('Nhập chiều rộng hình chữ nhật: '));
+    for (let i = 1; i <= n; i++) {
+        for (let j = 1; j <= m; j++) {
+            if (i == 1 || i == n || j == 1 || j == m) {
+                document.write("*");
+            } else {
+                document.write("&ensp;");
+            }
+        }
+        document.write("<br>");
+    }
+</script>
+</body>
+</html>

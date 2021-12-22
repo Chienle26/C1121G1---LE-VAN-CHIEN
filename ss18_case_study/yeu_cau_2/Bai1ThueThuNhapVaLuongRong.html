@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thuế và lương ròng</title>
+</head>
+<body>
+<script>
+    let luong = 0;
+    let thue = 0;
+    let luongRong = 0;
+    do {
+        luong = parseInt(prompt('Nhập lương của bạn vào đây: '));
+    } while (luong <= 0);
+
+    if (luong > 15) {
+        thue = 0.2;
+    } else if (luong >= 7 && luong <= 15) {
+        thue = 0.1;
+    } else {
+        thue = 0.05;
+    }
+    luongRong = luong - luong * thue;
+    alert('Tiền thuế thu nhập là: ' + thue + '; Lương ròng của bạn là: ' + luongRong);
+</script>
+</body>
+</html>
