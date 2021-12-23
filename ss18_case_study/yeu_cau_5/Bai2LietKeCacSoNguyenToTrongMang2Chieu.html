@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liệt kê SNT trong mảng 2 chiều</title>
+</head>
+<body>
+<script>
+    let arr = [
+        [1, 3, 5, 7, 9],
+        [0, 2, 4, 6, 8],
+        [11, 12, 13, 14, 15]
+    ];
+    let newArr = [];
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+            kiemTraSNT(arr[i][j]);
+        }
+    }
+    alert(`Trong mảng 2 chiều đã cho có ${count} số nguyên tố: ${newArr.sort()}`);
+
+    function kiemTraSNT(number) {
+        let check = true;
+        if (number > 1) {
+            check = true;
+            for (let k = 2; k <= Math.sqrt(number); k++) {
+                if (number % k == 0) {
+                    check = false;
+                    break;
+                }
+            }
+            if (check) {
+                count++;
+                newArr.push(number);
+            }
+        }
+    }
+</script>
+</body>
+</html>

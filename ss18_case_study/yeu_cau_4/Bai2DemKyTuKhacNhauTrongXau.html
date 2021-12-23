@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm ký tự khác nhau trong xâu</title>
+</head>
+<body>
+<script>
+    let input = prompt('Nhập vào xâu ký tự muốn kiểm tra: ');
+    let count = 1;
+    for (let i = 1; i < input.length; i++) {
+        let check = true;
+        for (let j = 0; j < i; j++) {
+            if (input[i] == input[j]) {
+                check = false;
+                break;
+            }
+        }
+        if (check == true) {
+            count++;
+        }
+    }
+    alert('Số ký tự khác nhau trong xâu là: ' + count);
+
+</script>
+</body>
+</html>

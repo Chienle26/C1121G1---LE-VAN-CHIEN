@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuẩn hóa xâu ký tự</title>
+</head>
+<body>
+<script>
+    let str = prompt('Nhập vào xâu ký tự cần chuẩn hóa: ')
+    alert(str);
+    str = chuanHoaTen(str);
+    alert(str);
+    let longWord = timChuDaiNhat(str);
+    alert('Chữ dài nhất là: ' + longWord);
+
+    function chuanHoaTen(str) {
+        str = str.trim().toLowerCase();
+        let newStr = "";
+        let isFirstWord = true;
+        let countSpace = 0;
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] === " ") {
+                countSpace++;
+                isFirstWord = true;
+            } else {
+                if (isFirstWord) {
+                    newStr += str[i].toUpperCase();
+                } else {
+                    newStr += str[i];
+                }
+                isFirstWord = false;
+                countSpace = 0;
+            }
+            if (countSpace === 1) {
+                newStr += " ";
+            }
+        }
+        return newStr;
+    }
+
+    function timChuDaiNhat(str) {
+        str = str.split(" ");
+        let max = str[0].length;
+        let index = 0;
+        for (let i = 1; i < str.length; i++) {
+            if (str[i].length > max) {
+                max = str[i].length;
+                index = i;
+            }
+        }
+        return str[index];
+    }
+
+
+</script>
+</body>
+</html>

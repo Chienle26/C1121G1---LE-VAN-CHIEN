@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuẩn hóa xâu ký tự</title>
+</head>
+<body>
+<script>
+    // let str = prompt('Nhập vào xâu ký tự cần chuẩn hóa: ');
+    let str = "tRuong    TaN   HAI ";
+    str = str.split(' ');
+    for (let i = 0; i < str.length; i++) {
+        if (str[i].length > 1) {
+            str[i] = str[i].toLowerCase();
+            let str1 = str[i].split('');
+            str1[0] = str1[0].toUpperCase();
+            str[i] = str1.join(' ');
+        }
+    }
+    console.log(str);
+    document.write(str);
+
+
+    // let a= 'pHan  ANh tuAn';
+    // let c;
+    // let lowerCase='abcdefghiklmnopqstuvwz';
+    // let upperCase= 'ABCDEFGHIKLMNOPQSTUVWZ';
+    //
+    //
+    //
+    //
+    // function chuyenDoiVietHoa(x) {
+    //     c = a.toLowerCase();
+    //     for(let i=0;i<a.length;i++){
+    //         if(i==0||(x[i]!=" "&&x[i-1]==" ")){
+    //
+    //             document.write(x[i].toUpperCase());
+    //         }else{
+    //             document.write(x[i].toLowerCase());
+    //         }
+    //     }
+    //
+    // }
+
+    // let newString= chuyenDoiVietHoa(a);
+</script>
+</body>
+</html>
