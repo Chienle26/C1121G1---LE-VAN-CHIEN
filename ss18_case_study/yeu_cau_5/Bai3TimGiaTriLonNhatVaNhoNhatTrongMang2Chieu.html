@@ -11,21 +11,23 @@
         [-2, 0, 2, 4, 6, 8],
         [11, 12, 13, 14, 15, 16]
     ];
-    let max = 0;
-    let min = 0;
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr[i].length; j++) {
-            checkMinMax(arr[i][j]);
-        }
-    }
-    alert(`Giá trị min: ${min} và giá trị max: ${max}`);
+    let newArr = checkMinMax(arr);
+    alert(`Giá trị min: ${newArr[0]} và giá trị max: ${newArr[1]}`);
 
-    function checkMinMax(number) {
-        if (number > max) {
-            max = number;
-        } else if (number < min) {
-            min = number;
+    function checkMinMax(arr) {
+        let max = 0;
+        let min = 0;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (arr[i][j] > max) {
+                    max = arr[i][j];
+                } else if (arr[i][j] < min) {
+                    min = arr[i][j];
+                }
+            }
         }
+        let newArr = [min, max];
+        return newArr;
     }
 </script>
 </body>

@@ -11,30 +11,29 @@
         [0, 2, 4, 6, 8],
         [11, 12, 13, 14, 15]
     ];
-    let newArr = [];
-    let count = 0;
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr[i].length; j++) {
-            kiemTraSNT(arr[i][j]);
-        }
-    }
-    alert(`Trong mảng 2 chiều đã cho có ${count} số nguyên tố: ${newArr.sort()}`);
+    let newArr=kiemTraSNT(arr);
+    alert(`Trong mảng 2 chiều đã cho có ${newArr.length} số nguyên tố: ${newArr.sort()}`);
 
-    function kiemTraSNT(number) {
+    function kiemTraSNT(arr) {
+        let newArr = [];
         let check = true;
-        if (number > 1) {
-            check = true;
-            for (let k = 2; k <= Math.sqrt(number); k++) {
-                if (number % k == 0) {
-                    check = false;
-                    break;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (arr[i][j] > 1) {
+                    check = true;
+                    for (let k = 2; k <= Math.sqrt(arr[i][j]); k++) {
+                        if (arr[i][j] % k == 0) {
+                            check = false;
+                            break;
+                        }
+                    }
+                }
+                if (check) {
+                    newArr.push(arr[i][j]);
                 }
             }
-            if (check) {
-                count++;
-                newArr.push(number);
-            }
         }
+        return newArr;
     }
 </script>
 </body>

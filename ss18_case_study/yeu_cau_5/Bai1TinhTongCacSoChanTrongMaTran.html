@@ -9,27 +9,26 @@
     let m = parseInt(prompt('Số hàng của mảng: '));
     let n = parseInt(prompt('Số cột của mảng: '));
     let arr = new Array(m);
-    let sum = 0;
-
     for (let i = 0; i < arr.length; i++) {
         arr[i] = new Array(n);
         for (let j = 0; j < n; j++) {
-            arr[i][j] = Math.round(Math.random()*10);
+            arr[i][j] = Math.round(Math.random() * 10);
         }
     }
     console.log(arr);
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr[i].length; j++) {
-            sumEvenNumber(arr[i][j]);
-        }
-    }
-
+    let sum = sumEvenNumber(arr);
     alert(`Tổng các số chẳng trong mảng là: ${sum}`);
 
-    function sumEvenNumber(number) {
-        if (number % 2 == 0) {
-            sum += number;
+    function sumEvenNumber(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (arr[i][j] % 2 == 0) {
+                    sum += arr[i][j];
+                }
+            }
         }
+        return sum;
     }
 </script>
 </body>
