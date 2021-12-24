@@ -9,22 +9,16 @@
 
 
     let a= prompt('Nhập tên cần chuẩn hóa');
-    // let lowerCase='abcdefghiklmnopqstuvwz';
-    // let upperCase= 'ABCDEFGHIKLMNOPQSTUVWZ';
-
-
 
 
     function chuyenDoiVietHoa(x) {
         for(let i=0;i<a.length;i++){
             if(i==0||(x[i]!=" "&&x[i-1]==" ")){
-
                 document.write(x[i].toUpperCase());
             }else{
                 document.write(x[i].toLowerCase());
             }
         }
-
     }
 
     let newString= chuyenDoiVietHoa(a);

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QLSP OOP</title>
+</head>
+<body>
+<input type="text" placeholder="Biển Số" id="bienSoXe">
+<input type="text" placeholder="Chủ sở hữu" id="chuSoHuu">
+<input type="text" placeholder="Dung tích xi lanh" id="dungTichXiLanh">
+<input type="button" value="Thêm mới" onclick="themMoi()">
+<p id="hienThi"></p>
+<script>
+    class XeMay {
+        constructor(bienSo, chuSoHuu, dungTichXiLanh) {
+            this.bienSo = bienSo;
+            this.chuSoHuu = chuSoHuu;
+            this.dungTichXiLanh = dungTichXiLanh;
+        }
+
+        setBienSo(bienSo) {
+            this.bienSo = bienSo;
+        }
+
+        getBienSo() {
+            return this.bienSo;
+        }
+
+        setChuSoHuu(chuSoHuu) {
+            this.chuSoHuu = chuSoHuu;
+        }
+
+        getChuSoHuu() {
+            return this.chuSoHuu;
+        }
+
+        setDungTichXiLanh(dungTicXiLanh) {
+            this.dungTichXiLanh = dungTicXiLanh;
+        }
+
+        getDungTichXiLanh() {
+            return this.dungTichXiLanh;
+        }
+    }
+
+    let xeMay1 = new XeMay('43-F1-32283', 'Chien Le', 125);
+    let xeMay2 = new XeMay('43-F1-32284', 'Chien Le 2', 150);
+    let xeMay3 = new XeMay('43-F1-32285', 'Chien Le 26', 200);
+    let danhSachXe = [xeMay1, xeMay2, xeMay3];
+    hienThi(danhSachXe);
+
+    function hienThi(danhSach) {
+        let bang = '<table border="1" style="border-collapse: collapse">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>Biển KS</th>\n' +
+            '        <th>Chủ sở hữu</th>\n' +
+            '        <th>Dung tích xi lanh</th>\n' +
+            '        <th>Chỉnh sửa</th>\n' +
+            '        <th>Xóa</th>\n' +
+            '    </tr>';
+        for (let i = 0; i < danhSach.length; i++) {
+            bang += '<tr>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
+                '        <td>' + danhSach[i].getBienSo() + '</td>\n' +
+                '        <td>' + danhSach[i].getChuSoHuu() + '</td>\n' +
+                '        <td>' + danhSach[i].getDungTichXiLanh() + '</td>\n' +
+                '        <td><input type="button" value="Edit" onclick="edit"></td>\n' +
+                '        <td><input type="button" value="Delete" onclick="delete"></td>\n' +
+                '    </tr>';
+        }
+        bang += '</table>';
+        document.getElementById('hienThi').innerHTML = bang;
+    }
+
+    function themMoi() {
+        let bienSo = document.getElementById('bienSoXe').value;
+        let chuSoHuu = document.getElementById('chuSoHuu').value;
+        let dungTichXiLanh = document.getElementById('dungTichXiLanh').value;
+        let xeMoi = new XeMay(bienSo, chuSoHuu, dungTichXiLanh);
+        danhSachXe.push(xeMoi);
+        document.getElementById('bienSoXe').value = '';
+        document.getElementById('chuSoHuu').value = '';
+        document.getElementById('dungTichXiLanh').value = '';
+        hienThi(danhSachXe);
+    }
+</script>
+</body>
+</html>
