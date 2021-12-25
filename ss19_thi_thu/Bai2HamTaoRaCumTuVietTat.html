@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai2HamTaoRaCumTuVietTat</title>
+</head>
+<body>
+<script>
+    let str = prompt('Nhập vào chuỗi các ký tự: ');
+    let count = 0;
+    taoTuVietTat(str);
+
+    function taoTuVietTat(str) {
+        str = str.trim();
+        let newStr = '';
+        for (let i = 0; i < str.length; i++) {
+            if (i == 0 || (str[i] != ' ' && str[i - 1] == ' ')) {
+                count++;
+                newStr += str[i].toUpperCase();
+            }
+        }
+        if (newStr.length >= 2) {
+            alert('Cụm từ viết tắt là: ' + newStr);
+        } else {
+            alert('Chuỗi chỉ có một từ nên không cần viết tắt!')
+        }
+    }
+</script>
+</body>
+</html>

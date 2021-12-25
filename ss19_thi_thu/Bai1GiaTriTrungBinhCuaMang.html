@@ -6,7 +6,29 @@
 </head>
 <body>
 <script>
-    
+    let n = null;
+    let arr = new Array(n);
+    let sum = 0;
+    let avg = 0;
+    let count = 0;
+    do {
+        n = parseInt(prompt('Nhập vào số phần tử của mảng: '));
+    } while (n > 50 || n < 0);
+
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = parseInt(prompt(`Nhập vào phần tử thứ ${i}:`));
+    }
+    alert(`Danh sách các phần tử của mảng vừa nhập là: ${arr}`);
+    for (let i = 0; i < arr.length; i++) {
+        if (arr.indexOf(arr[i]) % 3 == 0) {
+            if (arr[i] % 5 == 0) {
+                sum += arr[i];
+                count++;
+            }
+        }
+    }
+    avg = sum / count;
+    alert(`kết quả trung bình của các phần tử chia hết cho 5 ở vị trí chia hết cho 3 là: ${avg}`);
 </script>
 </body>
 </html>

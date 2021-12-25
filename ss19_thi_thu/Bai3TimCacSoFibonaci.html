@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số Fibonaci</title>
+</head>
+<body>
+<script>
+    let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 1, 5, 5];
+    let fiboArr = fiboSearch(arr);
+    alert(fiboArr);
+
+    function fiboSearch(arr) {
+        let fiboArr = [];
+        let fiboArrList = fiboList();
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < fiboArrList.length; j++) {
+                if (arr[i] == fiboArrList[j]) {
+                    fiboArr.push(arr[i]);
+                    break;
+                }
+            }
+        }
+        return fiboArr.sort();
+    }
+
+    function fiboList() {
+        let fiboArrList = [0, 1, 1];
+        for (let i = 3; i < 100; i++) {
+            fiboArrList[i] = fiboArrList[i - 1] + fiboArrList[i - 2];
+            fiboArrList.push(fiboArrList[i]);
+        }
+        return fiboArrList;
+    }
+</script>
+</body>
+</html>
