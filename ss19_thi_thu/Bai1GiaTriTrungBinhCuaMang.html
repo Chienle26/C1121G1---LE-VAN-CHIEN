@@ -6,15 +6,14 @@
 </head>
 <body>
 <script>
-    let n = null;
+    let n = 0;
     let arr = new Array(n);
     let sum = 0;
     let avg = 0;
     let count = 0;
     do {
-        n = parseInt(prompt('Nhập vào số phần tử của mảng: '));
-    } while (n > 50 || n < 0);
-
+        n = prompt('Nhập vào số phần tử của mảng: ');
+    } while (n > 50 || n < 0 || parseInt(n) != n);
     for (let i = 0; i < arr.length; i++) {
         arr[i] = parseInt(prompt(`Nhập vào phần tử thứ ${i}:`));
     }

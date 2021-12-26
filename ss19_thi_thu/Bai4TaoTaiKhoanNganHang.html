@@ -58,8 +58,8 @@
     }
 
     let taiKhoan1 = new TaiKhoanNganHang(11111, 'Le Van Chien', 'Vietinbank', 10000000);
-    let taiKhoan2 = new TaiKhoanNganHang(222222, 'Le Van Tuan', 'Vietcombank', 20000000);
-    let taiKhoan3 = new TaiKhoanNganHang(333333, 'Le Van Chanh', 'Agribank', 30000000);
+    let taiKhoan2 = new TaiKhoanNganHang(22222, 'Le Van Tuan', 'Vietcombank', 20000000);
+    let taiKhoan3 = new TaiKhoanNganHang(33333, 'Le Van Chanh', 'Agribank', 30000000);
     let danhSach = [taiKhoan1, taiKhoan2, taiKhoan3];
     hienThi(danhSach);
 
@@ -69,12 +69,14 @@
         let nganHang = document.getElementById('nganHang').value;
         let tongTien = document.getElementById('tongTien').value;
         let danhSachThemMoi = new TaiKhoanNganHang(maTaiKhoan, chuTaiKhoan, nganHang, tongTien);
-        danhSach.push(danhSachThemMoi);
-        document.getElementById('maTaiKhoan').value = '';
-        document.getElementById('chuTaiKhoan').value = '';
-        document.getElementById('nganHang').value = '';
-        document.getElementById('tongTien').value = '';
-        hienThi(danhSach);
+        if (maTaiKhoan >= 10000) {
+            danhSach.push(danhSachThemMoi);
+            document.getElementById('maTaiKhoan').value = '';
+            document.getElementById('chuTaiKhoan').value = '';
+            document.getElementById('nganHang').value = '';
+            document.getElementById('tongTien').value = '';
+            hienThi(danhSach);
+        }
     }
 
     function hienThi(danhSach) {

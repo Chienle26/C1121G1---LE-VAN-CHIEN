@@ -7,12 +7,16 @@
 <body>
 <script>
     let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 1, 5, 5, 13, 21];
+    arr = arr.sort(
+        function (a, b) {
+            return a - b
+        });
     let fiboArr = fiboSearch(arr);
     alert(fiboArr);
 
     function fiboSearch(arr) {
         let fiboArr = [];
-        let fiboArrList = fiboList();
+        let fiboArrList = fiboList(arr);
         for (let i = 0; i < arr.length; i++) {
             for (let j = 0; j < fiboArrList.length; j++) {
                 if (arr[i] == fiboArrList[j]) {
@@ -21,12 +25,12 @@
                 }
             }
         }
-        return fiboArr.sort(function(a,b){return a-b});
+        return fiboArr;
     }
 
-    function fiboList() {
+    function fiboList(arr) {
         let fiboArrList = [0, 1, 1];
-        for (let i = 3; i < 100; i++) {
+        for (let i = 3; i < arr[arr.length-1]; i++) {
             fiboArrList[i] = fiboArrList[i - 1] + fiboArrList[i - 2];
             fiboArrList.push(fiboArrList[i]);
         }
