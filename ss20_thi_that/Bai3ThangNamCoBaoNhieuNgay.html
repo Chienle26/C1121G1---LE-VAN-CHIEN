@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai3 Check Day</title>
+</head>
+<body>
+<script>
+    let month;
+    let year;
+    do {
+        month = prompt('Nhập vào tháng (MM) muốn kiểm tra: ');
+    } while (month.length != 2 || parseInt(month) != month || month <= 0 || month > 12);
+    do {
+        year = prompt('Nhập vào năm (yyyy) muốn kiểm tra: ');
+    } while (parseInt(year) != year || year.length != 4 || year <= 0)
+    date(parseInt(month), parseInt(year));
+
+    function date(month, year) {
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                alert(`Tháng ${month}/${year} có 31 ngày`);
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                alert(`Tháng ${month}/${year} có 30 ngày`);
+                break;
+            case 2:
+                if (isLeapYear(year)) {
+                    alert(`Tháng ${month}/${year} có 29 ngày`);
+                } else {
+                    alert(`Tháng ${month}/${year} có 28 ngày`);
+                }
+        }
+
+    }
+
+    function isLeapYear(year) {
+        let isLeapYear = false;
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0) {
+                    isLeapYear = true;
+                }
+            } else {
+                isLeapYear = true;
+            }
+        }
+        return isLeapYear;
+    }
+</script>
+</body>
+</html>

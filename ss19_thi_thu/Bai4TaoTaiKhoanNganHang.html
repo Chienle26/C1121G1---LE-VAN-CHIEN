@@ -21,35 +21,35 @@
         }
 
         setMaTaiKhoan(maTaiKhoan) {
-            this.maTaiKhoan = maTaiKhoan;
+            this.hoTen = maTaiKhoan;
         }
 
         getMaTaiKhoan() {
-            return this.maTaiKhoan;
+            return this.hoTen;
         }
 
         setChuTaiKhoan(chuTaiKhoan) {
-            this.chuTaiKhoan = chuTaiKhoan;
+            this.ngaySinh = chuTaiKhoan;
         }
 
         getChuTaiKhoan() {
-            return this.chuTaiKhoan;
+            return this.ngaySinh;
         }
 
         setNganHang(nganHang) {
-            this.nganHang = nganHang;
+            this.diaChi = nganHang;
         }
 
         getNganHang() {
-            return this.nganHang;
+            return this.diaChi;
         }
 
         setTongTien(tongTien) {
-            this.tongTien = tongTien;
+            this.luong = tongTien;
         }
 
         getTongTien() {
-            return this.tongTien;
+            return this.luong;
         }
 
         toString() {
@@ -69,7 +69,7 @@
         let nganHang = document.getElementById('nganHang').value;
         let tongTien = document.getElementById('tongTien').value;
         let danhSachThemMoi = new TaiKhoanNganHang(maTaiKhoan, chuTaiKhoan, nganHang, tongTien);
-        if (maTaiKhoan >= 10000) {
+        if (maTaiKhoan.length >= 5) {
             danhSach.push(danhSachThemMoi);
             document.getElementById('maTaiKhoan').value = '';
             document.getElementById('chuTaiKhoan').value = '';

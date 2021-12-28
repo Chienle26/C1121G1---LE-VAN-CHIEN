@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai1TrungBinhCongCacSoChiaHetCho3TrongMang</title>
+</head>
+<body>
+<script>
+    let n = 0;
+    let sum = 0;
+    let avg = 0;
+    let count = 0;
+    do {
+        n = prompt('Nhập vào số phần tử của mảng: ');
+    } while (n > 50 || n < 0 || parseInt(n) != n);
+    let arr = new Array(parseInt(n));
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = parseInt(prompt(`Nhập vào phần tử thứ ${i}:`));
+    }
+    alert(`Danh sách các phần tử của mảng vừa nhập là: ${arr}`);
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 3 == 0) {
+            sum += arr[i];
+            count++;
+        }
+    }
+    avg = sum / count;
+    alert(`Trung bình cộng của các phần tử trong mảng chia hết cho 3 là: ${avg}`);
+</script>
+</body>
+</html>
