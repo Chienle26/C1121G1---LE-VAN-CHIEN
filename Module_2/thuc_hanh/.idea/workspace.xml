@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b8cdd5ca-419a-4aef-990b-ab145147337e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../s14_ham_1/thuc_hanh/ChuyenDoiNhietDo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../s14_ham_1/thuc_hanh/DemoHam.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../s14_ham_1/thuc_hanh/Function.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../s14_ham_1/thuc_hanh/TaoVaGoiHam.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../s14_ham_1/thuc_hanh/TimGiaTriNhoNhatCuaMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss0_my_project/ChuanHoaKyTu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss0_my_project/InTamGiacVuongCoCanhGocVuongNamBenPhai.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss0_my_project/KiemTraSoNguyenToTrongMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss0_my_project/Test Array.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss0_my_project/Test String.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss0_my_project/TestSwitchCase.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss0_my_project/XoaPhanTuTrungNhauTrongMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss0_my_project/demo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss10_cau_truc_lap_1/thuc_hanh/SuDungVongLapDoWhile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss10_cau_truc_lap_1/thuc_hanh/SuDungVongLapFor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss10_cau_truc_lap_1/thuc_hanh/SuDungVongLapLong.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss10_cau_truc_lap_1/thuc_hanh/SuDungVongLapWhile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss10_cau_truc_lap_1/thuc_hanh/VongLapDoWhile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss10_cau_truc_lap_1/thuc_hanh/VongLapFor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss10_cau_truc_lap_1/thuc_hanh/VongLapForEach.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss10_cau_truc_lap_1/thuc_hanh/VongLapForIn.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss10_cau_truc_lap_1/thuc_hanh/VongLapForOf.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss10_cau_truc_lap_1/thuc_hanh/VongLapWhile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_cau_truc_lap_2/bai_tap/HienThiCacSoNguyenToDauTIen.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_cau_truc_lap_2/bai_tap/SinhBangCuuChuong.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_cau_truc_lap_2/bai_tap/luyen_tap_vong_lap_1/Bai1DemTu1Den100.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_cau_truc_lap_2/bai_tap/luyen_tap_vong_lap_1/Bai2NhietDo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_cau_truc_lap_2/bai_tap/luyen_tap_vong_lap_1/Bai3HienThi20SoFibonacciDauTien.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_cau_truc_lap_2/bai_tap/luyen_tap_vong_lap_1/Bai4SoDauTienFibonacciChiaHetCho5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_cau_truc_lap_2/bai_tap/luyen_tap_vong_lap_1/Bai5TinhTongCua20SoFibonacciDauTien.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_cau_truc_lap_2/bai_tap/luyen_tap_vong_lap_1/Bai6TinhTong30SoChiaHetCho7DauTien.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_cau_truc_lap_2/bai_tap/luyen_tap_vong_lap_1/Bai7InRaSoChiaHetCho3Va5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_cau_truc_lap_2/bai_tap/luyen_tap_vong_lap_1/Bai8GameDoanSo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_cau_truc_lap_2/bai_tap/luyen_tap_vong_lap_2/Bai1InDayFibonacci.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_cau_truc_lap_2/bai_tap/luyen_tap_vong_lap_2/Bai2GiaiThuaCuaMotSoNguyenDuong.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_cau_truc_lap_2/bai_tap/luyen_tap_vong_lap_2/Bai3InHinhTamGiacVuong.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_cau_truc_lap_2/bai_tap/luyen_tap_vong_lap_2/Bai4InHinhChuNhatRong.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss11_cau_truc_lap_2/bai_tap/luyen_tap_vong_lap_2/Bai5LaiNganHang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss12_mang_1/thuc_hanh/DaoNguocCacPhanTuTrongMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss12_mang_1/thuc_hanh/TaoBanCoCaroDonGian.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss12_mang_1/thuc_hanh/TaoVaThaoTacVoiMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss12_mang_1/thuc_hanh/ThucHanhMangMotChieu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss12_mang_1/thuc_hanh/TimGiaTriLonNhatTrongMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss12_mang_1/thuc_hanh/TimGiaTriTrongMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/bai_tap/SuDungCacHamCoSanCuaMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/bai_tap/TuDien.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/bai_tap/luyen_tap_mang_1/Bai1TinhSoNguyenLonHon10TrongMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/bai_tap/luyen_tap_mang_1/Bai2PhanTuLonNhatTrongMangVaViTriCuaNo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/bai_tap/luyen_tap_mang_1/Bai3GiaTriLonNhatVaGiaTriTrungBinhCuaMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/bai_tap/luyen_tap_mang_1/Bai4NhapMangSoNguyenVaDaoNguocPhanTuTrongMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/bai_tap/luyen_tap_mang_1/Bai5DemSoNguyenAmTrongMotChuoi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/bai_tap/luyen_tap_mang_1/Bai6TimVTrongChuoi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/bai_tap/luyen_tap_mang_1/Bai7XoaVKhoiMangNeuVThuocMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/bai_tap/luyen_tap_mang_1/Bai8SapXepMangGiamDan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/bai_tap/luyen_tap_mang_1/Bai9NoiMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/bai_tap/luyen_tap_mang_2/Bai1KhoiTaoVaInRaMang2Chieu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/bai_tap/luyen_tap_mang_2/Bai2InDaoNguocMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/bai_tap/luyen_tap_mang_2/Bai3DemPhanTuSoCuaMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/bai_tap/luyen_tap_mang_2/Bai4DemSoTuTrongChuoi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/bai_tap/luyen_tap_mang_2/Bai5KiemTra2ChuoiGiongNhau.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/bai_tap/luyen_tap_mang_2/Bai6Thay(-)Bang(_)TrongMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/thuc_hanh/Concat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/thuc_hanh/IndexOf.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/thuc_hanh/Map.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/thuc_hanh/Push.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss13_mang_2/thuc_hanh/Splice.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss15_ham_2/bai_tap/ChuyenDoiGiuaFeetVaMeters.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss15_ham_2/bai_tap/HamKiemTraSoNguyenTo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss15_ham_2/bai_tap/UngDungQuanLySanPham.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss15_ham_2/bai_tap/luyen_tap_ham_1/Bai1TaoHamXinChao.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss15_ham_2/bai_tap/luyen_tap_ham_1/Bai2FunctionTangGiaTriDoiSoLen1DonVi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss15_ham_2/bai_tap/luyen_tap_ham_1/Bai3SoSanhVaTinhTong2So.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss15_ham_2/bai_tap/luyen_tap_ham_1/Bai4ThemAlearVaoHam.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss15_ham_2/bai_tap/luyen_tap_ham_1/Bai5StarSearch.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss15_ham_2/bai_tap/luyen_tap_ham_2/Bai1HamBinhPhuong.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss15_ham_2/bai_tap/luyen_tap_ham_2/Bai2DienTichVaChuViHinhTron.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss15_ham_2/bai_tap/luyen_tap_ham_2/Bai3GiaiThua.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss15_ham_2/bai_tap/luyen_tap_ham_2/Bai4HamKiemTraKyTuSo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss15_ham_2/bai_tap/luyen_tap_ham_2/Bai5HamTraVeSoNhoNhat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss15_ham_2/bai_tap/luyen_tap_ham_2/Bai6HamKiemTraSoNguyenDuong.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss15_ham_2/bai_tap/luyen_tap_ham_2/Bai7DoiCho2SoNguyen.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss15_ham_2/bai_tap/luyen_tap_ham_2/Bai8DaoNguocMangSoNguyen.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss15_ham_2/bai_tap/luyen_tap_ham_2/Bai9KiemTraKyTuTrongMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss16_lap_trinh_huong_doi_tuong_1/bai_tap/XayDungLopMoTaHinhChuNhat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss16_lap_trinh_huong_doi_tuong_1/bai_tap/XayDungLopMoTaTemperature.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss16_lap_trinh_huong_doi_tuong_1/thuc_hanh/Funny Circle.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss16_lap_trinh_huong_doi_tuong_1/thuc_hanh/XayDungLopDate.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss16_lap_trinh_huong_doi_tuong_1/thuc_hanh/XayDungLopHinhTron.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss17_lap_trinh_huong_doi_tuong_2/bai_tap/CauChuyenAdamVaEva.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss17_lap_trinh_huong_doi_tuong_2/bai_tap/CongTacVaBongDen.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss17_lap_trinh_huong_doi_tuong_2/thuc_hanh/HoatDongCuaBongDen.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/QuanLySanPhamOOP.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_1/Bai1VeHcnRong.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_1/Bai2VeTamGiacVuongCanRong.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_1/Bai3VeTamGiacCanDac.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_1/Bai4VeTamGiacCanRong.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_2/Bai1ThueThuNhapVaLuongRong.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_2/Bai2KiemTraNguyenAmPhuAm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_3/Bai1PrefixSums.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_3/Bai2TimPhanTuTrongMangBKhongCoTrongA.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_3/Bai3TimPhanSoLonNhat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_3/Bai4InSoThanhChu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_3/Bai5DrinkOrder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_4/Bai1ChuanHoaXauKyTu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_4/Bai2DemKyTuKhacNhauTrongXau.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_4/Bai3TimSoKyTuChungGiuaHaiXau.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_5/Bai1TinhTongCacSoChanTrongMaTran.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_5/Bai2LietKeCacSoNguyenToTrongMang2Chieu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_5/Bai3TimGiaTriLonNhatVaNhoNhatTrongMang2Chieu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss18_case_study/yeu_cau_6/OOPVietlot.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss19_thi_thu/Bai1GiaTriTrungBinhCuaMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss19_thi_thu/Bai2HamTaoRaCumTuVietTat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss19_thi_thu/Bai3TimCacSoFibonaci.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss19_thi_thu/Bai4TaoTaiKhoanNganHang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss1_kanban/bai_tap/Demo.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss20_thi_that/Bai1TrungBinhCongCacSoChiaHetCho3TrongMang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss20_thi_that/Bai2SoHoanHao.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss20_thi_that/Bai3ThangNamCoBaoNhieuNgay.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss20_thi_that/Bai4QuanLyCongNhan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2_nhap_mon_tu_duy_lap_trinh/bai_tap/khoa_hoc_1_code_org/Certificate Course 1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2_nhap_mon_tu_duy_lap_trinh/bai_tap/khoa_hoc_2_code_org/Certificate Course 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_Mo_ta_thuat_toan_bang_Pseudo_code_&amp;_Flowchart/bai_tap/ChuyenDoiTienTe.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_Mo_ta_thuat_toan_bang_Pseudo_code_&amp;_Flowchart/bai_tap/ThuatToanCauTrucDieuKien.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_Mo_ta_thuat_toan_bang_Pseudo_code_&amp;_Flowchart/bai_tap/TimGiaTriLonNhatTrong3So.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_Mo_ta_thuat_toan_bang_Pseudo_code_&amp;_Flowchart/bai_tap/TimGiaTriLonNhatTrongDaySo.docx.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_Mo_ta_thuat_toan_bang_Pseudo_code_&amp;_Flowchart/bai_tap/TinhDiemTrungBinh.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_Mo_ta_thuat_toan_bang_Pseudo_code_&amp;_Flowchart/thuc_hanh/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_Mo_ta_thuat_toan_bang_Pseudo_code_&amp;_Flowchart/thuc_hanh/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_Mo_ta_thuat_toan_bang_Pseudo_code_&amp;_Flowchart/thuc_hanh/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_Mo_ta_thuat_toan_bang_Pseudo_code_&amp;_Flowchart/thuc_hanh/.idea/thuc_hanh.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_Mo_ta_thuat_toan_bang_Pseudo_code_&amp;_Flowchart/thuc_hanh/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_Mo_ta_thuat_toan_bang_Pseudo_code_&amp;_Flowchart/thuc_hanh/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_Mo_ta_thuat_toan_bang_Pseudo_code_&amp;_Flowchart/thuc_hanh/ThuatToanChuyenDoiNhietDo.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_Mo_ta_thuat_toan_bang_Pseudo_code_&amp;_Flowchart/thuc_hanh/ThuatToanGameDoanSo.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_html/bai_tap/Image/MAD_3032-min.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_html/bai_tap/Image/MAD_3032-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_html/bai_tap/Image/MAD_3032-min1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_html/bai_tap/Image/MAD_3032-min2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_html/bai_tap/TaoDanhSach.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_html/bai_tap/TaoTrangCVCaNhan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4_git_html/thuc_hanh/SuDungFileHtmlCoBan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_form_table/bai_tap/FormTotal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_form_table/bai_tap/GiaoDienFormDangKyNguoiDung.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_form_table/bai_tap/TableTotal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_form_table/bai_tap/TaoBangDonGian.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_form_table/bai_tap/TaoBangNangCao.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_form_table/bai_tap/TaoFormDonGian.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_form_table/bai_tap/TaoFormLaySurveyKhachHang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_javascript/bai_tap/DiemTrungBinh.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_javascript/bai_tap/TienTrungBinh.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_javascript/thuc_hanh/HienThiKetQua.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_javascript/thuc_hanh/NhungJs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss6_javascript/thuc_hanh/NhungJs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_bien_kieudulieu_toantu/bai_tap/BienKieuDuLieuVaToanTu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_bien_kieudulieu_toantu/bai_tap/UngDungChuyenDoiTienTe.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_bien_kieudulieu_toantu/bai_tap/UngDungMayTinh.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_bien_kieudulieu_toantu/thuc_hanh/KhaiBaoVaSuDungBien.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_bien_kieudulieu_toantu/thuc_hanh/SuDungToanTu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss7_bien_kieudulieu_toantu/thuc_hanh/SuDungToanTu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss8_cau_truc_dieu_kien_1/thuc_hanh/KieuTraNamNhuan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss8_cau_truc_dieu_kien_1/thuc_hanh/LuyenTapVoiCauTrucElseIfElse.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss8_cau_truc_dieu_kien_1/thuc_hanh/LuyenTapVoiCauTrucIfElse.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss8_cau_truc_dieu_kien_1/thuc_hanh/LuyenTapVoiCauTrucSwichCase.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss8_cau_truc_dieu_kien_1/thuc_hanh/LuyenTapVoiToanTuBaNgoi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/CauLenhSwichcase.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/DoYouLoveMe.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/GamePuzzle.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/GiaDinh1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/GiaDinh2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/GiaDinh3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/MayTinhDonGian.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/NhaGai1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/NhaGai2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/NhaGai3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/NhaTho1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/NhaTho2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/NhaTho3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/TinhChiSoCanNangCuaCoThe.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/UngDungGoodFastCheap.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_1/Bai1KiemTraChiaHet.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_1/Bai2KiemTraTuoiVaoLop10.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_1/Bai3KiemTraSoLonHon0.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_1/Bai4TimGiaTriLonNhatTrong3So.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_1/Bai5XepHangHsDuaTrenDiemThi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_1/Bai6TinhHoaHong.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_1/Bai7TinhCuocDienThoai.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_2/Bai10TinhTienDien.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_2/Bai11TinhThueCaNhan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_2/Bai12TinhLaiSuat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_2/Bai1CToF.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_2/Bai2MetToFeet.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_2/Bai3DtHinhVuong.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_2/Bai4DtHinhChuNhat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_2/Bai5DtTamGiacVuong.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_2/Bai6PtBac1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_2/Bai7PtBac2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_2/Bai8KiemTraTuoi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/bai_tap/luyen_tap_cau_truc_dieu_kien_2/Bai9KiemTra3CanhTamGiac.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/thuc_hanh/Ball.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/thuc_hanh/SuKienBanPhim.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/thuc_hanh/SuKienChuot.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss9_cau_truc_dieu_kien_2/thuc_hanh/nobita.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="22xiiKCqmQFqGdG9ECplotBRg0p" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b8cdd5ca-419a-4aef-990b-ab145147337e" name="Changes" comment="" />
+      <created>1640785767228</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1640785767228</updated>
+      <workItem from="1640785768568" duration="644000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
