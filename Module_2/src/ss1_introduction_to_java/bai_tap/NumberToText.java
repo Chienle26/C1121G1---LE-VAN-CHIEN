@@ -78,7 +78,7 @@ public class NumberToText {
                 result = "Fifteen";
                 break;
             case 16:
-                result = "Six";
+                result = "Sixteen";
                 break;
             case 17:
                 result = "Seventeen";
@@ -161,7 +161,6 @@ public class NumberToText {
         if (dozens != 0) {
             result += " and " + number100(dozens);
         }
-
         return result;
     }
 }
