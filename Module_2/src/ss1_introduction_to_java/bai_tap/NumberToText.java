@@ -7,7 +7,9 @@ public class NumberToText {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter number: ");
         int number = sc.nextInt();
-        if (number < 10 && number >= 0) {
+        if (number == 0) {
+            System.out.println("Zero");
+        } else if (number < 10 && number > 0) {
             System.out.println(number10(number));
         } else if (number < 20) {
             System.out.println(number20(number));
@@ -23,9 +25,6 @@ public class NumberToText {
     public static String number10(int number) {
         String result = "";
         switch (number) {
-            case 0:
-                result = "Zero";
-                break;
             case 1:
                 result = "One";
                 break;
@@ -98,28 +97,28 @@ public class NumberToText {
         int dozens = number / 10;
         switch (dozens) {
             case 2:
-                result = "Twenty-";
+                result = "Twenty ";
                 break;
             case 3:
-                result = "Thirty-";
+                result = "Thirty ";
                 break;
             case 4:
-                result = "Forty-";
+                result = "Forty ";
                 break;
             case 5:
-                result = "Fifty-";
+                result = "Fifty ";
                 break;
             case 6:
-                result = "Sixty-";
+                result = "Sixty ";
                 break;
             case 7:
-                result = "Seventy-";
+                result = "Seventy ";
                 break;
             case 8:
-                result = "Eighty-";
+                result = "Eighty ";
                 break;
             case 9:
-                result = "Ninety-";
+                result = "Ninety ";
         }
         result += number10(units);
         return result;
@@ -129,7 +128,7 @@ public class NumberToText {
         String result = "";
         int dozens = number % 100;
         int hundreds = number / 100;
-        result += number10(hundreds) + "-hundred";
+        result += number10(hundreds) + " hundred";
         if (dozens != 0) {
             result += " and " + number100(dozens);
         }
