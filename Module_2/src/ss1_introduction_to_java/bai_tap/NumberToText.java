@@ -98,58 +98,30 @@ public class NumberToText {
         int dozens = number / 10;
         switch (dozens) {
             case 2:
-                result = "Twenty";
+                result = "Twenty-";
                 break;
             case 3:
-                result = "Thirty";
+                result = "Thirty-";
                 break;
             case 4:
-                result = "Forty";
+                result = "Forty-";
                 break;
             case 5:
-                result = "Fifty";
+                result = "Fifty-";
                 break;
             case 6:
-                result = "Sixty";
+                result = "Sixty-";
                 break;
             case 7:
-                result = "Seventy";
+                result = "Seventy-";
                 break;
             case 8:
-                result = "Eighty";
+                result = "Eighty-";
                 break;
             case 9:
-                result = "Ninety";
+                result = "Ninety-";
         }
-
-        switch (units) {
-            case 1:
-                result += "-One";
-                break;
-            case 2:
-                result += "-Two";
-                break;
-            case 3:
-                result += "-Three";
-                break;
-            case 4:
-                result += "-Four";
-                break;
-            case 5:
-                result += "-Five";
-                break;
-            case 6:
-                result += "-Six";
-                break;
-            case 7:
-                result += "-Seven";
-                break;
-            case 8:
-                result += "-Eight";
-                break;
-            case 9:
-                result += "-Nine";
-        }
+        result += number10(units);
         return result;
     }
 
