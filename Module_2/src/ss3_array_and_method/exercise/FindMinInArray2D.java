@@ -30,7 +30,7 @@ public class FindMinInArray2D {
         for (int i = 0; i < arr2D.length; i++) {
             for (int j = 0; j < arr2D[i].length; j++) {
                 if (arr2D[i][j] == min) {
-                    indexMin += i + "-" + j;
+                    indexMin += i + "-" + j + " ";
                 }
             }
         }
