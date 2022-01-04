@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 
 public class RectangleClass {
-    double width, height;
+    double width;
+    double height;
 
     public RectangleClass() {
     }
