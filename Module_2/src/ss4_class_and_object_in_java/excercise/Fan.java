@@ -18,72 +18,59 @@ public class Fan {
         this.color = "blue";
     }
 
-    public Fan(int speed, String status, double radius, String color) {
-        setSpeed(speed);
-        setStatus(status);
-        setRadius(radius);
-        setColor(color);
+    public Fan(int speed, boolean on, double radius, String color) {
+        this.speed = speed;
+        this.on = on;
+        this.radius = radius;
+        this.color = color;
+    }
+
+    public int getSpeed() {
+        return speed;
     }
 
     public void setSpeed(int speed) {
-        if (speed == this.MEDIUM) {
-            this.speed = this.MEDIUM;
-        } else if (speed == this.FAST) {
-            this.speed = this.FAST;
-        } else {
-            this.speed = this.SLOW;
-        }
+        this.speed = speed;
     }
 
-    public void setStatus(String status) {
-        this.on = status.equals("on");
+    public boolean isOn() {
+        return on;
     }
 
-    public void setRadius(double r) {
-        this.radius = r;
+    public void setOn(boolean on) {
+        this.on = on;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public String getColor() {
+        return color;
     }
 
     public void setColor(String color) {
         this.color = color;
     }
 
-    public String getSpeed() {
-        if (this.speed == this.SLOW) {
-            return "slow";
-        } else if (this.speed == this.MEDIUM) {
-            return "medium";
-        } else if (this.speed == this.FAST) {
-            return "fast";
-        } else {
-            return "error";
-        }
-    }
-
-    public String getStatus() {
-        if (this.on) {
-            return "on";
-        } else {
-            return "off";
-        }
-    }
-
-    public double getRadius() {
-        return this.radius;
-    }
-
-    public String getColor() {
-        return this.color;
-    }
-
+    @Override
     public String toString() {
-        return "Fan {speed= " + getSpeed() + ", radius= " + getRadius() +
-                ", color= " + getColor() + ", fan is " + getStatus() + "}.";
+        return "Fan{" +
+                "speed=" + speed +
+                ", on=" + on +
+                ", radius=" + radius +
+                ", color='" + color + '\'' +
+                '}';
     }
 
     public static void main(String[] args) {
         Fan fan = new Fan();
-        Fan fan1 = new Fan(3, "on", 10, "yellow");
-        Fan fan2 = new Fan(2, "off", 5, "blue");
+        Fan fan1 = new Fan(3, true, 10, "yellow");
+        Fan fan2 = new Fan(2, false, 5, "blue");
         System.out.println(fan.toString());
         System.out.println(fan1.toString());
         System.out.println(fan2.toString());

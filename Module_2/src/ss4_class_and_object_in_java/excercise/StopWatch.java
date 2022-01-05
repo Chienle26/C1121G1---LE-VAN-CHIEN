@@ -31,9 +31,9 @@ public class StopWatch {
         return this.getEndTime() - this.getStartTime();
     }
 
-    public static void selectionSort(int[] arr, int size) {
-        for (int i = 0; i < size - 1; i++) {
-            for (int j = i + 1; j < size; j++) {
+    public static void selectionSort(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
                 if (arr[j] < arr[i]) {
                     int temp = arr[i];
                     arr[i] = arr[j];
@@ -54,7 +54,7 @@ public class StopWatch {
 
         System.out.println("Start time (milliseconds): " + stopWatch.getStartTime());
 
-        selectionSort(arr, size);
+        selectionSort(arr);
 
         System.out.println("End time (milliseconds): " + stopWatch.getEndTime());
 
