@@ -12,8 +12,6 @@ public class Main {
         System.out.println(movablePoint);
         System.out.println("Move: ");
         movablePoint.move();
-        System.out.println(movablePoint);
-
     }
 
 
