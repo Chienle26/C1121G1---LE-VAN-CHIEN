@@ -1,6 +1,8 @@
 package ss6_inheritance.practice;
 
-public class Rectangle extends Shape{
+import ss7_abstract_class_interface.exercise.resizeable_interface.Resizeable;
+
+public class Rectangle extends Shape implements Resizeable {
     private double width = 1.0;
     private double length = 1.0;
 
@@ -50,5 +52,11 @@ public class Rectangle extends Shape{
                 + getLength()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public void resize(double percent) {
+        this.width += this.width * percent / 100;
+        this.length += this.length * percent / 100;
     }
 }

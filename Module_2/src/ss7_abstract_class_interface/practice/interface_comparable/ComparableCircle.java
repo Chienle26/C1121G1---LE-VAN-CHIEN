@@ -2,8 +2,7 @@ package ss7_abstract_class_interface.practice.interface_comparable;
 
 import ss6_inheritance.practice.Circle;
 
-public class ComparableCircle extends Circle
-        implements Comparable<ComparableCircle> {
+public class ComparableCircle extends Circle implements Comparable<ComparableCircle> {
 
     public ComparableCircle() {
     }

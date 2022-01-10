@@ -1,6 +1,8 @@
 package ss6_inheritance.practice;
 
-public class Square extends Rectangle{
+import ss7_abstract_class_interface.exercise.resizeable_interface.Resizeable;
+
+public class Square extends Rectangle implements Resizeable {
     public Square() {
     }
 
@@ -37,5 +39,10 @@ public class Square extends Rectangle{
                 + getSide()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public void resize(double percent) {
+        setSide(getSide() + getSide() * percent / 100);
     }
 }
