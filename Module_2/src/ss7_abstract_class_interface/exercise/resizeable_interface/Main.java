@@ -7,14 +7,23 @@ import ss6_inheritance.practice.Square;
 
 public class Main {
     public static void main(String[] args) {
-        Shape[] shape = new Shape[3];
-        shape[0] = new Circle(1);
-        shape[1] = new Rectangle(1, 1);
-        shape[2] = new Square(1);
+        Shape[] shapes = new Shape[3];
+        shapes[0] = new Circle(1);
+        shapes[1] = new Rectangle(1, 1);
+        shapes[2] = new Square(1);
 
-        for (Shape shapes : shape) {
-            ((Resizeable) shapes).resize(Math.round(Math.random())*100);
+        System.out.println("Area before resize: " + ((Circle) shapes[0]).getArea());
+        System.out.println("Area before resize: " + ((Rectangle) shapes[1]).getArea());
+        System.out.println("Area before resize: " + ((Square) shapes[2]).getArea());
+
+        for (Shape shape : shapes) {
+            ((Resizeable) shape).resize((int) (Math.random() * 100));
         }
+
+        System.out.println("==========================");
+        System.out.println("Area after resize " + ((Circle) shapes[0]).getArea());
+        System.out.println("Area after resize " + ((Rectangle) shapes[1]).getArea());
+        System.out.println("Area after resize " + ((Square) shapes[2]).getArea());
 
     }
 }
