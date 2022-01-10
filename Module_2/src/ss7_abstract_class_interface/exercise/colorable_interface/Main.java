@@ -13,14 +13,15 @@ public class Main {
         shapes[2] = new Circle(2);
         for (Shape shape : shapes) {
             if (shape instanceof Square) {
-                System.out.println("Area Square: " + ((Square) shape).getArea());
+                System.out.println("Area Square: " + shape.getArea());
                 ((Colorable) shape).howToColor();
                 System.out.println("===================");
             } else if (shape instanceof Rectangle) {
-                System.out.println("Area Rectangle: " + ((Rectangle) shape).getArea());
+                System.out.println("Area Rectangle: " + shape.getArea());
                 System.out.println("===================");
+
             } else {
-                System.out.println("Area Circle: " + ((Circle) shape).getArea());
+                System.out.println("Area Circle: " + shape.getArea());
                 System.out.println("===================");
             }
         }
