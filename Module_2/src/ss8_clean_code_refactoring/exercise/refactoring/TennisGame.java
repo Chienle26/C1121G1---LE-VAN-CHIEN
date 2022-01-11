@@ -64,10 +64,15 @@ public class TennisGame {
 
     public String getResultWhenScoreOfAllPlayerOver4(String nameOfPlayer1, String nameOfPlayer2, int scoreOfPlayer1, int scoreOfPlayer2) {
         int minusResult = scoreOfPlayer1 - scoreOfPlayer2;
-        if (minusResult == 1) finalScore = "Advantage " + nameOfPlayer1;
-        else if (minusResult == -1) finalScore = "Advantage " + nameOfPlayer2;
-        else if (minusResult >= 2) finalScore = "Win for " + nameOfPlayer1;
-        else finalScore = "Win for " + nameOfPlayer2;
+        if (minusResult == 1) {
+            finalScore = "Advantage " + nameOfPlayer1;
+        } else if (minusResult == -1) {
+            finalScore = "Advantage " + nameOfPlayer2;
+        } else if (minusResult >= 2) {
+            finalScore = "Win for " + nameOfPlayer1;
+        } else {
+            finalScore = "Win for " + nameOfPlayer2;
+        }
         return finalScore;
     }
 }
