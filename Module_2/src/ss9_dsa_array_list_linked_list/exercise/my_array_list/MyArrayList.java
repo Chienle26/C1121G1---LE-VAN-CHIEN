@@ -69,4 +69,39 @@ public class MyArrayList<E> {
             throw new IllegalArgumentException("minCapacity " + minCapacity);
         }
     }
+
+    public int indexOf(E element) {
+        int index = -1;
+        for (int i = 0; i < size; i++) {
+            if (this.elements[i].equals(element)) {
+                return i;
+            }
+        }
+        return index;
+    }
+
+    public boolean contains(E element) {
+        return this.indexOf(element) >= 0;
+    }
+
+    public MyArrayList<E> clone() {
+        MyArrayList<E> v = new MyArrayList<>();
+        v.elements = Arrays.copyOf(this.elements, this.size);
+        v.size = this.size;
+        return v;
+    }
+
+    public E remove(int index) {
+        if (index < 0 || index > elements.length) {
+            throw new IllegalArgumentException("Error index " + index);
+        }
+        E element = (E) elements[index];
+        for (int i = index; i < size - 1; i++) {
+            elements[i] = elements[i + 1];
+        }
+        elements[size - 1] = null;
+        size--;
+        return element;
+    }
+
 }

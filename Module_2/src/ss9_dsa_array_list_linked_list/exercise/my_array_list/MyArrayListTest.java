@@ -37,8 +37,11 @@ public class MyArrayListTest {
         Student student4 = new Student(4, "Le Van Chien4");
         Student student5 = new Student(5, "Le Van Chien5");
         Student student6 = new Student(6, "Le Van Chien6");
+        Student student7 = new Student(7, "Le Van Chien7");
 
         MyArrayList<Student> studentMyArrayList = new MyArrayList<>();
+        MyArrayList<Student> newMyArrayList = new MyArrayList<>();
+
         studentMyArrayList.add(student1);
         studentMyArrayList.add(student2);
         studentMyArrayList.add(student3);
@@ -49,16 +52,29 @@ public class MyArrayListTest {
 
         System.out.println(studentMyArrayList.size());
 
-        System.out.println(studentMyArrayList.get(2));
+        System.out.println(studentMyArrayList.get(2).getName());
 
+        System.out.println(studentMyArrayList.indexOf(student1));
+        System.out.println(studentMyArrayList.indexOf(student7));
 
+        System.out.println(studentMyArrayList.contains(student1));
+        System.out.println(studentMyArrayList.contains(student7));
 
+        studentMyArrayList.remove(2);
+        studentMyArrayList.remove(0);
+
+        newMyArrayList = studentMyArrayList.clone();
+        for (int i = 0; i < newMyArrayList.size(); i++){
+            System.out.println(newMyArrayList.get(i).getName());
+        }
+        System.out.println("====================");
         for (int i = 0; i < studentMyArrayList.size(); i++) {
             Student student = (Student) studentMyArrayList.elements[i];
             System.out.println(student.getId());
             System.out.println(student.getName());
             System.out.println();
         }
+
 
     }
 }
