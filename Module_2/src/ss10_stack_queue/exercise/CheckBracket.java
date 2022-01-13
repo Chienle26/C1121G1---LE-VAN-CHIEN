@@ -7,12 +7,11 @@ import java.util.Stack;
 
 public class CheckBracket {
     public static void main(String[] args) {
-        while (true){
+        while (true) {
             Scanner scanner = new Scanner(System.in);
             System.out.print("Nhập chuỗi cần kiểm tra Backet: ");
             String string = scanner.nextLine();
             Stack<String> bStack = new Stack<>();
-//        Queue<String> queue = new LinkedList<>();
             String[] arrString = string.split("");
             Boolean check = true;
             for (String element : arrString) {
@@ -22,8 +21,8 @@ public class CheckBracket {
                     if (bStack.isEmpty()) {
                         check = false;
                         break;
-                    } else if (bStack.pop().equals("(")) {
-                        check = true;
+                    } else if (bStack.peek().equals("(")) {
+                        bStack.pop();
                     }
                 }
             }
