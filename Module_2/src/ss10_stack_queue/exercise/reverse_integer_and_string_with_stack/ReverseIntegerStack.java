@@ -1,4 +1,4 @@
-package ss10_stack_queue.exercise.reverse_integer_stack;
+package ss10_stack_queue.exercise.reverse_integer_and_string_with_stack;
 
 import java.util.ArrayList;
 import java.util.Stack;
