@@ -27,7 +27,6 @@ public class CheckBracket {
                     }
                 }
             }
-
             if (check && bStack.isEmpty()) {
                 System.out.println("Well");
             } else {
