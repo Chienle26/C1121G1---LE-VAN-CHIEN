@@ -1,15 +1,13 @@
 package ss11_java_collection_frameword_map_tree.exercise.PracticeArraylistLinkedlistInJavaCollection.model.service.impl;
 
-import ss11_java_collection_frameword_map_tree.exercise.PracticeArraylistLinkedlistInJavaCollection.model.model.ComparatorWithID;
 import ss11_java_collection_frameword_map_tree.exercise.PracticeArraylistLinkedlistInJavaCollection.model.model.Student;
 import ss11_java_collection_frameword_map_tree.exercise.PracticeArraylistLinkedlistInJavaCollection.model.service.IStudentService;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class StudentService implements IStudentService {
+public class StudentService implements IStudentService{
     private static ArrayList<Student> arrayList = new ArrayList<>();
 
     static {
@@ -18,7 +16,7 @@ public class StudentService implements IStudentService {
         arrayList.add(new Student(3, "Lê Văn Chiến 3", "Đà Nẵng", "28/08/1997", 8, "C1121G1"));
     }
 
-    
+
 
     @Override
     public void findAll() {
@@ -106,6 +104,12 @@ public class StudentService implements IStudentService {
                 System.out.println("Không có tên học sinh bạn vừa nhập trong danh sách, xin vui lòng chọn lại!");
             }
         }
+    }
+
+    @Override
+    public void sortByIdFromAToZ() {
+        Collections.sort(arrayList);
+        findAll();
     }
 
 

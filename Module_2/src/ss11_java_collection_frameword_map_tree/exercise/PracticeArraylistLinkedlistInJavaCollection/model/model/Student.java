@@ -1,6 +1,6 @@
 package ss11_java_collection_frameword_map_tree.exercise.PracticeArraylistLinkedlistInJavaCollection.model.model;
 
-public class Student extends Person {
+public class Student extends Person implements Comparable<Student> {
     private int point;
     private String className;
 
@@ -36,8 +36,13 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return  super.toString() +
+        return super.toString() +
                 ", point=" + point +
                 ", className='" + className + '\'';
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        return this.getId() - o.getId();
     }
 }

@@ -10,4 +10,8 @@ public interface IStudentService {
     void removeStudent();
 
     void searchStudent();
+
+    void sortByIdFromAToZ();
+
+//    void sortByIdFromZToA();
 }
