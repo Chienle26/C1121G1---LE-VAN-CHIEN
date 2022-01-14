@@ -1,9 +1,12 @@
 package ss11_java_collection_frameword_map_tree.exercise.PracticeArraylistLinkedlistInJavaCollection.model.service.impl;
 
+import ss11_java_collection_frameword_map_tree.exercise.PracticeArraylistLinkedlistInJavaCollection.model.model.ComparatorWithID;
 import ss11_java_collection_frameword_map_tree.exercise.PracticeArraylistLinkedlistInJavaCollection.model.model.Student;
 import ss11_java_collection_frameword_map_tree.exercise.PracticeArraylistLinkedlistInJavaCollection.model.service.IStudentService;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class StudentService implements IStudentService {
@@ -14,6 +17,8 @@ public class StudentService implements IStudentService {
         arrayList.add(new Student(2, "Lê Văn Chiến 2", "Đà Nẵng", "27/08/1997", 9, "C1121G1"));
         arrayList.add(new Student(3, "Lê Văn Chiến 3", "Đà Nẵng", "28/08/1997", 8, "C1121G1"));
     }
+
+    
 
     @Override
     public void findAll() {
@@ -67,7 +72,7 @@ public class StudentService implements IStudentService {
                 arrayList.get(i).setPoint(point);
                 arrayList.get(i).setClassName(className);
                 System.err.println("Chỉnh sửa thành công!");
-            } else {
+            } else if (i == arrayList.size() - 1){
                 System.out.println("Không có tên bạn vừa nhập trong danh sách, xin vui lòng nhập lại!");
             }
         }
@@ -82,9 +87,26 @@ public class StudentService implements IStudentService {
             if (arrayList.get(i).getName().equals(name)) {
                 arrayList.remove(i);
                 System.err.println("Xóa thành công!");
-            } else {
+            } else if (i == arrayList.size() - 1){
                 System.out.println("Không có tên bạn vừa nhập trong danh sách, xin vui lòng nhập lại!");
             }
         }
     }
+
+    @Override
+    public void searchStudent() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Mời bạn nhập họ tên học sinh cần tìm kiếm: ");
+        String name = scanner.nextLine();
+        for (int i = 0; i < arrayList.size(); i++) {
+            if (arrayList.get(i).getName().equals(name)) {
+                System.out.println(arrayList.get(i));
+                break;
+            } else if (i == arrayList.size() - 1) {
+                System.out.println("Không có tên học sinh bạn vừa nhập trong danh sách, xin vui lòng chọn lại!");
+            }
+        }
+    }
+
+
 }

@@ -15,6 +15,8 @@ public class StudentController {
             System.out.println("2. Thêm mới học sinh.");
             System.out.println("3. Chỉnh sửa học sinh.");
             System.out.println("4. Xóa học sinh.");
+            System.out.println("5. Tìm kiếm học sinh.");
+
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:
@@ -28,6 +30,9 @@ public class StudentController {
                     break;
                 case 4:
                     iStudentService.removeStudent();
+                    break;
+                case 5:
+                    iStudentService.searchStudent();
                     break;
                 default:
                     System.err.println("Bạn chọn chưa đúng menu, xin vui lòng chọn lại!");
