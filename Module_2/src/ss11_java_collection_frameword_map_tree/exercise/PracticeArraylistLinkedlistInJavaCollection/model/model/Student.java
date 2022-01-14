@@ -45,11 +45,19 @@ public class Student extends Person implements Comparable<Student>, Comparator<S
 
     @Override
     public int compareTo(Student o) {
-        return this.getId() - o.getId();
+        if (this.getId() == o.getId()) {
+            return this.getName().compareTo(o.getName());
+        } else {
+            return this.getId() - o.getId();
+        }
     }
 
     @Override
     public int compare(Student o1, Student o2) {
-        return o1.getId()- o2.getId();
+        if (o1.getId() == o2.getId()) {
+            return o1.getName().compareTo(o2.getName());
+        } else {
+            return o1.getId() - o2.getId();
+        }
     }
 }

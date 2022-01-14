@@ -16,6 +16,7 @@ public class StudentService implements IStudentService{
         arrayList.add(new Student(1, "Lê Văn Chiến 1", "Đà Nẵng", "26/08/1997", 10, "C1121G1"));
         arrayList.add(new Student(3, "Lê Văn Chiến 3", "Đà Nẵng", "27/08/1997", 9, "C1121G1"));
         arrayList.add(new Student(2, "Lê Văn Chiến 2", "Đà Nẵng", "28/08/1997", 8, "C1121G1"));
+        arrayList.add(new Student(2, "Lê Văn Anh", "Đà Nẵng", "28/08/1997", 8, "C1121G1"));
     }
 
     @Override
