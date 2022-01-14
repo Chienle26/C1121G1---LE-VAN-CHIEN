@@ -17,7 +17,7 @@ public class StudentController {
             System.out.println("4. Xóa học sinh.");
             System.out.println("5. Tìm kiếm học sinh.");
             System.out.println("6. Sắp xếp danh sách theo tên từ A->Z");
-//            System.out.println("7. Sắp xếp danh sách theo tên từ Z->A");
+            System.out.println("7. Sắp xếp danh sách theo tên từ Z->A");
 
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
@@ -39,8 +39,9 @@ public class StudentController {
                 case 6:
                     iStudentService.sortByIdFromAToZ();
                     break;
-//                case 7:
-//                    iStudentService.sortByIdFromZToA();
+                case 7:
+                    iStudentService.sortByIdFromZToA();
+                    break;
                 default:
                     System.err.println("Bạn chọn chưa đúng menu, xin vui lòng chọn lại!");
             }

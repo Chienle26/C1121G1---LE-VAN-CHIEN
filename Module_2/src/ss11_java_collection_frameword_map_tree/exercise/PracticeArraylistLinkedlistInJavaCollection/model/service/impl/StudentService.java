@@ -2,9 +2,11 @@ package ss11_java_collection_frameword_map_tree.exercise.PracticeArraylistLinked
 
 import ss11_java_collection_frameword_map_tree.exercise.PracticeArraylistLinkedlistInJavaCollection.model.model.Student;
 import ss11_java_collection_frameword_map_tree.exercise.PracticeArraylistLinkedlistInJavaCollection.model.service.IStudentService;
+import ss11_java_collection_frameword_map_tree.exercise.PracticeArraylistLinkedlistInJavaCollection.util.ComparatorByIdFromZToA;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class StudentService implements IStudentService{
@@ -12,11 +14,9 @@ public class StudentService implements IStudentService{
 
     static {
         arrayList.add(new Student(1, "Lê Văn Chiến 1", "Đà Nẵng", "26/08/1997", 10, "C1121G1"));
-        arrayList.add(new Student(2, "Lê Văn Chiến 2", "Đà Nẵng", "27/08/1997", 9, "C1121G1"));
-        arrayList.add(new Student(3, "Lê Văn Chiến 3", "Đà Nẵng", "28/08/1997", 8, "C1121G1"));
+        arrayList.add(new Student(3, "Lê Văn Chiến 3", "Đà Nẵng", "27/08/1997", 9, "C1121G1"));
+        arrayList.add(new Student(2, "Lê Văn Chiến 2", "Đà Nẵng", "28/08/1997", 8, "C1121G1"));
     }
-
-
 
     @Override
     public void findAll() {
@@ -51,8 +51,6 @@ public class StudentService implements IStudentService{
         String nameSearch = scanner.nextLine();
         for (int i = 0; i < arrayList.size(); i++) {
             if (arrayList.get(i).getName().equals(nameSearch)) {
-                System.out.print("Mời bạn nhập ID: ");
-                int id = Integer.parseInt(scanner.nextLine());
                 System.out.print("Mời bạn nhập họ tên: ");
                 String name = scanner.nextLine();
                 System.out.print("Mời bạn nhập địa chỉ: ");
@@ -63,7 +61,6 @@ public class StudentService implements IStudentService{
                 int point = Integer.parseInt(scanner.nextLine());
                 System.out.print("Mời bạn nhập lớp: ");
                 String className = scanner.nextLine();
-                arrayList.get(i).setId(id);
                 arrayList.get(i).setName(name);
                 arrayList.get(i).setAddress(address);
                 arrayList.get(i).setDateOfBirth(dateOfBirth);
@@ -109,6 +106,13 @@ public class StudentService implements IStudentService{
     @Override
     public void sortByIdFromAToZ() {
         Collections.sort(arrayList);
+        findAll();
+    }
+
+    @Override
+    public void sortByIdFromZToA() {
+//      ComparatorByIdFromZToA comparatorByIdFromZToA = new ComparatorByIdFromZToA();
+        Collections.sort(arrayList, new ComparatorByIdFromZToA());
         findAll();
     }
 

@@ -13,5 +13,6 @@ public interface IStudentService {
 
     void sortByIdFromAToZ();
 
-//    void sortByIdFromZToA();
+    void sortByIdFromZToA();
+
 }
