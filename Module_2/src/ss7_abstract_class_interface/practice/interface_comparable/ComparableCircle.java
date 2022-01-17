@@ -6,7 +6,6 @@ public class ComparableCircle extends Circle implements Comparable<ComparableCir
 
     public ComparableCircle() {
     }
-
     public ComparableCircle(double radius) {
         super(radius);
     }
