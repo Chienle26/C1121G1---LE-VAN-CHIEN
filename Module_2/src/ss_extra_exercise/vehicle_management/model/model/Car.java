@@ -1,6 +1,6 @@
 package ss_extra_exercise.vehicle_management.model.model;
 
-public class Car {
+public class Car extends Vehicle {
     int numberOfSeats;
     String vehicleType;
 
@@ -8,6 +8,12 @@ public class Car {
     }
 
     public Car(int numberOfSeats, String vehicleType) {
+        this.numberOfSeats = numberOfSeats;
+        this.vehicleType = vehicleType;
+    }
+
+    public Car(String licensePlates, String brandName, int yearOfManufacture, String vehicleType, String owner, int numberOfSeats) {
+        super(licensePlates, brandName, yearOfManufacture, owner);
         this.numberOfSeats = numberOfSeats;
         this.vehicleType = vehicleType;
     }
@@ -33,6 +39,10 @@ public class Car {
         return "Car{" +
                 "numberOfSeats=" + numberOfSeats +
                 ", vehicleType='" + vehicleType + '\'' +
+                ", licensePlates='" + licensePlates + '\'' +
+                ", brandName='" + brandName + '\'' +
+                ", yearOfManufacture=" + yearOfManufacture +
+                ", Owner='" + Owner + '\'' +
                 '}';
     }
 }

@@ -1,12 +1,17 @@
 package ss_extra_exercise.vehicle_management.model.model;
 
-public class Motorcycle {
+public class Motorcycle extends Vehicle {
     int capacity;
 
     public Motorcycle() {
     }
 
     public Motorcycle(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public Motorcycle(String licensePlates, String brandName, int yearOfManufacture, String owner, int capacity) {
+        super(licensePlates, brandName, yearOfManufacture, owner);
         this.capacity = capacity;
     }
 
@@ -22,6 +27,10 @@ public class Motorcycle {
     public String toString() {
         return "Motorcycle{" +
                 "capacity=" + capacity +
+                ", licensePlates='" + licensePlates + '\'' +
+                ", brandName='" + brandName + '\'' +
+                ", yearOfManufacture=" + yearOfManufacture +
+                ", Owner='" + Owner + '\'' +
                 '}';
     }
 }

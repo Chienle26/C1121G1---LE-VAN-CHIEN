@@ -1,6 +1,6 @@
 package ss_extra_exercise.vehicle_management.model.model;
 
-public class Vehicle {
+public abstract class Vehicle {
     String licensePlates;
     String brandName;
     int yearOfManufacture;
