@@ -18,6 +18,7 @@ public class IllegalTriangleTest {
                 System.out.println(checkIllegalTriangle(a, b, c));
             } catch (IllegalTriangleException e) {
                 flag = true;
+//                e.getMessage();
                 e.printStackTrace();
             } finally {
                 System.out.println("------------------------------->");
