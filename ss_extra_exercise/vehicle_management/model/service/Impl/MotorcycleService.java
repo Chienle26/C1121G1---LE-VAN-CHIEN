@@ -1,9 +1,8 @@
 package ss_extra_exercise.vehicle_management.model.service.Impl;
 
 import ss_extra_exercise.vehicle_management.model.model.Motorcycle;
-import ss_extra_exercise.vehicle_management.model.model.Truck;
 import ss_extra_exercise.vehicle_management.model.service.IMotorcycleService;
-import ss_extra_exercise.vehicle_management.util.ListBrandName;
+import ss_extra_exercise.vehicle_management.model.model.ListBrandName;
 
 import java.util.ArrayList;
 import java.util.Scanner;

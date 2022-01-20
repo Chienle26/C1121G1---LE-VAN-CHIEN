@@ -64,6 +64,9 @@ public class VehicleController {
                     }
                     break;
                 case 3:
+                    System.out.print("Nhập biển kiểm soát xe cần xóa: ");
+                    String licencePlates = scanner.nextLine();
+
                 case 4:
                     check = false;
                     break;

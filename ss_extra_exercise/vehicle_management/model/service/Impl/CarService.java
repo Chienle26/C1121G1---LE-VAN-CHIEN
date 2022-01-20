@@ -1,31 +1,29 @@
 package ss_extra_exercise.vehicle_management.model.service.Impl;
 
-import ss_extra_exercise.vehicle_management.model.model.Truck;
-import ss_extra_exercise.vehicle_management.model.service.ITruckService;
-import ss_extra_exercise.vehicle_management.util.ListBrandName;
+import ss_extra_exercise.vehicle_management.model.model.Car;
+import ss_extra_exercise.vehicle_management.model.service.ICarService;
+import ss_extra_exercise.vehicle_management.model.model.ListBrandName;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TruckService implements ITruckService {
-    private static ArrayList<Truck> truck = new ArrayList<>();
-
+public class CarService implements ICarService {
+    private static ArrayList<Car> car = new ArrayList<>();
     static {
-        truck.add(new Truck("43C-01.234", "Huyndai", 2019, "Nguyễn Văn A", 3));
-        truck.add(new Truck("43C-47.678", "Dongfeng", 2020, "Nguyễn Văn B", 9));
-        truck.add(new Truck("43C-45.235", "Hino", 2021, "Nguyễn Văn C", 12));
+        car.add(new Car("43A-212.56","Toyata",2019,"Du lịch","Nguyễn Văn A",5));
+        car.add(new Car("43B-453.88","Huyndai",2020,"Xe khách","Nguyễn Văn B",45));
+        car.add(new Car("43B-453.89","Ford",2020,"Xe khách","Nguyễn Văn C",16));
     }
 
-
     @Override
-    public void displayTruck() {
-        for (Truck element : truck) {
+    public void displayCar() {
+        for (Car element : car) {
             System.out.println(element);
         }
     }
 
     @Override
-    public void addTruck() {
+    public void addCar() {
         ListBrandName listBrandName = new ListBrandName();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập Biển kiểm soát: ");
@@ -38,9 +36,11 @@ public class TruckService implements ITruckService {
         Integer yearOfManufacture = Integer.parseInt(scanner.nextLine());
         System.out.println("Nhập chủ sở hữu: ");
         String owner = scanner.nextLine();
-        System.out.println("Nhập tải trọng: ");
-        Integer weight = Integer.parseInt(scanner.nextLine());
-        truck.add(new Truck(lisencePlates, brandName, yearOfManufacture, owner, weight));
+        System.out.println("Nhập chủ kiểu xe: ");
+        String vehicleType = scanner.nextLine();
+        System.out.println("Nhập số chỗ ngồi: ");
+        Integer numberOfSeat = Integer.parseInt(scanner.nextLine());
+        car.add(new Car(lisencePlates,brandName,yearOfManufacture,vehicleType,owner,numberOfSeat));
         System.err.println("Thêm mới hành công!");
     }
 }
