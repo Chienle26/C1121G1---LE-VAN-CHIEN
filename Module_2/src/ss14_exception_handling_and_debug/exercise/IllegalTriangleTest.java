@@ -19,6 +19,8 @@ public class IllegalTriangleTest {
             } catch (IllegalTriangleException e) {
                 flag = true;
                 e.printStackTrace();
+            } finally {
+                System.out.println("------------------------------->");
             }
         }
         while (flag);
@@ -26,9 +28,9 @@ public class IllegalTriangleTest {
 
     public static String checkIllegalTriangle(int a, int b, int c) throws IllegalTriangleException {
         if (a < 0 || b < 0 || c < 0) {
-            throw new IllegalTriangleException("Cạnh tam giác nhập vào không được âm, vui lòng nhập lại");
+            throw new IllegalTriangleException("Cạnh của tam giác không được âm, vui lòng nhập lại");
         } else if (a + b < c || b + c < a || a + c < b) {
-            throw new IllegalTriangleException("Tổng 2 cạnh của tam giác không lớn hơn cạnh còn lại, vui lòng nhập lại");
+            throw new IllegalTriangleException("Tổng 2 cạnh của tam giác không được nhỏ hơn cạnh còn lại, vui lòng nhập lại");
         }
         return "Độ dài 3 cạnh nhập vào là độ dài 3 cạnh của một tam giác";
     }
