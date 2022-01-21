@@ -15,6 +15,7 @@ public class CopyFileText {
             FileWriter fileWriter = new FileWriter(fileTarget, false);
             int character;
             while ((character = fileReader.read()) != -1) {
+                // \n = 10 ; \r = 13 (Enter xuống dòng là có cả \n & \r
                 if (character != 10 && character != 13) {
                     count++;
                 }
