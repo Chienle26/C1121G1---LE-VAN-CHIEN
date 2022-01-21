@@ -14,15 +14,14 @@ public class CopyFileText {
             FileReader fileReader = new FileReader(fileSource);
             FileWriter fileWriter = new FileWriter(fileTarget, false);
             int character;
-            String temp="";
             while ((character = fileReader.read()) != -1) {
-                count++;
-                temp+=(char)character;
+                if (character != 10 && character != 13) {
+                    count++;
+                }
                 fileWriter.write((char) character);
             }
             fileReader.close();
             fileWriter.close();
-//            String[] strings = temp.split("\n");
 
         } catch (IOException e) {
             System.err.println("File bị lỗi!");
