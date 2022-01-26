@@ -7,5 +7,5 @@ public interface IService {
 
     void edit();
 
-    void delete();
+    void returnMainMenu();
 }

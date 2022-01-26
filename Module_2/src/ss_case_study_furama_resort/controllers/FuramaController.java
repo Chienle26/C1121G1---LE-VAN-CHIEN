@@ -1,9 +1,14 @@
 package ss_case_study_furama_resort.controllers;
 
+import ss_case_study_furama_resort.models.model.Employee;
+import ss_case_study_furama_resort.models.model.Person;
+import ss_case_study_furama_resort.models.services.IEmployeeService;
+
 import java.util.Scanner;
 
 public class FuramaController {
     static Scanner scanner = new Scanner(System.in);
+//    IEmployeeService iEmployeeService = new Employee();
 
     public static void main(String[] args) {
         displayMainMenu();
@@ -27,6 +32,13 @@ public class FuramaController {
                             "2\tAdd new employee\n" +
                             "3\tEdit employee\n" +
                             "4\tReturn main menu\n");
+                    int choose1 = Integer.parseInt(scanner.nextLine());
+                    switch (choose1){
+                        case 1:
+                            break;
+                        case 2:
+
+                    }
                     break;
                 case 2:
                     System.out.println("Chọn 1 trong các chức năng sau:\n" +
