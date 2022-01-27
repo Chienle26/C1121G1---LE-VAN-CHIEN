@@ -11,7 +11,7 @@ public class ProductController {
         boolean flag = true;
         while (flag) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Menu quản lý sản phẩm: \n" +
+            System.out.print("Menu quản lý sản phẩm: \n" +
                     "1. Thêm mới sản phẩm. \n" +
                     "2. Hiển thị danh sách sản phẩm. \n" +
                     "3. Tìm kiếm sản phẩm. \n" +

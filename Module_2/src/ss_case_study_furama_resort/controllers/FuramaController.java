@@ -3,12 +3,13 @@ package ss_case_study_furama_resort.controllers;
 import ss_case_study_furama_resort.models.model.Employee;
 import ss_case_study_furama_resort.models.model.Person;
 import ss_case_study_furama_resort.models.services.IEmployeeService;
+import ss_case_study_furama_resort.models.services.impl.EmployeeServiceImpl;
 
 import java.util.Scanner;
 
 public class FuramaController {
     static Scanner scanner = new Scanner(System.in);
-//    IEmployeeService iEmployeeService = new Employee();
+    static IEmployeeService iEmployeeService = new EmployeeServiceImpl();
 
     public static void main(String[] args) {
         displayMainMenu();
@@ -17,7 +18,7 @@ public class FuramaController {
     public static void displayMainMenu() {
         boolean flag = true;
         while (flag) {
-            System.out.println("Chọn 1 trong các chức năng sau:\n" +
+            System.out.print("Chọn 1 trong các chức năng sau:\n" +
                     "1.\tEmployee Management\n" +
                     "2.\tCustomer Management\n" +
                     "3.\tFacility Management \n" +
@@ -27,21 +28,34 @@ public class FuramaController {
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:
-                    System.out.println("Chọn 1 trong các chức năng sau:\n" +
-                            "1\tDisplay list employees\n" +
-                            "2\tAdd new employee\n" +
-                            "3\tEdit employee\n" +
-                            "4\tReturn main menu\n");
-                    int choose1 = Integer.parseInt(scanner.nextLine());
-                    switch (choose1){
-                        case 1:
-                            break;
-                        case 2:
-
+                    boolean flag1 = true;
+                    while (flag1) {
+                        System.out.print("Chọn 1 trong các chức năng sau:\n" +
+                                "1\tDisplay list employees\n" +
+                                "2\tAdd new employee\n" +
+                                "3\tEdit employee\n" +
+                                "4\tReturn main menu\n");
+                        int choose1 = Integer.parseInt(scanner.nextLine());
+                        switch (choose1) {
+                            case 1:
+                                iEmployeeService.display();
+                                break;
+                            case 2:
+                                iEmployeeService.add();
+                                break;
+                            case 3:
+                                iEmployeeService.edit();
+                                break;
+                            case 4:
+                                flag1 = false;
+                                break;
+                            default:
+                                System.out.println("Vui lòng nhập lại!");
+                        }
                     }
                     break;
                 case 2:
-                    System.out.println("Chọn 1 trong các chức năng sau:\n" +
+                    System.out.print("Chọn 1 trong các chức năng sau:\n" +
                             "1.\tDisplay list customers\n" +
                             "2.\tAdd new customer\n" +
                             "3.\tEdit customer\n" +
@@ -55,7 +69,7 @@ public class FuramaController {
                             "4\tReturn main menu\n");
                     break;
                 case 4:
-                    System.out.println("Chọn 1 trong các chức năng sau:\n" +
+                    System.out.print("Chọn 1 trong các chức năng sau:\n" +
                             "1.\tAdd new booking\n" +
                             "2.\tDisplay list booking\n" +
                             "3.\tCreate new constracts\n" +
@@ -64,7 +78,7 @@ public class FuramaController {
                             "6.\tReturn main menu\n");
                     break;
                 case 5:
-                    System.out.println("Chọn 1 trong các chức năng sau:\n" +
+                    System.out.print("Chọn 1 trong các chức năng sau:\n" +
                             "1.\tDisplay list customers use service\n" +
                             "2.\tDisplay list customers get voucher\n" +
                             "3.\tReturn main menu\n");
@@ -77,5 +91,4 @@ public class FuramaController {
             }
         }
     }
-
 }
