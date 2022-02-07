@@ -20,6 +20,7 @@ public class FuramaController {
     public static void main(String[] args) {
         displayMainMenu();
     }
+
     public static void displayMainMenu() {
         boolean flag = true;
         while (flag) {
@@ -87,33 +88,54 @@ public class FuramaController {
                     }
                     break;
                 case 3:
-                    System.out.println("Chọn 1 trong các chức năng sau:\n" +
-                            "1\tDisplay list facility\n" +
-                            "2\tAdd new facility\n" +
-                            "3\tDisplay list facility maintenance\n" +
-                            "4\tReturn main menu\n");
-                    int choose3 = Integer.parseInt(scanner.nextLine());
-                    switch (choose3) {
-                        case 1:
-                            iFacilityService.display();
-                            break;
-                        case 2:
-                            System.out.println("Chọn 1 trong các chức năng sau:\n" +
-                                    "1.\tAdd New Villa\n" +
-                                    "2.\tAdd New House\n" +
-                                    "3.\tAdd New Room\n" +
-                                    "4.\tBack to menu\n");
-                            int chooseAddNewFacility = Integer.parseInt(scanner.nextLine());
-
-                            break;
-                        case 3:
-                            iCustomerService.edit();
-                            break;
-                        case 4:
-                            flag2 = false;
-                            break;
-                        default:
-                            System.out.println("Vui lòng nhập lại!");
+                    boolean flag3 = true;
+                    while (flag3) {
+                        System.out.print("Chọn 1 trong các chức năng sau:\n" +
+                                "1\tDisplay list facility\n" +
+                                "2\tAdd new facility\n" +
+                                "3\tDisplay list facility maintenance\n" +
+                                "4\tReturn main menu\n");
+                        int choose3 = Integer.parseInt(scanner.nextLine());
+                        switch (choose3) {
+                            case 1:
+                                iFacilityService.display();
+                                break;
+                            case 2:
+                                boolean flagAddService = true;
+                                while (flagAddService) {
+                                    System.out.print("Chọn 1 trong các chức năng sau:\n" +
+                                            "1.\tAdd New Villa\n" +
+                                            "2.\tAdd New House\n" +
+                                            "3.\tAdd New Room\n" +
+                                            "4.\tBack to menu\n");
+                                    int chooseAddNewFacility = Integer.parseInt(scanner.nextLine());
+                                    switch (chooseAddNewFacility) {
+                                        case 1:
+                                            iFacilityService.addVilla();
+                                            break;
+                                        case 2:
+                                            iFacilityService.addHouse();
+                                            break;
+                                        case 3:
+                                            iFacilityService.addRoom();
+                                            break;
+                                        case 4:
+                                            flagAddService = false;
+                                            break;
+                                        default:
+                                            System.out.println("Vui lòng chọn lại!");
+                                    }
+                                }
+                                break;
+                            case 3:
+                                iFacilityService.displayFacilityMaintenance();
+                                break;
+                            case 4:
+                                flag3 = false;
+                                break;
+                            default:
+                                System.out.println("Vui lòng nhập lại!");
+                        }
                     }
                     break;
                 case 4:
