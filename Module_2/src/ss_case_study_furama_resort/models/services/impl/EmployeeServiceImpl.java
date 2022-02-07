@@ -11,7 +11,6 @@ import java.util.Scanner;
 public class EmployeeServiceImpl implements IEmployeeService {
     Scanner scanner = new Scanner(System.in);
     static List<Employee> employeeList = new ArrayList<>();
-
     static {
         employeeList.add(new Employee(11111, "Lê Văn Chiến", "1/1/2011", "Nam", 123456789,
                 708313527, "chienle@gmail.com", "Đại học", "Web Dev", 1000));

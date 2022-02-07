@@ -4,8 +4,10 @@ import ss_case_study_furama_resort.models.model.Employee;
 import ss_case_study_furama_resort.models.model.Person;
 import ss_case_study_furama_resort.models.services.ICustomerService;
 import ss_case_study_furama_resort.models.services.IEmployeeService;
+import ss_case_study_furama_resort.models.services.IFacilityService;
 import ss_case_study_furama_resort.models.services.impl.CustomerServiceImpl;
 import ss_case_study_furama_resort.models.services.impl.EmployeeServiceImpl;
+import ss_case_study_furama_resort.models.services.impl.FacilityServiceImpl;
 
 import java.util.Scanner;
 
@@ -13,11 +15,11 @@ public class FuramaController {
     static Scanner scanner = new Scanner(System.in);
     static IEmployeeService iEmployeeService = new EmployeeServiceImpl();
     static ICustomerService iCustomerService = new CustomerServiceImpl();
+    static IFacilityService iFacilityService = new FacilityServiceImpl();
 
     public static void main(String[] args) {
         displayMainMenu();
     }
-
     public static void displayMainMenu() {
         boolean flag = true;
         while (flag) {
@@ -90,6 +92,29 @@ public class FuramaController {
                             "2\tAdd new facility\n" +
                             "3\tDisplay list facility maintenance\n" +
                             "4\tReturn main menu\n");
+                    int choose3 = Integer.parseInt(scanner.nextLine());
+                    switch (choose3) {
+                        case 1:
+                            iFacilityService.display();
+                            break;
+                        case 2:
+                            System.out.println("Chọn 1 trong các chức năng sau:\n" +
+                                    "1.\tAdd New Villa\n" +
+                                    "2.\tAdd New House\n" +
+                                    "3.\tAdd New Room\n" +
+                                    "4.\tBack to menu\n");
+                            int chooseAddNewFacility = Integer.parseInt(scanner.nextLine());
+
+                            break;
+                        case 3:
+                            iCustomerService.edit();
+                            break;
+                        case 4:
+                            flag2 = false;
+                            break;
+                        default:
+                            System.out.println("Vui lòng nhập lại!");
+                    }
                     break;
                 case 4:
                     System.out.print("Chọn 1 trong các chức năng sau:\n" +
