@@ -14,6 +14,7 @@ public class FuramaController {
     static IFacilityService iFacilityService = new FacilityServiceImpl();
     static IBookingService iBookingService = new BookingServiceImpl();
     static IContactService iContactService = new ContactServiceImpl();
+    static IPromotionManagement iPromotionManagement = new PromotionManagementServiceImpl();
 
     public static void main(String[] args) {
         displayMainMenu();
@@ -176,6 +177,7 @@ public class FuramaController {
                             "1.\tDisplay list customers use service\n" +
                             "2.\tDisplay list customers get voucher\n" +
                             "3.\tReturn main menu\n");
+//                    int choose5 = Integer
                     break;
                 case 6:
                     flag = false;
