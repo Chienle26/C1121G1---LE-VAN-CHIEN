@@ -2,14 +2,8 @@ package ss_case_study_furama_resort.controllers;
 
 import ss_case_study_furama_resort.models.model.Employee;
 import ss_case_study_furama_resort.models.model.Person;
-import ss_case_study_furama_resort.models.services.IBookingService;
-import ss_case_study_furama_resort.models.services.ICustomerService;
-import ss_case_study_furama_resort.models.services.IEmployeeService;
-import ss_case_study_furama_resort.models.services.IFacilityService;
-import ss_case_study_furama_resort.models.services.impl.BookingServiceImpl;
-import ss_case_study_furama_resort.models.services.impl.CustomerServiceImpl;
-import ss_case_study_furama_resort.models.services.impl.EmployeeServiceImpl;
-import ss_case_study_furama_resort.models.services.impl.FacilityServiceImpl;
+import ss_case_study_furama_resort.models.services.*;
+import ss_case_study_furama_resort.models.services.impl.*;
 
 import java.util.Scanner;
 
@@ -19,6 +13,7 @@ public class FuramaController {
     static ICustomerService iCustomerService = new CustomerServiceImpl();
     static IFacilityService iFacilityService = new FacilityServiceImpl();
     static IBookingService iBookingService = new BookingServiceImpl();
+    static IContactService iContactService = new ContactServiceImpl();
 
     public static void main(String[] args) {
         displayMainMenu();
@@ -154,12 +149,20 @@ public class FuramaController {
                         int chooseBookings = Integer.parseInt(scanner.nextLine());
                         switch (chooseBookings) {
                             case 1:
+                                iBookingService.add();
+                                break;
                             case 2:
                                 iBookingService.display();
                                 break;
                             case 3:
+                                iContactService.add();
+                                break;
                             case 4:
+                                iContactService.display();
+                                break;
                             case 5:
+                                iContactService.edit();;
+                                break;
                             case 6:
                                 flag4 = false;
                                 break;
