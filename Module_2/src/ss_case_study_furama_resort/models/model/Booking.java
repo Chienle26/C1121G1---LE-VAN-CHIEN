@@ -1,6 +1,11 @@
 package ss_case_study_furama_resort.models.model;
 
-public class Booking {
+import ss_case_study_furama_resort.utils.BookingComparator;
+
+import java.util.Comparator;
+import java.util.Objects;
+
+public class Booking implements Comparable<Booking> {
     int bookingCode;
     String startDate;
     String endDate;
@@ -78,5 +83,21 @@ public class Booking {
                 ", nameService='" + nameService + '\'' +
                 ", serviceType='" + serviceType + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Booking o) {
+        return this.bookingCode-o.bookingCode;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Booking booking = (Booking) o;
+        return this.getBookingCode()==booking.getBookingCode();
+    }
+
+    @Override
+    public int hashCode() {
+        return 1;
     }
 }

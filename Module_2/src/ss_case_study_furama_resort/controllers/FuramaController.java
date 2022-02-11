@@ -2,9 +2,11 @@ package ss_case_study_furama_resort.controllers;
 
 import ss_case_study_furama_resort.models.model.Employee;
 import ss_case_study_furama_resort.models.model.Person;
+import ss_case_study_furama_resort.models.services.IBookingService;
 import ss_case_study_furama_resort.models.services.ICustomerService;
 import ss_case_study_furama_resort.models.services.IEmployeeService;
 import ss_case_study_furama_resort.models.services.IFacilityService;
+import ss_case_study_furama_resort.models.services.impl.BookingServiceImpl;
 import ss_case_study_furama_resort.models.services.impl.CustomerServiceImpl;
 import ss_case_study_furama_resort.models.services.impl.EmployeeServiceImpl;
 import ss_case_study_furama_resort.models.services.impl.FacilityServiceImpl;
@@ -16,6 +18,7 @@ public class FuramaController {
     static IEmployeeService iEmployeeService = new EmployeeServiceImpl();
     static ICustomerService iCustomerService = new CustomerServiceImpl();
     static IFacilityService iFacilityService = new FacilityServiceImpl();
+    static IBookingService iBookingService = new BookingServiceImpl();
 
     public static void main(String[] args) {
         displayMainMenu();
@@ -139,13 +142,31 @@ public class FuramaController {
                     }
                     break;
                 case 4:
-                    System.out.print("Chọn 1 trong các chức năng sau:\n" +
-                            "1.\tAdd new booking\n" +
-                            "2.\tDisplay list booking\n" +
-                            "3.\tCreate new constracts\n" +
-                            "4.\tDisplay list contracts\n" +
-                            "5.\tEdit contracts\n" +
-                            "6.\tReturn main menu\n");
+                    boolean flag4 = true;
+                    while (flag4) {
+                        System.out.print("Chọn 1 trong các chức năng sau:\n" +
+                                "1.\tAdd new booking\n" +
+                                "2.\tDisplay list booking\n" +
+                                "3.\tCreate new constracts\n" +
+                                "4.\tDisplay list contracts\n" +
+                                "5.\tEdit contracts\n" +
+                                "6.\tReturn main menu\n");
+                        int chooseBookings = Integer.parseInt(scanner.nextLine());
+                        switch (chooseBookings) {
+                            case 1:
+                            case 2:
+                                iBookingService.display();
+                                break;
+                            case 3:
+                            case 4:
+                            case 5:
+                            case 6:
+                                flag4 = false;
+                                break;
+                            default:
+                                System.out.println("Vui lòng nhập lại!");
+                        }
+                    }
                     break;
                 case 5:
                     System.out.print("Chọn 1 trong các chức năng sau:\n" +

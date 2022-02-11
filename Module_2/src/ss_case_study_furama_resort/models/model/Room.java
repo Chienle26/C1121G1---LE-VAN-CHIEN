@@ -24,6 +24,17 @@ public class Room extends Facility{
     }
 
     @Override
+    public boolean equals(Object o) {
+        Room room = (Room) o;
+        return this.getNameService().equals(room.getNameService());
+    }
+
+    @Override
+    public int hashCode() {
+        return 2;
+    }
+
+    @Override
     public String toString() {
         return "Room{" +
                 "nameService='" + nameService + '\'' +

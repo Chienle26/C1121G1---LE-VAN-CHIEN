@@ -35,6 +35,17 @@ public class House extends Facility{
     }
 
     @Override
+    public boolean equals(Object o) {
+        House house = (House) o;
+        return this.getNameService().equals(house.getNameService());
+    }
+
+    @Override
+    public int hashCode() {
+        return 3;
+    }
+
+    @Override
     public String toString() {
         return "House{" +
                 "nameService='" + nameService + '\'' +
