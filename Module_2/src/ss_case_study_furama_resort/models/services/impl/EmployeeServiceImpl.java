@@ -23,8 +23,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
     @Override
     public void add()  {
         try {
-            FileWriter fileWriter = new FileWriter(fileEmployee,false);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+//            FileWriter fileWriter = new FileWriter(fileEmployee,false);
+//            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             System.out.print("Nhập mã số nhân viên: ");
             int employeeCode = Integer.parseInt(scanner.nextLine());
             System.out.print("Nhập tên nhân viên: ");
@@ -46,7 +46,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
             System.out.print("Nhập lương nhân viên: ");
             int salary = Integer.parseInt(scanner.nextLine());
             employeeList.add(new Employee(employeeCode, name, dateOfBirth, gender, IDNumber, phoneNumber, email, degree, position, salary));
-            bufferedWriter.write(String.valueOf(new Employee(employeeCode, name, dateOfBirth, gender, IDNumber, phoneNumber, email, degree, position, salary)));
+//            bufferedWriter.write(String.valueOf(new Employee(employeeCode, name, dateOfBirth, gender, IDNumber, phoneNumber, email, degree, position, salary)));
             System.err.println("Thêm mới thành công!");
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,12 +55,12 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
     @Override
     public void display() {
-        try {
-            FileReader fileReader = new FileReader(fileEmployee);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            FileReader fileReader = new FileReader(fileEmployee);
+//            BufferedReader bufferedReader = new BufferedReader(fileReader);
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
         for (Employee employee : employeeList) {
             System.out.println(employee.toString());
         }

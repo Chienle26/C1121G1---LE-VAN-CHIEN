@@ -18,9 +18,11 @@ public class FuramaController {
     public static void main(String[] args) {
         displayMainMenu();
     }
+
     public static void displayMainMenu() {
-        boolean flag = true;
-        while (flag) {
+        boolean flagMainMenu = true;
+        int chooseMainMenu = 0;
+        while (flagMainMenu) {
             System.out.print("Chọn 1 trong các chức năng sau:\n" +
                     "1.\tEmployee Management\n" +
                     "2.\tCustomer Management\n" +
@@ -28,18 +30,27 @@ public class FuramaController {
                     "4.\tBooking Management\n" +
                     "5.\tPromotion Management\n" +
                     "6.\tExit\n");
-            int choose = Integer.parseInt(scanner.nextLine());
-            switch (choose) {
+            try {
+                chooseMainMenu = Integer.parseInt(scanner.nextLine());
+            } catch (Exception e) {
+                System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại!");
+            }
+            switch (chooseMainMenu) {
                 case 1:
-                    boolean flag1 = true;
-                    while (flag1) {
+                    boolean flagEmployeeMenu = true;
+                    int chooseEmloyeeMenu = 0;
+                    while (flagEmployeeMenu) {
                         System.out.print("Chọn 1 trong các chức năng sau:\n" +
                                 "1\tDisplay list employees\n" +
                                 "2\tAdd new employee\n" +
                                 "3\tEdit employee\n" +
                                 "4\tReturn main menu\n");
-                        int choose1 = Integer.parseInt(scanner.nextLine());
-                        switch (choose1) {
+                        try {
+                            chooseEmloyeeMenu = Integer.parseInt(scanner.nextLine());
+                        } catch (Exception e) {
+                            System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại!");
+                        }
+                        switch (chooseEmloyeeMenu) {
                             case 1:
                                 iEmployeeService.display();
                                 break;
@@ -54,7 +65,7 @@ public class FuramaController {
                                 iEmployeeService.edit();
                                 break;
                             case 4:
-                                flag1 = false;
+                                flagEmployeeMenu = false;
                                 break;
                             default:
                                 System.out.println("Vui lòng nhập lại!");
@@ -62,15 +73,20 @@ public class FuramaController {
                     }
                     break;
                 case 2:
-                    boolean flag2 = true;
-                    while (flag2) {
+                    boolean flagCustomerMenu = true;
+                    int chooseCustomerMenu = 0;
+                    while (flagCustomerMenu) {
                         System.out.print("Chọn 1 trong các chức năng sau:\n" +
                                 "1.\tDisplay list customers\n" +
                                 "2.\tAdd new customer\n" +
                                 "3.\tEdit customer\n" +
                                 "4.\tReturn main menu\n");
-                        int choose2 = Integer.parseInt(scanner.nextLine());
-                        switch (choose2) {
+                        try {
+                            chooseCustomerMenu = Integer.parseInt(scanner.nextLine());
+                        } catch (Exception e) {
+                            System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại!");
+                        }
+                        switch (chooseCustomerMenu) {
                             case 1:
                                 iCustomerService.display();
                                 break;
@@ -85,7 +101,7 @@ public class FuramaController {
                                 iCustomerService.edit();
                                 break;
                             case 4:
-                                flag2 = false;
+                                flagCustomerMenu = false;
                                 break;
                             default:
                                 System.out.println("Vui lòng nhập lại!");
@@ -93,27 +109,37 @@ public class FuramaController {
                     }
                     break;
                 case 3:
-                    boolean flag3 = true;
-                    while (flag3) {
+                    boolean flagFacilityMenu = true;
+                    int chooseFacilityMenu = 0;
+                    while (flagFacilityMenu) {
                         System.out.print("Chọn 1 trong các chức năng sau:\n" +
                                 "1\tDisplay list facility\n" +
                                 "2\tAdd new facility\n" +
                                 "3\tDisplay list facility maintenance\n" +
                                 "4\tReturn main menu\n");
-                        int choose3 = Integer.parseInt(scanner.nextLine());
-                        switch (choose3) {
+                        try {
+                            chooseFacilityMenu = Integer.parseInt(scanner.nextLine());
+                        } catch (Exception e) {
+                            System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại!");
+                        }
+                        switch (chooseFacilityMenu) {
                             case 1:
                                 iFacilityService.display();
                                 break;
                             case 2:
                                 boolean flagAddService = true;
+                                int chooseAddNewFacility = 0;
                                 while (flagAddService) {
                                     System.out.print("Chọn 1 trong các chức năng sau:\n" +
                                             "1.\tAdd New Villa\n" +
                                             "2.\tAdd New House\n" +
                                             "3.\tAdd New Room\n" +
                                             "4.\tBack to menu\n");
-                                    int chooseAddNewFacility = Integer.parseInt(scanner.nextLine());
+                                    try {
+                                        chooseAddNewFacility = Integer.parseInt(scanner.nextLine());
+                                    } catch (Exception e) {
+                                        System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại!");
+                                    }
                                     switch (chooseAddNewFacility) {
                                         case 1:
                                             iFacilityService.addVilla();
@@ -136,7 +162,7 @@ public class FuramaController {
                                 iFacilityService.displayFacilityMaintenance();
                                 break;
                             case 4:
-                                flag3 = false;
+                                flagFacilityMenu = false;
                                 break;
                             default:
                                 System.out.println("Vui lòng nhập lại!");
@@ -144,8 +170,9 @@ public class FuramaController {
                     }
                     break;
                 case 4:
-                    boolean flag4 = true;
-                    while (flag4) {
+                    boolean flagBooking = true;
+                    int chooseBookingMenu = 0;
+                    while (flagBooking) {
                         System.out.print("Chọn 1 trong các chức năng sau:\n" +
                                 "1.\tAdd new booking\n" +
                                 "2.\tDisplay list booking\n" +
@@ -153,8 +180,12 @@ public class FuramaController {
                                 "4.\tDisplay list contracts\n" +
                                 "5.\tEdit contracts\n" +
                                 "6.\tReturn main menu\n");
-                        int chooseBookings = Integer.parseInt(scanner.nextLine());
-                        switch (chooseBookings) {
+                        try {
+                            chooseBookingMenu = Integer.parseInt(scanner.nextLine());
+                        } catch (Exception e) {
+                            System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại!");
+                        }
+                        switch (chooseBookingMenu) {
                             case 1:
                                 try {
                                     iBookingService.add();
@@ -180,7 +211,7 @@ public class FuramaController {
                                 ;
                                 break;
                             case 6:
-                                flag4 = false;
+                                flagBooking = false;
                                 break;
                             default:
                                 System.out.println("Vui lòng nhập lại!");
@@ -188,14 +219,19 @@ public class FuramaController {
                     }
                     break;
                 case 5:
-                    boolean flag5 = true;
-                    while (flag5){
+                    boolean flagPromotion = true;
+                    int choosePromotion = 0;
+                    while (flagPromotion) {
                         System.out.print("Chọn 1 trong các chức năng sau:\n" +
                                 "1.\tDisplay list customers use service\n" +
                                 "2.\tDisplay list customers get voucher\n" +
                                 "3.\tReturn main menu\n");
-                        int choose5 = Integer.parseInt(scanner.nextLine());
-                        switch (choose5) {
+                        try {
+                            choosePromotion = Integer.parseInt(scanner.nextLine());
+                        } catch (Exception e) {
+                            System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại!");
+                        }
+                        switch (choosePromotion) {
                             case 1:
                                 iPromotionManagement.displayCustomersUseService();
                                 break;
@@ -203,7 +239,7 @@ public class FuramaController {
                                 iPromotionManagement.displayCustomersGetVoucher();
                                 break;
                             case 3:
-                                flag5 = false;
+                                flagPromotion = false;
                                 break;
                             default:
                                 System.out.println("Vui lòng nhập lại!");
@@ -211,7 +247,7 @@ public class FuramaController {
                     }
                     break;
                 case 6:
-                    flag = false;
+                    flagMainMenu = false;
                     break;
                 default:
                     System.out.println("Xin mời bạn chọn lại");
