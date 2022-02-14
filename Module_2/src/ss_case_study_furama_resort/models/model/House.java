@@ -1,8 +1,8 @@
 package ss_case_study_furama_resort.models.model;
 
 public class House extends Facility{
-    String roomStandard;
-    int numberOfFloors;
+    private String roomStandard;
+    private int numberOfFloors;
 
     public House() {
     }

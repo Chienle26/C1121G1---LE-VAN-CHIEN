@@ -11,6 +11,9 @@ import java.util.*;
 public class FacilityServiceImpl implements IFacilityService {
     Scanner scanner = new Scanner(System.in);
     static Map<Facility, Integer> facilityList = new LinkedHashMap<>();
+    String regexNameService = "^[A-Z]{1}[a-z]+$";
+    Boolean isNameServiceVilla;
+    String nameServiceVilla;
 
     static {
         facilityList.put(new House("WhiteHouse", 100, 1000, 20, "day", "4*", 2), 10);
@@ -34,8 +37,14 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void addVilla() {
-        System.out.print("Nhập tên Villa: ");
-        String nameServiceVilla = scanner.nextLine();
+        do {
+            System.out.print("Nhập tên Villa: ");
+            nameServiceVilla = scanner.nextLine();
+            isNameServiceVilla = nameServiceVilla.matches(regexNameService);
+            if (!isNameServiceVilla){
+                System.out.println("Vui lòng nhập lại tên Villa!");
+            }
+        } while (!isNameServiceVilla);
         System.out.print("Nhập diện tích Villa: ");
         int areaVilla = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập chi phí thuê Villa: ");

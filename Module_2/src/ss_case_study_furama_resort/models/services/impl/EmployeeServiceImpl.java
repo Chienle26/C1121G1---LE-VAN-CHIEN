@@ -1,9 +1,9 @@
 package ss_case_study_furama_resort.models.services.impl;
 
-import ss11_java_collection_frameword_map_tree.exercise.PracticeArraylistLinkedlistInJavaCollection.model.model.Person;
 import ss_case_study_furama_resort.models.model.Employee;
 import ss_case_study_furama_resort.models.services.IEmployeeService;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,6 +11,8 @@ import java.util.Scanner;
 public class EmployeeServiceImpl implements IEmployeeService {
     Scanner scanner = new Scanner(System.in);
     static List<Employee> employeeList = new ArrayList<>();
+    String pathFileSource = "src/ss_case_study_furama_resort/data/Employee.csv";
+    File fileEmployee = new File(pathFileSource);
     static {
         employeeList.add(new Employee(11111, "Lê Văn Chiến", "1/1/2011", "Nam", 123456789,
                 708313527, "chienle@gmail.com", "Đại học", "Web Dev", 1000));
@@ -19,33 +21,46 @@ public class EmployeeServiceImpl implements IEmployeeService {
     }
 
     @Override
-    public void add() {
-        System.out.print("Nhập mã số nhân viên: ");
-        int employeeCode = Integer.parseInt(scanner.nextLine());
-        System.out.print("Nhập tên nhân viên: ");
-        String name = scanner.nextLine();
-        System.out.print("Nhập ngày tháng năm sinh nhân viên: ");
-        String dateOfBirth = scanner.nextLine();
-        System.out.print("Nhập giới tính nhân viên: ");
-        String gender = scanner.nextLine();
-        System.out.print("Nhập số CMND nhân viên: ");
-        int IDNumber = Integer.parseInt(scanner.nextLine());
-        System.out.print("Nhập SĐT nhân viên: ");
-        int phoneNumber = Integer.parseInt(scanner.nextLine());
-        System.out.print("Nhập email nhân viên: ");
-        String email = scanner.nextLine();
-        System.out.print("Nhập bằng cấp nhân viên: ");
-        String degree = scanner.nextLine();
-        System.out.print("Nhập vị trí nhân viên: ");
-        String position = scanner.nextLine();
-        System.out.print("Nhập lương nhân viên: ");
-        int salary = Integer.parseInt(scanner.nextLine());
-        employeeList.add(new Employee(employeeCode, name, dateOfBirth, gender, IDNumber, phoneNumber, email, degree, position, salary));
-        System.err.println("Thêm mới thành công!");
+    public void add()  {
+        try {
+            FileWriter fileWriter = new FileWriter(fileEmployee,false);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            System.out.print("Nhập mã số nhân viên: ");
+            int employeeCode = Integer.parseInt(scanner.nextLine());
+            System.out.print("Nhập tên nhân viên: ");
+            String name = scanner.nextLine();
+            System.out.print("Nhập ngày tháng năm sinh nhân viên: ");
+            String dateOfBirth = scanner.nextLine();
+            System.out.print("Nhập giới tính nhân viên: ");
+            String gender = scanner.nextLine();
+            System.out.print("Nhập số CMND nhân viên: ");
+            int IDNumber = Integer.parseInt(scanner.nextLine());
+            System.out.print("Nhập SĐT nhân viên: ");
+            int phoneNumber = Integer.parseInt(scanner.nextLine());
+            System.out.print("Nhập email nhân viên: ");
+            String email = scanner.nextLine();
+            System.out.print("Nhập bằng cấp nhân viên: ");
+            String degree = scanner.nextLine();
+            System.out.print("Nhập vị trí nhân viên: ");
+            String position = scanner.nextLine();
+            System.out.print("Nhập lương nhân viên: ");
+            int salary = Integer.parseInt(scanner.nextLine());
+            employeeList.add(new Employee(employeeCode, name, dateOfBirth, gender, IDNumber, phoneNumber, email, degree, position, salary));
+            bufferedWriter.write(String.valueOf(new Employee(employeeCode, name, dateOfBirth, gender, IDNumber, phoneNumber, email, degree, position, salary)));
+            System.err.println("Thêm mới thành công!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void display() {
+        try {
+            FileReader fileReader = new FileReader(fileEmployee);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         for (Employee employee : employeeList) {
             System.out.println(employee.toString());
         }

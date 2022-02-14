@@ -1,7 +1,7 @@
 package ss_case_study_furama_resort.models.model;
 
 public class Room extends Facility{
-    String freeService;
+    private String freeService;
 
     public Room() {
     }

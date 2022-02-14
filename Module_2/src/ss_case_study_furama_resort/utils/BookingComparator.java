@@ -9,7 +9,6 @@ import java.util.Comparator;
 import java.util.Date;
 
 public class BookingComparator implements Comparator<Booking> {
-
     @Override
     public int compare(Booking o1, Booking o2) {
         int date=1;

@@ -1,6 +1,6 @@
 package ss_case_study_furama_resort.models.model;
 
-public class Contact {
+public class Contract {
     private int contractNumber;
     private Booking bookingCode;
     private double deposit;
@@ -10,10 +10,10 @@ public class Contact {
     private static int number =1;
 
 
-    public Contact() {
+    public Contract() {
     }
 
-    public Contact(Booking bookingCode, double deposit, double totalPayment, Booking customerCode) {
+    public Contract(Booking bookingCode, double deposit, double totalPayment, Booking customerCode) {
         this.bookingCode = bookingCode;
         this.deposit = deposit;
         this.totalPayment = totalPayment;
@@ -66,7 +66,7 @@ public class Contact {
     }
 
     public static void setNumber(int number) {
-        Contact.number = number;
+        Contract.number = number;
     }
 
     @Override

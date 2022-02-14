@@ -1,16 +1,16 @@
 package ss_case_study_furama_resort.models.services.impl;
 
 import ss_case_study_furama_resort.models.model.Booking;
-import ss_case_study_furama_resort.models.model.Contact;
-import ss_case_study_furama_resort.models.services.IContactService;
+import ss_case_study_furama_resort.models.model.Contract;
+import ss_case_study_furama_resort.models.services.IContractService;
 import ss_case_study_furama_resort.utils.BookingComparator;
 
 import java.util.*;
 
-public class ContactServiceImpl implements IContactService {
+public class ContractServiceImpl implements IContractService {
     Scanner scanner = new Scanner(System.in);
     private List<Booking> bookingList = new ArrayList<>(BookingServiceImpl.bookings);
-    private Queue<Contact> contacts = new LinkedList<>();
+    private Queue<Contract> contracts = new LinkedList<>();
 
     @Override
     public void add() {
@@ -22,8 +22,8 @@ public class ContactServiceImpl implements IContactService {
                 double deposit = Double.parseDouble(scanner.nextLine());
                 System.out.println("Nhập vào tổng tiền thanh toán của hợp đồng có mã booking là " + bookingList.get(i).getBookingCode() + ": ");
                 double totalPayment = Double.parseDouble(scanner.nextLine());
-                Contact contact = new Contact(bookingList.get(i), deposit, totalPayment, bookingList.get(i));
-                contacts.add(contact);
+                Contract contract = new Contract(bookingList.get(i), deposit, totalPayment, bookingList.get(i));
+                contracts.add(contract);
             }
         }
         BookingServiceImpl.bookings = new TreeSet<>();
@@ -31,8 +31,8 @@ public class ContactServiceImpl implements IContactService {
 
     @Override
     public void display() {
-        for (Contact contact : contacts) {
-            System.out.println(contact);
+        for (Contract contract : contracts) {
+            System.out.println(contract);
         }
     }
 
@@ -40,15 +40,15 @@ public class ContactServiceImpl implements IContactService {
     public void edit() {
         display();
         System.out.println("Nhập mã hợp đồng muốn sửa: ");
-        int contactCode = Integer.parseInt(scanner.nextLine());
-        for(Contact contact: contacts){
-            if (contactCode==contact.getContractNumber()){
+        int contractCode = Integer.parseInt(scanner.nextLine());
+        for(Contract contract: contracts){
+            if (contractCode==contract.getContractNumber()){
                 System.out.println("Nhập vào tiền đặt cọc: ");
                 double deposit = Double.parseDouble(scanner.nextLine());
                 System.out.println("Nhập vào tổng tiền thanh toán: ");
                 double totalPayment = Double.parseDouble(scanner.nextLine());
-                contact.setDeposit(deposit);
-                contact.setTotalPayment(totalPayment);
+                contract.setDeposit(deposit);
+                contract.setTotalPayment(totalPayment);
             }
         }
     }

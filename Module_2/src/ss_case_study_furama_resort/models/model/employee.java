@@ -1,10 +1,10 @@
 package ss_case_study_furama_resort.models.model;
 
 public class Employee extends Person{
-    int employeeCode;
-    String degree;
-    String position;
-    int salary;
+    private int employeeCode;
+    private String degree;
+    private String position;
+    private int salary;
 
     public Employee() {
     }

@@ -1,9 +1,9 @@
 package ss_case_study_furama_resort.models.model;
 
 public class Customer extends Person {
-    int customerCode;
-    String customerType;
-    String address;
+    private int customerCode;
+    private String customerType;
+    private String address;
 
     public Customer() {
     }

@@ -1,10 +1,9 @@
 package ss_case_study_furama_resort.controllers;
 
-import ss_case_study_furama_resort.models.model.Employee;
-import ss_case_study_furama_resort.models.model.Person;
 import ss_case_study_furama_resort.models.services.*;
 import ss_case_study_furama_resort.models.services.impl.*;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class FuramaController {
@@ -13,13 +12,12 @@ public class FuramaController {
     static ICustomerService iCustomerService = new CustomerServiceImpl();
     static IFacilityService iFacilityService = new FacilityServiceImpl();
     static IBookingService iBookingService = new BookingServiceImpl();
-    static IContactService iContactService = new ContactServiceImpl();
+    static IContractService iContactService = new ContractServiceImpl();
     static IPromotionManagement iPromotionManagement = new PromotionManagementServiceImpl();
 
     public static void main(String[] args) {
         displayMainMenu();
     }
-
     public static void displayMainMenu() {
         boolean flag = true;
         while (flag) {
@@ -46,7 +44,11 @@ public class FuramaController {
                                 iEmployeeService.display();
                                 break;
                             case 2:
-                                iEmployeeService.add();
+                                try {
+                                    iEmployeeService.add();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                                 break;
                             case 3:
                                 iEmployeeService.edit();
@@ -73,7 +75,11 @@ public class FuramaController {
                                 iCustomerService.display();
                                 break;
                             case 2:
-                                iCustomerService.add();
+                                try {
+                                    iCustomerService.add();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                                 break;
                             case 3:
                                 iCustomerService.edit();
@@ -150,19 +156,28 @@ public class FuramaController {
                         int chooseBookings = Integer.parseInt(scanner.nextLine());
                         switch (chooseBookings) {
                             case 1:
-                                iBookingService.add();
+                                try {
+                                    iBookingService.add();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                                 break;
                             case 2:
                                 iBookingService.display();
                                 break;
                             case 3:
-                                iContactService.add();
+                                try {
+                                    iContactService.add();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                                 break;
                             case 4:
                                 iContactService.display();
                                 break;
                             case 5:
-                                iContactService.edit();;
+                                iContactService.edit();
+                                ;
                                 break;
                             case 6:
                                 flag4 = false;
@@ -173,11 +188,27 @@ public class FuramaController {
                     }
                     break;
                 case 5:
-                    System.out.print("Chọn 1 trong các chức năng sau:\n" +
-                            "1.\tDisplay list customers use service\n" +
-                            "2.\tDisplay list customers get voucher\n" +
-                            "3.\tReturn main menu\n");
-//                    int choose5 = Integer
+                    boolean flag5 = true;
+                    while (flag5){
+                        System.out.print("Chọn 1 trong các chức năng sau:\n" +
+                                "1.\tDisplay list customers use service\n" +
+                                "2.\tDisplay list customers get voucher\n" +
+                                "3.\tReturn main menu\n");
+                        int choose5 = Integer.parseInt(scanner.nextLine());
+                        switch (choose5) {
+                            case 1:
+                                iPromotionManagement.displayCustomersUseService();
+                                break;
+                            case 2:
+                                iPromotionManagement.displayCustomersGetVoucher();
+                                break;
+                            case 3:
+                                flag5 = false;
+                                break;
+                            default:
+                                System.out.println("Vui lòng nhập lại!");
+                        }
+                    }
                     break;
                 case 6:
                     flag = false;

@@ -3,9 +3,9 @@ package ss_case_study_furama_resort.models.model;
 import java.util.Objects;
 
 public class Villa extends Facility {
-    String roomStandard;
-    int poolArea;
-    int numberOfFloors;
+    private String roomStandard;
+    private int poolArea;
+    private int numberOfFloors;
 
     public Villa() {
     }
