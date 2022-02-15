@@ -2,17 +2,18 @@ package ss_case_study_furama_resort.models.services.impl;
 
 import ss_case_study_furama_resort.models.model.Employee;
 import ss_case_study_furama_resort.models.services.IEmployeeService;
+import ss_case_study_furama_resort.utils.ReadAndWriteFile;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements IEmployeeService {
     Scanner scanner = new Scanner(System.in);
+    String pathFileEmloyee = "src/ss_case_study_furama_resort/data/Employee.csv";
     static List<Employee> employeeList = new ArrayList<>();
-    String pathFileSource = "src/ss_case_study_furama_resort/data/Employee.csv";
-    File fileEmployee = new File(pathFileSource);
     static {
         employeeList.add(new Employee(11111, "Lê Văn Chiến", "1/1/2011", "Nam", 123456789,
                 708313527, "chienle@gmail.com", "Đại học", "Web Dev", 1000));
@@ -23,8 +24,6 @@ public class EmployeeServiceImpl implements IEmployeeService {
     @Override
     public void add()  {
         try {
-//            FileWriter fileWriter = new FileWriter(fileEmployee,false);
-//            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             System.out.print("Nhập mã số nhân viên: ");
             int employeeCode = Integer.parseInt(scanner.nextLine());
             System.out.print("Nhập tên nhân viên: ");
@@ -46,7 +45,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
             System.out.print("Nhập lương nhân viên: ");
             int salary = Integer.parseInt(scanner.nextLine());
             employeeList.add(new Employee(employeeCode, name, dateOfBirth, gender, IDNumber, phoneNumber, email, degree, position, salary));
-//            bufferedWriter.write(String.valueOf(new Employee(employeeCode, name, dateOfBirth, gender, IDNumber, phoneNumber, email, degree, position, salary)));
+//            Employee employee = new Employee(employeeCode, name, dateOfBirth, gender, IDNumber, phoneNumber, email, degree, position, salary);
+            ReadAndWriteFile.writeFile(employeeList,pathFileEmloyee);
             System.err.println("Thêm mới thành công!");
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,15 +55,10 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
     @Override
     public void display() {
-//        try {
-//            FileReader fileReader = new FileReader(fileEmployee);
-//            BufferedReader bufferedReader = new BufferedReader(fileReader);
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
+        ReadAndWriteFile.readFile(employeeList,pathFileEmloyee);
+//        for (Employee employee : employeeList) {
+//            System.out.println(employee.toString());
 //        }
-        for (Employee employee : employeeList) {
-            System.out.println(employee.toString());
-        }
     }
 
     @Override

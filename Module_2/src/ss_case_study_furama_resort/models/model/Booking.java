@@ -90,14 +90,14 @@ public class Booking implements Comparable<Booking> {
         return this.bookingCode-o.bookingCode;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        Booking booking = (Booking) o;
-//        return this.getBookingCode()==booking.getBookingCode();
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return 1;
-//    }
+    @Override
+    public boolean equals(Object o) {
+        Booking booking = (Booking) o;
+        return this.getBookingCode()==booking.getBookingCode();
+    }
+
+    @Override
+    public int hashCode() {
+        return 1;
+    }
 }
