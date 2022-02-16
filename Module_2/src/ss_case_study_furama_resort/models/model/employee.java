@@ -1,7 +1,7 @@
 package ss_case_study_furama_resort.models.model;
 
-public class Employee extends Person{
-    private int employeeCode;
+public class Employee extends Person {
+    private String employeeCode;
     private String degree;
     private String position;
     private int salary;
@@ -9,14 +9,14 @@ public class Employee extends Person{
     public Employee() {
     }
 
-    public Employee(int employeeCode, String degree, String position, int salary) {
+    public Employee(String employeeCode, String degree, String position, int salary) {
         this.employeeCode = employeeCode;
         this.degree = degree;
         this.position = position;
         this.salary = salary;
     }
 
-    public Employee(int employeeCode, String name, String dateOfBirth, String gender, int IDNumber, int phoneNumber, String email, String degree, String position, int salary) {
+    public Employee(String employeeCode, String name, String dateOfBirth, String gender, String IDNumber, String phoneNumber, String email, String degree, String position, int salary) {
         super(name, dateOfBirth, gender, IDNumber, phoneNumber, email);
         this.employeeCode = employeeCode;
         this.degree = degree;
@@ -24,11 +24,11 @@ public class Employee extends Person{
         this.salary = salary;
     }
 
-    public int getEmployeeCode() {
+    public String getEmployeeCode() {
         return employeeCode;
     }
 
-    public void setEmployeeCode(int employeeCode) {
+    public void setEmployeeCode(String employeeCode) {
         this.employeeCode = employeeCode;
     }
 
@@ -54,6 +54,11 @@ public class Employee extends Person{
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String getInfor() {
+        return this.employeeCode + "," + super.getInfor() + "," + this.degree + "," + this.position + "," + this.salary;
     }
 
     @Override

@@ -2,30 +2,23 @@ package ss_case_study_furama_resort.models.services.impl;
 
 import ss_case_study_furama_resort.models.model.Employee;
 import ss_case_study_furama_resort.models.services.IEmployeeService;
-import ss_case_study_furama_resort.utils.ReadAndWriteFile;
+import ss_case_study_furama_resort.utils.ReadAndWriteFileCSV;
 
-import java.io.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
 
-public class EmployeeServiceImpl implements IEmployeeService {
+public class EmployeeServiceImpl<ReadAndWriteCSV> implements IEmployeeService {
     Scanner scanner = new Scanner(System.in);
     String pathFileEmloyee = "src/ss_case_study_furama_resort/data/Employee.csv";
-    static List<Employee> employeeList = new ArrayList<>();
-    static {
-        employeeList.add(new Employee(11111, "Lê Văn Chiến", "1/1/2011", "Nam", 123456789,
-                708313527, "chienle@gmail.com", "Đại học", "Web Dev", 1000));
-        employeeList.add(new Employee(22222, "Lê Văn Chiến2", "1/1/2011", "Nam", 123456789,
-                708313527, "chienle@gmail.com", "Đại học", "Web Dev", 1000));
-    }
+    ReadAndWriteFileCSV readAndWriteFileCSV = new ReadAndWriteFileCSV();
+    List <Employee> employeeList = new ArrayList<>();
 
     @Override
     public void add()  {
         try {
             System.out.print("Nhập mã số nhân viên: ");
-            int employeeCode = Integer.parseInt(scanner.nextLine());
+            String employeeCode = scanner.nextLine();
             System.out.print("Nhập tên nhân viên: ");
             String name = scanner.nextLine();
             System.out.print("Nhập ngày tháng năm sinh nhân viên: ");
@@ -33,9 +26,9 @@ public class EmployeeServiceImpl implements IEmployeeService {
             System.out.print("Nhập giới tính nhân viên: ");
             String gender = scanner.nextLine();
             System.out.print("Nhập số CMND nhân viên: ");
-            int IDNumber = Integer.parseInt(scanner.nextLine());
+            String IDNumber = scanner.nextLine();
             System.out.print("Nhập SĐT nhân viên: ");
-            int phoneNumber = Integer.parseInt(scanner.nextLine());
+            String phoneNumber = scanner.nextLine();
             System.out.print("Nhập email nhân viên: ");
             String email = scanner.nextLine();
             System.out.print("Nhập bằng cấp nhân viên: ");
@@ -44,9 +37,10 @@ public class EmployeeServiceImpl implements IEmployeeService {
             String position = scanner.nextLine();
             System.out.print("Nhập lương nhân viên: ");
             int salary = Integer.parseInt(scanner.nextLine());
+            employeeList = new ArrayList<>();
             employeeList.add(new Employee(employeeCode, name, dateOfBirth, gender, IDNumber, phoneNumber, email, degree, position, salary));
-//            Employee employee = new Employee(employeeCode, name, dateOfBirth, gender, IDNumber, phoneNumber, email, degree, position, salary);
-            ReadAndWriteFile.writeFile(employeeList,pathFileEmloyee);
+            List<String> list = readAndWriteFileCSV.changeToStringList(employeeList);
+            readAndWriteFileCSV.writeFileCSV(pathFileEmloyee,list,true);
             System.err.println("Thêm mới thành công!");
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,18 +49,30 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
     @Override
     public void display() {
-        ReadAndWriteFile.readFile(employeeList,pathFileEmloyee);
-//        for (Employee employee : employeeList) {
-//            System.out.println(employee.toString());
-//        }
+        List<String> list = readAndWriteFileCSV.readFileCSV(pathFileEmloyee);
+        String[] array;
+
+        for (int i = 0; i < list.size(); i++) {
+            array = list.get(i).split(",");
+            Employee employee = new Employee(array[0], array[1], array[2], array[3], array[4],array[5], array[6], array[7], array[8],Integer.parseInt(array[9]));
+            System.out.println(employee);
+        }
     }
 
     @Override
     public void edit() {
+        List<Employee> employeeList2 = new ArrayList<>();
+        List<String> listTemp = readAndWriteFileCSV.readFileCSV(pathFileEmloyee);
+            String[] array;
+            for (int i = 0; i < listTemp.size(); i++) {
+                array = listTemp.get(i).split(",");
+                Employee employee = new Employee(array[0], array[1], array[2], array[3], array[4],array[5], array[6], array[7], array[8],Integer.parseInt(array[9]));
+                employeeList2.add(employee);
+            }
         System.out.print("Nhập tên nhân viên muốn sửa: ");
         String nameSearch = scanner.nextLine();
         boolean flag = true;
-        for (Employee employee : employeeList) {
+        for (Employee employee : employeeList2) {
             if (nameSearch.equals(employee.getName())) {
                 flag = false;
                 System.out.println("Nhập các thông tin cần sửa: ");
@@ -77,9 +83,9 @@ public class EmployeeServiceImpl implements IEmployeeService {
                 System.out.print("Nhập giới tính nhân viên: ");
                 String gender = scanner.nextLine();
                 System.out.print("Nhập số CMND nhân viên: ");
-                int IDNumber = Integer.parseInt(scanner.nextLine());
+                String IDNumber = scanner.nextLine();
                 System.out.print("Nhập SĐT nhân viên: ");
-                int phoneNumber = Integer.parseInt(scanner.nextLine());
+                String phoneNumber = scanner.nextLine();
                 System.out.print("Nhập email nhân viên: ");
                 String email = scanner.nextLine();
                 System.out.print("Nhập bằng cấp nhân viên: ");
@@ -97,7 +103,14 @@ public class EmployeeServiceImpl implements IEmployeeService {
                 employee.setDegree(degree);
                 employee.setPosition(position);
                 employee.setSalary(salary);
-                System.err.println("Sửa đổi mới thành công!");
+                System.out.println("list ne");
+                for (Employee e:employeeList2){
+                    System.out.println(e);
+                }
+                List<String> list = readAndWriteFileCSV.changeToStringList(employeeList2);
+
+                readAndWriteFileCSV.writeFileCSV(pathFileEmloyee,list,false);
+                System.out.println("Sửa đổi mới thành công!");
             }
         }
         if (flag) {

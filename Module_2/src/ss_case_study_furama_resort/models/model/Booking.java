@@ -73,6 +73,10 @@ public class Booking implements Comparable<Booking> {
         this.serviceType = serviceType;
     }
 
+    public String getString() {
+        return this.bookingCode + "," + this.startDate + "," + this.endDate + "," + this.customerCode + "," + this.nameService + "," + this.serviceType;
+    }
+
     @Override
     public String toString() {
         return "Booking{" +

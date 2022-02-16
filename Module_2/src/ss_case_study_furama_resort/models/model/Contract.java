@@ -69,6 +69,10 @@ public class Contract {
         Contract.number = number;
     }
 
+    public String getString() {
+        return this.contractNumber + "," + this.bookingCode + "," + this.deposit + "," + this.totalPayment + "," + this.customerCode;
+    }
+
     @Override
     public String toString() {
         return "Contract{" +

@@ -58,6 +58,10 @@ public abstract class Facility {
         this.rentalType = rentalType;
     }
 
+    public String getInformation() {
+        return this.nameService + "," + this.area + "," + this.rentalType + "," + this.maxPeople + "," + this.rentalType;
+    }
+
     @Override
     public String toString() {
         return "Facility{" +

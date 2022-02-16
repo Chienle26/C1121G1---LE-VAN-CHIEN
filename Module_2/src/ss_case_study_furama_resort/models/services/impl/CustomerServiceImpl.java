@@ -12,17 +12,10 @@ public class CustomerServiceImpl implements ICustomerService {
     Scanner scanner = new Scanner(System.in);
     static List<Customer> customerList = new LinkedList<>();
 
-    static {
-        customerList.add(new Customer(11111, "Lê Văn Chiến", "1/1/2011", "Nam", 123456789,
-                708313527, "chienle@gmail.com", "Diamond", "Đà Nẵng"));
-        customerList.add(new Customer(22222, "Lê Văn Chiến2", "1/1/2011", "Nam", 223456789,
-                708313527, "chienle@gmail.com", "Diamond", "Đà Nẵng"));
-    }
-
     @Override
     public void add() {
         System.out.print("Nhập mã số khách hàng: ");
-        int customerCode = Integer.parseInt(scanner.nextLine());
+        String customerCode = scanner.nextLine();
         System.out.print("Nhập tên khách hàng: ");
         String name = scanner.nextLine();
         System.out.print("Nhập ngày tháng năm sinh khách hàng: ");
@@ -30,9 +23,9 @@ public class CustomerServiceImpl implements ICustomerService {
         System.out.print("Nhập giới tính khách hàng: ");
         String gender = scanner.nextLine();
         System.out.print("Nhập số CMND khách hàng: ");
-        int IDNumber = Integer.parseInt(scanner.nextLine());
+        String IDNumber = scanner.nextLine();
         System.out.print("Nhập SĐT khách hàng: ");
-        int phoneNumber = Integer.parseInt(scanner.nextLine());
+        String phoneNumber = scanner.nextLine();
         System.out.print("Nhập email khách hàng: ");
         String email = scanner.nextLine();
         System.out.print("Nhập loại khách hàng: ");
@@ -66,9 +59,9 @@ public class CustomerServiceImpl implements ICustomerService {
                 System.out.print("Nhập giới tính khách hàng: ");
                 String gender = scanner.nextLine();
                 System.out.print("Nhập số CMND khách hàng: ");
-                int IDNumber = Integer.parseInt(scanner.nextLine());
+                String IDNumber = scanner.nextLine();
                 System.out.print("Nhập SĐT khách hàng: ");
-                int phoneNumber = Integer.parseInt(scanner.nextLine());
+                String phoneNumber = scanner.nextLine();
                 System.out.print("Nhập email khách hàng: ");
                 String email = scanner.nextLine();
                 System.out.print("Nhập loại khách hàng: ");

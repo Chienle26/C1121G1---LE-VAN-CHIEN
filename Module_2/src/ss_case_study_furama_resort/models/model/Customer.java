@@ -1,31 +1,31 @@
 package ss_case_study_furama_resort.models.model;
 
 public class Customer extends Person {
-    private int customerCode;
+    private String customerCode;
     private String customerType;
     private String address;
 
     public Customer() {
     }
 
-    public Customer(int customerCode, String customerType, String address) {
+    public Customer(String customerCode, String customerType, String address) {
         this.customerCode = customerCode;
         this.customerType = customerType;
         this.address = address;
     }
 
-    public Customer(int customerCode, String name, String dateOfBirth, String gender, int IDNumber, int phoneNumber, String email, String customerType, String address) {
+    public Customer(String customerCode, String name, String dateOfBirth, String gender, String IDNumber,String phoneNumber, String email, String customerType, String address) {
         super(name, dateOfBirth, gender, IDNumber, phoneNumber, email);
         this.customerCode = customerCode;
         this.customerType = customerType;
         this.address = address;
     }
 
-    public int getCustomerCode() {
+    public String getCustomerCode() {
         return customerCode;
     }
 
-    public void setCustomerCode(int customerCode) {
+    public void setCustomerCode(String customerCode) {
         this.customerCode = customerCode;
     }
 
