@@ -3,23 +3,13 @@ package ss_case_study_furama_resort.models.services.impl;
 import ss_case_study_furama_resort.models.model.Booking;
 import ss_case_study_furama_resort.models.services.IBookingService;
 import ss_case_study_furama_resort.utils.BookingComparator;
+import ss_case_study_furama_resort.utils.ReadAndWriteFileCSV;
 
 import java.util.*;
 
 public class BookingServiceImpl implements IBookingService {
     Scanner scanner = new Scanner(System.in);
-    public static Set<Booking> bookings = new TreeSet<>();
-
-    static {
-        bookings.add(new Booking(11111, "06/01/2022", "07/01/2022", 1234, "HillVilla", "Villa"));
-        bookings.add(new Booking(33333, "01/01/2022", "05/01/2022", 5678, "DeluxRoom", "Room"));
-        bookings.add(new Booking(22222, "01/01/2022", "01/02/2022", 2345, "WhiteHouse", "House"));
-        bookings.add(new Booking(11131, "01/02/2022", "02/02/2022", 2345, "WhiteHouse", "Room"));
-        bookings.add(new Booking(21131, "05/02/2022", "06/02/2022", 2345, "WhiteHouse", "House"));
-        bookings.add(new Booking(12131, "10/02/2022", "11/02/2022", 2345, "WhiteHouse", "Villa"));
-        bookings.add(new Booking(11331, "07/02/2022", "14/02/2022", 2345, "WhiteHouse", "House"));
-        bookings.add(new Booking(11331, "02/01/2022", "01/02/2022", 2345, "WhiteHouse", "Villa"));
-    }
+    public static Set<Booking> bookingSet = new TreeSet<>();
 
     @Override
     public void add() {
@@ -53,13 +43,16 @@ public class BookingServiceImpl implements IBookingService {
         String nameService = scanner.nextLine();
         System.out.print("Nhập loại dịch vụ Booking: ");
         String serviceType = scanner.nextLine();
-        bookings.add(new Booking(bookingCode, startDate, endDate, customerCode, nameService, serviceType));
+        bookingSet = new TreeSet<>();
+        bookingSet.add(new Booking(bookingCode, startDate, endDate, customerCode, nameService, serviceType));
+        ReadAndWriteFileCSV.writeBookingToCSV(bookingSet,ReadAndWriteFileCSV.BOOKING_FILE,true);
         System.out.println("Thêm mới booking thành công!");
     }
 
     @Override
     public void display() {
-        List<Booking> bookingList = new ArrayList<>(bookings);
+        bookingSet = ReadAndWriteFileCSV.readBookingToCSV(ReadAndWriteFileCSV.BOOKING_FILE);
+        List<Booking> bookingList = new ArrayList<>(bookingSet);
         Collections.sort(bookingList, new BookingComparator());
         for (Booking booking : bookingList) {
             System.out.println(booking);

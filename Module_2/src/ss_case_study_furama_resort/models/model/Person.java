@@ -68,7 +68,7 @@ public abstract class Person {
         this.email = email;
     }
 
-    public String getInfor() {
+    public String getStringPerson() {
         return this.name + "," + this.dateOfBirth + "," + this.gender + "," + this.IDNumber + "," + this.phoneNumber + "," + this.email;
     }
 

@@ -108,7 +108,6 @@ public class EmployeeServiceImpl<ReadAndWriteCSV> implements IEmployeeService {
                     System.out.println(e);
                 }
                 List<String> list = readAndWriteFileCSV.changeToStringList(employeeList2);
-
                 readAndWriteFileCSV.writeFileCSV(pathFileEmloyee,list,false);
                 System.out.println("Sửa đổi mới thành công!");
             }

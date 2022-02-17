@@ -57,8 +57,8 @@ public class Employee extends Person {
     }
 
     @Override
-    public String getInfor() {
-        return this.employeeCode + "," + super.getInfor() + "," + this.degree + "," + this.position + "," + this.salary;
+    public String getStringPerson() {
+        return this.employeeCode + "," + super.getStringPerson() + "," + this.degree + "," + this.position + "," + this.salary;
     }
 
     @Override

@@ -15,7 +15,7 @@ public class PromotionManagementServiceImpl implements IPromotionManagement {
         System.out.print("Nhập năm cần hiển thị danh sách Booking: ");
         int yearBooking = Integer.parseInt(scanner.nextLine());
         String year = Integer.toString(yearBooking);
-        for (Booking booking : BookingServiceImpl.bookings) {
+        for (Booking booking : BookingServiceImpl.bookingSet) {
             if (booking.getStartDate().indexOf(year) > 0 || booking.getEndDate().indexOf(year) > 0) {
                 System.out.println(booking);
             }
@@ -26,7 +26,7 @@ public class PromotionManagementServiceImpl implements IPromotionManagement {
     public void displayCustomersGetVoucher() {
         Stack<Booking> bookingStack = new Stack<>();
         Map<String, Integer> voucher = new HashMap<>();
-        List<Booking> bookingList = new ArrayList<>(BookingServiceImpl.bookings);
+        List<Booking> bookingList = new ArrayList<>(BookingServiceImpl.bookingSet);
         Calendar calendar = Calendar.getInstance();
         Date date = calendar.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

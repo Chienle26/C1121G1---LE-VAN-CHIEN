@@ -1,6 +1,6 @@
 package ss_case_study_furama_resort.models.model;
 
-public class House extends Facility{
+public class House extends Facility {
     private String roomStandard;
     private int numberOfFloors;
 
@@ -43,6 +43,11 @@ public class House extends Facility{
     @Override
     public int hashCode() {
         return 3;
+    }
+
+    @Override
+    public String getStringFacility() {
+        return super.getStringFacility() + "," + this.roomStandard + "," + this.numberOfFloors;
     }
 
     @Override

@@ -1,7 +1,5 @@
 package ss_case_study_furama_resort.models.model;
 
-import java.util.Objects;
-
 public class Villa extends Facility {
     private String roomStandard;
     private int poolArea;
@@ -56,6 +54,11 @@ public class Villa extends Facility {
     @Override
     public int hashCode() {
         return 1;
+    }
+
+    @Override
+    public String getStringFacility() {
+        return super.getStringFacility() + "," + this.roomStandard + "," + this.poolArea + "," + this.numberOfFloors;
     }
 
     @Override

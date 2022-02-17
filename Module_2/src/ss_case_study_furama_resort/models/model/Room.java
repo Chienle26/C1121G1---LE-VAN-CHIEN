@@ -35,6 +35,11 @@ public class Room extends Facility{
     }
 
     @Override
+    public String getStringFacility() {
+        return super.getStringFacility() + "," + this.freeService;
+    }
+
+    @Override
     public String toString() {
         return "Room{" +
                 "nameService='" + nameService + '\'' +

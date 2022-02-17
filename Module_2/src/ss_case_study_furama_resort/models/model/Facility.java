@@ -58,8 +58,8 @@ public abstract class Facility {
         this.rentalType = rentalType;
     }
 
-    public String getInformation() {
-        return this.nameService + "," + this.area + "," + this.rentalType + "," + this.maxPeople + "," + this.rentalType;
+    public String getStringFacility() {
+        return this.nameService + "," + this.area + "," + this.rentalCosts + "," + this.maxPeople + "," + this.rentalType;
     }
 
     @Override
