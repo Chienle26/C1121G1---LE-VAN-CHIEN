@@ -46,6 +46,7 @@ public class BookingServiceImpl implements IBookingService {
         bookingSet = new TreeSet<>();
         bookingSet.add(new Booking(bookingCode, startDate, endDate, customerCode, nameService, serviceType));
         ReadAndWriteFileCSV.writeBookingToCSV(bookingSet,ReadAndWriteFileCSV.BOOKING_FILE,true);
+        ReadAndWriteFileCSV.writeBookingToCSV(bookingSet,ReadAndWriteFileCSV.BOOKING_FILE_COPY,true);
         System.out.println("Thêm mới booking thành công!");
     }
 

@@ -10,12 +10,12 @@ import java.util.*;
 
 public class ContractServiceImpl implements IContractService {
     Scanner scanner = new Scanner(System.in);
-    private List<Booking> bookingList = new ArrayList<>(BookingServiceImpl.bookingSet);
-    private Queue<Contract> contractQueue = new LinkedList<>();
 
     @Override
     public void add() {
-        bookingList = new ArrayList<>(BookingServiceImpl.bookingSet);
+        Set<Booking> bookingSet = ReadAndWriteFileCSV.readBookingToCSV(ReadAndWriteFileCSV.BOOKING_FILE);
+        List<Booking> bookingList = new ArrayList<>(bookingSet);
+        Queue<Contract> contractQueue = new LinkedList<>();
         Collections.sort(bookingList, new BookingComparator());
         for (int i = 0; i < bookingList.size(); i++) {
             if (!bookingList.get(i).getServiceType().equals("Room")) {
@@ -26,14 +26,16 @@ public class ContractServiceImpl implements IContractService {
                 contractQueue = new LinkedList<>();
                 Contract contract = new Contract(bookingList.get(i), deposit, totalPayment, bookingList.get(i));
                 contractQueue.add(contract);
-//                ReadAndWriteFileCSV.writeContractToCSV(contractQueue,ReadAndWriteFileCSV.CONTRACT_FILE,true);
+                ReadAndWriteFileCSV.writeContractToCSV(contractQueue, ReadAndWriteFileCSV.CONTRACT_FILE, true);
             }
         }
-        BookingServiceImpl.bookingSet = new TreeSet<>();
+        bookingSet = new TreeSet<>();
+        ReadAndWriteFileCSV.writeBookingToCSV(bookingSet,ReadAndWriteFileCSV.BOOKING_FILE,false);
     }
 
     @Override
     public void display() {
+        Queue<Contract> contractQueue = ReadAndWriteFileCSV.readContractToCSV(ReadAndWriteFileCSV.CONTRACT_FILE);
         for (Contract contract : contractQueue) {
             System.out.println(contract);
         }
@@ -42,10 +44,11 @@ public class ContractServiceImpl implements IContractService {
     @Override
     public void edit() {
         display();
+        Queue<Contract> contractQueue = ReadAndWriteFileCSV.readContractToCSV(ReadAndWriteFileCSV.CONTRACT_FILE);
         System.out.println("Nhập mã hợp đồng muốn sửa: ");
         int contractCode = Integer.parseInt(scanner.nextLine());
-        for(Contract contract: contractQueue){
-            if (contractCode==contract.getContractNumber()){
+        for (Contract contract : contractQueue) {
+            if (contractCode == contract.getContractNumber()) {
                 System.out.println("Nhập vào tiền đặt cọc: ");
                 double deposit = Double.parseDouble(scanner.nextLine());
                 System.out.println("Nhập vào tổng tiền thanh toán: ");
@@ -54,6 +57,7 @@ public class ContractServiceImpl implements IContractService {
                 contract.setTotalPayment(totalPayment);
             }
         }
+        ReadAndWriteFileCSV.writeContractToCSV(contractQueue,ReadAndWriteFileCSV.CONTRACT_FILE,false);
     }
 
     @Override

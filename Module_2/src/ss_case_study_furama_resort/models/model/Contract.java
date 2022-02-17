@@ -70,7 +70,7 @@ public class Contract {
     }
 
     public String getStringContract() {
-        return this.contractNumber + "," + this.bookingCode + "," + this.deposit + "," + this.totalPayment + "," + this.customerCode;
+        return this.contractNumber + "," + this.bookingCode.bookingCode + "," + this.deposit + "," + this.totalPayment + "," + this.customerCode.customerCode;
     }
 
     @Override

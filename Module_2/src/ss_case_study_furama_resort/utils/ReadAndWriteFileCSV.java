@@ -10,19 +10,21 @@ public class ReadAndWriteFileCSV {
     public static final String HOUSE_FILE = "src/ss_case_study_furama_resort/data/House.csv";
     public static final String ROOM_FILE = "src/ss_case_study_furama_resort/data/Room.csv";
     public static final String BOOKING_FILE = "src/ss_case_study_furama_resort/data/Booking.csv";
+    public static final String BOOKING_FILE_COPY = "src/ss_case_study_furama_resort/data/BookingCopy.csv";
     public static final String CONTRACT_FILE = "src/ss_case_study_furama_resort/data/Contract.csv";
 
     public static void writeContractToCSV(Queue<Contract> contractQueue, String pathFile, Boolean append) {
-        List<Contract> contractList = new ArrayList<>(contractQueue);
         List<String> list = new ArrayList<>();
-        for (Contract element : contractList) {
+        for (Contract element : contractQueue) {
             list.add(element.getStringContract());
         }
-        stringList(list,pathFile,append);
+        stringList(list, pathFile, append);
     }
 
     public static Queue<Contract> readContractToCSV(String pathFile) {
+        Contract.setNumber(1);
         Queue<Contract> contractQueue = new LinkedList<>();
+        Set<Booking> bookingSet = readBookingToCSV(BOOKING_FILE_COPY);
         try {
             File file = new File(pathFile);
             FileReader fileReader = new FileReader(file);
@@ -31,8 +33,12 @@ public class ReadAndWriteFileCSV {
             String[] arr = null;
             while ((line = bufferedReader.readLine()) != null) {
                 arr = line.split(",");
-//                Contract contract = new Contract(Integer.parseInt(arr[0]),arr[1],arr[2],Integer.parseInt(arr[3]),arr[4],arr[5]);
-//                contractQueue.add(contract);
+                for (Booking element : bookingSet) {
+                    if (element.getBookingCode() == Integer.parseInt(arr[1])) {
+                        Contract contract = new Contract(element, Double.parseDouble(arr[2]), Double.parseDouble(arr[3]), element);
+                        contractQueue.add(contract);
+                    }
+                }
             }
             bufferedReader.close();
             fileReader.close();
@@ -50,10 +56,10 @@ public class ReadAndWriteFileCSV {
         for (Booking element : bookingList) {
             list.add(element.getStringBooking());
         }
-        stringList(list,pathFile,append);
+        stringList(list, pathFile, append);
     }
 
-    public static Set<Booking> readBookingToCSV(String pathFile){
+    public static Set<Booking> readBookingToCSV(String pathFile) {
         Set<Booking> bookingSet = new TreeSet<>();
         try {
             File file = new File(pathFile);
@@ -63,7 +69,7 @@ public class ReadAndWriteFileCSV {
             String[] arr = null;
             while ((line = bufferedReader.readLine()) != null) {
                 arr = line.split(",");
-                Booking booking = new Booking(Integer.parseInt(arr[0]),arr[1],arr[2],Integer.parseInt(arr[3]),arr[4],arr[5]);
+                Booking booking = new Booking(Integer.parseInt(arr[0]), arr[1], arr[2], Integer.parseInt(arr[3]), arr[4], arr[5]);
                 bookingSet.add(booking);
             }
             bufferedReader.close();
