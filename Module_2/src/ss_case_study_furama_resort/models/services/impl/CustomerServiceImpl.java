@@ -4,6 +4,7 @@ import ss_case_study_furama_resort.models.model.Customer;
 import ss_case_study_furama_resort.models.model.Employee;
 import ss_case_study_furama_resort.models.services.ICustomerService;
 import ss_case_study_furama_resort.utils.ReadAndWriteFileCSV;
+import ss_case_study_furama_resort.utils.RegexData;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -23,7 +24,7 @@ public class CustomerServiceImpl implements ICustomerService {
         System.out.print("Nhập tên khách hàng: ");
         String name = scanner.nextLine();
         System.out.print("Nhập ngày tháng năm sinh khách hàng: ");
-        String dateOfBirth = scanner.nextLine();
+        String dateOfBirth = RegexData.regexAge(scanner.nextLine(),RegexData.REGEX_BIRTHDAY);
         System.out.print("Nhập giới tính khách hàng: ");
         String gender = scanner.nextLine();
         System.out.print("Nhập số CMND khách hàng: ");

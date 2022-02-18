@@ -3,6 +3,7 @@ package ss_case_study_furama_resort.models.services.impl;
 import ss_case_study_furama_resort.models.model.Employee;
 import ss_case_study_furama_resort.models.services.IEmployeeService;
 import ss_case_study_furama_resort.utils.ReadAndWriteFileCSV;
+import ss_case_study_furama_resort.utils.RegexData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class EmployeeServiceImpl<ReadAndWriteCSV> implements IEmployeeService {
             System.out.print("Nhập tên nhân viên: ");
             String name = scanner.nextLine();
             System.out.print("Nhập ngày tháng năm sinh nhân viên: ");
-            String dateOfBirth = scanner.nextLine();
+            String dateOfBirth = RegexData.regexAge(scanner.nextLine(),RegexData.REGEX_BIRTHDAY);
             System.out.print("Nhập giới tính nhân viên: ");
             String gender = scanner.nextLine();
             System.out.print("Nhập số CMND nhân viên: ");

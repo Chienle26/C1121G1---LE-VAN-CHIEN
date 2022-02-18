@@ -156,7 +156,7 @@ public class FacilityServiceImpl implements IFacilityService {
 
     private String inputMountPeople(){
         System.out.println("Nhập số lượng người tối đa của dịch vụ: ");
-        return RegexData.regexString(scanner.nextLine(),RegexData.REGEX_AMOUNT,"Bạn đã nhập sai định dạng, số lượng người tối đa phải >0 và nhỏ hơn <20")
+        return RegexData.regexString(scanner.nextLine(),RegexData.REGEX_AMOUNT,"Bạn đã nhập sai định dạng, số lượng người tối đa phải >0 và nhỏ hơn <20");
     }
 
     @Override
