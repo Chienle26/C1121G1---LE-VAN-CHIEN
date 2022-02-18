@@ -6,6 +6,7 @@ import ss_case_study_furama_resort.models.model.Room;
 import ss_case_study_furama_resort.models.model.Villa;
 import ss_case_study_furama_resort.models.services.IFacilityService;
 import ss_case_study_furama_resort.utils.ReadAndWriteFileCSV;
+import ss_case_study_furama_resort.utils.RegexData;
 
 import java.util.*;
 
@@ -16,11 +17,6 @@ public class FacilityServiceImpl implements IFacilityService {
     public static Map<Facility, Integer> houseMap = new LinkedHashMap<>();
     public static Map<Facility, Integer> roomMap = new LinkedHashMap<>();
     ReadAndWriteFileCSV readAndWriteFileCSV = new ReadAndWriteFileCSV();
-    Villa villa = new Villa();
-    String pathFileVilla = "src/ss_case_study_furama_resort/data/Villa.csv";
-    String regexNameService = "^[A-Z]{1}[a-z]+$";
-    Boolean isNameServiceVilla;
-    String nameServiceVilla;
 
     @Override
     public void displayFacilityMaintenance() {
@@ -48,20 +44,10 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void addVilla() {
-        do {
-            System.out.print("Nhập tên Villa: ");
-            nameServiceVilla = scanner.nextLine();
-            isNameServiceVilla = nameServiceVilla.matches(regexNameService);
-            if (!isNameServiceVilla) {
-                System.out.println("Vui lòng nhập lại tên Villa!");
-            }
-        } while (!isNameServiceVilla);
-        System.out.print("Nhập diện tích Villa: ");
-        int areaVilla = Integer.parseInt(scanner.nextLine());
-        System.out.print("Nhập chi phí thuê Villa: ");
-        int rentalCostsVilla = Integer.parseInt(scanner.nextLine());
-        System.out.print("Nhập số người tối đa ở Villa: ");
-        int maxPeopleVilla = Integer.parseInt(scanner.nextLine());
+        String nameServiceVilla = inputName();
+        int areaVilla = Integer.parseInt(inputArea());
+        int rentalCostsVilla = Integer.parseInt(inputRentalCost());
+        int maxPeopleVilla = Integer.parseInt(inputMountPeople());
         System.out.print("Nhập kiểu thuê Villa: ");
         String rentalTypeVilla = scanner.nextLine();
         System.out.print("Nhập tiêu chuẩn phòng của Villa: ");
@@ -79,14 +65,10 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void addHouse() {
-        System.out.print("Nhập tên House: ");
-        String nameServiceHouse = scanner.nextLine();
-        System.out.print("Nhập diện tích House: ");
-        int areaHouse = Integer.parseInt(scanner.nextLine());
-        System.out.print("Nhập chi phí thuê House: ");
-        int rentalCostsHouse = Integer.parseInt(scanner.nextLine());
-        System.out.print("Nhập số người tối đa ở House: ");
-        int maxPeopleHouse = Integer.parseInt(scanner.nextLine());
+        String nameServiceHouse = inputName();
+        int areaHouse = Integer.parseInt(inputArea());
+        int rentalCostsHouse = Integer.parseInt(inputRentalCost());
+        int maxPeopleHouse = Integer.parseInt(inputMountPeople());
         System.out.print("Nhập kiểu thuê House: ");
         String rentalTypeHouse = scanner.nextLine();
         System.out.print("Nhập tiêu chuẩn phòng của House: ");
@@ -102,14 +84,10 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void addRoom() {
-        System.out.print("Nhập tên Room: ");
-        String nameServiceRoom = scanner.nextLine();
-        System.out.print("Nhập diện tích Room: ");
-        int areaRoom = Integer.parseInt(scanner.nextLine());
-        System.out.print("Nhập chi phí thuê Room: ");
-        int rentalCostsRoom = Integer.parseInt(scanner.nextLine());
-        System.out.print("Nhập số người tối đa ở Room: ");
-        int maxPeopleRoom = Integer.parseInt(scanner.nextLine());
+        String nameServiceRoom = inputName();
+        int areaRoom = Integer.parseInt(inputArea());
+        int rentalCostsRoom = Integer.parseInt(inputRentalCost());
+        int maxPeopleRoom = Integer.parseInt(inputMountPeople());
         System.out.print("Nhập kiểu thuê Room: ");
         String rentalTypeRoom = scanner.nextLine();
         System.out.print("Nhập dịch vụ miễn phí đi kèm của Room: ");
@@ -154,6 +132,31 @@ public class FacilityServiceImpl implements IFacilityService {
             }
         }
 
+    }
+
+    private String inputId(){
+        System.out.println("Nhập ID và mã dịch vụ: ");
+        return RegexData.regexString(scanner.nextLine(),RegexData.REGEX_ID_VILLA,"Bạn đã nhập sai mã định dạng, mã dịch vụ phải có dạng SVVL-XXXX");
+    }
+
+    private String inputName(){
+        System.out.println("Nhập tên dịch vụ: ");
+        return RegexData.regexString(scanner.nextLine(),RegexData.REGEX_STR,"Bạn đã nhập sai định dạng, tên dịch vụ phải viết hoa chữ cái đầu");
+    }
+
+    private String inputArea(){
+        System.out.println("Nhập diện tích dịch vụ: ");
+        return RegexData.regexString(scanner.nextLine(),RegexData.REGEX_AREA,"Bạn đã nhập sai định dạng, diện tích dịch vụ phải lớn hơn 30m2");
+    }
+
+    private String inputRentalCost(){
+        System.out.println("Nhập chi phí thuê dịch vụ: ");
+        return RegexData.regexString(scanner.nextLine(),RegexData.REGEX_INT,"Bạn đã nhập sai định dạng, chi phí thuê dịch vụ phải là một số dương");
+    }
+
+    private String inputMountPeople(){
+        System.out.println("Nhập số lượng người tối đa của dịch vụ: ");
+        return RegexData.regexString(scanner.nextLine(),RegexData.REGEX_AMOUNT,"Bạn đã nhập sai định dạng, số lượng người tối đa phải >0 và nhỏ hơn <20")
     }
 
     @Override
