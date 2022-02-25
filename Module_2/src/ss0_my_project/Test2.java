@@ -2,12 +2,11 @@ package ss0_my_project;
 
 public class Test2 {
     public static void main(String[] args) {
-        int x = -1, a[] = {1,2,3,4};
-        for(int i=0;i<a.length;i++){
-            if(a[i] < x){
-                x = a[i];
-            }
-        }
-        System.out.println(x);
+        boolean var1 = true;
+        boolean var2 = false;
+        if (var1)
+            System.out.println(var1);
+        else
+            System.out.println(var2);
     }
-}
+    }
