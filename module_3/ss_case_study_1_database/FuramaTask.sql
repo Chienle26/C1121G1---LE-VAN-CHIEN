@@ -28,10 +28,12 @@ left join dich_vu_di_kem on hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem
 group by hop_dong.ma_hop_dong
 order by ma_khach_hang, ma_hop_dong desc;
 
--- Task 6: 6.	Hiển thị ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, 
--- ten_loai_dich_vu của tất cả các loại dịch vụ chưa từng được khách hàng thực hiện đặt từ quý 1 của năm 2021 (Quý 1 là tháng 1, 2, 3)002E
-select dich_vu.ma_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.chi_phi_thue from hop_dong
-inner join dich_vu on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
-where ma_hop_dong not in (select ma_hop_dong from hop_dong where )
-
+-- Task 6:
+select dich_vu.ma_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu 
+from loai_dich_vu
+inner join dich_vu on loai_dich_vu.ma_loai_dich_vu = dich_vu.ma_loai_dich_vu
+left join hop_dong on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+where dich_vu.ma_dich_vu not in (select hop_dong.ma_dich_vu from hop_dong where (month(ngay_lam_hop_dong) between 1 and 3) and (year(ngay_lam_hop_dong) = 2021))
+group by dich_vu.ma_dich_vu
+order by dien_tich desc;
 
