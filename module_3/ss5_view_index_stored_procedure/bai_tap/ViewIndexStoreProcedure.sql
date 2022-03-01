@@ -25,7 +25,7 @@ insert into products values
 -- Bước 3:
 Explain select * from products where id = 5;
 
-alter table products add index idx_products (id);
+alter table products add unique idx_products (id);
 
 alter table products add index idx_product_code (id, product_code);
 
@@ -50,22 +50,22 @@ drop view product_view;
 -- Bước 4:
 -- Tạo store procedure lấy tất cả thông tin của tất cả các sản phẩm trong bảng product
 DELIMITER //
-drop procedure if exists displayAllProduct //
-create procedure displayAllProduct()
+drop procedure if exists display_all_product //
+create procedure display_all_product()
 begin
 
 select * from products;
 
 end //
 DELIMITER;
-CALL displayAllProduct();
+CALL display_all_product();
 
 -- Tạo store procedure thêm một sản phẩm mới
 DELIMITER //
 
-drop procedure if exists addNewProduct //
+drop procedure if exists add_new_product //
 
-CREATE PROCEDURE addNewProduct (
+CREATE PROCEDURE add_new_product (
 id int,
 product_code int,
 product_Name varchar(45),
@@ -80,16 +80,16 @@ insert into products values
 END //
 DELIMITER;
 
-CALL addNewProduct(6,666,'Milk Tea', 25,10,'very good',1);
+CALL add_new_product(6,666,'Milk Tea', 25,10,'very good',1);
 
-CALL displayAllProduct();
+CALL display_all_product();
 
 -- Tạo store procedure sửa thông tin sản phẩm theo id
 DELIMITER //
 
-drop procedure if exists editProductById //
+drop procedure if exists edit_product_by_id //
 
-CREATE PROCEDURE editProductById
+CREATE PROCEDURE edit_product_by_id
 
 (id int,
 price double
@@ -106,16 +106,16 @@ END //
 
 DELIMITER ;
 
-CALL editProductById(6,35);
+CALL edit_product_by_id(6,35);
 
-CALL displayAllProduct();
+CALL display_all_product();
 
 -- Tạo store procedure xoá sản phẩm theo id
 DELIMITER //
 
-drop procedure if exists deleteProductById //
+drop procedure if exists delete_product_by_id //
 
-CREATE PROCEDURE deleteProductById
+CREATE PROCEDURE delete_product_by_id
 
 (id int)
 
@@ -128,7 +128,7 @@ END //
 
 DELIMITER ;
 
-CALL deleteProductById(3);
+CALL delete_product_by_id(3);
 
-CALL displayAllProduct();
+CALL display_all_product();
 
