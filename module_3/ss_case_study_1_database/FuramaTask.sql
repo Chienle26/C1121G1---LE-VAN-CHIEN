@@ -150,18 +150,24 @@ set khach_hang.ma_loai_khach = 1
 where khach_hang.ma_khach_hang in (select ma_khach_hang from khach_hang_du_dieu_kien_len_vip);
 set sql_safe_updates = 1;
 
--- Task 18: ???
+-- Task 18:
 set sql_safe_updates = 0;
 delete from khach_hang
 where khach_hang.ma_khach_hang in (select hop_dong.ma_khach_hang from hop_dong where year(hop_dong.ngay_lam_hop_dong) < 2021);
 set sql_safe_updates = 1;
 
--- Task 19: ???
+-- Task 19:
+create temporary table dich_vu_can_tang_gia
+select dich_vu_di_kem.ma_dich_vu_di_kem, dich_vu_di_kem.ten_dich_vu_di_kem, dich_vu_di_kem.gia
+from hop_dong_chi_tiet
+join dich_vu_di_kem on hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+join hop_dong on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
+where hop_dong_chi_tiet.so_luong > 10 and year(hop_dong.ngay_lam_hop_dong) = 2020;
+
 set sql_safe_updates = 0;
 update dich_vu_di_kem
 set dich_vu_di_kem.gia = dich_vu_di_kem.gia * 2
-where dich_vu_di_kem.ma_dich_vu_di_kem in
-(select dich_vu_di_kem.ma_dich_vu_di_kem from hop_dong_chi_tiet where hop_dong_chi_tiet.so_luong > 10 having year(hop_dong.ngay_lam_hop_dong) = 2020);
+where dich_vu_di_kem.ma_dich_vu_di_kem in (select ma_dich_vu_di_kem from dich_vu_can_tang_gia);
 set sql_safe_updates = 1;
 
 -- Task 20:
@@ -172,10 +178,3 @@ union all
 select khach_hang.ma_khach_hang as id, khach_hang.ho_ten, khach_hang.email, khach_hang.so_dien_thoai, khach_hang.ngay_sinh, khach_hang.dia_chi,
 'khach_hang' as role
 from khach_hang;
-/*
-19.	Cập nhật giá cho các dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2020 lên gấp đôi.
-
-
-
-
-
