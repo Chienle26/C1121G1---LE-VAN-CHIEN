@@ -18,7 +18,6 @@ order by so_lan_dat_phong asc;
 
 -- Task 5:
 select khach_hang.ma_khach_hang, khach_hang.ho_ten, loai_khach.ten_loai_khach, hop_dong.ma_hop_dong, dich_vu.ten_dich_vu, hop_dong.ngay_lam_hop_dong, hop_dong.ngay_ket_thuc, 
--- sum (dich_vu.chi_phi_thue + hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia) as tong_tien from khach_hang
 sum(ifnull(dich_vu.chi_phi_thue,0) + ifnull(hop_dong_chi_tiet.so_luong,0) * ifnull(dich_vu_di_kem.gia,0)) as 'tong_tien' from khach_hang
 left join loai_khach on loai_khach.ma_loai_khach = khach_hang.ma_loai_khach
 left join hop_dong on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
@@ -96,6 +95,87 @@ from hop_dong_chi_tiet
 inner join dich_vu_di_kem on hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
 group by dich_vu_di_kem.ma_dich_vu_di_kem
 having so_lan_su_dung >=(select max(hop_dong_chi_tiet.so_luong) from hop_dong_chi_tiet);
+
+-- Task 14:
+select hop_dong.ma_hop_dong, loai_dich_vu.ten_loai_dich_vu, dich_vu_di_kem.ten_dich_vu_di_kem, 
+count(dich_vu_di_kem.ma_dich_vu_di_kem) as so_lan_su_dung
+from loai_dich_vu
+join dich_vu on loai_dich_vu.ma_loai_dich_vu = dich_vu.ma_loai_dich_vu
+join hop_dong on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+join hop_dong_chi_tiet on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+join dich_vu_di_kem on hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+group by dich_vu_di_kem.ma_dich_vu_di_kem
+having so_lan_su_dung = 1
+order by hop_dong.ma_hop_dong;
+
+-- Task 15:
+select nhan_vien.ma_nhan_vien, nhan_vien.ho_ten, trinh_do.ten_trinh_do, bo_phan.ten_bo_phan, nhan_vien.so_dien_thoai, nhan_vien.dia_chi
+from nhan_vien
+join trinh_do on nhan_vien.ma_trinh_do = trinh_do.ma_trinh_do
+join bo_phan on nhan_vien.ma_bo_phan = bo_phan.ma_bo_phan
+join hop_dong on nhan_vien.ma_nhan_vien = hop_dong.ma_nhan_vien
+where year(hop_dong.ngay_lam_hop_dong) between 2020 and 2021
+group by nhan_vien.ma_nhan_vien
+having count(hop_dong.ma_hop_dong) <= 3
+order by nhan_vien.ma_nhan_vien;
+
+-- Task 16:
+set sql_safe_updates = 0;
+delete from nhan_vien 
+where nhan_vien.ma_nhan_vien not in (
+select hop_dong.ma_nhan_vien
+from hop_dong
+where year(hop_dong.ngay_lam_hop_dong) between 2019 and 2021
+);
+set sql_safe_updates =1;
+
+-- Task 17:
+-- Tạo bảng tạm
+create temporary table khach_hang_du_dieu_kien_len_vip
+select khach_hang.ma_khach_hang, khach_hang.ho_ten
+from khach_hang
+left join loai_khach on loai_khach.ma_loai_khach = khach_hang.ma_loai_khach
+left join hop_dong on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+left join dich_vu on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+left join hop_dong_chi_tiet on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+left join dich_vu_di_kem on hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+where year(hop_dong.ngay_lam_hop_dong) = 2021 and dich_vu.chi_phi_thue + hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia > 10000000
+group by hop_dong.ma_hop_dong;
+
+select * from khach_hang_du_dieu_kien_len_vip;
+
+set sql_safe_updates = 0;
+update khach_hang
+set khach_hang.ma_loai_khach = 1
+where khach_hang.ma_khach_hang in (select ma_khach_hang from khach_hang_du_dieu_kien_len_vip);
+set sql_safe_updates = 1;
+
+-- Task 18: ???
+set sql_safe_updates = 0;
+delete from khach_hang
+where khach_hang.ma_khach_hang in (select hop_dong.ma_khach_hang from hop_dong where year(hop_dong.ngay_lam_hop_dong) < 2021);
+set sql_safe_updates = 1;
+
+-- Task 19: ???
+set sql_safe_updates = 0;
+update dich_vu_di_kem
+set dich_vu_di_kem.gia = dich_vu_di_kem.gia * 2
+where dich_vu_di_kem.ma_dich_vu_di_kem in
+(select dich_vu_di_kem.ma_dich_vu_di_kem from hop_dong_chi_tiet where hop_dong_chi_tiet.so_luong > 10 having year(hop_dong.ngay_lam_hop_dong) = 2020);
+set sql_safe_updates = 1;
+
+-- Task 20:
+select nhan_vien.ma_nhan_vien as id, nhan_vien.ho_ten, nhan_vien.email, nhan_vien.so_dien_thoai, nhan_vien.ngay_sinh, nhan_vien.dia_chi, 
+'nhan_vien' as role
+from nhan_vien
+union all
+select khach_hang.ma_khach_hang as id, khach_hang.ho_ten, khach_hang.email, khach_hang.so_dien_thoai, khach_hang.ngay_sinh, khach_hang.dia_chi,
+'khach_hang' as role
+from khach_hang;
+/*
+19.	Cập nhật giá cho các dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2020 lên gấp đôi.
+
+
 
 
 
