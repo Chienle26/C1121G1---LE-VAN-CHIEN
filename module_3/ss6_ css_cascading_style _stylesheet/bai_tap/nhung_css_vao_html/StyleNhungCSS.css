@@ -1,0 +1,9 @@
+*{
+    padding: 10px;
+}
+h1{
+    border: 2px solid gray;
+}
+p{
+    border: 1px solid gray;
+}

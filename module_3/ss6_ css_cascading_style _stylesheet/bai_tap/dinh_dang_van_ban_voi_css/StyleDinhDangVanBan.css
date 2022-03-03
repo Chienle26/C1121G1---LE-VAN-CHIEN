@@ -1,0 +1,28 @@
+.textColor{
+    color: blue;
+}
+
+h1{
+    margin: 0;
+}
+
+body{
+    margin: 10px 100px 10px 30px;
+;
+}
+
+.paragaph{
+    text-indent: 50px;
+}
+
+.source{
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    text-align: justify;
+}

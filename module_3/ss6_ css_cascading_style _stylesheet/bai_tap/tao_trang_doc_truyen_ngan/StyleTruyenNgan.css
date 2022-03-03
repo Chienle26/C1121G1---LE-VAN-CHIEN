@@ -1,0 +1,91 @@
+img{
+    max-width: 300px;
+    margin: 10px;
+}
+
+h1{
+    margin: 0;
+    color: blue;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    font-family: "#9Slide03 AmpleSoft Bold";
+}
+
+.mucLuc h3{
+    margin-left: 50px;
+}
+h3{
+    margin: 0;
+}
+
+ol li {
+    color: black;
+}
+a:hover{
+    color: red;
+}
+.mucLuc{
+    color: gray;
+    font-style: italic;
+}
+
+body{
+    margin-right: 100px ;
+    margin-left: 50px;
+    /*background-repeat: no-repeat;*/
+    /*background-attachment: fixed;*/
+    background-image: url("https://paper-planes.in/images/only-plane.gif");
+}
+
+hr{
+    width: 350px;
+}
+
+.header{
+    text-align: center;
+}
+
+ul{
+    list-style-type: upper-roman;
+    list-style-position: outside;
+    background: #ff9999;
+    padding: 20px;
+}
+ul li{
+    background: #ffe5e5;
+    padding: 5px;
+    margin-left: 35px;
+}
+
+p{
+   line-height: 1.8;
+}
+
+.noiDung{
+    text-align: justify;
+}
+
+h2{
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+#chuong1,#chuong2,#chuong3{
+    padding: 10px;
+    border-style: outset;
+    border-width: 3px ;
+    border-color: red green blue yellow;
+}
+h5{
+    margin: 5px;
+}
+
+.noiDung h2{
+    color: cornflowerblue;
+}
+
+a{
+    text-decoration: none;
+}
+
