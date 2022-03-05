@@ -1,6 +1,7 @@
 img{
     max-width: 300px;
     margin: 10px;
+    border-radius: 20px;
 }
 
 h1{
@@ -18,8 +19,9 @@ h3{
     margin: 0;
 }
 
-ol li {
+ul li {
     color: black;
+
 }
 a:hover{
     color: red;
@@ -27,6 +29,7 @@ a:hover{
 .mucLuc{
     color: gray;
     font-style: italic;
+
 }
 
 body{
@@ -50,11 +53,13 @@ ul{
     list-style-position: outside;
     background: #ff9999;
     padding: 20px;
+    border-radius: 20px;
 }
 ul li{
     background: #ffe5e5;
     padding: 5px;
     margin-left: 35px;
+    border-radius: 20px;
 }
 
 p{
@@ -76,6 +81,7 @@ h2{
     border-style: outset;
     border-width: 3px ;
     border-color: red green blue yellow;
+    border-radius: 20px;
 }
 h5{
     margin: 5px;
