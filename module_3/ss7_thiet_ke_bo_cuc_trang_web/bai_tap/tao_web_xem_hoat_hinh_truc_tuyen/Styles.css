@@ -101,7 +101,7 @@ nav .icon {
 .main-video {
     margin-top: 25px;
     margin-left: 25px;
-    float: left;
+
 }
 
 .video-title {
@@ -142,8 +142,6 @@ nav .icon {
 .right-main {
     padding-top: 30px;
     padding-left: 10px;
-    float: right;
-    width: 500px;
 }
 
 .video-suggestions {
