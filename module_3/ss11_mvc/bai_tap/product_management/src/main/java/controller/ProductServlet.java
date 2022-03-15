@@ -63,15 +63,7 @@ public class ProductServlet extends HttpServlet {
                 String description = request.getParameter("description");
                 String producer = request.getParameter("producer");
                 this.productService.update(id, name, price, description, producer);
-//                dispatcher = request.getRequestDispatcher("");
                 response.sendRedirect("/product");
-//                try {
-//                    dispatcher.forward(request, response);
-//                } catch (ServletException e) {
-//                    e.printStackTrace();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
                 break;
             case "create":
                 Integer id1 = (int) (Math.random() * 1000);
