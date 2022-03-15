@@ -55,10 +55,10 @@ public class UserRepositoryImpl implements UserRepository {
         Connection connection = null;
         try {
             connection = baseRepository.getConnection();
-            PreparedStatement preparedStatement =connection.prepareStatement(INSERT_USERS_SQL);
-            preparedStatement.setString(1,user.getName());
-            preparedStatement.setString(2,user.getEmail());
-            preparedStatement.setString(3,user.getCountry());
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL);
+            preparedStatement.setString(1, user.getName());
+            preparedStatement.setString(2, user.getEmail());
+            preparedStatement.setString(3, user.getCountry());
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -71,6 +71,68 @@ public class UserRepositoryImpl implements UserRepository {
             }
         }
 
+    }
+
+    @Override
+    public User selectUser(Integer id) {
+        Connection connection = null;
+        User user = null;
+        try {
+            connection = baseRepository.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID);
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String country = rs.getString("country");
+                user = new User(id, name, email, country);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return user;
+    }
+
+    @Override
+    public boolean deleteUser(Integer id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public boolean updateUser(User user) throws SQLException {
+        Connection connection = null;
+        boolean updated = false;
+        try {
+            connection = baseRepository.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USERS_SQL);
+            preparedStatement.setString(1, user.getName());
+            preparedStatement.setString(2, user.getEmail());
+            preparedStatement.setString(3, user.getCountry());
+            preparedStatement.setInt(4, user.getId());
+            updated = preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return updated;
+    }
+
+    @Override
+    public List<User> sortByName() {
+        return null;
     }
 
     private void printSQLException(SQLException ex) {

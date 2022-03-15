@@ -21,20 +21,32 @@ public class UserServlet extends HttpServlet {
         if (action == null) {
             action = "";
         }
-
         switch (action) {
             case "create":
                 showNewForm(request, response);
                 break;
-//            case "edit":
-//                showEditForm(request, response);
-//                break;
+            case "edit":
+                showEditForm(request, response);
+                break;
 //            case "delete":
 //                deleteUser(request, response);
 //                break;
             default:
                 listUser(request, response);
                 break;
+        }
+    }
+
+    private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
+        Integer id = Integer.valueOf(request.getParameter("id"));
+        User user = userService.selectUser(id);
+        request.setAttribute("user",user);
+        try {
+            request.getRequestDispatcher("edit.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -49,9 +61,9 @@ public class UserServlet extends HttpServlet {
                 case "create":
                     insertUser(request, response);
                     break;
-//            case "edit":
-//                updateUser(request, response);
-//                break;
+            case "edit":
+                updateUser(request, response);
+                break;
 //            case "search":
 //                searchByCountry(request, response);
 //                break;
@@ -65,7 +77,22 @@ public class UserServlet extends HttpServlet {
         }catch (SQLException e) {
             e.printStackTrace();
         }
+    }
 
+    private void updateUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        Integer id = Integer.valueOf(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String country = request.getParameter("country");
+        User user = new User(id, name, email, country);
+        userService.updateUser(user);
+        try {
+            request.getRequestDispatcher("edit.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void insertUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {
