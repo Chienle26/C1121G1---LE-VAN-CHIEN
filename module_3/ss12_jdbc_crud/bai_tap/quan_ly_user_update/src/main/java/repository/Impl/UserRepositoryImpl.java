@@ -103,7 +103,23 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public boolean deleteUser(Integer id) throws SQLException {
-        return false;
+        Connection connection = null;
+        boolean rowDeleted = false;
+        try {
+            connection = baseRepository.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_USERS_SQL);
+            preparedStatement.setInt(1, id);
+            rowDeleted = preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return rowDeleted;
     }
 
     @Override
@@ -132,7 +148,60 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public List<User> sortByName() {
-        return null;
+        Connection connection = null;
+        List<User> users = new ArrayList<>();
+        try {
+            connection = baseRepository.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(ORDER_BY_NAME);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                user.setCountry(rs.getString("country"));
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return users;
+    }
+
+    @Override
+    public List<User> searchByCountry(String country) {
+        List<User> users = new ArrayList<>();
+        Connection connection = null;
+        try {
+            connection = baseRepository.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_BY_COUNTRY);
+            preparedStatement.setString(1, country);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                user.setCountry(rs.getString("country"));
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return users;
     }
 
     private void printSQLException(SQLException ex) {

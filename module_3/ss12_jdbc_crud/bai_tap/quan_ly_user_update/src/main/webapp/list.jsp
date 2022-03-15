@@ -15,28 +15,26 @@
 <body>
 <center>
     <h1>User Management</h1>
-
-    <tr>
-        <h2>
-            <a href="/users?action=create">Add New User</a>
-        </h2>
-    </tr>
-    <tr>
-        <form action="/users" method="post">
-            <input type="hidden" name="action" value="search">
-            <input type="text" name="searchName">
-            <input type="submit" value="Search By country">
-        </form>
-    </tr>
-    <br>
-    <tr>
-        <form action="/users" method="post">
-            <input type="hidden" name="action" value="sort">
-            <input type="submit" value="Sort By Name">
-        </form>
-    </tr>
-    <br>
-
+    <h2>
+        <a href="/users?action=create">Add New User</a>
+    </h2>
+    <table>
+        <tr>
+            <th>
+                <form action="/users" method="post">
+                    <input type="hidden" name="action" value="search">
+                    <input type="text" name="searchName">
+                    <input type="submit" value="Search By country">
+                </form>
+            </th>
+            <th>
+                <form action="/users" method="post">
+                    <input type="hidden" name="action" value="sort">
+                    <input type="submit" value="Sort By Name">
+                </form>
+            </th>
+        </tr>
+    </table>
 </center>
 <div align="center">
     <table border="1" cellpadding="5">

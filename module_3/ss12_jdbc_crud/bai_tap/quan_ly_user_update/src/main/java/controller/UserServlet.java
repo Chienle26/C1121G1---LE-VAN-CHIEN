@@ -21,28 +21,47 @@ public class UserServlet extends HttpServlet {
         if (action == null) {
             action = "";
         }
-        switch (action) {
-            case "create":
-                showNewForm(request, response);
-                break;
-            case "edit":
-                showEditForm(request, response);
-                break;
-//            case "delete":
-//                deleteUser(request, response);
-//                break;
-            default:
-                listUser(request, response);
-                break;
+        try {
+            switch (action) {
+                case "create":
+                    showNewForm(request, response);
+                    break;
+                case "edit":
+                    showEditForm(request, response);
+                    break;
+                case "delete":
+                    deleteUser(request, response);
+                    break;
+                default:
+                    listUser(request, response);
+                    break;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+    }
+
+    private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        Integer id = Integer.valueOf(request.getParameter("id"));
+        userService.deleteUser(id);
+        List<User> listUser = userService.selectAllUsers();
+        request.setAttribute("listUser", listUser);
+        try {
+            request.getRequestDispatcher("list.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
         Integer id = Integer.valueOf(request.getParameter("id"));
         User user = userService.selectUser(id);
-        request.setAttribute("user",user);
+        request.setAttribute("user", user);
         try {
-            request.getRequestDispatcher("edit.jsp").forward(request,response);
+            request.getRequestDispatcher("edit.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -61,22 +80,60 @@ public class UserServlet extends HttpServlet {
                 case "create":
                     insertUser(request, response);
                     break;
-            case "edit":
-                updateUser(request, response);
-                break;
-//            case "search":
-//                searchByCountry(request, response);
-//                break;
-//            case "sort":
-//                sortByName(request, response);
-//                break;
-//            default:
-//                listUser(request, response);
-//                break;
+                case "edit":
+                    updateUser(request, response);
+                    break;
+                case "search":
+                    searchByCountry(request, response);
+                    break;
+                case "sort":
+                    sortByName(request, response);
+                    break;
+                default:
+                    listUser(request, response);
+                    break;
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private void sortByName(HttpServletRequest request, HttpServletResponse response) {
+        List<User> users = userService.sortByName();
+        try {
+            request.setAttribute("listUser", users);
+            request.getRequestDispatcher("list.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void searchByCountry(HttpServletRequest request, HttpServletResponse response) {
+        String country = request.getParameter("searchName");
+        List<User> users = userService.searchByCountry(country);
+
+        if (users.isEmpty()) {
+            try {
+                request.setAttribute("message", "Not Found");
+                request.getRequestDispatcher("not-found.jsp").forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                request.setAttribute("users", users);
+                request.getRequestDispatcher("search.jsp").forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     private void updateUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {
@@ -87,7 +144,7 @@ public class UserServlet extends HttpServlet {
         User user = new User(id, name, email, country);
         userService.updateUser(user);
         try {
-            request.getRequestDispatcher("edit.jsp").forward(request,response);
+            request.getRequestDispatcher("edit.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -99,10 +156,10 @@ public class UserServlet extends HttpServlet {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String country = request.getParameter("country");
-        User newUser = new User(name,email,country);
+        User newUser = new User(name, email, country);
         userService.insertUser(newUser);
         try {
-            request.getRequestDispatcher("create.jsp").forward(request,response);
+            request.getRequestDispatcher("create.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

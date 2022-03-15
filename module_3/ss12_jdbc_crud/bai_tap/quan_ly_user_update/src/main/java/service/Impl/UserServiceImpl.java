@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean deleteUser(Integer id) throws SQLException {
-        return false;
+        return userRepository.deleteUser(id);
     }
 
     @Override
@@ -39,6 +39,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> sortByName() {
-        return null;
+        return userRepository.sortByName();
+    }
+
+    @Override
+    public List<User> searchByCountry(String country) {
+        return userRepository.searchByCountry(country);
     }
 }
