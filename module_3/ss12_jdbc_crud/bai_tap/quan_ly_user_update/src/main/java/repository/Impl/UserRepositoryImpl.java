@@ -200,7 +200,6 @@ public class UserRepositoryImpl implements UserRepository {
                 e.printStackTrace();
             }
         }
-
         return users;
     }
 
