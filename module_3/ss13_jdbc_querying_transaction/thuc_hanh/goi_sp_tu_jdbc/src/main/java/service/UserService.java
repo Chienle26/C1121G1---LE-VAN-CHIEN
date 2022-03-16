@@ -19,4 +19,6 @@ public interface UserService {
     List<User> sortByName();
 
     List<User> searchByCountry(String country);
+
+    void deleteUserStore(Integer id);
 }

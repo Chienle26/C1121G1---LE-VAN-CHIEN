@@ -272,6 +272,10 @@ public class UserRepositoryImpl implements UserRepository {
 
     }
 
+    @Override
+    public void deleteUserStore(Integer id) {
+    }
+
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
             if (e instanceof SQLException) {

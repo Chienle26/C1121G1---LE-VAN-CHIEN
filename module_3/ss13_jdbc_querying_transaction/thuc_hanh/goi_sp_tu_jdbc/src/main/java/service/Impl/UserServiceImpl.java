@@ -46,4 +46,9 @@ public class UserServiceImpl implements UserService {
     public List<User> searchByCountry(String country) {
         return userRepository.searchByCountry(country);
     }
+
+    @Override
+    public void deleteUserStore(Integer id) {
+        userRepository.deleteUserStore(id);
+    }
 }

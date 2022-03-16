@@ -24,4 +24,6 @@ public interface UserRepository {
 
     void insertUserStore(User user) throws SQLException;
 
+    void deleteUserStore(Integer id);
+
 }
