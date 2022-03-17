@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="GiaiPhuongTrinhBac2New">
+    <output-path>$PROJECT_DIR$</output-path>
+    <root id="archive" name="GiaiPhuongTrinhBac2New.jar" />
+  </artifact>
+</component>

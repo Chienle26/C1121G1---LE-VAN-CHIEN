@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="dong_goi_thu_vien_java">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../dong_goi_thu_vien_java/dong_goi_thu_vien_java.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
