@@ -1,40 +1,40 @@
 package model;
 
 public class Customer extends Person{
-    private Integer customerCode;
-    private Integer customerType;
+    private String customerCode;
+    private Integer customerTypeCode;
     private String address;
 
     public Customer() {
     }
 
-    public Customer(Integer customerCode, Integer customerType, String address) {
+    public Customer(String customerCode, Integer customerTypeCode, String address) {
         this.customerCode = customerCode;
-        this.customerType = customerType;
+        this.customerTypeCode = customerTypeCode;
         this.address = address;
     }
 
-    public Customer(Integer customerCode, String name, String dateOfBirth, Boolean gender, String IDNumber, String phoneNumber, String email, Integer customerType, String address) {
+    public Customer(String customerCode, String name, String dateOfBirth, Boolean gender, String IDNumber, String phoneNumber, String email, Integer customerTypeCode, String address) {
         super(name, dateOfBirth, gender, IDNumber, phoneNumber, email);
         this.customerCode = customerCode;
-        this.customerType = customerType;
+        this.customerTypeCode = customerTypeCode;
         this.address = address;
     }
 
-    public Integer getCustomerCode() {
+    public String getCustomerCode() {
         return customerCode;
     }
 
-    public void setCustomerCode(Integer customerCode) {
+    public void setCustomerCode(String customerCode) {
         this.customerCode = customerCode;
     }
 
-    public Integer getCustomerType() {
-        return customerType;
+    public Integer getCustomerTypeCode() {
+        return customerTypeCode;
     }
 
-    public void setCustomerType(Integer customerType) {
-        this.customerType = customerType;
+    public void setCustomerTypeCode(Integer customerTypeCode) {
+        this.customerTypeCode = customerTypeCode;
     }
 
     public String getAddress() {
@@ -47,7 +47,7 @@ public class Customer extends Person{
 
     @Override
     public String getStringPerson() {
-        return this.customerCode + "," + super.getStringPerson() + "," + this.customerType + "," + this.address;
+        return this.customerCode + "," + super.getStringPerson() + "," + this.customerTypeCode + "," + this.address;
     }
 
     @Override
@@ -60,7 +60,7 @@ public class Customer extends Person{
                 ", IDNumber=" + IDNumber +
                 ", phoneNumber=" + phoneNumber +
                 ", email='" + email + '\'' +
-                ", customerType='" + customerType + '\'' +
+                ", customerType='" + customerTypeCode + '\'' +
                 ", address='" + address + '\'' +
                 '}';
     }
