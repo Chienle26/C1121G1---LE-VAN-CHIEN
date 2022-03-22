@@ -3,22 +3,22 @@ package model;
 public class Customer extends Person{
     private String customerCode;
     private Integer customerTypeCode;
-    private String address;
+    private Boolean gender;
 
     public Customer() {
     }
 
-    public Customer(String customerCode, Integer customerTypeCode, String address) {
+    public Customer(String customerCode, Integer customerTypeCode, Boolean gender) {
         this.customerCode = customerCode;
         this.customerTypeCode = customerTypeCode;
-        this.address = address;
+        this.gender = gender;
     }
 
-    public Customer(String customerCode, String name, String dateOfBirth, Boolean gender, String IDNumber, String phoneNumber, String email, Integer customerTypeCode, String address) {
-        super(name, dateOfBirth, gender, IDNumber, phoneNumber, email);
+    public Customer(String name, String dateOfBirth, String IDNumber, String phoneNumber, String email, String address, String customerCode, Integer customerTypeCode, Boolean gender) {
+        super(name, dateOfBirth, IDNumber, phoneNumber, email, address);
         this.customerCode = customerCode;
         this.customerTypeCode = customerTypeCode;
-        this.address = address;
+        this.gender = gender;
     }
 
     public String getCustomerCode() {
@@ -37,30 +37,25 @@ public class Customer extends Person{
         this.customerTypeCode = customerTypeCode;
     }
 
-    public String getAddress() {
-        return address;
+    public Boolean getGender() {
+        return gender;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    @Override
-    public String getStringPerson() {
-        return this.customerCode + "," + super.getStringPerson() + "," + this.customerTypeCode + "," + this.address;
+    public void setGender(Boolean gender) {
+        this.gender = gender;
     }
 
     @Override
     public String toString() {
         return "Customer{" +
-                "customerCode=" + customerCode +
+                "customerCode='" + customerCode + '\'' +
+                ", customerTypeCode=" + customerTypeCode +
+                ", gender=" + gender +
                 ", name='" + name + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
-                ", gender='" + gender + '\'' +
-                ", IDNumber=" + IDNumber +
-                ", phoneNumber=" + phoneNumber +
+                ", IDNumber='" + IDNumber + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
-                ", customerType='" + customerTypeCode + '\'' +
                 ", address='" + address + '\'' +
                 '}';
     }

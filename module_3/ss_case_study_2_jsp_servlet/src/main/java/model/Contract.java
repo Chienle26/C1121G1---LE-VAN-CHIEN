@@ -1,86 +1,78 @@
 package model;
 
 public class Contract {
-    private Integer contractNumber;
-    private Booking bookingCode;
-    private double deposit;
-    private double totalPayment;
-    private Booking customerCode;
-
-    private static Integer number =1;
-
+    private Integer contractId;
+    private String startDate;
+    private String endDate;
+    private Double deposit;
+    private Double totalMoney;
 
     public Contract() {
     }
 
-    public Contract(Booking bookingCode, double deposit, double totalPayment, Booking customerCode) {
-        this.bookingCode = bookingCode;
+    public Contract(Integer contractId, String startDate, String endDate, Double deposit) {
+        this.contractId = contractId;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.deposit = deposit;
-        this.totalPayment = totalPayment;
-        this.customerCode = customerCode;
-        this.contractNumber = number++;
     }
 
-    public Integer getContractNumber() {
-        return contractNumber;
+    public Contract(Integer contractId, String startDate, String endDate, Double deposit, Double totalMoney) {
+        this.contractId = contractId;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.deposit = deposit;
+        this.totalMoney = totalMoney;
     }
 
-    public void setContractNumber(Integer contractNumber) {
-        this.contractNumber = contractNumber;
+    public Integer getContractId() {
+        return contractId;
     }
 
-    public Booking getBookingCode() {
-        return bookingCode;
+    public void setContractId(Integer contractId) {
+        this.contractId = contractId;
     }
 
-    public void setBookingCode(Booking bookingCode) {
-        this.bookingCode = bookingCode;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public double getDeposit() {
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+    public Double getDeposit() {
         return deposit;
     }
 
-    public void setDeposit(double deposit) {
+    public void setDeposit(Double deposit) {
         this.deposit = deposit;
     }
 
-    public double getTotalPayment() {
-        return totalPayment;
+    public Double getTotalMoney() {
+        return totalMoney;
     }
 
-    public void setTotalPayment(double totalPayment) {
-        this.totalPayment = totalPayment;
-    }
-
-    public Booking getCustomerCode() {
-        return customerCode;
-    }
-
-    public void setCustomerCode(Booking customerCode) {
-        this.customerCode = customerCode;
-    }
-
-    public static Integer getNumber() {
-        return number;
-    }
-
-    public static void setNumber(Integer number) {
-        Contract.number = number;
-    }
-
-    public String getStringContract() {
-        return this.contractNumber + "," + this.bookingCode.bookingCode + "," + this.deposit + "," + this.totalPayment + "," + this.customerCode.customerCode;
+    public void setTotalMoney(Double totalMoney) {
+        this.totalMoney = totalMoney;
     }
 
     @Override
     public String toString() {
         return "Contract{" +
-                "contractNumber=" + contractNumber +
-                ", bookingCode=" + bookingCode.getBookingCode() +
+                "contractId=" + contractId +
+                ", startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
                 ", deposit=" + deposit +
-                ", totalPayment=" + totalPayment +
-                ", customerCode=" + customerCode.getCustomerCode() +
+                ", totalMoney=" + totalMoney +
                 '}';
     }
 }

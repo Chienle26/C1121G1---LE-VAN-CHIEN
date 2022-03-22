@@ -26,7 +26,7 @@ public class EmployeeController extends HttpServlet {
 //                break;
             default:
                 List<Employee> employeeList = this.iEmployeeService.findAll();
-                request.setAttribute("customerList", employeeList);
+                request.setAttribute("employeeList", employeeList);
                 request.getRequestDispatcher("/employees/list.jsp").forward(request, response);
         }
     }

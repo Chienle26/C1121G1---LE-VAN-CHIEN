@@ -19,18 +19,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
     <style>
-        html{
+        html {
             font-size: 62.5%;
         }
 
-        body{
+        body {
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
             height: 120rem;
         }
 
-        .header{
+        .header {
             position: fixed;
             width: 100%;
             height: 12rem;
@@ -38,12 +38,12 @@
             z-index: 5;
         }
 
-        .logo{
+        .logo {
             margin-top: 1rem;
             margin-left: 3rem;
         }
 
-        .my-name{
+        .my-name {
             font-size: 3rem;
             font-weight: bold;
             position: absolute;
@@ -51,13 +51,13 @@
             top: 50%;
             transform: translateY(-50%);
             display: inline-block;
-            background-image: linear-gradient(to right, #ffd96a,#ff4895);
+            background-image: linear-gradient(to right, #ffd96a, #ff4895);
             color: transparent;
             -webkit-background-clip: text;
             background-clip: text;
         }
 
-        .nav{
+        .nav {
             width: 100%;
             height: 10rem;
             background-color: rgb(236, 232, 232);
@@ -67,7 +67,7 @@
             z-index: 5;
         }
 
-        .botton-gradient input{
+        .botton-gradient input {
             border-radius: 2rem;
             width: 15rem;
             height: 3rem;
@@ -78,7 +78,7 @@
             text-align: center;
         }
 
-        .botton-gradient span{
+        .botton-gradient span {
             position: absolute;
             right: 25rem;
             top: 50%;
@@ -88,7 +88,7 @@
         }
 
 
-        .botton-gradient{
+        .botton-gradient {
             padding: 1rem 0;
             text-decoration: none;
             margin: 2rem;
@@ -101,45 +101,49 @@
             width: 15rem;
         }
 
-        .botton-gradient-1{
+        .botton-gradient-1 {
             display: inline-block;
-            background-image: linear-gradient(to right,#63eaa5,#4bc8c6 );
+            background-image: linear-gradient(to right, #63eaa5, #4bc8c6);
             box-shadow: 3px 5px 10px 1px rgb(75 200 198 / 56%);
             position: absolute;
             top: 50%;
             left: 20rem;
             margin-top: -18.75px;
         }
-        .botton-gradient-2{
+
+        .botton-gradient-2 {
             display: inline-block;
-            background-image: linear-gradient(to right,#a7e0ff,rgb(109, 178, 229) );
+            background-image: linear-gradient(to right, #a7e0ff, rgb(109, 178, 229));
             box-shadow: 3px 5px 10px 1px rgb(109 178 229 / 56%);
             position: absolute;
             top: 50%;
             left: 40rem;
             margin-top: -18.75px;
         }
-        .botton-gradient-3{
+
+        .botton-gradient-3 {
             display: inline-block;
-            background-image: linear-gradient(to right,#a8b3ff,rgb(168, 134, 246) );
-            box-shadow:  3px 5px 10px 1px rgb(168 134 246 / 56%);
+            background-image: linear-gradient(to right, #a8b3ff, rgb(168, 134, 246));
+            box-shadow: 3px 5px 10px 1px rgb(168 134 246 / 56%);
             position: absolute;
             top: 50%;
             left: 60rem;
             margin-top: -18.75px;
         }
-        .botton-gradient-4{
+
+        .botton-gradient-4 {
             display: inline-block;
-            background-image: linear-gradient(to right,#eabc85,rgb(233, 136, 77) );
+            background-image: linear-gradient(to right, #eabc85, rgb(233, 136, 77));
             box-shadow: 3px 5px 10px 1px rgb(233 136 77 / 56%);
             position: absolute;
             top: 50%;
             left: 80rem;
             margin-top: -18.75px;
         }
-        .botton-gradient-5{
+
+        .botton-gradient-5 {
             display: inline-block;
-            background-image: linear-gradient(to right,#eaa899,rgb(215, 100, 98) );
+            background-image: linear-gradient(to right, #eaa899, rgb(215, 100, 98));
             box-shadow: 3px 5px 10px 1px rgb(215 100 98 / 56%);
             position: absolute;
             top: 50%;
@@ -147,36 +151,14 @@
             margin-top: -18.75px;
         }
 
-        .sidebar{
-            width: 15%;
-            height: 100%;
-            background-color: #ccc;
-            position: fixed;
-            top: 22rem;
-            text-align: center;
-        }
-
-        .sidebar a{
-            display: block;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.8rem;
-            /* margin-top: 5rem; */
-            padding: 1.5rem;
-            color: black;
-        }
-
-        .sidebar a:first-child{
-            margin-top: 4rem;
-        }
-        .body{
-            width: 85%;
+        .body {
+            width: 100%;
             position: absolute;
             top: 22rem;
-            right: 0;
+            left: 0;
         }
 
-        .footer{
+        .footer {
             width: 100%;
             height: 10rem;
             background-color: #046056;
@@ -187,16 +169,20 @@
             color: white;
         }
 
-        .footer h3{
+        .footer h3 {
             margin-bottom: 0;
             margin-top: 1rem;
             font-size: 1.6rem;
             font-weight: bold;
         }
 
-        .footer p{
+        .footer p {
             margin: 0;
             font-size: 1.6rem;
+        }
+
+        .body h1 {
+            font-weight: bold;
         }
 
     </style>
@@ -212,19 +198,11 @@
         <a href="/index.jsp" class="botton-gradient botton-gradient-1">Home</a></li>
         <a href="/employees" class="botton-gradient botton-gradient-2">Employee</a>
         <a href="/customers" class="botton-gradient botton-gradient-3">Customer</a>
-        <a href="#" class="botton-gradient botton-gradient-4">Service</a>
-        <a href="#" class="botton-gradient botton-gradient-5">Contract</a>
+        <a href="/services" class="botton-gradient botton-gradient-4">Service</a>
+        <a href="/contracts" class="botton-gradient botton-gradient-5">Contract</a>
         <%--        <span>Search</span>--%>
         <input type="text" value="Search">
     </div>
-</div>
-
-<div class="sidebar">
-    <a href="#">Home</a>
-    <a href="#">Employee</a>
-    <a href="#">Customer</a>
-    <a href="#">Service</a>
-    <a href="#">Contract</a>
 </div>
 
 <div class="body">
@@ -238,9 +216,9 @@
         </tr>
         <tr>
             <form action="/customers" method="post">
-                <input type="hidden" name="action" value="create">
-                <input type="text" name="searchName">
-                <input type="submit" value="Search By ">
+                <input type="hidden" name="action" value="search">
+                <input type="text" name="search">
+                <input type="submit" value="Search By Name ">
             </form>
         </tr>
 
@@ -254,6 +232,7 @@
             <th>Ngày Sinh</th>
             <th>Giới tính</th>
             <th>CMND</th>
+            <th>Loại khách</th>
             <th>Số điện thoại</th>
             <th>Email</th>
             <th>Địa Chỉ</th>
@@ -265,20 +244,25 @@
             <tr>
                 <td><c:out value="${customer.name}"/></td>
                 <td><c:out value="${customer.dateOfBirth}"/></td>
-                <c:if test="${!customer.gender}">
+                <c:if test="${customer.getGender() == false}">
                     <td><c:out value="Nữ"/></td>
                 </c:if>
-                <c:if test="${customer.gender}">
+                <c:if test="${customer.getGender() == true}">
                     <td><c:out value="Nam"/></td>
                 </c:if>
-
                 <td><c:out value="${customer.IDNumber}"/></td>
+                <td><c:out value="${customer.customerTypeName}"/></td>
                 <td><c:out value="${customer.phoneNumber}"/></td>
                 <td><c:out value="${customer.email}"/></td>
                 <td><c:out value="${customer.address}"/></td>
                 <td>
-                    <a href="/users?action=edit&id=${customer.customerCode}">Edit</a>
-                    <a href="/users?action=delete&id=${customer.customerCode}">Delete</a>
+                    <a href="/customers?action=edit&id=${customer.customerCode}">Edit</a>
+                    <a href="/customers?action=delete&id=${customer.customerCode}">Delete</a>
+<%--                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"--%>
+<%--                            onclick="getId(${customer.customerCode})"--%>
+<%--                            data-bs-target="#exampleModal">--%>
+<%--                        delete--%>
+<%--                    </button>--%>
                 </td>
             </tr>
         </c:forEach>
@@ -294,7 +278,27 @@
         Email: reservation@furamavietnam.com * www.furamavietnam.com
     </p>
 </div>
-
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="get" >
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="id" id="idDelete">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Do you want to delete this employee?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Yes or No
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+                    <button type="submit" class="btn btn-primary">YES</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -314,15 +318,19 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
 <script>
-    $.extend( true, $.fn.dataTable.defaults, {
+    function getId(id) {
+        document.getElementById("idDelete").value = id;
+    }
+    $.extend(true, $.fn.dataTable.defaults, {
         "searching": false,
         "ordering": false
-    } );
-    $(document).ready(function() {
+    });
+    $(document).ready(function () {
         $('#example').DataTable({
             "lengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]]
         });
-    } );
+    });
 </script>
 </html>

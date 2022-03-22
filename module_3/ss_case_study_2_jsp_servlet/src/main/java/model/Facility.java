@@ -5,12 +5,12 @@ public abstract class Facility {
     Double area;
     Double rentalCosts;
     Integer maxPeople;
-    String rentalType;
+    Integer rentalType;
 
     public Facility() {
     }
 
-    public Facility(String nameService, Double area, Double rentalCosts, Integer maxPeople, String rentalType) {
+    public Facility(String nameService, Double area, Double rentalCosts, Integer maxPeople, Integer rentalType) {
         this.nameService = nameService;
         this.area = area;
         this.rentalCosts = rentalCosts;
@@ -50,11 +50,11 @@ public abstract class Facility {
         this.maxPeople = maxPeople;
     }
 
-    public String getRentalType() {
+    public Integer getRentalType() {
         return rentalType;
     }
 
-    public void setRentalType(String rentalType) {
+    public void setRentalType(Integer rentalType) {
         this.rentalType = rentalType;
     }
 

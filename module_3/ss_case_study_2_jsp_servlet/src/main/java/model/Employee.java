@@ -2,25 +2,28 @@ package model;
 
 public class Employee extends Person {
     private String employeeCode;
-    private String degree;
-    private String position;
+    private Integer degreeCode;
+    private Integer positionCode;
+    private Integer divisionCode;
     private Double salary;
 
     public Employee() {
     }
 
-    public Employee(String employeeCode, String degree, String position, Double salary) {
+    public Employee(String employeeCode, Integer degreeCode, Integer positionCode, Integer divisionCode, Double salary) {
         this.employeeCode = employeeCode;
-        this.degree = degree;
-        this.position = position;
+        this.degreeCode = degreeCode;
+        this.positionCode = positionCode;
+        this.divisionCode = divisionCode;
         this.salary = salary;
     }
 
-    public Employee(String employeeCode, String name, String dateOfBirth, Boolean gender, String IDNumber, String phoneNumber, String email, String degree, String position, Double salary) {
-        super(name, dateOfBirth, gender, IDNumber, phoneNumber, email);
+    public Employee(String name, String dateOfBirth, String IDNumber, String phoneNumber, String email, String address, String employeeCode, Integer degreeCode, Integer positionCode, Integer divisionCode, Double salary) {
+        super(name, dateOfBirth, IDNumber, phoneNumber, email, address);
         this.employeeCode = employeeCode;
-        this.degree = degree;
-        this.position = position;
+        this.degreeCode = degreeCode;
+        this.positionCode = positionCode;
+        this.divisionCode = divisionCode;
         this.salary = salary;
     }
 
@@ -32,20 +35,28 @@ public class Employee extends Person {
         this.employeeCode = employeeCode;
     }
 
-    public String getDegree() {
-        return degree;
+    public Integer getDegreeCode() {
+        return degreeCode;
     }
 
-    public void setDegree(String degree) {
-        this.degree = degree;
+    public void setDegreeCode(Integer degreeCode) {
+        this.degreeCode = degreeCode;
     }
 
-    public String getPosition() {
-        return position;
+    public Integer getPositionCode() {
+        return positionCode;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setPositionCode(Integer positionCode) {
+        this.positionCode = positionCode;
+    }
+
+    public Integer getDivisionCode() {
+        return divisionCode;
+    }
+
+    public void setDivisionCode(Integer divisionCode) {
+        this.divisionCode = divisionCode;
     }
 
     public Double getSalary() {
@@ -57,23 +68,19 @@ public class Employee extends Person {
     }
 
     @Override
-    public String getStringPerson() {
-        return this.employeeCode + "," + super.getStringPerson() + "," + this.degree + "," + this.position + "," + this.salary;
-    }
-
-    @Override
     public String toString() {
-        return "employee{" +
-                "employeeCode=" + employeeCode +
+        return "Employee{" +
+                "employeeCode='" + employeeCode + '\'' +
+                ", degreeCode=" + degreeCode +
+                ", positionCode=" + positionCode +
+                ", divisionCode=" + divisionCode +
+                ", salary=" + salary +
                 ", name='" + name + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
-                ", gender='" + gender + '\'' +
-                ", IDNumber=" + IDNumber +
-                ", phoneNumber=" + phoneNumber +
+                ", IDNumber='" + IDNumber + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
-                ", degree='" + degree + '\'' +
-                ", position='" + position + '\'' +
-                ", salary=" + salary +
+                ", address='" + address + '\'' +
                 '}';
     }
 }

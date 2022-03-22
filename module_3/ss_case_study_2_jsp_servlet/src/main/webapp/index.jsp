@@ -168,6 +168,7 @@
         }
         .body{
             width: 85%;
+            height: 88rem;
             position: absolute;
             top: 22rem;
             right: 0;
@@ -196,6 +197,13 @@
             font-size: 1.6rem;
         }
 
+        .body img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: bottom;
+        }
+
     </style>
 </head>
 <body>
@@ -209,23 +217,23 @@
         <a href="index.jsp" class="botton-gradient botton-gradient-1">Home</a></li>
         <a href="/employees" class="botton-gradient botton-gradient-2">Employee</a>
         <a href="/customers" class="botton-gradient botton-gradient-3">Customer</a>
-        <a href="#" class="botton-gradient botton-gradient-4">Service</a>
-        <a href="#" class="botton-gradient botton-gradient-5">Contract</a>
+        <a href="/services#" class="botton-gradient botton-gradient-4">Service</a>
+        <a href="/contracts" class="botton-gradient botton-gradient-5">Contract</a>
 <%--        <span>Search</span>--%>
         <input type="text" value="Search">
     </div>
 </div>
 
 <div class="sidebar">
-    <a href="#">Home</a>
-    <a href="#">Employee</a>
-    <a href="#">Customer</a>
-    <a href="#">Service</a>
-    <a href="#">Contract</a>
+    <a href="/index.jsp">Home</a>
+    <a href="/employees">Employee</a>
+    <a href="/customers">Customer</a>
+    <a href="/services">Service</a>
+    <a href="/contracts">Contract</a>
 </div>
 
 <div class="body">
-
+<img src="https://furamavietnam.com/wp-content/uploads/2018/11/Vietnam_Danang_Furama_Resort_Exterior_Courtyard.jpg">
 </div>
 
 <div class="footer">

@@ -3,21 +3,22 @@ package model;
 public abstract class Person {
     String name;
     String dateOfBirth;
-    Boolean gender;
     String IDNumber;
     String phoneNumber;
     String email;
+    String address;
+
 
     public Person() {
     }
 
-    public Person(String name, String dateOfBirth, Boolean gender, String IDNumber, String phoneNumber, String email) {
+    public Person(String name, String dateOfBirth, String IDNumber, String phoneNumber, String email, String address) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
         this.IDNumber = IDNumber;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.address = address;
     }
 
     public String getName() {
@@ -34,14 +35,6 @@ public abstract class Person {
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
-    }
-
-    public Boolean getGender() {
-        return gender;
-    }
-
-    public void setGender(Boolean gender) {
-        this.gender = gender;
     }
 
     public String getIDNumber() {
@@ -68,19 +61,23 @@ public abstract class Person {
         this.email = email;
     }
 
-    public String getStringPerson() {
-        return this.name + "," + this.dateOfBirth + "," + this.gender + "," + this.IDNumber + "," + this.phoneNumber + "," + this.email;
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @Override
     public String toString() {
         return "Person{" +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
-                ", gender='" + gender + '\'' +
-                ", IDNumber=" + IDNumber +
-                ", phoneNumber=" + phoneNumber +
+                ", IDNumber='" + IDNumber + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
                 '}';
     }
 }
