@@ -14,6 +14,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "CustomerController", value = "/customers")
 public class CustomerController extends HttpServlet {
@@ -46,7 +47,7 @@ public class CustomerController extends HttpServlet {
     }
 
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {
-        Integer id = Integer.valueOf(request.getParameter("id"));
+        Integer id = Integer.valueOf(request.getParameter("deleteByModal"));
         iCustomerService.deleteCustomer(id);
         try {
             response.sendRedirect("/customers");
@@ -56,7 +57,7 @@ public class CustomerController extends HttpServlet {
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
-        Integer id = Integer.valueOf(request.getParameter("id"));
+        String id = request.getParameter("id");
         Customer customer = iCustomerService.findCustomerById(id);
         List<CustomerType> customerTypeList = this.iCustomerTypeService.findAll();
         try {
@@ -127,10 +128,22 @@ public class CustomerController extends HttpServlet {
         String name = request.getParameter("name");
         String customerCode = request.getParameter("customerCode");
         Customer customer = new Customer(name, dateOfBirth, IDNumber, phoneNumber, email, address, customerCode, customerTypeCode, gender);
-        iCustomerService.editCustomer(customer);
+
+        Map<String,String> map = iCustomerService.editCustomerRegex(customer);
+
+        List<CustomerType> customerTypeList = this.iCustomerTypeService.findAll();
+
+        request.setAttribute("customerTypeList",customerTypeList);
+
+        if (map.isEmpty()){
+            request.setAttribute("message","Chỉnh sửa thành công!");
+        } else {
+            request.setAttribute("map",map);
+            request.setAttribute("customer",customer);
+        }
         try {
-            response.sendRedirect("/customers");
-        } catch (IOException e) {
+            request.getRequestDispatcher("/customers/edit.jsp").forward(request, response);
+        } catch (IOException | ServletException e) {
             e.printStackTrace();
         }
     }
@@ -146,7 +159,18 @@ public class CustomerController extends HttpServlet {
         String name = request.getParameter("name");
         String customerCode = request.getParameter("customerCode");
         Customer customer = new Customer(name, dateOfBirth, IDNumber, phoneNumber, email, address, customerCode, customerTypeCode, gender);
-        this.iCustomerService.createCustomer(customer);
+
+        Map<String,String> map = iCustomerService.createCustomerRegex(customer);
+
+        List<CustomerType> customerTypeList = this.iCustomerTypeService.findAll();
+
+        request.setAttribute("customerTypeList",customerTypeList);
+
+        if (map.isEmpty()){
+            request.setAttribute("message","Thêm mới thành công!");
+        } else {
+            request.setAttribute("map",map);
+        }
         try {
             request.getRequestDispatcher("/customers/create.jsp").forward(request, response);
         } catch (ServletException e) {

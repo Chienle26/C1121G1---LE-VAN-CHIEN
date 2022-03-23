@@ -256,13 +256,12 @@
                 <td><c:out value="${customer.email}"/></td>
                 <td><c:out value="${customer.address}"/></td>
                 <td>
-                    <a href="/customers?action=edit&id=${customer.customerCode}">Edit</a>
-                    <a href="/customers?action=delete&id=${customer.customerCode}">Delete</a>
-<%--                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"--%>
-<%--                            onclick="getId(${customer.customerCode})"--%>
-<%--                            data-bs-target="#exampleModal">--%>
-<%--                        delete--%>
-<%--                    </button>--%>
+
+                    <a  href="/customers?action=edit&id=${customer.customerCode}">Edit</a>
+<%--                    <a href="/customers?action=delete&id=${customer.customerCode}">Delete</a>--%>
+                    <button onclick="deleteById('${customer.customerCode}')" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                        Delete
+                    </button>
                 </td>
             </tr>
         </c:forEach>
@@ -278,25 +277,29 @@
         Email: reservation@furamavietnam.com * www.furamavietnam.com
     </p>
 </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form method="get" >
-                <input type="hidden" name="action" value="delete">
-                <input type="hidden" name="id" id="idDelete">
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form action="customers?" method="get">
+            <input type="hidden" name="action" value="delete">
+            <input type="hidden" name="deleteByModal" id="deleteByModal">
+            <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Do you want to delete this employee?</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc muốn xóa không?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
-                    Yes or No
+                    Có hay Không?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
-                    <button type="submit" class="btn btn-primary">YES</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
+                    <button type="submit" class="btn btn-primary">Có</button>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
+
     </div>
 </div>
 </body>
@@ -320,9 +323,6 @@
         crossorigin="anonymous"></script>
 
 <script>
-    function getId(id) {
-        document.getElementById("idDelete").value = id;
-    }
     $.extend(true, $.fn.dataTable.defaults, {
         "searching": false,
         "ordering": false
@@ -332,5 +332,10 @@
             "lengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]]
         });
     });
+</script>
+<script>
+    function deleteById(id) {
+        document.getElementById("deleteByModal").value = id;
+    }
 </script>
 </html>

@@ -186,6 +186,10 @@
             font-weight: bold;
         }
 
+        small, h3{
+            color: red;
+        }
+
     </style>
 </head>
 <body>
@@ -216,16 +220,21 @@
                 <tr>
                     <th>Customer Type Code:</th>
                     <td>
-                        <select name="customerTypeCode" >
-                            <c:forEach var="customerType" items="${customerTypeList}">
-                                <option value="${customerType.customerTypeCode}">${customerType.customerTypeName}</option>
-                            </c:forEach>
-                        </select>
-<%--                        <select class="custom-select" id="customerTypeCode" name="customerTypeCode">--%>
-<%--                            <c:forEach items="${customerTypeList}" var="customerType">--%>
-<%--                                <option value="${customerType.customerTypeCode}" ${customerType.customerTypeCode == customer.customerTypeCode.customerTypeCode? "selected":""}>${customerType.customerTypeName}</option>--%>
+<%--                        <select name="customerTypeCode" >--%>
+<%--                            <c:forEach var="customerType" items="${customerTypeList}">--%>
+<%--                                <option value="${customerType.customerTypeCode}">${customerType.customerTypeName}</option>--%>
 <%--                            </c:forEach>--%>
 <%--                        </select>--%>
+                        <select name="customerTypeCode">
+                            <c:forEach items="${customerTypeList}" var="customerType">
+                                <c:if test="${customerType.customerTypeCode == customer.customerTypeCode}">
+                                    <option selected value="${customerType.customerTypeCode}">${customerType.customerTypeName}</option>
+                                </c:if>
+                                <c:if test="${customerType.customerTypeCode != customer.customerTypeCode}">
+                                    <option value="${customerType.customerTypeCode}">${customerType.customerTypeName}</option>
+                                </c:if>
+                            </c:forEach>
+                        </select>
 <%--                        <input type="text" name="customerTypeCode" id="customerTypeCode" size="20" value="${customer.customerTypeCode}" />--%>
                     </td>
                 </tr>
@@ -233,20 +242,34 @@
                     <th>Name:</th>
                     <td>
                         <input type="text" name="name" id="name" size="20" value="${customer.name}"  />
+                        <br>
+                        <c:if test="${map.get('name')!=null}">
+                            <small>${map.get('name')}</small>
+                        </c:if>
                     </td>
                 </tr>
                 <tr>
                     <th>Date Of Birth:</th>
                     <td>
                         <input type="text" name="dateOfBirth" id="dateOfBirth" size="20" value="${customer.dateOfBirth}"/>
+                        <br>
+                        <c:if test="${map.get('dateOfBirth')!=null}">
+                            <small>${map.get('dateOfBirth')}</small>
+                        </c:if>
                     </td>
                 </tr>
                 <tr>
                     <th>Gender:</th>
                     <td>
                         <select name="gender" >
-                            <option value="true">Nam</option>
-                            <option value="false">Nữ</option>
+                            <c:if test="${customer.gender == true}">
+                                <option selected value="true">Nam</option>
+                                <option value="false">Nữ</option>
+                            </c:if>
+                            <c:if test="${customer.gender == false}">
+                                <option value="true">Nam</option>
+                                <option selected value="false">Nữ</option>
+                            </c:if>
                         </select>
 <%--                    <input type="text" name="gender" id="gender" size="20" value="${customer.gender}"/>--%>
                     </td>
@@ -255,24 +278,39 @@
                     <th>ID number:</th>
                     <td>
                         <input type="text" name="IDNumber" id="IDNumber" size="20" value="${customer.IDNumber}"/>
+                        <br>
+                        <c:if test="${map.get('IDNumber')!=null}">
+                            <small>${map.get('IDNumber')}</small>
+                        </c:if>
                     </td>
                 </tr>
                 <tr>
                     <th>Phone number:</th>
                     <td>
                         <input type="text" name="phoneNumber" id="phoneNumber" size="20" value="${customer.phoneNumber}"/>
+                        <br>
+                        <c:if test="${map.get('phoneNumber')!=null}">
+                            <small>${map.get('phoneNumber')}</small>
+                        </c:if>
                     </td>
                 </tr>
                 <tr>
                     <th>Email:</th>
                     <td>
                         <input type="text" name="email" id="email" size="20" value="${customer.email}"/>
+                        <br>
+                        <c:if test="${map.get('email')!=null}">
+                            <small>${map.get('email')}</small>
+                        </c:if>
                     </td>
                 </tr>
                 <tr>
                     <th>Adress:</th>
                     <td>
                         <input type="text" name="address" id="address" size="20" value="${customer.address}"/>
+                        <c:if test="${map.get('address')!=null}">
+                            <small>${map.get('address')}</small>
+                        </c:if>
                     </td>
                 </tr>
                 <tr>
@@ -282,6 +320,9 @@
                 </tr>
             </table>
         </form>
+        <c:if test="${message!=null}">
+            <h3>${message}</h3>
+        </c:if>
     </div>
 </div>
 

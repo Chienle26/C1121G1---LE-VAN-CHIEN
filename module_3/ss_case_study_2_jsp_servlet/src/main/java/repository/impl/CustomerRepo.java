@@ -65,7 +65,7 @@ public class CustomerRepo implements ICustomerRepo {
                 String name = resultSet.getString("ho_ten");
                 String customerCode = resultSet.getString("ma_khach_hang");
                 String customerName = resultSet.getString("ten_loai_khach");
-                CustomerDTO customer = new CustomerDTO(name, dateOfBirth, IDNumber, phoneNumber, email, address, customerCode, customerTypeCode, gender,customerName);
+                CustomerDTO customer = new CustomerDTO(name, dateOfBirth, IDNumber, phoneNumber, email, address, customerCode, customerTypeCode, gender, customerName);
                 customerDTOList.add(customer);
             }
         } catch (SQLException e) {
@@ -108,13 +108,13 @@ public class CustomerRepo implements ICustomerRepo {
     }
 
     @Override
-    public Customer findCustomerById(Integer id) {
+    public Customer findCustomerById(String id) {
         Connection connection = null;
         Customer customer = null;
         try {
             connection = baseRepo.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement("select * from khach_hang where ma_khach_hang = ?");
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 String address = resultSet.getString("dia_chi");
@@ -222,5 +222,16 @@ public class CustomerRepo implements ICustomerRepo {
         }
 
         return customerList;
+    }
+
+    @Override
+    public boolean checkCustomerCodeExist(String customerCode) {
+        List<Customer> customerList = findAll();
+        for (Customer customer : customerList) {
+            if (customer.getCustomerCode().equals(customerCode)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

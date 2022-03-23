@@ -5,6 +5,7 @@ import model.CustomerDTO;
 import model.Employee;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ICustomerService extends IService{
 
@@ -14,7 +15,11 @@ public interface ICustomerService extends IService{
 
     void createCustomer(Customer customer);
 
-    Customer findCustomerById(Integer id);
+    Map<String,String> createCustomerRegex(Customer customer);
+
+    public Map<String,String> editCustomerRegex(Customer customer);
+
+    Customer findCustomerById(String id);
 
     void editCustomer(Customer customer);
 

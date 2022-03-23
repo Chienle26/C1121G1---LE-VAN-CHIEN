@@ -13,11 +13,13 @@ public interface ICustomerRepo extends IRepository{
 
     void createCustomer(Customer customer);
 
-    Customer findCustomerById(Integer id);
+    Customer findCustomerById(String id);
 
     void editCustomer(Customer customer);
 
     void deleteCustomer(Integer id);
 
     List<Customer> searchByName(String name);
+
+    boolean checkCustomerCodeExist(String customerCode);
 }

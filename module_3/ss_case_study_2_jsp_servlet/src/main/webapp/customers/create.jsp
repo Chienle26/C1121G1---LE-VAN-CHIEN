@@ -185,6 +185,9 @@
                 margin-top: 10px;
                 font-weight: bold;
             }
+            small, h3{
+                color: red;
+            }
 
         </style>
     </head>
@@ -216,6 +219,13 @@
                         <th>Customer Code:</th>
                         <td>
                             <input type="text" name="customerCode" id="customerCode" size="20" />
+                            <br>
+                            <c:if test="${map.get('customerCode')!=null}">
+                                <small>${map.get('customerCode')}</small>
+                            </c:if>
+                            <c:if test="${map.get('customerCodeRegex')==true}">
+                                <small>${map.get('customerCodeRegex')}</small>
+                            </c:if>
                         </td>
                     </tr>
                     <tr>
@@ -232,12 +242,20 @@
                         <th>Name:</th>
                         <td>
                             <input type="text" name="name" id="name" size="20"/>
+                            <br>
+                            <c:if test="${map.get('name')!=null}">
+                                <small>${map.get('name')}</small>
+                            </c:if>
                         </td>
                     </tr>
                     <tr>
                         <th>Date Of Birth:</th>
                         <td>
                             <input type="text" name="dateOfBirth" id="dateOfBirth" size="20"/>
+                            <br>
+                            <c:if test="${map.get('dateOfBirth')!=null}">
+                                <small>${map.get('dateOfBirth')}</small>
+                            </c:if>
                         </td>
                     </tr>
                     <tr>
@@ -253,24 +271,40 @@
                         <th>ID number:</th>
                         <td>
                             <input type="text" name="IDNumber" id="IDNumber" size="20"/>
+                            <br>
+                            <c:if test="${map.get('IDNumber')!=null}">
+                                <small>${map.get('IDNumber')}</small>
+                            </c:if>
                         </td>
                     </tr>
                     <tr>
                         <th>Phone number:</th>
                         <td>
                             <input type="text" name="phoneNumber" id="phoneNumber" size="20"/>
+                            <br>
+                            <c:if test="${map.get('phoneNumber')!=null}">
+                                <small>${map.get('phoneNumber')}</small>
+                            </c:if>
                         </td>
                     </tr>
                     <tr>
                         <th>Email:</th>
                         <td>
                             <input type="text" name="email" id="email" size="20"/>
+                            <br>
+                            <c:if test="${map.get('email')!=null}">
+                                <small>${map.get('email')}</small>
+                            </c:if>
                         </td>
                     </tr>
                     <tr>
                         <th>Adress:</th>
                         <td>
                             <input type="text" name="address" id="address" size="20"/>
+                            <br>
+                            <c:if test="${map.get('address')!=null}">
+                                <small>${map.get('address')}</small>
+                            </c:if>
                         </td>
                     </tr>
                     <tr>
@@ -280,6 +314,9 @@
                     </tr>
                 </table>
             </form>
+            <c:if test="${message!=null}">
+                <h3>${message}</h3>
+            </c:if>
         </div>
     </div>
 
