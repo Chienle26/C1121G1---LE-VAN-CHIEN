@@ -36,6 +36,7 @@ public class CustomerService implements ICustomerService {
         boolean check = true;
         if (!customer.getEmail().matches(regex.EMAIL)){
             map.put("email","Sai định dạng email (VD: ab_A.c123@gmail.com)");
+            check = false ;
         }
         if(iCustomerRepo.checkCustomerCodeExist(customer.getCustomerCode())){
             map.put("customerCodeExit","Đã tồn tại mã khách hàng này");
