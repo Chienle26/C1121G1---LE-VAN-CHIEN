@@ -46,7 +46,8 @@
             .my-name{
                 font-size: 3rem;
                 font-weight: bold;
-                position: absolute;
+                position: absolu
+                te;
                 right: 4rem;
                 top: 50%;
                 transform: translateY(-50%);

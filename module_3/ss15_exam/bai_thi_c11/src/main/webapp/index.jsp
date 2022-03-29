@@ -222,8 +222,8 @@
 <div class="nav">
   <div class="botton-gradient">
     <a href="index.jsp" class="botton-gradient botton-gradient-1">Home</a>
-    <a href="/sanPham" class="botton-gradient botton-gradient-2">List</a>
-    <a href="create.jsp" class="botton-gradient botton-gradient-3">Create</a>
+    <a href="/themuonsach" class="botton-gradient botton-gradient-2">Sách</a>
+    <a href="create.jsp" class="botton-gradient botton-gradient-3">Thẻ mượn sách</a>
     <a href="search.jsp" class="botton-gradient botton-gradient-4">Search</a>
     <a href="#" class="botton-gradient botton-gradient-5">Blog</a>
     <%--        <span>Search</span>--%>
@@ -240,7 +240,7 @@
 </div>
 
 <div class="body">
-  <img src="/MyAvater.jpg">
+  <img src="/avatar.jpg">
 </div>
 
 <div class="footer">

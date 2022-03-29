@@ -41,8 +41,8 @@
 <div class="body">
     </center>
     <div align="center" class="create">
-        <h2>Add New Product</h2>
-        <form method="post" action="/sanPham?action=create">
+        <h2>Mượn sách</h2>
+        <form method="post" action="/themuonsach?action=create">
             <table border="1" cellpadding="5">
                 <%--                <tr>--%>
                 <%--                    <th>ID sản phẩm:</th>--%>
@@ -58,25 +58,54 @@
                 <%--                    </td>--%>
                 <%--                </tr>--%>
                 <tr>
-                    <th>Tên sản phẩm:</th>
+                    <th>Mã mượn sách:</th>
                     <td>
-                        <input type="text" name="tenSanPham" id="tenSanPham" size="20"/>
+                        <input type="text" name="maMuonSach" id="maMuonSach" size="20"/>
                     </td>
                 </tr>
                 <tr>
-                    <th>Giá sản phẩm:</th>
+                    <th>Tên sách:</th>
                     <td>
-                        <input type="text" name="gia" id="gia" size="20"/>
+                        <input type="text" name="maSach" id="maSach" size="20" value="${sachList.tenSach}"/>
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>Tên học sinh:</th>
+
+                    <td>
+<%--                        <select name="maHocSinh">--%>
+<%--                            <c:forEach items="${hocSinhList}" var="hocSinh">--%>
+<%--                                    <option selected value="${hocSinh.maHocSinh}">${hocSinh.hoTen}</option>--%>
+<%--                            </c:forEach>--%>
+<%--                        </select>--%>
+                    </td>
+
+                </tr>
+                <tr>
+                    <th>Ngày mượn sách:</th>
+                    <td>
+                        <input type="text" name="ngayMuon" id="ngayMuon" size="20"/>
                         <%--                        <br>--%>
-                        <%--                        <c:if test="${map.get('name')!=null}">--%>
-                        <%--                            <small>${map.get('name')}</small>--%>
+                        <%--                        <c:if test="${map.get('IDNumber')!=null}">--%>
+                        <%--                            <small>${map.get('IDNumber')}</small>--%>
                         <%--                        </c:if>--%>
                     </td>
+                    <%--
+                                    </tr>
+                                    <tr>
+                                        <th>Ngày trả sách:</th>
+                                        <td>
+                                            <input type="text" name="ngayTra" id="ngayTra" size="20"/>
+                                            <%--                        <br>--%>
+                    <%--                        <c:if test="${map.get('IDNumber')!=null}">--%>
+                    <%--                            <small>${map.get('IDNumber')}</small>--%>
+                    <%--                        </c:if>--%>
+                    </td>
                 </tr>
                 <tr>
-                    <th>Số lượng sản phẩm:</th>
                     <td>
-                        <input type="text" name="soLuong" id="soLuong" size="20"/>
+                        <input hidden type="text" name="trangThai" id="trangThai" value="true" size="20"/>
                         <%--                        <br>--%>
                         <%--                        <c:if test="${map.get('dateOfBirth')!=null}">--%>
                         <%--                            <small>${map.get('dateOfBirth')}</small>--%>
@@ -84,42 +113,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>Màu sắc sản phẩm:</th>
-                    <td>
-                        <select name="idMauSac" >
-                            <c:forEach var="mauSacList" items="${mauSacList}">
-                                <option value="${mauSacList.idMauSac}">${mauSacList.mauSac}</option>
-                            </c:forEach>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Mô tả sản phẩm:</th>
-                    <td>
-                        <input type="text" name="moTa" id="moTa" size="20"/>
-                        <%--                        <br>--%>
-                        <%--                        <c:if test="${map.get('IDNumber')!=null}">--%>
-                        <%--                            <small>${map.get('IDNumber')}</small>--%>
-                        <%--                        </c:if>--%>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Danh mục sản phẩm:</th>
-                    <td>
-                        <select name="idDanhMuc" >
-                            <c:forEach var="mauSacList" items="${danhMucList}">
-                                <option value="${mauSacList.idDanhMuc}">${mauSacList.danhMuc}</option>
-                            </c:forEach>
-                        </select>
-                        <%--                        <br>--%>
-                        <%--                        <c:if test="${map.get('phoneNumber')!=null}">--%>
-                        <%--                            <small>${map.get('phoneNumber')}</small>--%>
-                        <%--                        </c:if>--%>
-                    </td>
-                </tr>
-                <tr>
                     <td colspan="2" align="center">
-                        <input type="submit" value="Save"/>
+                        <input type="submit" value="Mượn sách"/>
+                    </td>
+                    <td colspan="2" align="center">
+                        <a href="/themuonsach">Hủy</a>
                     </td>
                 </tr>
             </table>
@@ -159,14 +157,14 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script>
-    $.extend( true, $.fn.dataTable.defaults, {
+    $.extend(true, $.fn.dataTable.defaults, {
         "searching": false,
         "ordering": false
-    } );
-    $(document).ready(function() {
+    });
+    $(document).ready(function () {
         $('#example').DataTable({
             "lengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]]
         });
-    } );
+    });
 </script>
 </html>

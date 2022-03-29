@@ -40,13 +40,7 @@
 
 <div class="body">
     <center>
-        <h1 style="margin-top: 10px">Product Application</h1>
-
-        <tr>
-            <h2>
-                <a href="/sanPham?action=create">Add New Product</a>
-            </h2>
-        </tr>
+        <h1 style="margin-top: 10px">Danh sách sách</h1>
         <table class="search">
             <tr>
                 <td>
@@ -86,29 +80,29 @@
         <thead>
         <tr>
             <th>STT</th>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Color</th>
-            <th>Category</th>
-            <th>Action</th>
+            <th>Mã sách</th>
+            <th>Tên Sách</th>
+            <th>Tác giả</th>
+            <th>Số lượng</th>
+            <th>Mô Tả</th>
+            <th>Mượn</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="sanPham" items="${sanPhamList}" varStatus="loop">
+        <c:forEach var="sach" items="${sachList}" varStatus="loop">
             <tr>
                 <td>${loop.count}</td>
-                <td><c:out value="${sanPham.tenSanPham}"/></td>
-                <td><c:out value="${sanPham.gia}"/></td>
-                <td><c:out value="${sanPham.soLuong}"/></td>
-                <td><c:out value="${sanPham.mauSac}"/></td>
-                <td><c:out value="${sanPham.danhMuc}"/></td>
+                <td><c:out value="${sach.maSach}"/></td>
+                <td><c:out value="${sach.tenSach}"/></td>
+                <td><c:out value="${sach.tacGia}"/></td>
+                <td><c:out value="${sach.soLuong}"/></td>
+                <td><c:out value="${sach.moTa}"/></td>
                 <td>
-                    <a  href="/sanPham?action=edit&id=${sanPham.idSanPham}">Edit</a>
+                    <a  href="/themuonsach?action=create&id=${sach.maSach}">Mượn</a>
                         <%--                    <a href="/customers?action=delete&id=${customer.customerCode}">Delete</a>--%>
-                    <button onclick="deleteById('${sanPham.idSanPham}')" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                        Delete
-                    </button>
+<%--                    <button onclick="deleteById('${sach.maSach}')" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">--%>
+<%--                        Delete--%>
+<%--                    </button>--%>
                 </td>
             </tr>
         </c:forEach>

@@ -87,14 +87,14 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="sanPham" items="${sanPhamList}">
+        <c:forEach var="sach" items="${sanPhamList}">
             <tr>
-                <td><c:out value="${sanPham.idSanPham}"/></td>
-                <td><c:out value="${sanPham.tenSanPham}"/></td>
-                <td><c:out value="${sanPham.gia}"/></td>
-                <td><c:out value="${sanPham.soLuong}"/></td>
-                <td><c:out value="${sanPham.mauSac}"/></td>
-                <td><c:out value="${sanPham.danhMuc}"/></td>
+                <td><c:out value="${sach.idSanPham}"/></td>
+                <td><c:out value="${sach.tenSanPham}"/></td>
+                <td><c:out value="${sach.gia}"/></td>
+                <td><c:out value="${sach.soLuong}"/></td>
+                <td><c:out value="${sach.mauSac}"/></td>
+                <td><c:out value="${sach.danhMuc}"/></td>
             </tr>
         </c:forEach>
         </tbody>
