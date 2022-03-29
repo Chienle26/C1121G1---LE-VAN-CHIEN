@@ -1,6 +1,8 @@
 package com.codegym.Controller;
 
-import com.codegym.Service.TranslateService;
+import com.codegym.Service.ITranslateService;
+import com.codegym.Service.impl.TranslateService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class DictionaryController {
-    TranslateService translateService = new TranslateService();
+    @Autowired
+    private ITranslateService translateService;
 
     @GetMapping({"","/search"})
     public String search(){

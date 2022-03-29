@@ -1,9 +1,13 @@
-package com.codegym.Service;
+package com.codegym.Service.impl;
+
+import com.codegym.Service.ITranslateService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class TranslateService {
+@Service
+public class TranslateService implements ITranslateService {
  public String findByWord(String word){
   Map<String,String> dictionary = new HashMap<>();
   dictionary.put("red","Màu đỏ");
