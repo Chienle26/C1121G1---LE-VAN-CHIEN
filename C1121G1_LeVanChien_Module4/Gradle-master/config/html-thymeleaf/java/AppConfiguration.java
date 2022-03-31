@@ -52,4 +52,19 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
         return viewResolver;
     }
 
+    //Cấu hình upload file
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/image/**")
+                .addResourceLocations("file:" + fileUpload);
+
+    }
+
+    @Bean(name = "multipartResolver")
+    public CommonsMultipartResolver getResolver() throws IOException {
+        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+        resolver.setMaxUploadSizePerFile(52428800);
+        return resolver;
+    }
+
 }
