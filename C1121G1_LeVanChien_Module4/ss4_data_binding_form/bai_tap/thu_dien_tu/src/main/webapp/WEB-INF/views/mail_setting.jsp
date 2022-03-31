@@ -15,12 +15,7 @@
                 Language:
             </th>
             <td>
-                <form:select path="language">
-                    <form:option value="English">English</form:option>
-                    <form:option value="Vietnamese">Vietnamese</form:option>
-                    <form:option value="Japanese">Japanese</form:option>
-                    <form:option value="Chinese">Chinese</form:option>
-                </form:select>
+                <form:select path="language" items="${listLanguage}" />
             </td>
         </tr>
         <tr>
@@ -29,14 +24,7 @@
             </th>
             <td>
                 Show
-                <form:select path="pageSize">
-                    <form:option value="5">5</form:option>
-                    <form:option value="10">10</form:option>
-                    <form:option value="15">15</form:option>
-                    <form:option value="25">25</form:option>
-                    <form:option value="50">50</form:option>
-                    <form:option value="100">100</form:option>
-                </form:select>
+                <form:select path="pageSize" items="${listPageSize}" />
                 emails per page
             </td>
         </tr>
@@ -45,7 +33,7 @@
                 Spams Filter:
             </th>
             <td>
-                <form:checkbox path="spamFilter" value="true"></form:checkbox>Enable spams filter
+                <form:checkbox path="spamFilter" value="true" /> Enable spams filter
             </td>
         </tr>
         <tr>

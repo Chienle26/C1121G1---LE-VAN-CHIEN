@@ -7,6 +7,7 @@
 </head>
 <body>
 <h1>Mail Setting</h1>
+<p style="color: green;">${message}</p>
     <table>
         <tr>
             <th>
@@ -31,8 +32,8 @@
                 Spams Filter:
             </th>
             <td>
-                <c:if test="${mailSetting.spamFilter}==true">Yes</c:if>
-                <c:if test="${mailSetting.spamFilter}==false">No</c:if>
+                <c:if test="${mailSetting.spamFilter==true}">Yes</c:if>
+                <c:if test="${mailSetting.spamFilter==false}">No</c:if>
             </td>
         </tr>
         <tr>
