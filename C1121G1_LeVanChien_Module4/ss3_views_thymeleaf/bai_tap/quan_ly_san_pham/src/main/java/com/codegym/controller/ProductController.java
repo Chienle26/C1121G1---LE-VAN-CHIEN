@@ -66,4 +66,10 @@ public class ProductController {
         return "view";
     }
 
+    @PostMapping("/search")
+    public String search(@RequestParam String search, Model model){
+        model.addAttribute("productList",iProductService.searchByName(search));
+        return "search";
+    }
+
 }

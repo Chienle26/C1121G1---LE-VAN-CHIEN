@@ -14,11 +14,17 @@
         <span th:text="${success}"></span>
     </div>
 </div>
-<table id = "products">
+<div class="search">
+    <form th:action="@{/product/search}" method="post">
+        <input type="text" name="search" id="search" size="50px">
+        <input type="submit" value="Search By Name">
+    </form>
+</div>
+<table id="products">
     <thead>
     <tr>
         <th>STT</th>
-        <th>ID</th>
+        <!--        <th>ID</th>-->
         <th>Name</th>
         <th>Price</th>
         <th>description</th>
@@ -31,7 +37,7 @@
     <tbody>
     <tr th:each="product,loop : ${productList}">
         <td th:text="${loop.count}"></td>
-        <td th:text="${product.id}"></td>
+        <!--        <td th:text="${product.id}"></td>-->
         <td th:text="${product.name}"></td>
         <td th:text="${product.price}"></td>
         <td th:text="${product.description}"></td>
