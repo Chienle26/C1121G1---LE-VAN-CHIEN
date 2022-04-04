@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image of the day</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        h1{
+            text-align: center;
+            margin: 10px auto;
+            color: coral;
+        }
+        img{
+            width: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<h1 id="title"></h1>
+<img id="img-of-the-day"><br><br>
+<form action="/create" method="post" th:object="${comment}">
+    <label>Vote: </label>
+    <select th:field="*{points}">
+        <option th:value="1">1</option>
+        <option th:value="2">2</option>
+        <option th:value="3">3</option>
+        <option th:value="4">4</option>
+        <option th:value="5">5</option>
+    </select><br><br>
+    <label>Author: </label>
+    <input th:field="*{author}"><br><br>
+    <label>Feedback: </label>
+    <textarea id="explanation" cols="100" rows="5" th:field="*{feedback}"></textarea><br><br>
+    <button>Comment:</button>
+</form>
+
+<table>
+    <tr th:each="comment,loop : ${commentList}">
+        <td>
+            <div style="margin-bottom: 20px;">
+                <span style="color: red; font-weight: bold" th:text="${comment.author}"></span>
+                <span>: </span>
+                <span style="margin-bottom: 10px;width: 100%;border: none;"
+                   th:text="${comment.feedback}"></span>
+                <div style="display: flex;flex-direction: row-reverse;align-content: stretch;justify-content: flex-end;">
+                    <span style="border: none;max-width: 30px;text-align: center;margin-left: 10px; color: blue "
+                       th:text="${comment.likes}"></span>
+                    <a th:href="@{/like(idLike=${comment.id})}" class="fa fa-thumbs-up"></a>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+</body>
+
+<script>
+    let query = 'https://api.nasa.gov/planetary/apod?api_key=baqCwaOJDaUa05HWa9G6k7ilUL5wGPpNCV8Hcmhz';
+    let request = new XMLHttpRequest();
+    request.open('GET', query);
+    request.onload = function () {
+        if (request.status === 200) {
+            let response = JSON.parse(request.responseText);
+            document.getElementById('img-of-the-day').setAttribute('src', response.url);
+            document.getElementById('title').innerText = response.title;
+        }
+    };
+    request.send();
+
+    function myFunction(x) {
+        x.classList.toggle("fa-thumbs-down");
+    }
+</script>
+</html>
