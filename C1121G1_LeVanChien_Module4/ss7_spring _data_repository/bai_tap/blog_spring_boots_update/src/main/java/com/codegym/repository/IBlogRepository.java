@@ -10,5 +10,5 @@ import java.util.List;
 
 
 public interface IBlogRepository extends JpaRepository<Blog,Integer> {
-    Page<Blog> findByAuthorContaining(String name, Pageable pageable);
+    Page<Blog> findByAuthorContainingOrderByDate(String name, Pageable pageable);
 }

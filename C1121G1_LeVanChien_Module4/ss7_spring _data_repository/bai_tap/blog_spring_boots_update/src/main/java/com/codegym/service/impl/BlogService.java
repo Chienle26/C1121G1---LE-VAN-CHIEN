@@ -39,6 +39,6 @@ public class BlogService implements IBlogService {
 
     @Override
     public Page<Blog> findAllPaging(String search, Pageable pageable) {
-        return iBlogRepository.findByAuthorContaining(search, pageable);
+        return iBlogRepository.findByAuthorContainingOrderByDate(search, pageable);
     }
 }
