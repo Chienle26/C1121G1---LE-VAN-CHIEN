@@ -40,9 +40,4 @@ public class SoTietKiemService implements ISoTietKiemService {
         return iSoTietKiemRepository.findById(id).orElse(null);
     }
 
-    @Override
-    public SoTietKiemDto findByIdDto(Integer id) {
-        SoTietKiemDto soTietKiemDto = new SoTietKiemDto();
-        soTietKiemDto = (SoTietKiem) iSoTietKiemRepository.findById(id);
-    }
 }

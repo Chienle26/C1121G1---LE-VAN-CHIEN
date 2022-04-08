@@ -59,12 +59,35 @@ public class SoTietKiemController {
 
     @GetMapping("/{id}/edit")
     public String goEditSoTietKiem(Model model, @PathVariable Integer id) {
-        model.addAttribute("soTietKiem", iSoTietKiemService.findById(id));
+        SoTietKiem soTietKiem = iSoTietKiemService.findById(id);
+
+        SoTietKiemDto soTietKiemDto = new SoTietKiemDto();
+        BeanUtils.copyProperties(soTietKiem, soTietKiemDto);
+
+        KhachHangDto khachHangDto = new KhachHangDto();
+        khachHangDto.setId(soTietKiem.getKhachHang().getId());
+        khachHangDto.setTen(soTietKiem.getKhachHang().getTen());
+        soTietKiemDto.setKhachHangDto(khachHangDto);
+        model.addAttribute("soTietKiemDto", soTietKiemDto);
         return "edit";
     }
 
     @PostMapping("/update")
-    public String updateSoTietKiem(@ModelAttribute SoTietKiem soTietKiem, RedirectAttributes redirectAttributes) {
+    public String updateSoTietKiem(@Valid @ModelAttribute SoTietKiemDto soTietKiemDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+        soTietKiemDto.validate(soTietKiemDto, bindingResult);
+
+        if (bindingResult.hasFieldErrors()) {
+            return "edit";
+        }
+
+        SoTietKiem soTietKiem = new SoTietKiem();
+        BeanUtils.copyProperties(soTietKiemDto, soTietKiem);
+
+        KhachHang khachHang = new KhachHang();
+        khachHang.setId(soTietKiemDto.getKhachHangDto().getId());
+        khachHang.setTen(soTietKiemDto.getKhachHangDto().getTen());
+        soTietKiem.setKhachHang(khachHang);
+
         iSoTietKiemService.save(soTietKiem);
         redirectAttributes.addFlashAttribute("success", "Sửa sổ tiết kiệm thành công!");
         return "redirect:/list";

@@ -16,5 +16,4 @@ public interface ISoTietKiemService {
 
     SoTietKiem findById(Integer id);
 
-    SoTietKiemDto findByIdDto(Integer id);
 }
