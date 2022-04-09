@@ -40,4 +40,10 @@ public class SoTietKiemService implements ISoTietKiemService {
         return iSoTietKiemRepository.findById(id).orElse(null);
     }
 
+    @Override
+    public List<SoTietKiem> findByName(String name) {
+        return iSoTietKiemRepository.findAllByKhachHang_TenContaining(name);
+    }
+
+
 }

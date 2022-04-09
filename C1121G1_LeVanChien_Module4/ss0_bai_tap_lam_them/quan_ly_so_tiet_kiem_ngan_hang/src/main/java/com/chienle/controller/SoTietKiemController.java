@@ -10,13 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 public class SoTietKiemController {
@@ -25,7 +23,9 @@ public class SoTietKiemController {
     ISoTietKiemService iSoTietKiemService;
 
     @GetMapping({"", "/list"})
-    public String goListSoTietKiem(Model model) {
+    public String goListSoTietKiem(Model model,@RequestParam Optional<String> searchTen) {
+        String searchTheoTen = searchTen.orElse("");
+        model.addAttribute("soTietKiemSearchs",iSoTietKiemService.findByName(searchTheoTen));
         model.addAttribute("soTietKiems", iSoTietKiemService.findAll());
         return "list";
     }
@@ -105,4 +105,5 @@ public class SoTietKiemController {
         redirectAttributes.addFlashAttribute("success", "Xóa sổ tiết kiệm thành công!");
         return "redirect:/list";
     }
+
 }

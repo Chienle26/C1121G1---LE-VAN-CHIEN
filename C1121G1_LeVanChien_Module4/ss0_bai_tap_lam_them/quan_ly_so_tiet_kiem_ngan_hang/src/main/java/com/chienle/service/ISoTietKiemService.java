@@ -16,4 +16,5 @@ public interface ISoTietKiemService {
 
     SoTietKiem findById(Integer id);
 
+    List<SoTietKiem> findByName(String name);
 }
