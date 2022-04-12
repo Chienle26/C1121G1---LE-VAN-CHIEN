@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>My Library</h3>
+<p>
+    <a class="chuyen-trang" th:href="@{/return_list}">
+        Danh sách thẻ mượn
+    </a>
+</p>
+<div class="notify">
+    <div th:if="${success}">
+        <span th:text="${success}"></span>
+    </div>
+</div>
+<!--<div class="search">-->
+<!--    <form th:action="@{/list}">-->
+<!--        <input type="text" name="search" id="search" size="50px">-->
+<!--        <input type="submit" value="Search By Author">-->
+<!--    </form>-->
+<!--</div>-->
+<table id="products">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Tên sách</th>
+        <th>Tác giả</th>
+        <th>Mô tả</th>
+        <th>Số lượng</th>
+        <th>Mượn sách</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="sach,loop : ${sachs}">
+        <td th:text="${loop.count}"></td>
+        <td><a th:href="@{/{id}/view(id=${sach.id})}"  th:text="${sach.tenSach}"></a></td>
+        <td th:text="${sach.tacGia}"></td>
+        <td th:text="${sach.moTa}"></td>
+        <td th:text="${sach.soLuong}"></td>
+        <td><a th:href="@{/{id}/borrow(id=${sach.id})}">Mượn</a></td>
+    </tr>
+    </tbody>
+</table>
+<!--<div class="paging">-->
+<!--    <a th:if="${blogList.hasPrevious()}" th:href="@{/blog/list(page=${blogList.number - 1}, search=${keyword})}">Previous</a>-->
+<!--    <span th:text="${blogList.number + 1}"></span> /-->
+<!--    <span th:text="${blogList.totalPages}"></span>-->
+<!--    <a th:if="${blogList.hasNext()}" th:href="@{/blog/list(page=${blogList.number + 1}, search=${keyword})}">Next</a>-->
+<!--</div>-->
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

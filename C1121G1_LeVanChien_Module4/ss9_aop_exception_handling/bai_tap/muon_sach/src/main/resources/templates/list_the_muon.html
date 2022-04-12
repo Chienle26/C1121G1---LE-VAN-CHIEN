@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>Danh sách thẻ mượn</h3>
+<p>
+    <a class="chuyen-trang" th:href="@{/list}">
+        Quay về trang sách
+    </a>
+</p>
+<div class="notify">
+    <div th:if="${success}">
+        <span th:text="${success}"></span>
+    </div>
+</div>
+<div class="search">
+    <form class="tra-sach" th:action="@{/return}" method="post">
+        <input type="text" name="maTheMuon" size="30px" style="margin-right: 10px">
+        <input type="submit" value="Trả sách">
+    </form>
+</div>
+<table id="products">
+    <thead>
+    <tr>
+        <th>Mã thẻ mượn</th>
+        <th>Tên sách</th>
+        <th>Tác giả</th>
+        <th>Mô tả</th>
+        <th>Trạng thái</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="theMuon,loop : ${theMuons}">
+        <td th:text="${theMuon.id}"></td>
+        <td th:text="${theMuon.sach.tenSach}"></td>
+        <td th:text="${theMuon.sach.tacGia}"></td>
+        <td th:text="${theMuon.sach.moTa}"></td>
+        <td th:if="${theMuon.trangThai == true}">Đang mượn</td>
+        <td th:unless="${theMuon.trangThai == true}">Đã trả</td>
+    </tr>
+    </tbody>
+</table>
+<!--<div class="paging">-->
+<!--    <a th:if="${blogList.hasPrevious()}" th:href="@{/blog/list(page=${blogList.number - 1}, search=${keyword})}">Previous</a>-->
+<!--    <span th:text="${blogList.number + 1}"></span> /-->
+<!--    <span th:text="${blogList.totalPages}"></span>-->
+<!--    <a th:if="${blogList.hasNext()}" th:href="@{/blog/list(page=${blogList.number + 1}, search=${keyword})}">Next</a>-->
+<!--</div>-->
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

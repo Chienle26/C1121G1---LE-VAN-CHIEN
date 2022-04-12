@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h3>Mượn sách</h3>
+<p>
+    <a class="chuyen-trang" th:href="@{/list}">
+        Quay về trang Sách
+    </a>
+</p>
+<div id="form">
+    <form th:action="@{/save}" th:object="${sach}"
+          method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label>Tên sách: </label>
+            <input readonly type="text"  th:field="*{tenSach}">
+        </div>
+        <div>
+            <label>Tác giả: </label>
+            <input readonly type="text"  th:field="*{tacGia}">
+        </div>
+        <div>
+            <label>Mô tả: </label>
+            <input readonly type="text"  th:field="*{moTa}">
+        </div>
+        <div>
+            <label>Số lượng: </label>
+            <input readonly type="text"  th:field="*{soLuong}">
+        </div>
+        <input type="submit" value="Mượn"/>
+        <a class="submit" th:href="@{/list}">Hủy</a>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

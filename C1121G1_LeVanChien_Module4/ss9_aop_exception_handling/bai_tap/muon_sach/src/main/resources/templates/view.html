@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h3>Chi tiết sách</h3>
+<a class="chuyen-trang" th:href="@{/list}">
+    Quay về trang Sách
+</a>
+<div id="detail">
+    <div class="cusdetail">
+        <label class="title">Tên sách: </label>
+        <label th:text="${sach.tenSach}"></label>
+    </div>
+    <div class="cusdetail">
+        <label class="title">Tác giả: </label>
+        <label th:text="${sach.tacGia}"></label>
+    </div>
+    <div class="cusdetail">
+        <label class="title">Mô tả: </label>
+        <label th:text="${sach.moTa}"></label>
+    </div>
+    <div class="cusdetail">
+        <label class="title">Số lượng: </label>
+        <label th:text="${sach.soLuong}"></label>
+    </div>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
