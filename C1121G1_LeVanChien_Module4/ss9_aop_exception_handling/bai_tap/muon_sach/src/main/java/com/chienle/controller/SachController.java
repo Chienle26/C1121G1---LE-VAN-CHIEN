@@ -7,10 +7,7 @@ import com.chienle.service.ITheMuonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -58,9 +55,13 @@ public class SachController {
     }
 
     @PostMapping("/return")
-    public String traSach(@RequestParam Integer maTheMuon, Model model) {
+    public String traSach(@RequestParam Integer maTheMuon, Model model) throws Exception {
         TheMuon theMuon = iTheMuonService.findById(maTheMuon);
         Sach sach = theMuon.getSach();
+
+        if (theMuon == null) {
+            throw new Exception();
+        }
 
         if (theMuon.getTrangThai() == false) {
             model.addAttribute("theMuons", iTheMuonService.findAll());
@@ -82,5 +83,10 @@ public class SachController {
     public String goDetail(@PathVariable Integer id, Model model) {
         model.addAttribute("sach", iSachService.findById(id));
         return "view";
+    }
+
+    @ExceptionHandler(Exception.class)
+    public String goError() {
+        return "error";
     }
 }
