@@ -35,7 +35,7 @@ public class SachController {
     }
 
     @PostMapping("/save")
-    public String MuonSach(Sach sach, RedirectAttributes redirectAttributes) {
+    public String muonSach(Sach sach, RedirectAttributes redirectAttributes) {
         if (sach.getSoLuong() <= 0) {
             redirectAttributes.addFlashAttribute("success", "Mượn không thành công vì đã hết sách!");
             return "redirect:/list";
