@@ -36,7 +36,7 @@
         <div class="work__item" style="width: 18rem;">
             <img class="card-img-top" th:src="@{${product.image}}" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title" th:text="${product.name}"></h5>
+                <a class="text-decoration-none"  th:href="@{/view/__${product.id}__}" th:text="${product.name}"></a>
                 <p class="card-text" th:text="${product.price}"></p>
                 <a class="btn btn-primary" th:href="@{/add/__${product.id}__(action='list')}">Thêm vào giỏ</a>
             </div>
