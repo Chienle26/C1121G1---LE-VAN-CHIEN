@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+    />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="work">
+    <h2 class="work__heading">Shop</h2>
+    <div class="work__filter">
+        <ul class="work-tab">
+            <li class="work-tab__item">All</li>
+            <li class="work-tab__item">Apple</li>
+            <li class="work-tab__item">Samsung</li>
+            <li class="work-tab__item">Xiaomi</li>
+            <li class="work-tab__item">Oppo</li>
+        </ul>
+        <a href="/shopping-cart" class="work__all">Đến giỏ hàng</a>
+    </div>
+    <div class="work__list" th:each="product:${products}">
+        <div class="work__item" style="width: 18rem;">
+            <img class="card-img-top" th:src="@{${product.image}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${product.name}"></h5>
+                <p class="card-text" th:text="${product.price}"></p>
+                <a class="btn btn-primary" th:href="@{/add/__${product.id}__(action='list')}">Thêm vào giỏ</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
