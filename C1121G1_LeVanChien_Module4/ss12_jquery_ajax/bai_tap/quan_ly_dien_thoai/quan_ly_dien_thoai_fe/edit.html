@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Smartphone</title>
+    <link rel="stylesheet" href="css/mdb.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <div class="row w-50 mx-auto">
+        <div class="col-lg-12">
+            <h2>Edit Smartphone</h2>
+            <div class="form-outline mb-4">
+                <input type="text" id="inputProducer" class="form-control"/>
+                <label class="form-label" for="inputProducer">Producer</label>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" id="inputModel" class="form-control"/>
+                <label class="form-label" for="inputModel">Molder</label>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" id="inputPrice" class="form-control"/>
+                <label class="form-label" for="inputPrice">Price</label>
+            </div>
+
+            <button id="btnEdit" type="button" class="btn btn-primary btn-block">
+                Edit
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/mdb.min.js"></script>
+<script>
+    // Init
+    // $.ajax({
+    //     headers: {
+    //         'Accept': 'application/json',
+    //         'Content-Type': 'application/json'
+    //     },
+    //     type: "GET", //GET, DELETE, PUT...
+    //     url: "http://localhost:8080/classStudentRest/list",
+    //     success: function (resultSuccess) {
+    //         let outHTML = "";
+    //
+    //         for (let classObj of resultSuccess) {
+    //             outHTML += `
+    //                     <option value="${classObj.id}">
+    //                         ${classObj.name}
+    //                     </option>
+    //                 `;
+    //         }
+    //
+    //         $("#selectClass").html(outHTML);
+    //     },
+    //     error: function (resultError) {
+    //
+    //     }
+    // });
+    console.log(window.location.search.substring(window.location.search.length-1));
+    $("#btnCreate").click(function () {
+        let producerVal = $("#inputProducer").val();
+        let modelVal = $("#inputModel").val();
+        let priceVal = $("#inputPrice").val();
+
+        let product = {
+            producerVal: producerVal,
+            modelVal: modelVal,
+            priceVal: priceVal
+        };
+
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "POST", //GET, DELETE, PUT...
+            url: "http://localhost:8080/smartphones/edit_phone",
+            data: JSON.stringify(product),
+            success: function (resultSuccess) {
+                alert("Dang ky thanh cong!");
+            },
+            error: function (resultError) {
+                alert("Dang ky that bai!")
+            }
+        });
+    });
+</script>
+</body>
+</html>

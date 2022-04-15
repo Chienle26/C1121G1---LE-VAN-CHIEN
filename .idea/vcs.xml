@@ -2,5 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/C1121G1_LeVanChien_Module4/ss9_aop_exception_handling/thuc_hanh/customer-management-2" vcs="Git" />
   </component>
 </project>
