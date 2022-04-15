@@ -33,59 +33,55 @@
 <script src="js/jquery-3.6.0.min.js"></script>
 <script src="js/mdb.min.js"></script>
 <script>
-    // Init
-    // $.ajax({
-    //     headers: {
-    //         'Accept': 'application/json',
-    //         'Content-Type': 'application/json'
-    //     },
-    //     type: "GET", //GET, DELETE, PUT...
-    //     url: "http://localhost:8080/classStudentRest/list",
-    //     success: function (resultSuccess) {
-    //         let outHTML = "";
-    //
-    //         for (let classObj of resultSuccess) {
-    //             outHTML += `
-    //                     <option value="${classObj.id}">
-    //                         ${classObj.name}
-    //                     </option>
-    //                 `;
-    //         }
-    //
-    //         $("#selectClass").html(outHTML);
-    //     },
-    //     error: function (resultError) {
-    //
-    //     }
-    // });
-    console.log(window.location.search.substring(window.location.search.length-1));
-    $("#btnCreate").click(function () {
-        let producerVal = $("#inputProducer").val();
-        let modelVal = $("#inputModel").val();
-        let priceVal = $("#inputPrice").val();
-
-        let product = {
-            producerVal: producerVal,
-            modelVal: modelVal,
-            priceVal: priceVal
-        };
+    $('document').ready(function () {
+        let id = window.location.search.substring(window.location.search.length-1);
 
         $.ajax({
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            type: "POST", //GET, DELETE, PUT...
-            url: "http://localhost:8080/smartphones/edit_phone",
-            data: JSON.stringify(product),
-            success: function (resultSuccess) {
-                alert("Dang ky thanh cong!");
+            type: "GET", //GET, DELETE, PUT...
+            url: "http://localhost:8080/smartphones/view?id=" + id ,
+            success: function(resultSuccess){
+                $('#inputProducer').val(resultSuccess.producer);
+                $('#inputModel').val(resultSuccess.model);
+                $('#inputPrice').val(resultSuccess.price);
             },
-            error: function (resultError) {
-                alert("Dang ky that bai!")
+            error: function(resultError) {
+                alert("He thong dang bao tri");
             }
         });
-    });
+
+        $("#btnEdit").click(function () {
+            let producerVal = $("#inputProducer").val();
+            let modelVal = $("#inputModel").val();
+            let priceVal = $("#inputPrice").val();
+
+            let smartphone = {
+                producer: producerVal,
+                model: modelVal,
+                price: priceVal
+            };
+
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "PATCH", //GET, DELETE, PUT...
+                url: "http://localhost:8080/smartphones/update?id=" + id,
+                data: JSON.stringify(smartphone),
+                success: function (resultSuccess) {
+                    alert("Dang ky thanh cong!");
+                },
+                error: function (resultError) {
+                    alert("Dang ky that bai!")
+                }
+            });
+        });
+    })
+
 </script>
 </body>
 </html>
