@@ -30,7 +30,7 @@ public class BlogController {
     ICategoryService iCategoryService;
 
     @GetMapping({"", "/list"})
-    public ResponseEntity<Page<Blog>> goBlogList(@PageableDefault(value = 20) Pageable pageable, @RequestParam Optional<String> search) {
+    public ResponseEntity<Page<Blog>> goBlogList(@PageableDefault(value = 2) Pageable pageable, @RequestParam Optional<String> search) {
         String keyword = search.orElse("");
         Page<Blog> blogs = iBlogService.findAllPaging(keyword, pageable);
         return new ResponseEntity<>(blogs, HttpStatus.OK);

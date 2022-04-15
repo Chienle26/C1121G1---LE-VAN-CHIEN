@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>List Smartphone</title>
+    <link rel="stylesheet" href="css/mdb.min.css" />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <div class="row w-50 mx-auto">
+        <div class="col-lg-10">
+          <input class="form-control" type="text" id="keyword" />
+        </div>
+        <div class="col-lg-2">
+          <button class="btn btn-primary" id="btnSearch">Search</button>
+        </div>
+      </div>
+      <div class="row w-50 mx-auto">
+        <div class="col-lg-12">
+          <h2>List Blog</h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Id</th>
+                <th scope="col">Author</th>
+                <th scope="col">Summary</th>
+                <th scope="col">Date</th>
+                <th scope="col">Category</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="bodyBlog"></tbody>
+          </table>
+        </div>
+      </div>
+      <button class="btn btn-primary" id="btnLoadMore">Load more</button>
+    </div>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/mdb.min.js"></script>
+    <script>
+      $.ajax({
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        type: "GET", //GET, DELETE, PUT...
+        url: "http://localhost:8080/blog/list",
+        success: function (resultSuccess) {
+          let blogList = resultSuccess.content;
+          let outHTML = "";
+          for (let i = 0; i < blogList.length; i++) {
+            outHTML += `
+                           <tr>
+                               <td>${i + 1}</td>
+                               <td>${blogList[i].id}</td>
+                               <td>${blogList[i].author}</td>
+                               <td>${blogList[i].summary}</td>
+                               <td>${blogList[i].date}</td>
+                               <td>${blogList[i].category.categoryName}</td>
+                               <td><a href="#">Detail</a></td>
+                           </tr>
+                       `;
+          }
+          console.log(resultSuccess);
+          $("#bodyBlog").html(outHTML);
+        },
+        error: function (resultError) {
+          alert("He thong dang bao tri!");
+        },
+      });
+
+      $("#btnSearch").click(function () {
+        let keywordVal = $("#keyword").val();
+
+        $.ajax({
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          type: "GET", //GET, DELETE, PUT...
+          url: "http://localhost:8080/blog/list?search=" + keywordVal,
+          success: function (resultSuccess) {
+            let blogList = resultSuccess.content;
+            let outHTML = "";
+            for (let i = 0; i < blogList.length; i++) {
+              outHTML += `
+                            <tr>
+                                <td>${i + 1}</td>
+                                <td>${blogList[i].id}</td>
+                                <td>${blogList[i].author}</td>
+                                <td>${blogList[i].summary}</td>
+                                <td>${blogList[i].date}</td>
+                                <td>${blogList[i].category.categoryName}</td>
+                                <td><a href="#">Detail</a></td>
+                            </tr>
+                        `;
+            }
+            console.log(resultSuccess);
+            $("#bodyBlog").html(outHTML);
+          },
+          error: function (resultError) {
+            alert("He thong dang bao tri!");
+          },
+        });
+      });
+
+      $("#btnLoadMore").click(function () {
+        let count = 1;
+        $.ajax({
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          type: "GET", //GET, DELETE, PUT...
+          url: "http://localhost:8080/blog/listsearch=&page=",
+          success: function (resultSuccess) {
+            let blogList = resultSuccess.content;
+            let outHTML = "";
+            for (let i = 0; i < blogList.length; i++) {
+              outHTML += `
+                            <tr>
+                                <td>${i + 1}</td>
+                                <td>${blogList[i].id}</td>
+                                <td>${blogList[i].author}</td>
+                                <td>${blogList[i].summary}</td>
+                                <td>${blogList[i].date}</td>
+                                <td>${blogList[i].category.categoryName}</td>
+                                <td><a href="#">Detail</a></td>
+                            </tr>
+                        `;
+            }
+            count = index * 2;
+            index++;
+
+            $("#bodyBlog").html(outHTML);
+            index++;
+          },
+          error: function (resultError) {
+            alert("He thong dang bao tri!");
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
