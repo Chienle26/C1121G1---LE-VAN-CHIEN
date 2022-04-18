@@ -24,8 +24,8 @@
                 <label class="form-label" for="inputPrice">Price</label>
             </div>
 
-            <button id="btnEdit" type="button" class="btn btn-primary btn-block">
-                Edit
+            <button id="btnDelete" type="button" class="btn btn-primary btn-block">
+                Delete
             </button>
         </div>
     </div>
@@ -54,7 +54,7 @@
             }
         });
 
-        $("#btnEdit").click(function () {
+        $("#btnDelete").click(function () {
             let producerVal = $("#inputProducer").val();
             let modelVal = $("#inputModel").val();
             let priceVal = $("#inputPrice").val();
@@ -70,15 +70,15 @@
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                type: "PATCH", //GET, DELETE, PUT...
-                url: "http://localhost:8080/smartphones/update?id=" + id,
+                type: "DELETE", //GET, DELETE, PUT...
+                url: "http://localhost:8080/smartphones/delete?id=" + id,
                 data: JSON.stringify(smartphone),
                 success: function (resultSuccess) {
                     window.location.replace("list.html");
-                    alert("Sua thanh cong!");
+                    alert("Xoa thanh cong!");
                 },
                 error: function (resultError) {
-                    alert("Sua that bai!")
+                    alert("Xoa that bai!")
                 }
             });
         });
