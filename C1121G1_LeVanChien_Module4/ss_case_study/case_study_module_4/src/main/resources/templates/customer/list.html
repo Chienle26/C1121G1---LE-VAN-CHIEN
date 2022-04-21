@@ -1,10 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/css/list.css">
 </head>
 <body>
+<head th:replace="/layout::header"></head>
 
+<div class="body">
+    <h3>List Customer</h3>
+    <p>
+        <a th:href="@{/customer/create}">
+            Add new customer
+        </a>
+    </p>
+    <div class="notify">
+        <div th:if="${success}">
+            <span th:text="${success}"></span>
+        </div>
+    </div>
+    <div class="search">
+        <form th:action="@{/customer/list}">
+            <input type="text" name="search" id="search" size="50px">
+            <input type="submit" value="Search By Name">
+        </form>
+    </div>
+    <table id="products">
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>Customer Name</th>
+            <th>Customer Birthday</th>
+            <th>Customer Id Card</th>
+            <th>Customer Phone</th>
+            <th>Customer Email</th>
+            <th>Customer Address</th>
+            <th>Customer Type</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>View</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="customer,loop : ${customers}">
+            <td th:text="${loop.count}"></td>
+            <td th:text="${customer.customerName}"></td>
+            <td th:text="${customer.customerBirthday}"></td>
+            <td th:text="${customer.customerIdCard}"></td>
+            <td th:text="${customer.customerPhone}"></td>
+            <td th:text="${customer.customerEmail}"></td>
+            <td th:text="${customer.customerAddress}"></td>
+            <td th:text="${customer.customerType.getCustomerTypeName()}"></td>
+            <td><a th:href="@{/customer/{id}/edit(id=${customer.customerId})}">edit</a></td>
+            <td><a th:href="@{/customer/{id}/delete(id=${customer.customerId})}">delete</a></td>
+            <td><a th:href="@{/customer/{id}/view(id=${customer.customerId})}">view</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="paging">
+        <a th:if="${customers.hasPrevious()}" th:href="@{/customer/list(page=${customers.number - 1}, search=${keyword})}">Previous</a>
+        <span th:text="${customers.number + 1}"></span> /
+        <span th:text="${customers.totalPages}"></span>
+        <a th:if="${customers.hasNext()}"
+           th:href="@{/customer/list(page=${customers.number + 1}, search=${keyword})}">Next</a>
+    </div>
+</div>
+<footer th:replace="/layout::footer"></footer>
 </body>
 </html>
