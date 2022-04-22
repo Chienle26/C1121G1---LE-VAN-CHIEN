@@ -1,20 +1,18 @@
-package com.chienle.model.employee;
+package com.chienle.dto;
 
-import com.chienle.model.contract.Contract;
+import com.chienle.model.employee.Division;
+import com.chienle.model.employee.EducationDegree;
+import com.chienle.model.employee.Position;
 import com.chienle.model.user_role.User;
 
 import javax.persistence.*;
-import java.util.Set;
 
-@Entity
-public class Employee {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class EmloyeeDto {
+
     private Integer employeeId;
 
     private String employeeName;
 
-    @Column(columnDefinition = "DATE")
     private String employeeBirthday;
 
     private String employeeIdCard;
@@ -27,29 +25,33 @@ public class Employee {
 
     private String employeeAddress;
 
-    @Column(columnDefinition = "BIT(1) default 1")
     private int active;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "position_id", referencedColumnName = "positionId")
     private Position position;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "education_degree_id", referencedColumnName = "educationDegreeId")
     private EducationDegree educationDegree;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "division_id", referencedColumnName = "divisionId")
     private Division division;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_name", referencedColumnName = "userName")
     private User user;
 
-    @OneToMany(mappedBy = "employee")
-    private Set<Contract> contracts;
+    public EmloyeeDto() {
+    }
 
-    public Employee() {
+    public EmloyeeDto(Integer employeeId, String employeeName, String employeeBirthday, String employeeIdCard, Double employeeSalary, String employeePhone, String employeeEmail, String employeeAddress, int active, Position position, EducationDegree educationDegree, Division division, User user) {
+        this.employeeId = employeeId;
+        this.employeeName = employeeName;
+        this.employeeBirthday = employeeBirthday;
+        this.employeeIdCard = employeeIdCard;
+        this.employeeSalary = employeeSalary;
+        this.employeePhone = employeePhone;
+        this.employeeEmail = employeeEmail;
+        this.employeeAddress = employeeAddress;
+        this.active = active;
+        this.position = position;
+        this.educationDegree = educationDegree;
+        this.division = division;
+        this.user = user;
     }
 
     public Integer getEmployeeId() {
@@ -154,13 +156,5 @@ public class Employee {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Set<Contract> getContracts() {
-        return contracts;
-    }
-
-    public void setContracts(Set<Contract> contracts) {
-        this.contracts = contracts;
     }
 }

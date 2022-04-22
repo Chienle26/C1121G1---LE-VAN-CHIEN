@@ -16,8 +16,8 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Set<UserRole> userRoles;
 
-    @OneToMany(mappedBy = "user")
-    private Set<Employee> employees;
+    @OneToOne(mappedBy = "user")
+    private Employee employee;
 
     public User() {
     }
@@ -46,11 +46,11 @@ public class User {
         this.userRoles = userRoles;
     }
 
-    public Set<Employee> getEmployees() {
-        return employees;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 }

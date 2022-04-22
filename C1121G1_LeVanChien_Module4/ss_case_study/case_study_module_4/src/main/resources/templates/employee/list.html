@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/list.css">
+</head>
+<body>
+<head th:replace="/layout::header"></head>
+
+<div class="body">
+    <h3>List Employee</h3>
+    <div class="notify">
+        <div th:if="${message}">
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+    <div class="button-search">
+        <a style="width: 200px; margin-left: 0" class="button-cancel" th:href="@{/employee/create}">
+            Add new employee
+        </a>
+        <div class="search">
+            <form th:action="@{/employee/list}">
+                <input type="text" name="search" id="search" size="50px">
+                <input type="submit" value="Search By Name">
+            </form>
+        </div>
+    </div>
+    <table id="products">
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Birthday</th>
+            <th>Id-Card</th>
+            <th>Salary</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Position</th>
+            <th>Education Degree</th>
+            <th>Division</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>View</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee,loop : ${employees}">
+            <td th:text="${loop.count}"></td>
+            <td th:text="${employee.employeeName}"></td>
+            <td th:text="${employee.employeeBirthday}"></td>
+            <td th:text="${employee.employeeIdCard}"></td>
+            <td th:text="${employee.employeeSalary}"></td>
+            <td th:text="${employee.employeePhone}"></td>
+            <td th:text="${employee.employeeEmail}"></td>
+            <td th:text="${employee.employeeAddress}"></td>
+            <td th:text="${employee.position.getPositionName()}"></td>
+            <td th:text="${employee.educationDegree.getEducationDegreeName()}"></td>
+            <td th:text="${employee.division.getDivisionName()}"></td>
+            <td><a th:href="@{/customer/{id}/edit(id=${employee.employeeId})}">edit</a></td>
+            <td><a th:href="@{/customer/{id}/delete(id=${employee.employeeId})}">delete</a></td>
+            <td><a th:href="@{/customer/{id}/view(id=${employee.employeeId})}">view</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="paging">
+        <a th:if="${employees.hasPrevious()}" th:href="@{/employee/list(page=${employees.number - 1}, search=${keyword})}">Previous</a>
+        <span th:text="${employees.number + 1}"></span> /
+        <span th:text="${employees.totalPages}"></span>
+        <a th:if="${employees.hasNext()}"
+           th:href="@{/employee/list(page=${employees.number + 1}, search=${keyword})}">Next</a>
+    </div>
+</div>
+<footer th:replace="/layout::footer"></footer>
+</body>
+</html>

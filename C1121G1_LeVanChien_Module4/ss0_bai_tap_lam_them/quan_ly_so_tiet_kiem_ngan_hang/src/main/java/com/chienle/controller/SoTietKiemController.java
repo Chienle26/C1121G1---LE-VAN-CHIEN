@@ -58,7 +58,7 @@ public class SoTietKiemController {
     }
 
     @GetMapping("/{id}/edit")
-    public String goEditSoTietKiem(Model model, @PathVariable Integer id) {
+    public String goEditSoTietKiem(Model model, @PathVariab le Integer id) {
         SoTietKiem soTietKiem = iSoTietKiemService.findById(id);
 
         SoTietKiemDto soTietKiemDto = new SoTietKiemDto();

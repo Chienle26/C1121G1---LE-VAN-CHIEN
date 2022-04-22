@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/list.css">
+</head>
+<body>
+<head th:replace="/layout::header"></head>
+
+<div class="body">
+    <h3>List Employee</h3>
+    <div class="notify">
+        <div th:if="${message}">
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+    <div class="button-search">
+        <a style="width: 200px; margin-left: 0" class="button-cancel" th:href="@{/service/create}">
+            Add new service
+        </a>
+        <div class="search">
+            <form th:action="@{/service/list}">
+                <input type="text" name="search" id="search" size="50px">
+                <input type="submit" value="Search By Name">
+            </form>
+        </div>
+    </div>
+    <table id="products">
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Area</th>
+            <th>Cost</th>
+            <th>Max People</th>
+            <th>Standard Room</th>
+            <th>Description</th>
+            <th>Pool Area</th>
+            <th>Number Of Floors</th>
+            <th>RentType Name</th>
+            <th>Service Type</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>View</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="service,loop : ${services}">
+            <td th:text="${loop.count}"></td>
+            <td th:text="${service.serviceName}"></td>
+            <td th:text="${service.serviceArea}"></td>
+            <td th:text="${service.serviceCost}"></td>
+            <td th:text="${service.serviceMaxPeople}"></td>
+            <td th:text="${service.standardRoom}"></td>
+            <td th:text="${service.descriptionOtherConvenience}"></td>
+            <td th:text="${service.poolArea}"></td>
+            <td th:text="${service.numberOfFloors}"></td>
+            <td th:text="${service.rentType.rentTypeName}"></td>
+            <td th:text="${service.serviceType.serviceTypeName}"></td>
+            <td><a th:href="@{/customer/{id}/edit(id=${service.serviceId})}">edit</a></td>
+            <td><a th:href="@{/customer/{id}/delete(id=${service.serviceId})}">delete</a></td>
+            <td><a th:href="@{/customer/{id}/view(id=${service.serviceId})}">view</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<footer th:replace="/layout::footer"></footer>
+</body>
+</html>

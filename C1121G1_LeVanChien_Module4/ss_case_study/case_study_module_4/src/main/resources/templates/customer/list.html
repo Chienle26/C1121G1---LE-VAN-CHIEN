@@ -10,21 +10,21 @@
 
 <div class="body">
     <h3>List Customer</h3>
-    <p>
-        <a th:href="@{/customer/create}">
-            Add new customer
-        </a>
-    </p>
     <div class="notify">
-        <div th:if="${success}">
-            <span th:text="${success}"></span>
+        <div th:if="${message}">
+            <span th:text="${message}"></span>
         </div>
     </div>
-    <div class="search">
-        <form th:action="@{/customer/list}">
-            <input type="text" name="search" id="search" size="50px">
-            <input type="submit" value="Search By Name">
-        </form>
+    <div class="button-search">
+        <a style="width: 200px; margin-left: 0" class="button-cancel" th:href="@{/customer/create}">
+            Add new customer
+        </a>
+        <div class="search">
+            <form th:action="@{/customer/list}">
+                <input type="text" name="search" id="search" size="50px">
+                <input type="submit" value="Search By Name">
+            </form>
+        </div>
     </div>
     <table id="products">
         <thead>

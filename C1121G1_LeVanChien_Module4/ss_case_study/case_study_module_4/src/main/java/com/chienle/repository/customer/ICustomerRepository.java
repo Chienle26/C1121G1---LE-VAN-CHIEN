@@ -1,4 +1,4 @@
-package com.chienle.repository;
+package com.chienle.repository.customer;
 
 import com.chienle.model.customer.Customer;
 import org.springframework.data.domain.Page;
