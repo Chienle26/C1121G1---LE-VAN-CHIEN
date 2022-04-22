@@ -27,14 +27,17 @@ public class ServiceController {
     @GetMapping({"", "/list"})
     public String goList(Model model) {
         model.addAttribute("services", iServiceService.findAllService());
+        model.addAttribute("serviceTypes", iServiceService.findAllServiceType());
+        model.addAttribute("rentTypes", iServiceService.findAllRentType());
         return "service/list";
     }
 
-    @GetMapping("/create")
-    public String goCreate(Model model) {
+    @GetMapping("/create/{id}")
+    public String goCreate(Model model, @PathVariable Integer id) {
         model.addAttribute("service", new ServiceDto());
         model.addAttribute("serviceTypes", iServiceService.findAllServiceType());
         model.addAttribute("rentTypes", iServiceService.findAllRentType());
+        model.addAttribute("id", id);
         return "service/create";
     }
 

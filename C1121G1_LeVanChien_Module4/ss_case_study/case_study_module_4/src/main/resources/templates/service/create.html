@@ -16,6 +16,10 @@
                   method="POST" novalidate="novalidate">
                 <input type="hidden" th:field="*{serviceId}"/>
                 <div>
+                    <label>Service Code</label>
+                    <input type="text" th:field="*{serviceCode}"/>
+                </div>
+                <div>
                     <label>Service Name</label>
                     <input type="text" th:field="*{serviceName}"/>
                 </div>
@@ -31,7 +35,7 @@
                     <label>Service Max People</label>
                     <input type="text" th:field="*{serviceMaxPeople}">
                 </div>
-                <div>
+                <div th:if="${id == 1 || id ==2 }">
                     <label>Service Standard Room</label>
                     <input type="text" th:field="*{standardRoom}">
                 </div>
@@ -39,8 +43,12 @@
                     <label>Service Description other Convenience</label>
                     <input type="text" th:field="*{descriptionOtherConvenience}">
                 </div>
-                <div>
-                    <label>Service Number of Floor</label>
+                <div th:if="${id == 1}">
+                    <label >Pool Area</label>
+                    <input type="text" th:field="*{poolArea}">
+                </div>
+                <div th:if="${id ==1 || id == 2}">
+                    <label >Service Number of Floor</label>
                     <input type="text" th:field="*{numberOfFloors}">
                 </div>
                 <br>
@@ -56,7 +64,7 @@
                 <div>
                     <label>Service Type</label>
                     <select th:field="*{serviceType}">
-                        <option th:each="serviceType : ${serviceTypes}"
+                        <option th:each="serviceType : ${serviceTypes}" th:if="${serviceType.getServiceTypeId() == id}"
                                 th:value="${serviceType.serviceTypeId}"
                                 th:text="${serviceType.serviceTypeName}"></option>
                     </select>
