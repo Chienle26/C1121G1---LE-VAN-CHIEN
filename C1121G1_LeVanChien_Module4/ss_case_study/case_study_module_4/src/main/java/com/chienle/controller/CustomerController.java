@@ -75,16 +75,16 @@ public class CustomerController {
         return "redirect:/customer";
     }
 
-    @GetMapping("/{id}/delete")
-    private String goDelete(Model model, @PathVariable Integer id) {
-        Customer customer = iCustomerService.findById(id);
-        model.addAttribute("customer", customer);
-        return "customer/delete";
-    }
+//    @GetMapping("/{id}/delete")
+//    private String goDelete(Model model, @PathVariable Integer id) {
+//        Customer customer = iCustomerService.findById(id);
+//        model.addAttribute("customer", customer);
+//        return "customer/delete";
+//    }
 
     @PostMapping("/delete")
-    private String delete(@ModelAttribute Customer customer, RedirectAttributes redirectAttributes) {
-        iCustomerService.delete(customer);
+    private String delete(@RequestParam("idDelete") Integer idDelete, RedirectAttributes redirectAttributes) {
+        iCustomerService.delete(iCustomerService.findById(idDelete));
         redirectAttributes.addFlashAttribute("message", "Xóa thành công!");
         return "redirect:/customer";
     }
