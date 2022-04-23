@@ -18,8 +18,11 @@
         </div>
     </div>
     <div class="button-search">
-        <a style="width: 200px; margin-left: 0" class="button-cancel" th:href="@{/contract/create}">
+        <a class="button-cancel" th:href="@{/contract/create}">
             Add new Contract
+        </a>
+        <a class="button-cancel" th:href="@{/contract/create-contract-detail}">
+            Add new Contract Detail
         </a>
         <div class="search">
             <form th:action="@{/contract/list}">
@@ -75,29 +78,31 @@
         </tbody>
     </table>
 </div>
+
 <!--   Modal View-->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">View contract</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h4>Customer Name: <span class="text-danger" id="customerName"></span></h4>
-                    <h4>Service Name: <span class="text-danger" id="serviceName"></span></h4>
-                    <h4>Contract Start Date: <span class="text-danger" id="contractStartDate"></span></h4>
-                    <h4>Contract End Date: <span class="text-danger" id="ContractEndDate"></span></h4>
-                    <h4>Contract Deposit: <span class="text-danger" id="contractDeposit"></span></h4>
-                    <h4>Contract Total Money: <span class="text-danger" id="contractTotalMoney"></span></h4>
-                    <h4>Employee Name: <span class="text-danger" id="employeeName"></span></h4>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
+            <input type="hidden" name="contractId" id="contractId">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">View contract</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4>Customer Name: <span class="text-danger" id="customerName"></span></h4>
+                <h4>Service Name: <span class="text-danger" id="serviceName"></span></h4>
+                <h4>Contract Start Date: <span class="text-danger" id="contractStartDate"></span></h4>
+                <h4>Contract End Date: <span class="text-danger" id="contractEndDate"></span></h4>
+                <h4>Contract Deposit: <span class="text-danger" id="contractDeposit"></span></h4>
+                <h4>Contract Total Money: <span class="text-danger" id="contractTotalMoney"></span></h4>
+                <h4>Employee Name: <span class="text-danger" id="employeeName"></span></h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>
@@ -127,9 +132,17 @@
         document.getElementById("serviceName").innerText = serviceName;
         document.getElementById("contractStartDate").innerText = contractStartDate;
         document.getElementById("contractEndDate").innerText = contractEndDate;
-        document.getElementById("contractDeposit").value = contractDeposit;
-        document.getElementById("contractTotalMoney").value = contractTotalMoney;
+        document.getElementById("contractDeposit").innerText = contractDeposit;
+        document.getElementById("contractTotalMoney").innerText = contractTotalMoney;
         document.getElementById("employeeName").innerText = employeeName;
     }
 </script>
+<!--<script>-->
+<!--    function getID(a) {-->
+<!--        let id = a.attr('data-id')-->
+<!--        let name = a.attr('data-name')-->
+<!--        document.getElementById('modalDelete').value = id;-->
+<!--        document.getElementById("deleteName").innerText = name;-->
+<!--    }-->
+<!--</script>-->
 </html>

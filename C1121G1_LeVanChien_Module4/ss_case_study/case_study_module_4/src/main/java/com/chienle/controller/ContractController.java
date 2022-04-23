@@ -1,7 +1,9 @@
 package com.chienle.controller;
 
+import com.chienle.dto.ContractDetailDto;
 import com.chienle.dto.ContractDto;
 import com.chienle.model.contract.Contract;
+import com.chienle.model.contract.ContractDetail;
 import com.chienle.service.IContractService;
 import com.chienle.service.ICustomerService;
 import com.chienle.service.IEmployeeService;
@@ -58,6 +60,30 @@ public class ContractController {
         contract.setService(contractDto.getService());
 
         iContractService.save(contract);
+
+        redirectAttributes.addFlashAttribute("message", "Thêm mới thành công!");
+
+        return "redirect:/contract/list";
+    }
+
+    @GetMapping("/create-contract-detail")
+    public String goCreateContractDetail(Model model){
+        model.addAttribute("contractDetail", new ContractDetailDto());
+        model.addAttribute("attachServices", iContractService.findAllAttachService());
+        model.addAttribute("contracts", iContractService.findAllContract());
+        return "contract/create-contract-detail";
+    }
+
+    @PostMapping("/create-contract-detail")
+    public String saveContractDetail(@ModelAttribute ContractDetailDto contractDetailDto, RedirectAttributes redirectAttributes){
+        ContractDetail contractDetail = new ContractDetail();
+
+        BeanUtils.copyProperties(contractDetailDto, contractDetail);
+
+        contractDetail.setContract(contractDetailDto.getContract());
+        contractDetail.setAttachService(contractDetailDto.getAttachService());
+
+        iContractService.save(contractDetail);
 
         redirectAttributes.addFlashAttribute("message", "Thêm mới thành công!");
 

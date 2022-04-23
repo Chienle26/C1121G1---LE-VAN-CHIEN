@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/list.css">
+</head>
+<body>
+<head th:replace="/layout::header"></head>
+
+<div class="body">
+    <h3>Create Contract</h3>
+    <div class="form">
+        <div id="form">
+            <form th:action="@{/contract/create-contract-detail}" th:object="${contractDetail}"
+                  method="POST" novalidate="novalidate">
+                <input type="hidden" th:field="*{contractDetailId}"/>
+                <br>
+                <div>
+                    <label>Contract Customer Name</label>
+                    <select th:field="*{contract}">
+                        <option th:each="contract : ${contracts}"
+                                th:value="${contract.contractId}"
+                                th:text="${contract.customer.customerName}"></option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label>Attach Service</label>
+                    <select th:field="*{attachService}">
+                        <option th:each="attachService : ${attachServices}"
+                                th:value="${attachService.attachServiceId}"
+                                th:text="${attachService.attachServiceName}"></option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label>Quantity</label>
+                    <input type="text" th:field="*{quantity}">
+                </div>
+                <div class="button-submit__group">
+                    <input class="button-submit" type="submit" value="Save"/>
+                    <a class="button-cancel" th:href="@{/contract/list}">Cancel</a>
+                </div>
+                <br>
+            </form>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout::footer"></footer>
+</body>
+</html>

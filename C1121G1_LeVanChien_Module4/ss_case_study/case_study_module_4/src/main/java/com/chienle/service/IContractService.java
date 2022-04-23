@@ -15,5 +15,7 @@ public interface IContractService {
 
     void save(Contract contract);
 
+    void save(ContractDetail contractDetail);
+
     Contract findById(Integer id);
 }
