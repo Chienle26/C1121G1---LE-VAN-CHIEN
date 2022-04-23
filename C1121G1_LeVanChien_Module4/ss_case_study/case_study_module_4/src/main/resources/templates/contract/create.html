@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/list.css">
+</head>
+<body>
+<head th:replace="/layout::header"></head>
+
+<div class="body">
+    <h3>Create Contract</h3>
+    <div class="form">
+        <div id="form">
+            <form th:action="@{/contract/save}" th:object="${contract}"
+                  method="POST" novalidate="novalidate">
+                <input type="hidden" th:field="*{contractId}"/>
+                <br>
+                <div>
+                    <label>Contract Start Date</label>
+                    <input type="date" th:field="*{contractStartDate}"/>
+                </div>
+                <br>
+                <div>
+                    <label>Contract End Date</label>
+                    <input type="date" th:field="*{contractEndDate}"/>
+                </div>
+                <br>
+                <div>
+                    <label>Contract Deposit</label>
+                    <input type="text" th:field="*{contractDeposit}">
+                </div>
+                <div>
+                    <label>Contract Total Money</label>
+                    <input type="text" th:field="*{contractTotalMoney}">
+                </div>
+                <br>
+                <div>
+                    <label>Customer Name</label>
+                    <select th:field="*{customer}">
+                        <option th:each="customer : ${customers}"
+                                th:value="${customer.customerId}"
+                                th:text="${customer.customerName}"></option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label>Employee Name</label>
+                    <select th:field="*{employee}">
+                        <option th:each="employee : ${employees}"
+                                th:value="${employee.employeeId}"
+                                th:text="${employee.employeeName}"></option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label>Service Name</label>
+                    <select th:field="*{service}">
+                        <option th:each="service : ${services}"
+                                th:value="${service.serviceId}"
+                                th:text="${service.serviceName}"></option>
+                    </select>
+                </div>
+                <br>
+                <div class="button-submit__group">
+                    <input class="button-submit" type="submit" value="Save"/>
+                    <a class="button-cancel" th:href="@{/contract/list}">Cancel</a>
+                </div>
+                <br>
+            </form>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout::footer"></footer>
+</body>
+</html>

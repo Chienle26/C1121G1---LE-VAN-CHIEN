@@ -12,6 +12,8 @@ import java.util.List;
 public interface IEmployeeService {
     Page<Employee> findAllPaging(String name, Pageable pageable);
 
+    List<Employee> findAll();
+
     List<Position> findAllPosition();
 
     List<EducationDegree> findAllEducationDegree();

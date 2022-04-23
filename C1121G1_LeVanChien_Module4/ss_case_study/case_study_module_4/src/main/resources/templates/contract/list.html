@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/list.css">
+</head>
+<body>
+<head th:replace="/layout::header"></head>
+
+<div class="body">
+    <h3>List Contract</h3>
+    <div class="notify">
+        <div th:if="${message}">
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+    <div class="button-search">
+        <a style="width: 200px; margin-left: 0" class="button-cancel" th:href="@{/contract/create}">
+            Add new Contract
+        </a>
+        <div class="search">
+            <form th:action="@{/contract/list}">
+                <input type="text" name="search" id="search" size="50px">
+                <input type="submit" value="Search By Name">
+            </form>
+        </div>
+    </div>
+    <table id="products">
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>Customer Name</th>
+            <th>Service Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Deposit</th>
+            <th>Total Money</th>
+            <th>Employee Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>View</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="contract,loop : ${contracts}">
+            <td th:text="${loop.count}"></td>
+            <td th:text="${contract.customer.customerName}"></td>
+            <td th:text="${contract.service.serviceName}"></td>
+            <td th:text="${contract.contractStartDate}"></td>
+            <td th:text="${contract.contractEndDate}"></td>
+            <td th:text="${contract.contractDeposit}"></td>
+            <td th:text="${contract.contractTotalMoney}"></td>
+            <td th:text="${contract.employee.employeeName}"></td>
+            <td><a href="#">edit</a></td>
+            <td><a href="#">delete</a></td>
+            <td>
+                <a data-toggle="modal"
+                   href="#exampleModal"
+                   th:data-id="${contract.contractId}"
+                   th:data-customer-name="${contract.customer.customerName}"
+                   th:data-service-name="${contract.service.serviceName}"
+                   th:data-contract-start-date="${contract.contractStartDate}"
+                   th:data-contract-end-date="${contract.contractEndDate}"
+                   th:data-contract-deposit="${contract.contractDeposit}"
+                   th:data-contract-total-money="${contract.contractTotalMoney}"
+                   th:data-employee-name="${contract.employee.employeeName}"
+                   onclick="getID($(this))">
+                    View
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!--   Modal View-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">View contract</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4>Customer Name: <span class="text-danger" id="customerName"></span></h4>
+                    <h4>Service Name: <span class="text-danger" id="serviceName"></span></h4>
+                    <h4>Contract Start Date: <span class="text-danger" id="contractStartDate"></span></h4>
+                    <h4>Contract End Date: <span class="text-danger" id="ContractEndDate"></span></h4>
+                    <h4>Contract Deposit: <span class="text-danger" id="contractDeposit"></span></h4>
+                    <h4>Contract Total Money: <span class="text-danger" id="contractTotalMoney"></span></h4>
+                    <h4>Employee Name: <span class="text-danger" id="employeeName"></span></h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout::footer"></footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script>
+    function getID(a) {
+        let contractId = a.attr('data-id')
+        let customerName = a.attr('data-customer-name')
+        let serviceName = a.attr('data-service-name')
+        let contractStartDate = a.attr('data-contract-start-date')
+        let contractEndDate = a.attr('data-contract-end-date')
+        let contractDeposit = a.attr('data-contract-deposit')
+        let contractTotalMoney = a.attr('data-contract-total-money')
+        let employeeName = a.attr('data-employee-name')
+        document.getElementById('contractId').value = contractId;
+        document.getElementById('customerName').innerText = customerName;
+        document.getElementById("serviceName").innerText = serviceName;
+        document.getElementById("contractStartDate").innerText = contractStartDate;
+        document.getElementById("contractEndDate").innerText = contractEndDate;
+        document.getElementById("contractDeposit").value = contractDeposit;
+        document.getElementById("contractTotalMoney").value = contractTotalMoney;
+        document.getElementById("employeeName").innerText = employeeName;
+    }
+</script>
+</html>
