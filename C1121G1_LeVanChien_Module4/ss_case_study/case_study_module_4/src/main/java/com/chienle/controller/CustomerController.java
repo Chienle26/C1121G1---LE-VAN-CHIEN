@@ -4,6 +4,7 @@ import com.chienle.dto.CustomerDto;
 import com.chienle.model.customer.Customer;
 import com.chienle.model.customer.CustomerType;
 import com.chienle.service.ICustomerService;
+import com.chienle.service.ICustomerUseServiceService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -22,6 +23,9 @@ public class CustomerController {
 
     @Autowired
     ICustomerService iCustomerService;
+
+    @Autowired
+    ICustomerUseServiceService iCustomerUseServiceService;
 
     @GetMapping({"", "/list"})
     public String goList(Model model, @PageableDefault(value = 3) Pageable pageable, @RequestParam Optional<String> search) {
@@ -94,5 +98,13 @@ public class CustomerController {
         Customer customer = iCustomerService.findById(id);
         model.addAttribute("customer", customer);
         return "customer/view";
+    }
+
+    @GetMapping("/list-customer-use-service")
+    public String goListCustomerUseService(Model model, @PageableDefault(value = 3) Pageable pageable, @RequestParam Optional<String> search) {
+        String keyword = search.orElse("");
+        model.addAttribute("customerUseServices", iCustomerUseServiceService.findAllCustomerUseService(keyword, pageable));
+        model.addAttribute("keyword", keyword);
+        return "customer/list-customer-use-service";
     }
 }

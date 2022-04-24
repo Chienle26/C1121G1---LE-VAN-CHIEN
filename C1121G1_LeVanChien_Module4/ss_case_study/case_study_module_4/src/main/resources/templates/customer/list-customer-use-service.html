@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"-->
+<!--          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="/css/list.css">
+</head>
+<body>
+<head th:replace="/layout::header"></head>
+
+<div class="body">
+    <h3>List Customer Use Service</h3>
+    <div class="notify">
+        <div th:if="${message}">
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+    <div class="button-search" style="display: flex; justify-content: flex-end">
+<!--        <a style="width: 200px; margin-left: 0" class="button-cancel" th:href="@{/customer/create}">-->
+<!--            Add new customer-->
+<!--        </a>-->
+        <div class="search">
+            <form th:action="@{/customer/list}">
+                <input type="text" name="search" id="search" size="50px">
+                <input type="submit" value="Search By Name">
+            </form>
+        </div>
+    </div>
+    <table id="products">
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>Customer Name</th>
+            <th>Service Name</th>
+            <th>Service Cost</th>
+            <th>Attach Service</th>
+            <th>Attach Service Cost</th>
+            <th>Deposit</th>
+            <th>ToTal Quantity</th>
+            <th>Total Money</th>
+<!--            <th>Edit</th>-->
+<!--            <th>Delete</th>-->
+<!--            <th>View</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="customerUseService,loop : ${customerUseServices}">
+            <td th:text="${loop.count}"></td>
+            <td th:text="${customerUseService.customerName}"></td>
+            <td th:text="${customerUseService.serviceName}"></td>
+            <td th:text="${customerUseService.serviceCost}"></td>
+            <td th:text="${customerUseService.attachServiceName}"></td>
+            <td th:text="${customerUseService.attachServiceCost}"></td>
+            <td th:text="${customerUseService.deposit}"></td>
+            <td th:text="${customerUseService.totalQuantity}"></td>
+            <td th:text="${customerUseService.totalMoney}"></td>
+<!--            <td><a th:href="@{/customer/{id}/edit(id=${customer.customerId})}">edit</a></td>-->
+            <!--            <td><a th:href="@{/customer/{id}/delete(id=${customer.customerId})}">delete</a></td>-->
+<!--            <td>-->
+<!--                <a data-toggle="modal"-->
+<!--                   href="#exampleModal" th:data-id="${customer.customerId}"-->
+<!--                   th:data-name="${customer.customerName}"-->
+<!--                   onclick="getID($(this))">-->
+<!--                    Delete-->
+<!--                </a>-->
+<!--            </td>-->
+<!--            <td><a th:href="@{/customer/{id}/view(id=${customer.customerId})}">view</a></td>-->
+        </tr>
+        </tbody>
+    </table>
+    <div class="paging">
+        <a th:if="${customerUseServices.hasPrevious()}"
+           th:href="@{/customer/list-customer-use-service(page=${customerUseServices.number - 1}, search=${keyword})}">Previous</a>
+        <span th:text="${customerUseServices.number + 1}"></span> /
+        <span th:text="${customerUseServices.totalPages}"></span>
+        <a th:if="${customerUseServices.hasNext()}"
+           th:href="@{/customer/list-customer-use-service(page=${customerUseServices.number + 1}, search=${keyword})}">Next</a>
+    </div>
+</div>
+<!--   Modal delete-->
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"-->
+<!--     aria-hidden="true">-->
+<!--    <div class="modal-dialog" role="document">-->
+<!--        <div class="modal-content">-->
+<!--            <form method="post" action="/customer/delete">-->
+<!--                <input type="hidden" name="idDelete" id="modalDelete">-->
+<!--                <div class="modal-header">-->
+<!--                    <h5 class="modal-title" id="exampleModalLabel">Delete customer</h5>-->
+<!--                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                        <span aria-hidden="true">&times;</span>-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--                <div class="modal-body">-->
+<!--                    Do you want to delete the customer <span class="text-danger" id="deleteName"></span>?-->
+<!--                </div>-->
+<!--                <div class="modal-footer">-->
+<!--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>-->
+<!--                    <button type="submit" class="btn btn-primary">Delete</button>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<footer th:replace="/layout::footer"></footer>
+</body>
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
+<!--        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"-->
+<!--        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"-->
+<!--        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script>-->
+<!--    function getID(a) {-->
+<!--        let id = a.attr('data-id')-->
+<!--        let name = a.attr('data-name')-->
+<!--        document.getElementById('modalDelete').value = id;-->
+<!--        document.getElementById("deleteName").innerText = name;-->
+<!--    }-->
+<!--</script>-->
+</html>
