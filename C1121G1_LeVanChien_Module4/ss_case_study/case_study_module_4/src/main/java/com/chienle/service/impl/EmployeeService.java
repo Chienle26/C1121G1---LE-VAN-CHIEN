@@ -59,4 +59,9 @@ public class EmployeeService implements IEmployeeService {
     public void save(Employee employee) {
         iEmployeeRepository.save(employee);
     }
+
+    @Override
+    public Employee findById(Integer id) {
+        return iEmployeeRepository.findById(id).orElse(null);
+    }
 }

@@ -15,6 +15,7 @@
             <form th:action="@{/employee/save}" th:object="${employee}"
                   method="POST" novalidate="novalidate">
                 <input type="hidden" th:field="*{employeeId}"/>
+                <input type="hidden" th:field="*{active}"/>
                 <div>
                     <label>Employee Name</label>
                     <input type="text" th:field="*{employeeName}"/>

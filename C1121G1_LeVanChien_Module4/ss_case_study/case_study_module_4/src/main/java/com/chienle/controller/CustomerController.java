@@ -88,7 +88,9 @@ public class CustomerController {
 
     @PostMapping("/delete")
     private String delete(@RequestParam("idDelete") Integer idDelete, RedirectAttributes redirectAttributes) {
-        iCustomerService.delete(iCustomerService.findById(idDelete));
+        Customer customer = iCustomerService.findById(idDelete);
+        customer.setActive(0);
+        iCustomerService.save(customer);
         redirectAttributes.addFlashAttribute("message", "Xóa thành công!");
         return "redirect:/customer";
     }

@@ -43,7 +43,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/save")
-    private String save(@ModelAttribute EmloyeeDto emloyeeDto, RedirectAttributes redirectAttributes) {
+    public String save(@ModelAttribute EmloyeeDto emloyeeDto, RedirectAttributes redirectAttributes) {
         Employee employee = new Employee();
 
         BeanUtils.copyProperties(emloyeeDto, employee);
@@ -57,5 +57,47 @@ public class EmployeeController {
         return "redirect:/employee";
     }
 
+    @GetMapping("/{id}/edit")
+    private String goEdit(@PathVariable Integer id, Model model) {
+        Employee employee = iEmployeeService.findById(id);
+        EmloyeeDto emloyeeDto = new EmloyeeDto();
+
+        BeanUtils.copyProperties(employee, emloyeeDto);
+        emloyeeDto.setDivision(employee.getDivision());
+        emloyeeDto.setEducationDegree(employee.getEducationDegree());
+        emloyeeDto.setPosition(employee.getPosition());
+        emloyeeDto.setUser(employee.getUser());
+
+        model.addAttribute("employeeDto", emloyeeDto);
+        model.addAttribute("divisions", iEmployeeService.findAllDivision());
+        model.addAttribute("educations", iEmployeeService.findAllEducationDegree());
+        model.addAttribute("positions", iEmployeeService.findAllPosition());
+        return "employee/edit";
+    }
+
+    @PostMapping("/update")
+    private String update(@ModelAttribute EmloyeeDto emloyeeDto, RedirectAttributes redirectAttributes) {
+
+        Employee employee = new Employee();
+
+        BeanUtils.copyProperties(emloyeeDto, employee);
+        employee.setDivision(emloyeeDto.getDivision());
+        employee.setEducationDegree(emloyeeDto.getEducationDegree());
+        employee.setPosition(emloyeeDto.getPosition());
+        employee.setUser(emloyeeDto.getUser());
+
+        iEmployeeService.save(employee);
+        redirectAttributes.addFlashAttribute("message", "Chỉnh sửa thành công!");
+        return "redirect:/employee";
+    }
+
+    @PostMapping("/delete")
+    private String delete(@RequestParam("idDelete") Integer idDelete, RedirectAttributes redirectAttributes) {
+        Employee employee = iEmployeeService.findById(idDelete);
+        employee.setActive(0);
+        iEmployeeService.save(employee);
+        redirectAttributes.addFlashAttribute("message", "Xóa thành công!");
+        return "redirect:/employee";
+    }
 
 }

@@ -21,4 +21,6 @@ public interface IEmployeeService {
     List<Division> findAllDivision();
 
     void save(Employee employee);
+
+    Employee findById(Integer id);
 }
