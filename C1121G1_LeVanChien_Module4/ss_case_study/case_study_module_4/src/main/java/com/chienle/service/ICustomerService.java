@@ -19,4 +19,6 @@ public interface ICustomerService {
     Customer findById(Integer id);
 
     void delete(Customer customer);
+
+    Customer findByCustomerCode(String customerCode);
 }

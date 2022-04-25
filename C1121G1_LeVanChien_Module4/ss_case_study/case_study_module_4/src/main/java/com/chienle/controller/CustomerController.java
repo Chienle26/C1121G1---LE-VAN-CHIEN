@@ -3,6 +3,7 @@ package com.chienle.controller;
 import com.chienle.dto.CustomerDto;
 import com.chienle.model.customer.Customer;
 import com.chienle.model.customer.CustomerType;
+import com.chienle.service.IContractService;
 import com.chienle.service.ICustomerService;
 import com.chienle.service.ICustomerUseServiceService;
 import org.springframework.beans.BeanUtils;
@@ -12,9 +13,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -27,6 +30,9 @@ public class CustomerController {
     @Autowired
     ICustomerUseServiceService iCustomerUseServiceService;
 
+    @Autowired
+    IContractService iContractService;
+
     @GetMapping({"", "/list"})
     public String goList(Model model, @PageableDefault(value = 3) Pageable pageable, @RequestParam Optional<String> search) {
         String keyword = search.orElse("");
@@ -37,15 +43,19 @@ public class CustomerController {
 
     @GetMapping("/create")
     public String goCreate(Model model) {
-        model.addAttribute("customer", new CustomerDto());
+        model.addAttribute("customerDto", new CustomerDto());
         model.addAttribute("customerTypes", iCustomerService.findAllCustomerType());
         return "/customer/create";
     }
 
     @PostMapping("/save")
-    private String save(@ModelAttribute CustomerDto customerDto, RedirectAttributes redirectAttributes) {
-        Customer customer = new Customer();
+    private String save(Model model, @Valid @ModelAttribute CustomerDto customerDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()){
+            model.addAttribute("customerTypes", iCustomerService.findAllCustomerType());
+            return "customer/create";
+        }
 
+        Customer customer = new Customer();
         BeanUtils.copyProperties(customerDto, customer);
         customer.setCustomerType(customerDto.getCustomerType());
 
@@ -105,7 +115,7 @@ public class CustomerController {
     @GetMapping("/list-customer-use-service")
     public String goListCustomerUseService(Model model, @PageableDefault(value = 3) Pageable pageable, @RequestParam Optional<String> search) {
         String keyword = search.orElse("");
-        model.addAttribute("customerUseServices", iCustomerUseServiceService.findAllCustomerUseService(keyword, pageable));
+        model.addAttribute("customerUseServices", iContractService.findAllCustomerUseService(pageable, keyword));
         model.addAttribute("keyword", keyword);
         return "customer/list-customer-use-service";
     }

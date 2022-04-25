@@ -5,27 +5,39 @@ import com.chienle.model.employee.EducationDegree;
 import com.chienle.model.employee.Position;
 import com.chienle.model.user_role.User;
 
-import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
-public class EmloyeeDto {
+public class EmployeeDto {
 
     private Integer employeeId;
 
+    @NotBlank(message = "Tên không được để trống.")
     private String employeeName;
 
+    @NotBlank(message = "Ngày sinh không được để trống.")
     private String employeeBirthday;
 
+    @Pattern(regexp = "^\\d{9}|\\d{11}$", message = "CMND phải có định dạng XXXXXXXXX hoặc XXXXXXXXXXXXXXXX, trong đó X là số tự nhiên.")
     private String employeeIdCard;
 
+//    @NotBlank(message = "Lương không được để trống!")
+    @Min(value = 0, message = "Lương phải là số dương.")
     private Double employeeSalary;
 
+    @Pattern(regexp = "^((090)|(091)|(\\+8490)|(\\+8491))\\d{7}$", message = "Sai định dạng số điện thoại (090xxxxxxx hoặc 091xxxxxxx hoặc (84)+90xxxxxxx hoặc (84)+91xxxxxxx")
     private String employeePhone;
 
+    @NotBlank(message = "Email không được để trống!")
+    @Email( message = "Sai định dạng email")
     private String employeeEmail;
 
+    @NotBlank(message = "Địa chỉ không được để trống!")
     private String employeeAddress;
 
-    private int active;
+    private Integer active = 1;
 
     private Position position;
 
@@ -33,12 +45,13 @@ public class EmloyeeDto {
 
     private Division division;
 
+//    @NotBlank(message = "User không được để trống!")
     private User user;
 
-    public EmloyeeDto() {
+    public EmployeeDto() {
     }
 
-    public EmloyeeDto(Integer employeeId, String employeeName, String employeeBirthday, String employeeIdCard, Double employeeSalary, String employeePhone, String employeeEmail, String employeeAddress, int active, Position position, EducationDegree educationDegree, Division division, User user) {
+    public EmployeeDto(Integer employeeId, String employeeName, String employeeBirthday, String employeeIdCard, Double employeeSalary, String employeePhone, String employeeEmail, String employeeAddress, Integer active, Position position, EducationDegree educationDegree, Division division, User user) {
         this.employeeId = employeeId;
         this.employeeName = employeeName;
         this.employeeBirthday = employeeBirthday;
@@ -118,11 +131,11 @@ public class EmloyeeDto {
         this.employeeAddress = employeeAddress;
     }
 
-    public int getActive() {
+    public Integer getActive() {
         return active;
     }
 
-    public void setActive(int active) {
+    public void setActive(Integer active) {
         this.active = active;
     }
 

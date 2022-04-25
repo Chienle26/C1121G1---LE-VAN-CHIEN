@@ -48,9 +48,9 @@
         <tbody>
         <tr th:each="customerUseService,loop : ${customerUseServices}">
             <td th:text="${loop.count}"></td>
-            <td th:text="${customerUseService.customerName}"></td>
-            <td th:text="${customerUseService.serviceName}"></td>
-            <td th:text="${customerUseService.serviceCost}"></td>
+            <td th:text="${customerUseService.customer.customerName}"></td>
+            <td th:text="${customerUseService.service.serviceName}"></td>
+            <td th:text="${customerUseService.service.serviceCost}"></td>
             <td th:text="${customerUseService.attachServiceName}"></td>
             <td th:text="${customerUseService.attachServiceCost}"></td>
             <td th:text="${customerUseService.deposit}"></td>

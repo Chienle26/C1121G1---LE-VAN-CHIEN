@@ -83,7 +83,7 @@
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <input type="hidden" name="contractId" id="contractId">
+<!--            <input type="hidden" name="contractId" id="contractId">-->
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">View contract</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -118,7 +118,7 @@
         crossorigin="anonymous"></script>
 <script>
     function getID(a) {
-        let contractId = a.attr('data-id')
+        // let contractId = a.attr('data-id')
         let customerName = a.attr('data-customer-name')
         let serviceName = a.attr('data-service-name')
         let contractStartDate = a.attr('data-contract-start-date')
@@ -126,7 +126,7 @@
         let contractDeposit = a.attr('data-contract-deposit')
         let contractTotalMoney = a.attr('data-contract-total-money')
         let employeeName = a.attr('data-employee-name')
-        document.getElementById('contractId').value = contractId;
+        // document.getElementById('contractId').value = contractId;
         document.getElementById('customerName').innerText = customerName;
         document.getElementById("serviceName").innerText = serviceName;
         document.getElementById("contractStartDate").innerText = contractStartDate;

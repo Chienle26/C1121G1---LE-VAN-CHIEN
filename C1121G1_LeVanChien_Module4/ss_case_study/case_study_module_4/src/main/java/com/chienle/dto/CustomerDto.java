@@ -1,32 +1,51 @@
 package com.chienle.dto;
 
 import com.chienle.model.contract.Contract;
+import com.chienle.model.customer.Customer;
 import com.chienle.model.customer.CustomerType;
+import com.chienle.service.ICustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 import javax.persistence.*;
+import javax.validation.ConstraintViolation;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.executable.ExecutableValidator;
+import javax.validation.metadata.BeanDescriptor;
 import java.util.Set;
 
-public class CustomerDto {
+public class CustomerDto implements Validator {
 
     private Integer customerId;
 
+    @Pattern(regexp = "^(KH-)\\d{4}$", message = "Mã khách hàng phải có định dạng KH-XXXX, trong đó X là số tự nhiên.")
     private String customerCode;
 
+    @NotBlank(message = "Tên không được để trống.")
     private String customerName;
 
+    @NotBlank(message = "Ngày sinh không được để trống.")
     private String customerBirthday;
 
     private Integer customerGender;
 
+    @Pattern(regexp = "^\\d{9}|\\d{11}$", message = "CMND phải có định dạng XXXXXXXXX hoặc XXXXXXXXXXXXXXXX, trong đó X là số tự nhiên.")
     private String customerIdCard;
 
+    @Pattern(regexp = "^((090)|(091)|(\\+8490)|(\\+8491))\\d{7}$", message = "Sai định dạng số điện thoại (090xxxxxxx hoặc 091xxxxxxx hoặc (84)+90xxxxxxx hoặc (84)+91xxxxxxx")
     private String customerPhone;
 
+    @NotBlank(message = "Email không được để trống!")
+    @Email( message = "Sai định dạng email")
     private String customerEmail;
 
+    @NotBlank(message = "Địa chỉ không được để trống!")
     private String customerAddress;
 
-    private Integer active;
+    private Integer active = 1;
 
     private CustomerType customerType;
 
@@ -133,5 +152,25 @@ public class CustomerDto {
 
     public void setCustomerType(CustomerType customerType) {
         this.customerType = customerType;
+    }
+
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+
+        CustomerDto customerDto = (CustomerDto) target;
+        String customerCurrentCode = customerDto.getCustomerCode();
+
+//        Customer customer = iCustomerService.findByCode(customerCurrentCode);
+//        if (customer != null) {
+//            if (customer.getCustomerCode().equals(customerCurrentCode)) {
+//                errors.rejectValue("customerCode", "", "Mã khách hàng đã tồn tại.");
+//            }
+//        }
     }
 }

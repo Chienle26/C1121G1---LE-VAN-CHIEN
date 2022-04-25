@@ -50,5 +50,10 @@ public class CustomerService implements ICustomerService {
         iCustomerRepository.delete(customer);
     }
 
+    @Override
+    public Customer findByCustomerCode(String customerCode) {
+        return null;
+    }
+
 
 }

@@ -12,39 +12,46 @@
     <h3>Create Employee</h3>
     <div class="form">
         <div id="form">
-            <form th:action="@{/employee/save}" th:object="${employee}"
+            <form th:action="@{/employee/save}" th:object="${employeeDto}"
                   method="POST" novalidate="novalidate">
-                <input type="hidden" th:field="*{employeeId}"/>
-                <input type="hidden" th:field="*{active}"/>
+<!--                <input type="hidden" th:field="*{employeeId}"/>-->
+<!--                <input type="hidden" th:field="*{active}"/>-->
                 <div>
                     <label>Employee Name</label>
                     <input type="text" th:field="*{employeeName}"/>
+                    <small style="color: red" th:errors="*{employeeName}"></small>
                 </div>
                 <br>
                 <div>
                     <label>Employee Birthday</label>
                     <input type="date" th:field="*{employeeBirthday}"/>
+                    <small style="color: red" th:errors="*{employeeBirthday}"></small>
                 </div>
                 <br>
                 <div>
                     <label>Employee Id-Card</label>
                     <input type="text" th:field="*{employeeIdCard}">
+                    <small style="color: red" th:errors="*{employeeIdCard}"></small>
                 </div>
                 <div>
                     <label>Employee Salary</label>
                     <input type="text" th:field="*{employeeSalary}">
+                    <small style="color: red" th:errors="*{employeeSalary}"></small>
                 </div>
                 <div>
                     <label>Employee Phone</label>
                     <input type="text" th:field="*{employeePhone}">
+                    <small style="color: red" th:errors="*{employeePhone}"></small>
                 </div>
                 <div>
                     <label>Employee Email</label>
                     <input type="text" th:field="*{employeeEmail}">
+                    <small style="color: red" th:errors="*{employeeEmail}"></small>
                 </div>
                 <div>
                     <label>Employee Address</label>
                     <input type="text" th:field="*{employeeAddress}">
+                    <small style="color: red" th:errors="*{employeeAddress}"></small>
                 </div>
                 <br>
                 <div>

@@ -17,9 +17,12 @@
             <span th:text="${message}"></span>
         </div>
     </div>
-    <div class="button-search">
-        <a style="width: 200px; margin-left: 0" class="button-cancel" th:href="@{/customer/create}">
+    <div class="button-search" style=" display: flex; justify-content: space-between">
+        <a class="button-cancel" th:href="@{/customer/create}">
             Add new customer
+        </a>
+        <a class="button-cancel" th:href="@{/customer/list-customer-use-service}">
+            List Customer Use Service
         </a>
         <div class="search">
             <form th:action="@{/customer/list}">

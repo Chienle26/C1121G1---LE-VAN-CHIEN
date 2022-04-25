@@ -1,11 +1,14 @@
 package com.chienle.model.customer;
 
+import org.hibernate.annotations.Immutable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@Immutable
 public class CustomerUseService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
