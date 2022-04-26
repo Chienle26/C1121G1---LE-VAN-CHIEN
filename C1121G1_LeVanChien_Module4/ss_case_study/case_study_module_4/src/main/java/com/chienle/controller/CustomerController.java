@@ -80,7 +80,11 @@ public class CustomerController {
     }
 
     @PostMapping("/update")
-    private String update(@ModelAttribute CustomerDto customerDto, RedirectAttributes redirectAttributes) {
+    private String update(@Valid @ModelAttribute CustomerDto customerDto, BindingResult bindingResult ,RedirectAttributes redirectAttributes, Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("customerTypes", iCustomerService.findAllCustomerType());
+            return "customer/edit";
+        }
 
         Customer customer = new Customer();
         BeanUtils.copyProperties(customerDto, customer);

@@ -8,7 +8,9 @@
 <body>
 <div th:fragment="header">
     <div class="header">
-        <img src="https://furamavietnam.com/wp-content/uploads/2018/08/logo.png" alt="" class="logo">
+        <a href="/">
+            <img src="https://furamavietnam.com/wp-content/uploads/2018/08/logo.png" alt="" class="logo">
+        </a>
         <a th:if="${#request.userPrincipal == null}" th:href="@{/login}" class="login-button">Login</a>
         <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}" class="login-button">Logout</a>
     </div>

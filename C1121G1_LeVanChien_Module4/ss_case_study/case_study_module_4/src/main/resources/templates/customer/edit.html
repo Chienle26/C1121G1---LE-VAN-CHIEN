@@ -19,15 +19,18 @@
                 <div>
                     <label>Customer Code</label>
                     <input type="text" th:field="*{customerCode}"/>
+                    <small style="color: red" th:errors="*{customerCode}"></small>
                 </div>
                 <div>
                     <label>Customer Name</label>
                     <input type="text" th:field="*{customerName}"/>
+                    <small style="color: red" th:errors="*{customerName}"></small>
                 </div>
                 <br>
                 <div>
                     <label>Customer Birthday</label>
                     <input type="date" th:field="*{customerBirthday}">
+                    <small style="color: red" th:errors="*{customerBirthday}"></small>
                 </div>
                 <br>
                 <div>
@@ -45,18 +48,22 @@
                 <div>
                     <label>Customer Id-Card</label>
                     <input type="text" th:field="*{customerIdCard}">
+                    <small style="color: red" th:errors="*{customerIdCard}"></small>
                 </div>
                 <div>
                     <label>Customer Phone</label>
                     <input type="text" th:field="*{customerPhone}">
+                    <small style="color: red" th:errors="*{customerPhone}"></small>
                 </div>
                 <div>
                     <label>Customer Email</label>
                     <input type="text" th:field="*{customerEmail}">
+                    <small style="color: red" th:errors="*{customerEmail}"></small>
                 </div>
                 <div>
                     <label>Customer Address</label>
                     <input type="text" th:field="*{customerAddress}">
+                    <small style="color: red" th:errors="*{customerAddress}"></small>
                 </div>
                 <br>
                 <div>

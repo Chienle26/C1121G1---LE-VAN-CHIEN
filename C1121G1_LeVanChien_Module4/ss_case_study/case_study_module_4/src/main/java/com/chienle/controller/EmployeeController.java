@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.jws.WebParam;
 import javax.validation.Valid;
 import java.util.Optional;
 
@@ -82,7 +83,15 @@ public class EmployeeController {
     }
 
     @PostMapping("/update")
-    private String update(@ModelAttribute EmployeeDto employeeDto, RedirectAttributes redirectAttributes) {
+    private String update(@Valid @ModelAttribute EmployeeDto employeeDto,
+                          BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("divisions", iEmployeeService.findAllDivision());
+            model.addAttribute("educations", iEmployeeService.findAllEducationDegree());
+            model.addAttribute("positions", iEmployeeService.findAllPosition());
+            return "employee/edit";
+        }
 
         Employee employee = new Employee();
 

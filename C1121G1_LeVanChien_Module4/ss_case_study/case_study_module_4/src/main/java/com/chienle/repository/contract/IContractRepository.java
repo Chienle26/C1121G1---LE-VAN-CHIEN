@@ -17,7 +17,7 @@ public interface IContractRepository extends JpaRepository<Contract, Integer> {
             "from contract " +
             "join customer on customer.customer_id = contract.customer_id " +
             "join service on service.service_id = contract.service_id " +
-            "join contract_detail on contract_detail.contract_id = contract.contract_id " +
-            "join attach_service on attach_service.attach_service_id = contract_detail.attach_service_id;", nativeQuery = true)
+            "left join contract_detail on contract_detail.contract_id = contract.contract_id " +
+            "left join attach_service on attach_service.attach_service_id = contract_detail.attach_service_id;", nativeQuery = true)
     <T> List<T> findCustomerUseService(Class<T> classType);
 }

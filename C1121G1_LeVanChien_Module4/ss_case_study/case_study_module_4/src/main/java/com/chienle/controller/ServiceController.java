@@ -7,8 +7,11 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/service")
@@ -35,7 +38,15 @@ public class ServiceController {
     }
 
     @PostMapping("/save")
-    private String save(@ModelAttribute ServiceDto serviceDto, RedirectAttributes redirectAttributes) {
+    private String save(@Valid @ModelAttribute ServiceDto serviceDto, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+        if (bindingResult.hasErrors()){
+            model.addAttribute("service", new ServiceDto());
+            model.addAttribute("serviceTypes", iServiceService.findAllServiceType());
+            model.addAttribute("rentTypes", iServiceService.findAllRentType());
+//            model.addAttribute("id", id);
+            return "service/create";
+        }
+
         Service service = new Service();
         BeanUtils.copyProperties(serviceDto, service);
         service.setServiceType(serviceDto.getServiceType());
