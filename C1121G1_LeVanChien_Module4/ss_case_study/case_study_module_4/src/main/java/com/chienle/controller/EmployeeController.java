@@ -35,7 +35,6 @@ public class EmployeeController {
     @GetMapping("/create")
     public String goCreate(Model model) {
         model.addAttribute("employeeDto", new EmployeeDto());
-//        model.addAttribute("user", new User());
         model.addAttribute("divisions", iEmployeeService.findAllDivision());
         model.addAttribute("educations", iEmployeeService.findAllEducationDegree());
         model.addAttribute("positions", iEmployeeService.findAllPosition());

@@ -56,7 +56,6 @@ public class ContractController {
     @PostMapping("/save")
     public String save(@Valid @ModelAttribute ContractDto contractDto,BindingResult bindingResult ,RedirectAttributes redirectAttributes, Model model) {
        if (bindingResult.hasErrors()){
-           model.addAttribute("contract", new ContractDto());
            model.addAttribute("customers", iCustomerService.findAll());
            model.addAttribute("employees", iEmployeeService.findAll());
            model.addAttribute("services", iServiceService.findAllService());

@@ -18,38 +18,47 @@
                 <div>
                     <label>Service Code</label>
                     <input type="text" th:field="*{serviceCode}"/>
+                    <small style="color: red" th:errors="*{serviceCode}"></small>
                 </div>
                 <div>
                     <label>Service Name</label>
                     <input type="text" th:field="*{serviceName}"/>
+                    <small style="color: red" th:errors="*{serviceName}"></small>
                 </div>
                 <div>
                     <label>Service Area</label>
                     <input type="text" th:field="*{serviceArea}"/>
+                    <small style="color: red" th:errors="*{serviceArea}"></small>
                 </div>
                 <div>
                     <label>Service Cost</label>
                     <input type="text" th:field="*{serviceCost}">
+                    <small style="color: red" th:errors="*{serviceCost}"></small>
                 </div>
                 <div>
                     <label>Service Max People</label>
                     <input type="text" th:field="*{serviceMaxPeople}">
+                    <small style="color: red" th:errors="*{serviceMaxPeople}"></small>
                 </div>
                 <div th:if="${id == 1 || id ==2 }">
                     <label>Service Standard Room</label>
                     <input type="text" th:field="*{standardRoom}">
+                    <small style="color: red" th:errors="*{standardRoom}"></small>
                 </div>
                 <div>
                     <label>Service Description other Convenience</label>
                     <input type="text" th:field="*{descriptionOtherConvenience}">
+                    <small style="color: red" th:errors="*{descriptionOtherConvenience}"></small>
                 </div>
                 <div th:if="${id == 1}">
                     <label >Pool Area</label>
                     <input type="text" th:field="*{poolArea}">
+                    <small style="color: red" th:errors="*{poolArea}"></small>
                 </div>
                 <div th:if="${id ==1 || id == 2}">
                     <label >Service Number of Floor</label>
                     <input type="text" th:field="*{numberOfFloors}">
+                    <small style="color: red" th:errors="*{numberOfFloors}"></small>
                 </div>
                 <br>
                 <div>

@@ -5,6 +5,9 @@ import com.chienle.model.employee.Employee;
 import com.chienle.model.service_entity.Service;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class ContractDto {
 
@@ -14,8 +17,12 @@ public class ContractDto {
 
     private String contractEndDate;
 
+    @NotNull
+    @Min(0)
     private Double contractDeposit;
 
+    @NotNull
+    @Min(0)
     private Double contractTotalMoney;
 
     private Customer customer;

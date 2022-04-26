@@ -9,7 +9,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.ConstraintViolation;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.executable.ExecutableValidator;
 import javax.validation.metadata.BeanDescriptor;
@@ -25,18 +27,25 @@ public class ServiceDto implements Validator {
     @NotBlank(message = "must no be blank")
     private String serviceName;
 
+//    @Min(value = 0)
     private Integer serviceArea;
 
+//    @Min(value = 0)
     private Double serviceCost;
 
+//    @Min(value = 0)
     private Integer serviceMaxPeople;
 
     private String standardRoom;
 
     private String descriptionOtherConvenience;
 
+//    @NotNull
+//    @Min(value = 0)
     private Double poolArea;
 
+//    @NotNull
+//    @Min(value = 0)
     private Integer numberOfFloors;
 
     private RentType rentType;
@@ -149,9 +158,9 @@ public class ServiceDto implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-        ServiceDto serviceDto = (ServiceDto) target;
-        if (serviceDto.getServiceArea() <= 0){
-
-        }
+//        ServiceDto serviceDto = (ServiceDto) target;
+//        if (serviceDto.getServiceArea() <= 0){
+//            errors.rejectValue("serviceArea","std.serviceAre","serviceArea phải lớn hơn 0");
+//        }
     }
 }

@@ -38,9 +38,9 @@ public class ServiceController {
     }
 
     @PostMapping("/save")
-    private String save(@Valid @ModelAttribute ServiceDto serviceDto, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+    private String save(@Valid @ModelAttribute ServiceDto serviceDto, BindingResult bindingResult,
+                        RedirectAttributes redirectAttributes, Model model) {
         if (bindingResult.hasErrors()){
-            model.addAttribute("service", new ServiceDto());
             model.addAttribute("serviceTypes", iServiceService.findAllServiceType());
             model.addAttribute("rentTypes", iServiceService.findAllRentType());
 //            model.addAttribute("id", id);

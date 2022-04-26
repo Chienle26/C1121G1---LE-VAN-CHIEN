@@ -14,7 +14,7 @@
         <div id="form">
             <form th:action="@{/contract/save}" th:object="${contract}"
                   method="POST" novalidate="novalidate">
-                <input type="hidden" th:field="*{contractId}"/>
+<!--                <input type="hidden" th:field="*{contractId}"/>-->
                 <br>
                 <div>
                     <label>Contract Start Date</label>
@@ -29,6 +29,7 @@
                 <div>
                     <label>Contract Deposit</label>
                     <input type="text" th:field="*{contractDeposit}">
+                    <small style="color: red" th:errors="*{contractStartDate}"></small>
                 </div>
                 <div>
                     <label>Contract Total Money</label>
