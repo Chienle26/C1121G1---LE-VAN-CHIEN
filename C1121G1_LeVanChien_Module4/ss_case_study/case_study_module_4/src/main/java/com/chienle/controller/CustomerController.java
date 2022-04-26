@@ -1,6 +1,7 @@
 package com.chienle.controller;
 
 import com.chienle.dto.CustomerDto;
+import com.chienle.model.contract.CustomerUseService;
 import com.chienle.model.customer.Customer;
 import com.chienle.model.customer.CustomerType;
 import com.chienle.service.IContractService;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -50,7 +52,7 @@ public class CustomerController {
 
     @PostMapping("/save")
     private String save(Model model, @Valid @ModelAttribute CustomerDto customerDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-        if (bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             model.addAttribute("customerTypes", iCustomerService.findAllCustomerType());
             return "customer/create";
         }
@@ -113,10 +115,13 @@ public class CustomerController {
     }
 
     @GetMapping("/list-customer-use-service")
-    public String goListCustomerUseService(Model model, @PageableDefault(value = 3) Pageable pageable, @RequestParam Optional<String> search) {
+    public String goListCustomerUseService(Model model, @RequestParam Optional<String> search) {
         String keyword = search.orElse("");
-        model.addAttribute("customerUseServices", iContractService.findAllCustomerUseService(pageable, keyword));
+        List<CustomerUseService> customerUseServices = iContractService.findCustomerUseService();
         model.addAttribute("keyword", keyword);
+        model.addAttribute("customerUseServices", customerUseServices);
         return "customer/list-customer-use-service";
     }
+
+
 }

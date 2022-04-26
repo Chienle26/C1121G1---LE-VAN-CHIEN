@@ -3,6 +3,7 @@ package com.chienle.service;
 import com.chienle.model.contract.AttachService;
 import com.chienle.model.contract.Contract;
 import com.chienle.model.contract.ContractDetail;
+import com.chienle.model.contract.CustomerUseService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -22,4 +23,6 @@ public interface IContractService {
     void save(ContractDetail contractDetail);
 
     Contract findById(Integer id);
+
+    List<CustomerUseService> findCustomerUseService();
 }

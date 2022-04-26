@@ -3,6 +3,7 @@ package com.chienle.service.impl;
 import com.chienle.model.contract.AttachService;
 import com.chienle.model.contract.Contract;
 import com.chienle.model.contract.ContractDetail;
+import com.chienle.model.contract.CustomerUseService;
 import com.chienle.repository.contract.IAttachServiceRepository;
 import com.chienle.repository.contract.IContractDetailRepository;
 import com.chienle.repository.contract.IContractRepository;
@@ -58,5 +59,10 @@ public class ContractServie implements IContractService {
     @Override
     public Contract findById(Integer id) {
         return iContractRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<CustomerUseService> findCustomerUseService() {
+        return iContractRepository.findCustomerUseService(CustomerUseService.class);
     }
 }

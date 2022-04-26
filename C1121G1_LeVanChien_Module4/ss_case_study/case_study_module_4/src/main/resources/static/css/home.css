@@ -185,3 +185,26 @@ body{
     object-fit: cover;
     object-position: bottom;
 }
+
+.login-button{
+    padding: 1rem 0;
+    text-decoration: none;
+    margin: 2rem;
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    text-align: center;
+    width: 15rem;
+
+    display: inline-block;
+    background-image: linear-gradient(to right,#63eaa5,#4bc8c6 );
+    box-shadow: 3px 5px 10px 1px rgb(75 200 198 / 56%);
+    position: absolute;
+    right: 4rem;
+    top: 50%;
+    transform: translateY(-100%);
+    /*margin-top: -18.75px;*/
+
+}

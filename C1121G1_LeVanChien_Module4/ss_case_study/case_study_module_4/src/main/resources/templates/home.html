@@ -6,7 +6,23 @@
     <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
-<head th:replace="/layout::header"></head>
+<div th:fragment="header">
+    <div class="header">
+        <img src="https://furamavietnam.com/wp-content/uploads/2018/08/logo.png" alt="" class="logo">
+        <a th:if="${#request.userPrincipal == null}" th:href="@{/login}" class="login-button">Login</a>
+        <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}" class="login-button">Logout</a>
+    </div>
+
+    <div class="nav">
+        <div class="botton-gradient">
+            <a href="/" class="botton-gradient botton-gradient-1">Home</a>
+            <a href="/employee" class="botton-gradient botton-gradient-2">Employee</a>
+            <a href="/customer" class="botton-gradient botton-gradient-3">Customer</a>
+            <a href="/service" class="botton-gradient botton-gradient-4">Service</a>
+            <a href="/contract" class="botton-gradient botton-gradient-5">Contract</a>
+        </div>
+    </div>
+</div>
 
 <div class="sidebar">
     <a href="">Home</a>

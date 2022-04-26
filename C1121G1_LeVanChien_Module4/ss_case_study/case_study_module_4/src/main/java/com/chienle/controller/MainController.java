@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MainController {
 
-//    @GetMapping({"", "/home"})
-//    public String goHome() {
-//        return "home";
-//    }
+    @GetMapping({"", "/home"})
+    public String goHome() {
+        return "home";
+    }
 
-    @RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
+    @RequestMapping(value = {  "/welcome" }, method = RequestMethod.GET)
     public String welcomePage(Model model) {
         model.addAttribute("title", "Welcome");
         model.addAttribute("message", "This is welcome page!");
@@ -69,19 +69,19 @@ public class MainController {
     @RequestMapping(value = "/403", method = RequestMethod.GET)
     public String accessDenied(Model model, Principal principal) {
 
-        if (principal != null) {
-            User loginedUser = (User) ((Authentication) principal).getPrincipal();
+//        if (principal != null) {
+//            User loginedUser = (User) ((Authentication) principal).getPrincipal();
+//
+//            String userInfo = WebUtils.toString(loginedUser);
+//
+//            model.addAttribute("userInfo", userInfo);
+//
+//            String message = "Hi " + principal.getName() //
+//                    + "<br> You do not have permission to access this page!";
+//            model.addAttribute("message", message);
+//
+//        }
 
-            String userInfo = WebUtils.toString(loginedUser);
-
-            model.addAttribute("userInfo", userInfo);
-
-            String message = "Hi " + principal.getName() //
-                    + "<br> You do not have permission to access this page!";
-            model.addAttribute("message", message);
-
-        }
-
-        return "403Page";
+        return "home";
     }
 }
