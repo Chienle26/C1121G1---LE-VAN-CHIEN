@@ -46,7 +46,7 @@ public class ContractController {
 
     @GetMapping("/create")
     public String goCreate(Model model) {
-        model.addAttribute("contract", new ContractDto());
+        model.addAttribute("contractDto", new ContractDto());
         model.addAttribute("customers", iCustomerService.findAll());
         model.addAttribute("employees", iEmployeeService.findAll());
         model.addAttribute("services", iServiceService.findAllService());

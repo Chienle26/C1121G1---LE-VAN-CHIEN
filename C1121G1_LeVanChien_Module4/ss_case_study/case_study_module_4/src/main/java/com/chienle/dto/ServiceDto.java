@@ -27,25 +27,28 @@ public class ServiceDto implements Validator {
     @NotBlank(message = "must no be blank")
     private String serviceName;
 
-//    @Min(value = 0)
+    @NotNull
+    @Min(value = 0)
     private Integer serviceArea;
 
-//    @Min(value = 0)
+    @NotNull
+    @Min(value = 0)
     private Double serviceCost;
 
-//    @Min(value = 0)
+    @NotNull
+    @Min(value = 0)
     private Integer serviceMaxPeople;
 
     private String standardRoom;
 
     private String descriptionOtherConvenience;
 
-//    @NotNull
-//    @Min(value = 0)
+    @NotNull
+    @Min(value = 0)
     private Double poolArea;
 
-//    @NotNull
-//    @Min(value = 0)
+    @NotNull
+    @Min(value = 0)
     private Integer numberOfFloors;
 
     private RentType rentType;

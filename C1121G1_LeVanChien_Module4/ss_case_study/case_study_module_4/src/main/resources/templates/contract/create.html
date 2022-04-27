@@ -12,28 +12,31 @@
     <h3>Create Contract</h3>
     <div class="form">
         <div id="form">
-            <form th:action="@{/contract/save}" th:object="${contract}"
+            <form th:action="@{/contract/save}" th:object="${contractDto}"
                   method="POST" novalidate="novalidate">
 <!--                <input type="hidden" th:field="*{contractId}"/>-->
                 <br>
                 <div>
                     <label>Contract Start Date</label>
                     <input type="date" th:field="*{contractStartDate}"/>
+                    <small style="color: red" th:errors="*{contractStartDate}"></small>
                 </div>
                 <br>
                 <div>
                     <label>Contract End Date</label>
                     <input type="date" th:field="*{contractEndDate}"/>
+                    <small style="color: red" th:errors="*{contractEndDate}"></small>
                 </div>
                 <br>
                 <div>
                     <label>Contract Deposit</label>
                     <input type="text" th:field="*{contractDeposit}">
-                    <small style="color: red" th:errors="*{contractStartDate}"></small>
+                    <small style="color: red" th:errors="*{contractDeposit}"></small>
                 </div>
                 <div>
                     <label>Contract Total Money</label>
                     <input type="text" th:field="*{contractTotalMoney}">
+                    <small style="color: red" th:errors="*{contractTotalMoney}"></small>
                 </div>
                 <br>
                 <div>

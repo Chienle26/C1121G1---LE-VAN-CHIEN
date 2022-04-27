@@ -12,9 +12,9 @@
     <h3>Create Service</h3>
     <div class="form">
         <div id="form">
-            <form th:action="@{/service/save}" th:object="${service}"
+            <form th:action="@{/service/save}" th:object="${serviceDto}"
                   method="POST" novalidate="novalidate">
-                <input type="hidden" th:field="*{serviceId}"/>
+                <input type="hidden" name="id" th:value="${id}">
                 <div>
                     <label>Service Code</label>
                     <input type="text" th:field="*{serviceCode}"/>
@@ -40,7 +40,7 @@
                     <input type="text" th:field="*{serviceMaxPeople}">
                     <small style="color: red" th:errors="*{serviceMaxPeople}"></small>
                 </div>
-                <div th:if="${id == 1 || id ==2 }">
+                <div th:if="${id == 1 || id == 2 }">
                     <label>Service Standard Room</label>
                     <input type="text" th:field="*{standardRoom}">
                     <small style="color: red" th:errors="*{standardRoom}"></small>

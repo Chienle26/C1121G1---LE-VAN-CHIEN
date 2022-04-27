@@ -13,8 +13,10 @@ public class ContractDto {
 
     private Integer contractId;
 
+    @NotBlank
     private String contractStartDate;
 
+    @NotBlank
     private String contractEndDate;
 
     @NotNull
