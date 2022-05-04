@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/list.css">
+</head>
+<body>
+<head th:replace="/layout::header"></head>
+
+<div class="body">
+    <h3>View Customer</h3>
+    <div class="form">
+        <div id="form">
+            <form th:action="@{/customer}" th:object="${customer}"
+                  method="GET" novalidate="novalidate">
+                <input type="hidden" th:field="*{customerId}"/>
+                <div>
+                    <label>customerCode</label>
+                    <input type="text" readonly th:field="*{customerCode}"/>
+                </div>
+                <div>
+                    <label>customerName</label>
+                    <input type="text" readonly th:field="*{customerName}"/>
+                </div>
+                <div>
+                    <label>customerBirthday</label>
+                    <input type="text" readonly th:field="*{customerBirthday}">
+                </div>
+                <div>
+                    <label>customerGender</label>
+                    <input type="text" readonly th:field="*{customerGender}">
+                </div>
+                <div>
+                    <label>customerIdCard</label>
+                    <input type="text" readonly th:field="*{customerIdCard}">
+                </div>
+                <div>
+                    <label>customerPhone</label>
+                    <input type="text" readonly th:field="*{customerPhone}">
+                </div>
+                <div>
+                    <label>customerEmail</label>
+                    <input type="text" readonly th:field="*{customerEmail}">
+                </div>
+                <div>
+                    <label>customerAddress</label>
+                    <input type="text" readonly th:field="*{customerAddress}">
+                </div>
+                <div>
+                    <label>customerType</label>
+                    <input type="text" readonly th:field="*{customerType}">
+                </div>
+                <input type="submit" style="width: 100%" value="Cancel"/>
+            </form>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout::footer"></footer>
+</body>
+</html>

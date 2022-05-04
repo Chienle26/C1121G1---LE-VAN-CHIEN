@@ -15,6 +15,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.executable.ExecutableValidator;
 import javax.validation.metadata.BeanDescriptor;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
 public class CustomerDto implements Validator {
@@ -27,7 +29,7 @@ public class CustomerDto implements Validator {
     @NotBlank(message = "Tên không được để trống.")
     private String customerName;
 
-    @NotBlank(message = "Ngày sinh không được để trống.")
+    //    @NotBlank(message = "Ngày sinh không được để trống.")
     private String customerBirthday;
 
     private Integer customerGender;
@@ -39,7 +41,7 @@ public class CustomerDto implements Validator {
     private String customerPhone;
 
     @NotBlank(message = "Email không được để trống!")
-    @Email( message = "Sai định dạng email")
+    @Email(message = "Sai định dạng email")
     private String customerEmail;
 
     @NotBlank(message = "Địa chỉ không được để trống!")
@@ -49,7 +51,17 @@ public class CustomerDto implements Validator {
 
     private CustomerType customerType;
 
+    private ICustomerService iCustomerService;
+
     public CustomerDto() {
+    }
+
+    public ICustomerService getiCustomerService() {
+        return iCustomerService;
+    }
+
+    public void setiCustomerService(ICustomerService iCustomerService) {
+        this.iCustomerService = iCustomerService;
     }
 
     public CustomerDto(Integer customerId, String customerCode, String customerName, String customerBirthday, Integer customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress, Integer active, CustomerType customerType) {
@@ -162,15 +174,28 @@ public class CustomerDto implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-
+        final String REGEX_DATE = "^\\d{4}[\\-\\/\\s]?((((0[13578])|(1[02]))[\\-\\/\\s]?(([0-2][0-9])|(3[01])))|(((0[469])|(11))[\\-\\/\\s]?(([0-2][0-9])|(30)))|(02[\\-\\/\\s]?[0-2][0-9]))$";
         CustomerDto customerDto = (CustomerDto) target;
-        String customerCurrentCode = customerDto.getCustomerCode();
 
-//        Customer customer = iCustomerService.findByCode(customerCurrentCode);
-//        if (customer != null) {
-//            if (customer.getCustomerCode().equals(customerCurrentCode)) {
-//                errors.rejectValue("customerCode", "", "Mã khách hàng đã tồn tại.");
-//            }
-//        }
+        if (!customerDto.getCustomerBirthday().matches(REGEX_DATE)) {
+            errors.rejectValue("customerBirthday", "", "Nhập sai định dạng!");
+        } else {
+//          DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate thoiGianHienTai = LocalDate.now();
+            LocalDate thoiGianChon = LocalDate.parse(customerDto.getCustomerBirthday());
+//          LocalDate thoiGianChon = LocalDate.parse(customerDto.getCustomerBirthday(),formatter);
+
+            if (thoiGianChon.isBefore(thoiGianHienTai)) {
+                errors.rejectValue("customerBirthday", "stk.notBeforeDateCurrent", "Không được chọn ngày trong quá khứ!");
+            }
+        }
+
+        String customerCodeCheck = customerDto.getCustomerCode();
+        Customer customer = iCustomerService.findByCustomerCode(customerCodeCheck);
+        if (customer!=null){
+            errors.rejectValue("customerCode","","Trùng customerCode!");
+        }
+
+
     }
 }

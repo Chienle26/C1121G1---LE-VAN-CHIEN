@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/list.css">
+</head>
+<body>
+<head th:replace="/layout::header"></head>
+
+<div class="body">
+    <h3>Delete Customer</h3>
+    <div class="form">
+        <div id="form">
+            <form th:action="@{/customer/delete}" th:object="${customer}"
+                  method="POST" novalidate="novalidate">
+                <input type="hidden" th:field="*{customerId}"/>
+                <div>
+                    <label>Customer Code</label>
+                    <input readonly type="text" th:field="*{customerCode}"/>
+                </div>
+                <div>
+                    <label>Customer Name</label>
+                    <input readonly type="text" th:field="*{customerName}"/>
+                </div>
+                <br>
+                <div>
+                    <label>Customer Birthday</label>
+                    <input readonly type="date" th:field="*{customerBirthday}">
+                </div>
+                <br>
+                <div>
+                    <label>Customer Gender</label>
+                    <input readonly type="text" th:field="*{customerGender}">
+                </div>
+                <br>
+                <div>
+                    <label>Customer Id-Card</label>
+                    <input readonly type="text" th:field="*{customerIdCard}">
+                </div>
+                <div>
+                    <label>Customer Phone</label>
+                    <input readonly type="text" th:field="*{customerPhone}">
+                </div>
+                <div>
+                    <label>Customer Email</label>
+                    <input readonly type="text" th:field="*{customerEmail}">
+                </div>
+                <div>
+                    <label>Customer Address</label>
+                    <input readonly type="text" th:field="*{customerAddress}">
+                </div>
+                <br>
+                <div>
+                    <label>Customer Type</label>
+                    <input readonly type="text" th:field="*{customerType}">
+                </div>
+                <br>
+                <div class="button-submit__group">
+                    <input class="button-submit" type="submit" value="Delete"/>
+                    <a class="button-cancel" th:href="@{/customer/list}">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout::footer"></footer>
+</body>
+</html>

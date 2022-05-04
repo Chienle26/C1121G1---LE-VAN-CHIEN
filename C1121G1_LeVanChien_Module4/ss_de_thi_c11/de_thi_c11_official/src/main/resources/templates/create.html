@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/list.css">
+</head>
+<body>
+<head th:replace="/layout::header"></head>
+
+<div class="body">
+    <h3>Tạo mới khuyến mãi</h3>
+    <div class="form">
+        <div id="form">
+            <form th:action="@{/save}" th:object="${khuyenMaiDto}"
+                  method="POST" novalidate="novalidate">
+<!--                <input type="hidden" th:field="*{customerId}"/>-->
+<!--                <input type="hidden" th:field="*{active}"/>-->
+                <div>
+                    <label>Tiêu đề</label>
+                    <input type="text" th:field="*{tieuDe}"/>
+                    <small style="color: red" th:errors="*{tieuDe}"></small>
+                </div>
+                <br>
+                <div>
+                    <label>Thời gian bắt đầu</label>
+                    <input type="date" th:field="*{thoiGianBatDau}"/>
+                    <small style="color: red" th:errors="*{thoiGianBatDau}"></small>
+                </div>
+                <br>
+                <div>
+                    <label>Thời gian kết thúc</label>
+                    <input type="date" th:field="*{thoiGianKetThuc}">
+                    <small style="color: red" th:errors="*{thoiGianKetThuc}"></small>
+                </div>
+                <br>
+                <div>
+                    <label>Mức giảm giá</label>
+                    <input type="number" th:field="*{mucGiamGia}">
+                    <small style="color: red" th:errors="*{mucGiamGia}"></small>
+                </div>
+                <div>
+                    <label>Chi tiết</label>
+                    <input type="text" th:field="*{chiTiet}">
+                    <small style="color: red" th:errors="*{chiTiet}"></small>
+                </div>
+                <div class="button-submit__group">
+                    <input class="button-submit" type="submit" value="Thêm mới"/>
+                    <a class="button-cancel" th:href="@{/list}">Quay lại</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout::footer"></footer>
+</body>
+</html>

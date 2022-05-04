@@ -11,4 +11,6 @@ public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
     @Query("select c from Customer c where c.active=1 and c.customerName like concat('%', :customerName ,'%') ")
 //    @Query(value = "select * from customer where customer.active = 1 and customer.customer_name like concat('%',:customer_name,'%')", nativeQuery = true)
     Page<Customer> findByCustomerNameContainingOrderByCustomerId(@Param("customerName")String name, Pageable pageable);
+
+    Customer findByCustomerCode(String customerCode);
 }

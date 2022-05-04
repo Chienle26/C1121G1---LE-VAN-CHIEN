@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<head th:replace="/layout::header"></head>
+
+<div class="body">
+    <h3>Danh sách tìm kiếm</h3>
+    <div class="notify">
+        <div th:if="${message}">
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+    <div class="button-search" style=" display: flex; justify-content: flex-end">
+        <div class="search">
+            <form th:action="@{/search}">
+                <input type="text" name="searchByMucGiamGia" size="50px">
+                <input type="submit" value="Tìm kiếm">
+            </form>
+        </div>
+        <div class="search">
+            <form th:action="@{/search}">
+                <input type="text" name="searchByMucGiamGia" id="searchByMucGiamGia" size="50px">
+                <input type="date" name="searchByThoiGianBatDau" id="searchByThoiGianBatDau" size="50px">
+                <input type="date" name="searchByThoiGianKetThuc" id="searchByThoiGianKetThuc" size="50px">
+                <input type="submit" value="Tìm kiếm">
+            </form>
+        </div>
+    </div>
+<!--    <table id="products">-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th>STT</th>-->
+<!--            <th>Tiêu đề</th>-->
+<!--            <th>Thời gian bắt đầu</th>-->
+<!--            <th>Thời gian kết thúc</th>-->
+<!--            <th>Mức giảm giá</th>-->
+<!--            <th>Chi tiết</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr th:each="khuyenMai,loop : ${khuyenMais}">-->
+<!--            <td th:text="${loop.count}"></td>-->
+<!--            <td th:text="${khuyenMai.tieuDe}"></td>-->
+<!--            <td th:text="${khuyenMai.thoiGianBatDau}"></td>-->
+<!--            <td th:text="${khuyenMai.thoiGianKetThuc}"></td>-->
+<!--            <td th:text="${khuyenMai.mucGiamGia}"></td>-->
+<!--            <td th:text="${khuyenMai.chiTiet}"></td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+</div>
+<footer th:replace="/layout::footer"></footer>
+</body>
+</html>

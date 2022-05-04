@@ -52,6 +52,10 @@ public class CustomerController {
 
     @PostMapping("/save")
     private String save(Model model, @Valid @ModelAttribute CustomerDto customerDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+        customerDto.setiCustomerService(iCustomerService);
+
+        customerDto.validate(customerDto, bindingResult);
+
         if (bindingResult.hasErrors()) {
             model.addAttribute("customerTypes", iCustomerService.findAllCustomerType());
             return "customer/create";
@@ -81,6 +85,9 @@ public class CustomerController {
 
     @PostMapping("/update")
     private String update(@Valid @ModelAttribute CustomerDto customerDto, BindingResult bindingResult ,RedirectAttributes redirectAttributes, Model model) {
+
+
+
         if (bindingResult.hasErrors()) {
             model.addAttribute("customerTypes", iCustomerService.findAllCustomerType());
             return "customer/edit";

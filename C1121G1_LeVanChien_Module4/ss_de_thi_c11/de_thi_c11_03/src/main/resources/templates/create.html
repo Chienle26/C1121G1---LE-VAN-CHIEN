@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/list.css">
+</head>
+<body>
+<head th:replace="/layout::header"></head>
+
+<div class="body">
+    <h3>Create Customer</h3>
+    <div class="form">
+        <div id="form">
+            <form th:action="@{/customer/save}" th:object="${customerDto}"
+                  method="POST" novalidate="novalidate">
+<!--                <input type="hidden" th:field="*{customerId}"/>-->
+<!--                <input type="hidden" th:field="*{active}"/>-->
+                <div>
+                    <label>Customer Code</label>
+                    <input type="text" th:field="*{customerCode}"/>
+                    <small style="color: red" th:errors="*{customerCode}"></small>
+                </div>
+                <div>
+                    <label>Customer Name</label>
+                    <input type="text" th:field="*{customerName}"/>
+                    <small style="color: red" th:errors="*{customerName}"></small>
+                </div>
+                <br>
+                <div>
+                    <label>Customer Birthday</label>
+                    <input type="date" th:field="*{customerBirthday}">
+                    <small style="color: red" th:errors="*{customerBirthday}"></small>
+                </div>
+                <br>
+                <div>
+                    <label>Customer Gender</label>
+                    <select th:field="*{customerGender}">
+                        <option th:value="1"
+                                th:text="Nam">
+                        </option>
+                        <option th:value="0"
+                                th:text="Nữ">
+                        </option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label>Customer Id-Card</label>
+                    <input type="text" th:field="*{customerIdCard}">
+                    <small style="color: red" th:errors="*{customerIdCard}"></small>
+                </div>
+                <div>
+                    <label>Customer Phone</label>
+                    <input type="text" th:field="*{customerPhone}">
+                    <small style="color: red" th:errors="*{customerPhone}"></small>
+                </div>
+                <div>
+                    <label>Customer Email</label>
+                    <input type="text" th:field="*{customerEmail}">
+                    <small style="color: red" th:errors="*{customerEmail}"></small>
+                </div>
+                <div>
+                    <label>Customer Address</label>
+                    <input type="text" th:field="*{customerAddress}">
+                    <small style="color: red" th:errors="*{customerAddress}"></small>
+                </div>
+                <br>
+                <div>
+                    <label>Customer Type</label>
+                    <select th:field="*{customerType}">
+                        <option th:each="customerType : ${customerTypes}"
+                                th:value="${customerType.customerTypeId}"
+                                th:text="${customerType.customerTypeName}"></option>
+                    </select>
+                </div>
+                <br>
+                <div class="button-submit__group">
+                    <input class="button-submit" type="submit" value="Save"/>
+                    <a class="button-cancel" th:href="@{/customer/list}">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout::footer"></footer>
+</body>
+</html>

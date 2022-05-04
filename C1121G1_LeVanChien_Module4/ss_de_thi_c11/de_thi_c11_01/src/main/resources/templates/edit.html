@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/list.css">
+</head>
+<body>
+<head th:replace="/layout::header"></head>
+
+<div class="body">
+    <h3>Sửa bệnh án</h3>
+    <div class="form">
+        <div id="form">
+            <form th:action="@{/update}" th:object="${benhAnDto}"
+                  method="POST" novalidate="novalidate">
+                <input type="hidden" th:field="*{idBenhAn}"/>
+                <input type="hidden" th:field="*{benhNhanDto.idBenhNhan}"/>
+                <div>
+                    <label>Mã bệnh án</label>
+                    <input type="text" readonly th:field="*{maBenhAn}"/>
+                    <small style="color: red" th:errors="*{maBenhAn}"></small>
+                </div>
+                <div>
+                    <label>Mã bệnh nhân</label>
+                    <input type="text" readonly th:field="*{benhNhanDto.maBenhNhan}"/>
+                    <small style="color: red" th:errors="*{benhNhanDto.maBenhNhan}"></small>
+                </div>
+                <br>
+                <div>
+                    <label>Tên bệnh nhân</label>
+                    <input type="text" th:field="*{benhNhanDto.tenBenhNhan}">
+                    <small style="color: red" th:errors="*{benhNhanDto.tenBenhNhan}"></small>
+                </div>
+                <div>
+                    <label>Ngày nhập viện</label>
+                    <input type="date" th:field="*{benhNhanDto.ngayNhapVien}">
+                    <small style="color: red" th:errors="*{benhNhanDto.ngayNhapVien}"></small>
+                </div>
+                <div>
+                    <label>Ngày ra viện</label>
+                    <input type="date" th:field="*{benhNhanDto.ngayRaVien}">
+                    <small style="color: red" th:errors="*{benhNhanDto.ngayRaVien}"></small>
+                </div>
+                <div>
+                    <label>Lý do nhập viện</label>
+                    <input type="text" th:field="*{benhNhanDto.lyDoNhapVien}">
+                    <small style="color: red" th:errors="*{benhNhanDto.lyDoNhapVien}"></small>
+                </div>
+                <div class="button-submit__group">
+                    <input class="button-submit" type="submit" value="Save"/>
+                    <a class="button-cancel" th:href="@{/list}">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout::footer"></footer>
+</body>
+</html>

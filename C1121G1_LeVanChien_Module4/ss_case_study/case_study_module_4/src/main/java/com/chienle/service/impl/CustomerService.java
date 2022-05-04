@@ -52,7 +52,7 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public Customer findByCustomerCode(String customerCode) {
-        return null;
+        return iCustomerRepository.findByCustomerCode(customerCode);
     }
 
 

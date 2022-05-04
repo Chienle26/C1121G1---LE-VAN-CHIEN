@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+<div th:fragment="header">
+    <div class="header">
+        <a href="/">
+            <img src="https://furamavietnam.com/wp-content/uploads/2018/08/logo.png" alt="" class="logo">
+        </a>
+        <span class="my-name">Le Van Chien</span>
+<!--        <a th:if="${#request.userPrincipal == null}" th:href="@{/login}" class="login-button">Login</a>-->
+<!--        <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}" class="login-button">Logout</a>-->
+    </div>
+
+    <div class="nav">
+        <div class="botton-gradient">
+            <a href="/" class="botton-gradient botton-gradient-1">Home</a>
+            <a href="/list" class="botton-gradient botton-gradient-2">List</a>
+            <a href="/create" class="botton-gradient botton-gradient-3">Create</a>
+            <a href="#" class="botton-gradient botton-gradient-4">View</a>
+            <a href="#" class="botton-gradient botton-gradient-5">Blog</a>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar">
+    <a href="">Home</a>
+    <a href="/list">List</a>
+    <a href="/create">Create</a>
+    <a href="#">View</a>
+    <a href="#">Blog</a>
+</div>
+
+<div class="body">
+    <img src="https://furamavietnam.com/wp-content/uploads/2018/11/Vietnam_Danang_Furama_Resort_Exterior_Courtyard.jpg">
+</div>
+
+<footer th:replace="/layout::footer"></footer>
+</body>
+</html>
