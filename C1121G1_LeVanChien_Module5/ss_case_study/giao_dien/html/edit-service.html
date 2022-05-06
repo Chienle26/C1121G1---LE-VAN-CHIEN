@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/list.css">
+</head>
+<body>
+<div class="header">
+    <a href="/">
+        <img src="https://furamavietnam.com/wp-content/uploads/2018/08/logo.png" alt="" class="logo">
+    </a>
+</div>
+<div class="nav">
+    <div class="botton-gradient">
+        <a href="/" class="botton-gradient botton-gradient-1">Home</a>
+        <a href="/employee" class="botton-gradient botton-gradient-2">Employee</a>
+        <a href="/customer" class="botton-gradient botton-gradient-3">Customer</a>
+        <a href="/service" class="botton-gradient botton-gradient-4">Service</a>
+        <a href="/contract" class="botton-gradient botton-gradient-5">Contract</a>
+    </div>
+</div>
+
+<div class="body">
+    <h3>Edit Service</h3>
+    <div class="form">
+        <div id="form">
+            <form action="#"
+                  method="POST" novalidate="novalidate">
+                <input type="hidden" name="id">
+                <div>
+                    <label>Service Code</label>
+                    <input name="serviceCode" type="text"/>
+                </div>
+                <div>
+                    <label>Service Name</label>
+                    <input name="serviceName" type="text"/>
+                </div>
+                <div>
+                    <label>Service Area</label>
+                    <input name="serviceArea" type="text" />
+                </div>
+                <div>
+                    <label>Service Cost</label>
+                    <input name="serviceCost" type="text">
+                </div>
+                <div>
+                    <label>Service Max People</label>
+                    <input type="text" name="serviceMaxPeople">
+                </div>
+                <div>
+                    <label>Service Standard Room</label>
+                    <input type="text" name="standardRoom">
+                </div>
+                <div>
+                    <label>Service Description other Convenience</label>
+                    <input type="text" name="descriptionOtherConvenience">
+                </div>
+                <div>
+                    <label >Pool Area</label>
+                    <input type="text" name="poolArea">
+                </div>
+                <div>
+                    <label >Service Number of Floor</label>
+                    <input type="text" name="numberOfFloors">
+                </div>
+                <br>
+                <div>
+                    <label>Service Rent Type</label>
+                    <select name="rentTypes">
+                        <option value="year">Year</option>
+                        <option value="month">Month</option>
+                        <option value="day">Day</option>
+                        <option value="hour">Hour</option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label>Service Type</label>
+                    <select name="serviceType">
+                        <option value="villa">Villa</option>
+                        <option value="house">House</option>
+                        <option value="room">Room</option>
+                    </select>
+                </div>
+                <br>
+                <div class="button-submit__group">
+                    <input class="button-submit" type="submit" value="Save"/>
+                    <a class="button-cancel" href="#">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <h2>Liên hệ</h2>
+    <p>
+        103 - 105 Vo Nguyen Giap Street, Khue My Ward, Ngu Hanh Son District, Danang City, Vietnam <br>
+        Tel.: 84-236-3847 333/888 * Fax: 84-236-3847 666 <br>
+        Email: reservation@furamavietnam.com * www.furamavietnam.com
+    </p>
+</div>
+</body>
+</html>

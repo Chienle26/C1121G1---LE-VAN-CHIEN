@@ -1,0 +1,10 @@
+<h1>Simple Calculator</h1>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <input type="text" name="number1" ngModel>
+  <input type="text" name="number2" ngModel> <br><br>
+  <input type="submit" name="addition" value="Addition(+)" ngModel>
+  <input type="submit" name="subtraction" value="Subtraction(-)" ngModel>
+  <input type="submit" name="multiplication" value="Multiplication(X)" ngModel>
+  <input type="submit" name="division" value="Division(/)" ngModel>
+</form>
+<h2>Result: {{result}}</h2>
