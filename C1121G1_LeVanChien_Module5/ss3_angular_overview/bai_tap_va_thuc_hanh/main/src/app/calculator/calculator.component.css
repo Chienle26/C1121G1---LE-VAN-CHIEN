@@ -1,0 +1,10 @@
+table {
+  border: 2px solid #000000;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+}
+
+.caculator {
+  margin-left: 500px;
+}

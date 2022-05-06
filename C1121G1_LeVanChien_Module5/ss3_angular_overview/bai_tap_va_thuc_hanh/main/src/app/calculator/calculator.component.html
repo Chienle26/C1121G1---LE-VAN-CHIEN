@@ -1,0 +1,65 @@
+<div class="caculator">
+  <table>
+    <tr>
+      <th colspan="4"><input id="window" type="text" [(ngModel)]="display"></th>
+    </tr>
+    <tr>
+      <th>
+        <button (click)="nhapLieu('1')">1</button>
+      </th>
+      <th>
+        <button (click)="nhapLieu('2')">2</button>
+      </th>
+      <th>
+        <button (click)="nhapLieu('3')">3</button>
+      </th>
+      <th>
+        <button (click)="nhapLieu('+')">+</button>
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <button (click)="nhapLieu('4')">4</button>
+      </th>
+      <th>
+        <button (click)="nhapLieu('5')">5</button>
+      </th>
+      <th>
+        <button (click)="nhapLieu('6')">6</button>
+      </th>
+      <th>
+        <button (click)="nhapLieu('-')">-</button>
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <button (click)="nhapLieu('7')">7</button>
+      </th>
+      <th>
+        <button (click)="nhapLieu('8')">8</button>
+      </th>
+      <th>
+        <button (click)="nhapLieu('9')">9</button>
+      </th>
+      <th>
+        <button (click)="nhapLieu('*')">x</button>
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <button type="button" (click)="xoa()">C</button>
+      </th>
+      <th>
+        <button (click)="nhapLieu('0')">0</button>
+      </th>
+      <th>
+        <button (click)="tinh()">=</button>
+      </th>
+      <th>
+        <button (click)="nhapLieu('/')">/</button>
+      </th>
+    </tr>
+  </table>
+</div>
+
+
