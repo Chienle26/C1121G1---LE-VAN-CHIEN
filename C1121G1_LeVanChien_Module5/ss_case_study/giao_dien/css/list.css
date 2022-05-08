@@ -464,3 +464,8 @@ ul, li {
     text-decoration: line-through;
     font-size: 14px;
 }
+
+input {
+    display: inline-block;
+    padding-left: 10px;
+}
