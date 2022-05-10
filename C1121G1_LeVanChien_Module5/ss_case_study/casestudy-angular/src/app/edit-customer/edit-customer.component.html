@@ -1,1 +1,62 @@
-<p>edit-customer works!</p>
+<!--<h3>Edit Customer</h3>-->
+<div class="form" style="margin-top: 30px">
+  <div id="form">
+    <form action="#"
+          method="POST" novalidate="novalidate">
+      <!--                <input type="hidden" name="id">-->
+      <div>
+        <label>Customer Code</label>
+        <input name="customerCode" type="text" value="KH-0001"/>
+      </div>
+      <div>
+        <label>Customer Name</label>
+        <input name="customerName" type="text" value="Lê văn Chiến"/>
+      </div>
+      <br>
+      <div>
+        <label>Customer Birthday</label>
+        <input name="customerBirthday" type="date" value="1997-08-26"/>
+      </div>
+      <br>
+      <div>
+        <label>Customer Id-Card</label>
+        <input name="customerIdCard" type="text" value="31411534">
+      </div>
+      <div>
+        <label>Customer Phone</label>
+        <input type="text" name="customerPhone" value="0708313527">
+      </div>
+      <div>
+        <label>Customer Email</label>
+        <input type="text" name="customerEmail" value="chienle26@gmail.com">
+      </div>
+      <div>
+        <label>Customer Address</label>
+        <input type="text" name="customerAddress" value="Đà Nẵng">
+      </div>
+      <br>
+      <div>
+        <label>Customer Gender</label>
+        <select name="customerGender">
+          <option selected value="1">Male</option>
+          <option value="2">Female</option>
+        </select>
+      </div>
+      <br>
+      <div>
+        <label>Customer Type</label>
+        <select name="customerType">
+          <option selected value="diamond">Diamond</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="member">Member</option>
+        </select>
+      </div>
+      <br>
+      <div class="button-submit__group">
+        <input class="button-submit" type="submit" value="Save"/>
+        <a class="button-cancel" href="#">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
