@@ -53,7 +53,7 @@ body {
   display: -ms-flexbox;
   display: flex; }
 .header-menu-item:not(:first-child) {
-  margin-left: 5rem; }
+  margin-left: 2rem; }
 .header-content {
   padding-top: 4rem;
   text-align: center;
