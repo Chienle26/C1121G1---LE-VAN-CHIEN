@@ -1,62 +1,148 @@
-<!--<h3>Edit Customer</h3>-->
-<div class="form" style="margin-top: 30px">
-  <div id="form">
-    <form action="#"
-          method="POST" novalidate="novalidate">
-      <!--                <input type="hidden" name="id">-->
-      <div>
-        <label>Customer Code</label>
-        <input name="customerCode" type="text" value="KH-0001"/>
+<div class="container-lg">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="contact-form">
+        <form (ngSubmit)="onSubmit()" [formGroup]="editCustomerForm" id="createFormVilla">
+          <input type="hidden" id="customerId" name="customerId" value="1" formControlName="customerId">
+          <div class="form-group">
+            <label for="serviceCodeCreateVilla">Customer code</label>
+            <input type="text" class="form-control" id="serviceCodeCreateVilla"
+                   placeholder="Type new customer code here" formControlName="customerCode">
+            <div
+              *ngIf="editCustomerForm.controls.customerCode.invalid && (editCustomerForm.controls.customerCode.dirty || editCustomerForm.controls.customerCode.touched) || editCustomerForm.controls.customerCode.errors?.empty">
+              <span *ngIf="editCustomerForm.controls.customerCode.hasError('pattern')" style="color: red">Wrong format, ex: KH-0123</span>
+              <span *ngIf="editCustomerForm.controls.customerCode.hasError('required') || editCustomerForm.controls.customerCode.errors.empty" style="color: red">Empty! Input please!</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="serviceNameCreateVilla">Customer name</label>
+                <input type="text" class="form-control" placeholder="Type new customer name here"
+                       id="serviceNameCreateVilla" formControlName="customerName">
+                <div
+                  *ngIf="editCustomerForm.controls.customerName.invalid && (editCustomerForm.controls.customerName.dirty || editCustomerForm.controls.customerName.touched) || editCustomerForm.controls.customerName.errors?.empty">
+                  <span *ngIf="editCustomerForm.controls.customerName.errors.required || editCustomerForm.controls.customerName.errors.empty" style="color: red">Empty! Input please!</span>
+                </div>
+              </div>
+
+            </div>
+
+
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="serviceAreaCreateVilla">Select customers birthday</label>
+                <input type="date" class="form-control" id="serviceAreaCreateVilla" formControlName="customerBirthday">
+                <div
+                  *ngIf="editCustomerForm.controls.customerBirthday.invalid && (editCustomerForm.controls.customerBirthday.dirty || editCustomerForm.controls.customerBirthday.touched) || editCustomerForm.controls.customerBirthday.errors?.empty">
+                  <span *ngIf="editCustomerForm.controls.customerBirthday.errors.required || editCustomerForm.controls.customerBirthday.errors.empty" style="color: red">Please choose a date!</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Select customer gender:</label><br>
+                <input type="radio" id="female" value='0' formControlName="customerGender" style="margin: 10px;">
+                <label for="female" style="margin-bottom: 1px;">Female</label><br>
+                <input type="radio" id="male" value='1' formControlName="customerGender" style="margin: 10px;">
+                <label for="male">Male</label>
+                <div
+                  *ngIf="editCustomerForm.controls.customerGender.invalid && (editCustomerForm.controls.customerGender.dirty || editCustomerForm.controls.customerGender.touched) || editCustomerForm.controls.customerBirthday.errors?.empty">
+                  <span *ngIf="editCustomerForm.controls.customerGender.errors?.required || editCustomerForm.controls.customerGender.errors?.empty" style="color: red">Please choose customer gender!</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="idCard">Id Card Number:</label>
+                <input type="text" class="form-control"
+                       placeholder="Type new customer ID Card number here" id="idCard" formControlName="customerIdCard">
+                <div
+                  *ngIf="editCustomerForm.controls.customerIdCard.invalid && (editCustomerForm.controls.customerIdCard.dirty || editCustomerForm.controls.customerIdCard.touched) || editCustomerForm.controls.customerIdCard.errors?.empty">
+                  <span *ngIf="editCustomerForm.controls.customerIdCard.errors.pattern" style="color: red">Wrong format, ex: KH-0123</span>
+                  <span *ngIf="editCustomerForm.controls.customerIdCard.errors.required || editCustomerForm.controls.customerIdCard.errors.empty" style="color: red">Empty! Input please!</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="rentTypeCreateVilla">Phone:</label>
+                <input type="text" class="form-control" id="rentTypeCreateVilla"
+                       placeholder="Type new customer phone here" formControlName="customerPhone">
+                <div
+                  *ngIf="editCustomerForm.controls.customerPhone.invalid && (editCustomerForm.controls.customerPhone.dirty || editCustomerForm.controls.customerPhone.touched) || editCustomerForm.controls.customerPhone.errors?.empty">
+                  <span *ngIf="editCustomerForm.controls.customerPhone.errors.pattern" style="color: red">Wrong format, ex: 090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or (84)+91xxxxxxx</span>
+                  <span *ngIf="editCustomerForm.controls.customerPhone.errors.required || editCustomerForm.controls.customerPhone.errors.empty" style="color: red">Empty! Input please!</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input id="email" type="text" class="form-control" placeholder="Type new customer email here"
+                       formControlName="customerEmail">
+                <div
+                  *ngIf="editCustomerForm.controls.customerEmail.invalid && (editCustomerForm.controls.customerEmail.dirty || editCustomerForm.controls.customerEmail.touched) || editCustomerForm.controls.customerEmail.errors?.empty">
+                  <span *ngIf="editCustomerForm.controls.customerEmail.errors.email" style="color: red">Wrong format, ex: abc@gmail.com</span>
+                  <span *ngIf="editCustomerForm.controls.customerEmail.errors.required || editCustomerForm.controls.customerEmail.errors.empty" style="color: red">Empty! Input please!</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="standardRoomCreateVilla">Address:</label>
+                <input type="text" class="form-control" id="standardRoomCreateVilla"
+                       placeholder="Type new customer address here" formControlName="customerAddress">
+                <div
+                  *ngIf="editCustomerForm.controls.customerAddress.invalid && (editCustomerForm.controls.customerAddress.dirty || editCustomerForm.controls.customerAddress.touched) || editCustomerForm.controls.customerAddress.errors?.empty">
+                  <span *ngIf="editCustomerForm.controls.customerAddress.errors.required || editCustomerForm.controls.customerAddress.errors.empty" style="color: red">Empty! Input please!</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="typeId">Choose customer type:</label>
+                <select id="typeId" class="form-control" formControlName="customerTypeId">
+                  <option value="5" selected>Member</option>
+                  <option value="4">Silver</option>
+                  <option value="3">Gold</option>
+                  <option value="2">Platinum</option>
+                  <option value="1">Diamond</option>
+                </select>
+                <div
+                  *ngIf="editCustomerForm.controls.customerTypeId.invalid && (editCustomerForm.controls.customerTypeId.dirty || editCustomerForm.controls.customerTypeId.touched) || editCustomerForm.controls.customerTypeId.errors?.empty">
+                  <span *ngIf="editCustomerForm.controls.customerTypeId.errors.required || editCustomerForm.controls.customerTypeId.errors.empty" style="color: red">Please choose customer type!!</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" style="
+                              min-width: 250px;
+                              color: #fcda2e;
+                              background: #403838 !important;
+                              margin-top: 20px;
+                              border: none;"
+                    id="btn-create-villa">
+              <i class="fa fa-paper-plane"></i>
+              Send
+            </button>
+          </div>
+        </form>
+        <br>
+        <br>
+        <a href="/" class="backHome"><h1>Back Home</h1></a>
       </div>
-      <div>
-        <label>Customer Name</label>
-        <input name="customerName" type="text" value="Lê văn Chiến"/>
-      </div>
-      <br>
-      <div>
-        <label>Customer Birthday</label>
-        <input name="customerBirthday" type="date" value="1997-08-26"/>
-      </div>
-      <br>
-      <div>
-        <label>Customer Id-Card</label>
-        <input name="customerIdCard" type="text" value="31411534">
-      </div>
-      <div>
-        <label>Customer Phone</label>
-        <input type="text" name="customerPhone" value="0708313527">
-      </div>
-      <div>
-        <label>Customer Email</label>
-        <input type="text" name="customerEmail" value="chienle26@gmail.com">
-      </div>
-      <div>
-        <label>Customer Address</label>
-        <input type="text" name="customerAddress" value="Đà Nẵng">
-      </div>
-      <br>
-      <div>
-        <label>Customer Gender</label>
-        <select name="customerGender">
-          <option selected value="1">Male</option>
-          <option value="2">Female</option>
-        </select>
-      </div>
-      <br>
-      <div>
-        <label>Customer Type</label>
-        <select name="customerType">
-          <option selected value="diamond">Diamond</option>
-          <option value="platinum">Platinum</option>
-          <option value="gold">Gold</option>
-          <option value="member">Member</option>
-        </select>
-      </div>
-      <br>
-      <div class="button-submit__group">
-        <input class="button-submit" type="submit" value="Save"/>
-        <a class="button-cancel" href="#">Cancel</a>
-      </div>
-    </form>
+    </div>
   </div>
 </div>

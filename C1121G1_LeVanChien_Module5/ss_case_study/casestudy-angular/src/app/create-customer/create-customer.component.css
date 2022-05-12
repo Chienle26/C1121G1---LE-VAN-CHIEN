@@ -469,3 +469,7 @@ input {
   display: inline-block;
   padding-left: 10px;
 }
+
+.container-lg {
+  margin-top: 30px;
+}

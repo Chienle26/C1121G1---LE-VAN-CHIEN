@@ -13,25 +13,28 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { CreateCustomerComponent } from './create-customer/create-customer.component';
 import { ListContractComponent } from './list-contract/list-contract.component';
 import { CreateContractComponent } from './create-contract/create-contract.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    ListServiceComponent,
-    EditServiceComponent,
-    CreateServiceComponent,
-    ListCustomerComponent,
-    EditCustomerComponent,
-    CreateCustomerComponent,
-    ListContractComponent,
-    CreateContractComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        HomeComponent,
+        ListServiceComponent,
+        EditServiceComponent,
+        CreateServiceComponent,
+        ListCustomerComponent,
+        EditCustomerComponent,
+        CreateCustomerComponent,
+        ListContractComponent,
+        CreateContractComponent,
+        EditCustomerComponent
+    ],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
