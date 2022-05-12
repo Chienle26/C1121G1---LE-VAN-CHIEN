@@ -1,0 +1,108 @@
+<h1 class="text-primary text-center">Register Form</h1>
+<form [formGroup]="registerForm" (ngSubmit)="submitRegister()" class="col-5 mx-auto">
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input formControlName="email" name="email" type="email" class="form-control" id="email"
+           aria-describedby="emailHelp">
+    <div
+      *ngIf="registerForm.get('email').invalid &&(registerForm.controls.email.touched || registerForm.controls.email.dirty)">
+      <small id="emailHelp" class="form-text text-danger" *ngIf="registerForm.controls.email.hasError('required')">Vui
+        lòng nhập vào email!</small>
+      <small id="emailHelp1" class="form-text text-danger" *ngIf="registerForm.controls.email.hasError('email')">Sai
+        định dạng email!</small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input formControlName="password" name="password" type="password" class="form-control" id="password">
+    <div *ngIf="registerForm.get('password').invalid
+    &&(registerForm.controls.password.touched || registerForm.controls.password.dirty)">
+      <small class="form-text text-danger" *ngIf="registerForm.controls.password.hasError('required')">Vui lòng nhập vào
+        password!</small>
+      <small class="form-text text-danger" *ngIf="registerForm.controls.password.hasError('minlength')">Password phải
+        hơn 6 ký tự!</small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password</label>
+    <input (change)="ValidationConfirmPassword()" formControlName="confirmPassword" name="confirmPassword"
+           type="password" class="form-control" id="confirmPassword">
+    <div *ngIf="registerForm.get('confirmPassword').invalid
+    &&(registerForm.controls.confirmPassword.touched || registerForm.controls.confirmPassword.dirty)">
+      <small class="form-text text-danger" *ngIf="registerForm.controls.confirmPassword.hasError('required')">Vui lòng
+        nhập vào password!</small>
+      <small class="form-text text-danger" *ngIf="registerForm.controls.confirmPassword.hasError('minlength')">Password
+        phải hơn 6 ký tự!</small>
+      <small class="form-text text-danger"
+             *ngIf="registerForm.controls.confirmPassword.hasError('notMatch')">{{registerForm.controls.confirmPassword.errors.notMatch}}</small>
+
+    </div>
+  </div>
+  <div class="form-group" style="display: flex; align-items: center; margin-top: 10px;">
+    <label for="country">Country </label>
+    <select formControlName="country" name="country" id="country" aria-label="Default select example">
+      <option selected>VietNam</option>
+      <option value="1">America</option>
+      <option value="2">France</option>
+      <option value="3">Difference</option>
+    </select>
+    <div *ngIf="registerForm.get('country').invalid
+    &&(registerForm.controls.country.touched || registerForm.controls.country.dirty)">
+      <small class="form-text text-danger" *ngIf="registerForm.controls.country.hasError('required')">Vui lòng chọn
+        country!</small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input formControlName="age" name="age" type="text" class="form-control" id="age">
+    <div *ngIf="registerForm.get('age').invalid
+    &&(registerForm.controls.age.touched || registerForm.controls.age.dirty)">
+      <small class="form-text text-danger" *ngIf="registerForm.controls.age.hasError('required')">Vui lòng chọn
+        age!</small>
+      <small class="form-text text-danger" *ngIf="registerForm.controls.age.hasError('min')">Age phải trên 18
+        tuổi!</small>
+    </div>
+  </div>
+  <div class="form-group">
+    <fieldset class="form-group row">
+      <div>
+        <legend class="col-form-label col-sm-2 float-sm-left pt-0">Gender</legend>
+      </div>
+
+      <div class="col-sm-10" style="display: flex; align-items: center; margin-right: 30px">
+        <div class="form-check" style="margin-left: 30px">
+          <input class="form-check-input" type="radio" formControlName="gender" name="gender" id="gridRadios1" value="1" checked>
+          <label class="form-check-label" for="gridRadios1">
+            Male
+          </label>
+        </div>
+        <div class="form-check" style="margin-left: 30px">
+          <input class="form-check-input" type="radio" formControlName="gender" name="gender" id="gridRadios2" value="0">
+          <label class="form-check-label" for="gridRadios2">
+            Female
+          </label>
+        </div>
+      </div>
+              <div *ngIf="registerForm.get('gender').invalid
+              &&(registerForm.controls.gender.touched || registerForm.controls.gender.dirty)">
+                <small class="form-text text-danger" *ngIf="registerForm.controls.gender.hasError('required')">Vui lòng chọn Gender!</small>
+              </div>
+    </fieldset>
+
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input formControlName="phone" name="phone" type="text" class="form-control" id="phone">
+    <div *ngIf="registerForm.get('phone').invalid
+        &&(registerForm.controls.phone.touched || registerForm.controls.phone.dirty)">
+      <small class="form-text text-danger" *ngIf="registerForm.controls.phone.hasError('required')">Vui lòng nhập
+        phone!</small>
+      <small class="form-text text-danger" *ngIf="registerForm.controls.phone.hasError('pattern')">Nhập sai định dạng
+        phone!</small>
+    </div>
+  </div>
+  <div style="display: flex; justify-content: center; margin-top: 30px">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>

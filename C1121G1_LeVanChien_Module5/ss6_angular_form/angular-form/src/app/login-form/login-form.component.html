@@ -1,0 +1,21 @@
+<h1 class="text-primary text-center">Login Form</h1>
+<div class="container" >
+  <form [formGroup]="loginForm" (ngSubmit)="submitLogin()" class="col-5 mx-auto" style="border: 1px solid black; padding: 10px; border-radius: 10px">
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input formControlName="email" name="email" type="email" class="form-control" id="email" placeholder="name@example.com">
+      <small style="color: red" *ngIf="(loginForm.controls.email.hasError('required')&& (loginForm.controls.email.dirty||loginForm.controls.email.touched))">Email không được để trống !</small>
+      <small style="color: red" *ngIf="(loginForm.controls.email.hasError('email')&& (loginForm.controls.email.dirty||loginForm.controls.email.touched))">Phải nhập đúng định dạng email !</small>
+    </div>
+
+    <div class="form-group">
+      <label for="pass">Password</label>
+      <input formControlName="password" name="password" type="password" class="form-control" id="pass">
+      <small style="color: red" *ngIf="(loginForm.controls.password.hasError('required')&& (loginForm.controls.password.dirty||loginForm.controls.password.touched))">Password không được để trống !</small>
+      <small style="color: red" *ngIf="(loginForm.controls.password.hasError('minlength')&& (loginForm.controls.password.dirty||loginForm.controls.password.touched))">Password không được ít hơn 6 kí tự !</small>
+    </div>
+    <div style="display: flex; justify-content: center; margin-top: 10px">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
