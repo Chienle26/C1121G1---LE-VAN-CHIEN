@@ -29,43 +29,42 @@ export class CreateServiceComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  }
 
-  onSubmit() {
-    if (this.createServiceForm.invalid) {
-      if (this.serviceCode.value == '') {
-        this.serviceCode.setErrors({empty: 'Empty! Please input!'});
-      }
-      if (this.serviceName.value == '') {
-        this.serviceName.setErrors({empty: 'Empty! Please input!'});
-      }
-      if (this.serviceArea.value == '') {
-        this.serviceArea.setErrors({empty: 'Empty! Please input!'});
-      }
-      if (this.serviceCost.value == '') {
-        this.serviceCost.setErrors({empty: 'Empty! Please input!'});
-      }
-      if (this.serviceMaxPeople.value == '') {
-        this.serviceMaxPeople.setErrors({empty: 'Empty! Please input!'});
-      }
-      // if (this.standardRoom.value == '') {
-      //   this.standardRoom.setErrors({empty: 'Empty! Please input!'})
-      // }
-      // if (this.descriptionOtherConvenience.value == '') {
-      //   this.descriptionOtherConvenience.setErrors({empty: 'Empty! Please input!'})
-      // }
-      if (this.poolArea.value == '') {
-        this.poolArea.setErrors({empty: 'Empty! Please input!'});
-      }
-      if (this.numberOfFloors.value == '') {
-        this.numberOfFloors.setErrors({empty: 'Empty! Please input!'});
-      }
-
-      // if (this.rentType.value == '') {
-      //   this.rentType.setErrors({empty: 'Empty! Please input!'})
-      // }
-      // if (this.serviceType.value == '') {
-      //   this.serviceType.setErrors({empty: 'Empty! Please input!'})
-      // }
-  }
+  // onSubmit() {
+  //   if (this.createServiceForm.invalid) {
+  //     if (this.serviceCode.value == '') {
+  //       this.serviceCode.setErrors({empty: 'Empty! Please input!'});
+  //     }
+  //     if (this.serviceName.value == '') {
+  //       this.serviceName.setErrors({empty: 'Empty! Please input!'});
+  //     }
+  //     if (this.serviceArea.value == '') {
+  //       this.serviceArea.setErrors({empty: 'Empty! Please input!'});
+  //     }
+  //     if (this.serviceCost.value == '') {
+  //       this.serviceCost.setErrors({empty: 'Empty! Please input!'});
+  //     }
+  //     if (this.serviceMaxPeople.value == '') {
+  //       this.serviceMaxPeople.setErrors({empty: 'Empty! Please input!'});
+  //     }
+  //     // if (this.standardRoom.value == '') {
+  //     //   this.standardRoom.setErrors({empty: 'Empty! Please input!'})
+  //     // }
+  //     // if (this.descriptionOtherConvenience.value == '') {
+  //     //   this.descriptionOtherConvenience.setErrors({empty: 'Empty! Please input!'})
+  //     // }
+  //     if (this.poolArea.value == '') {
+  //       this.poolArea.setErrors({empty: 'Empty! Please input!'});
+  //     }
+  //     if (this.numberOfFloors.value == '') {
+  //       this.numberOfFloors.setErrors({empty: 'Empty! Please input!'});
+  //     }
+  //
+  //     // if (this.rentType.value == '') {
+  //     //   this.rentType.setErrors({empty: 'Empty! Please input!'})
+  //     // }
+  //     // if (this.serviceType.value == '') {
+  //     //   this.serviceType.setErrors({empty: 'Empty! Please input!'})
+  //     // }
+  // }
 }

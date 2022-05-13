@@ -1,7 +1,7 @@
 import {Customer} from './customer';
 import {Facility} from './facility';
 
-export interface Contract {
+export class Contract {
   contractId: number;
   contractStartDate: string;
   contractEndDate: string;

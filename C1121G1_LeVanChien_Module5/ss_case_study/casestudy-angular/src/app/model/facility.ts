@@ -1,4 +1,4 @@
-export interface Facility {
+export class Facility {
   serviceId: number;
   serviceCode: string;
   serviceName: string;
