@@ -7,6 +7,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./edit-customer.component.css']
 })
 export class EditCustomerComponent implements OnInit {
+  title = 'Edit Customer';
   editCustomerForm = new FormGroup({
     customerCode: new FormControl('KH-0001', [Validators.required, Validators.pattern('^$|^KH-[\\d]{4}$')]),
     customerName: new FormControl('Lê Văn Chiến', Validators.required),

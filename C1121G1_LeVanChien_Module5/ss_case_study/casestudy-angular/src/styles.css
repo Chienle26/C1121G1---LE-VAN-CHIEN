@@ -2,6 +2,10 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+html{
+  font-size: 62.5%;
+}
+
 html,
 body,
 div,
@@ -133,3 +137,43 @@ table {
   padding: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
+
+/*button Gradient*/
+.button-gradient{
+  padding: 1rem 0;
+  text-decoration: none;
+  margin: 1rem;
+  color: white;
+  border-radius: 6px;
+  /*font-weight: bold;*/
+  /*text-transform: uppercase;*/
+  font-size: 1.2rem;
+  text-align: center;
+  width: 10rem;
+}
+
+.button-gradient-1{
+  display: inline-block;
+  background-image: linear-gradient(to right,#63eaa5,#4bc8c6 );
+  box-shadow: 3px 5px 10px 1px rgb(75 200 198 / 56%);
+}
+.button-gradient-2{
+  display: inline-block;
+  background-image: linear-gradient(to right,#a7e0ff,rgb(109, 178, 229) );
+  box-shadow: 3px 5px 10px 1px rgb(109 178 229 / 56%);
+}
+.button-gradient-3{
+  display: inline-block;
+  background-image: linear-gradient(to right,#a8b3ff,rgb(168, 134, 246) );
+  box-shadow:  3px 5px 10px 1px rgb(168 134 246 / 56%);
+}
+.button-gradient-4{
+  display: inline-block;
+  background-image: linear-gradient(to right,#eabc85,rgb(233, 136, 77) );
+  box-shadow: 3px 5px 10px 1px rgb(233 136 77 / 56%);
+}
+.button-gradient-5{
+  display: inline-block;
+  background-image: linear-gradient(to right,#eaa899,rgb(215, 100, 98) );
+  box-shadow: 3px 5px 10px 1px rgb(215 100 98 / 56%);
+}

@@ -9,6 +9,7 @@ import {gte} from '../service/gte';
   styleUrls: ['./create-service.component.css']
 })
 export class CreateServiceComponent implements OnInit {
+  title = 'Create Service';
   facility: Facility;
   check = 0;
   createServiceForm: FormGroup;

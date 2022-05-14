@@ -14,6 +14,7 @@ import {Employee} from '../model/employee';
   styleUrls: ['./create-contract.component.css']
 })
 export class CreateContractComponent implements OnInit {
+  title = 'Create Contract';
   contractCreateForm: FormGroup;
   employees: Employee[] = [];
   customers: Customer[] = [];

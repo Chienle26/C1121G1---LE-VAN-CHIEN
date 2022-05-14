@@ -1,6 +1,6 @@
+<app-header [title]="title"></app-header>
 <section class="text-center mb-4 container" style="margin-top: 30px">
   <div class="row wow fadeIn">
-
     <div class="col-lg-4 col-md-6 mb-4" *ngFor="let facility of facilities">
       <div class="card">
 
@@ -21,38 +21,20 @@
               <small>Diện tích phòng: {{facility.serviceArea}} m<sup>2</sup></small>
             </strong>
           </h5>
-
           <h4 class="font-weight-bold blue-text">
             <strong>{{facility.serviceCost}}$</strong>
           </h4>
           <br>
-          <h3 class="table-remove">
-            <a href="#" type="button" class="btn btn-info btn-rounded btn-sm my-0">Detail</a>
-          </h3>
+          <div class="button-block">
+            <h3 class="table-remove button-action">
+              <a href="#" type="button" class="button-gradient button-gradient-1">Edit</a>
+              <a href="#" type="button" class="button-gradient button-gradient-5">Delete</a>
+            </h3>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!--Pagination-->
-
-<div class="row" style="display: flex;justify-content: center; margin-top: -70px; margin-bottom: 30px">
-  <nav class="mt-5" aria-label="...">
-    <ul class="pagination">
-      <li class="page-item">
-        <a class="page-link" href="#">Previous</a>
-      </li>
-      <li class="page-item active" aria-current="page">
-        <span class="page-link">1</span>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">2</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
-  </nav>
-</div>
 
 
