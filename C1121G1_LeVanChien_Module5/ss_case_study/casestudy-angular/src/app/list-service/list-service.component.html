@@ -1,5 +1,8 @@
 <app-header [title]="title"></app-header>
-<section class="text-center mb-4 container" style="margin-top: 30px">
+<div style="display: flex; justify-content: center">
+  <a [routerLink]="['/facility/create']" class="button-gradient button-gradient-4" style="border: none;">Create Service</a>
+</div>
+<section class="text-center mb-4 container">
   <div class="row wow fadeIn">
     <div class="col-lg-4 col-md-6 mb-4" *ngFor="let facility of facilities">
       <div class="card">
@@ -26,10 +29,10 @@
           </h4>
           <br>
           <div class="button-block">
-            <h3 class="table-remove button-action">
-              <a href="#" type="button" class="button-gradient button-gradient-1">Edit</a>
-              <a href="#" type="button" class="button-gradient button-gradient-5">Delete</a>
-            </h3>
+            <div class="table-remove button-action">
+              <a [routerLink]="['/facility/edit',facility.serviceId]" class="button-gradient button-gradient-1">Edit</a>
+              <a href="#" class="button-gradient button-gradient-5">Delete</a>
+            </div>
           </div>
         </div>
       </div>

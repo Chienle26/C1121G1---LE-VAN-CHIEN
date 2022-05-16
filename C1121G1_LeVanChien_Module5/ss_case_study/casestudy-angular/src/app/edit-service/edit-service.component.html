@@ -18,6 +18,7 @@
       <div class="backgroundVilla">
         <div class="container" id="villa">
           <form id="createFormVilla" method="POST" [formGroup]="createServiceForm" (ngSubmit)="onSubmit()">
+            <input type="hidden" formControlName="serviceId" name="serviceId">
             <div class="form-group">
               <label for="serviceCodeCreateVilla">Service code</label>
               <input type="text" class="form-control" placeholder="Type new service code here"
@@ -163,9 +164,9 @@
             <div class="submit-form">
               <div class="text-center submit-block">
                 <button type="submit" class="button-gradient button-gradient-1" style="border: none;">
-                  Create
+                  Save
                 </button>
-                <a href="#" class="button-gradient button-gradient-5" style="border: none;">Cancel</a>
+                <a [routerLink]="['/facility/list']" class="button-gradient button-gradient-5" style="border: none;">Cancel</a>
               </div>
             </div>
           </form>
@@ -177,6 +178,7 @@
       <div class="backgroundHouse">
         <div class="container" id="house">
           <form id="createFormHouse" method="POST" [formGroup]="createServiceForm" (ngSubmit)="onSubmit()">
+            <input type="hidden" formControlName="serviceId" name="serviceId">
             <div class="form-group">
               <label for="serviceCodeCreateVilla">Service code</label>
               <input type="text" class="form-control" placeholder="Type new service code here"
@@ -310,9 +312,9 @@
             <div class="submit-form">
               <div class="text-center submit-block">
                 <button type="submit" class="button-gradient button-gradient-1" style="border: none;">
-                  Create
+                  Save
                 </button>
-                <a href="#" class="button-gradient button-gradient-5" style="border: none;">Cancel</a>
+                <a [routerLink]="['/facility/list']" class="button-gradient button-gradient-5" style="border: none;">Cancel</a>
               </div>
             </div>
           </form>
@@ -324,6 +326,7 @@
       <div class="backgroundHouse">
         <div class="container" id="room">
           <form id="createFormRoom" method="POST" [formGroup]="createServiceForm" (ngSubmit)="onSubmit()">
+            <input type="hidden" formControlName="serviceId" name="serviceId">
             <div class="form-group">
               <label for="serviceCodeCreateRoom">Service code</label>
               <input type="text" class="form-control" placeholder="Type new service code here"
@@ -431,9 +434,9 @@
             <div class="submit-form">
               <div class="text-center submit-block">
                 <button type="submit" class="button-gradient button-gradient-1" style="border: none;">
-                  Create
+                  Save
                 </button>
-                <a href="#" class="button-gradient button-gradient-5" style="border: none;">Cancel</a>
+                <a [routerLink]="['/facility/list']" class="button-gradient button-gradient-5" style="border: none;">Cancel</a>
               </div>
             </div>
           </form>

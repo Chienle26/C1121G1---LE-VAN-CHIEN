@@ -10,11 +10,11 @@ export class CreateCustomerComponent implements OnInit {
   title = 'Create Customer';
   customerForm = new FormGroup({
     customerCode: new FormControl('', [Validators.required, Validators.pattern('^$|^KH-[\\d]{4}$')]),
-    customerName: new FormControl('', Validators.required),
+    customerName: new FormControl('', [Validators.required, Validators.pattern('^\\d{4}[\\-\\/\\s]?((((0[13578])|(1[02]))[\\-\\/\\s]?(([0-2][0-9])|(3[01])))|(((0[469])|(11))[\\-\\/\\s]?(([0-2][0-9])|(30)))|(02[\\-\\/\\s]?[0-2][0-9]))$')]),
     customerBirthday: new FormControl('', Validators.required),
     customerGender: new FormControl('', Validators.required),
     customerIdCard: new FormControl('', [Validators.required, Validators.pattern('^$|^\\d{9}$')]),
-    customerPhone: new FormControl('', [Validators.required, Validators.pattern('^$|^(0|\\(84\\)\\+)9[0|1]\\d{7}$')]),
+    customerPhone: new FormControl('', [Validators.required, Validators.pattern('^((090)|(091)|(\\+8490)|(\\+8491))\\d{7}$')]),
     customerEmail: new FormControl('', [Validators.required, Validators.email]),
     customerAddress: new FormControl('', Validators.required),
     customerTypeId: new FormControl('', Validators.required)

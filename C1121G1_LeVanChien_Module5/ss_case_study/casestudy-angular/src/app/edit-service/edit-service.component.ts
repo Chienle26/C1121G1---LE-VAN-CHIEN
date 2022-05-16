@@ -16,6 +16,7 @@ export class EditServiceComponent implements OnInit {
 
   constructor() {
     this.createServiceForm = new FormGroup({
+      serviceId: new FormControl(''),
       serviceCode: new FormControl('DV-1234', [Validators.required, Validators.pattern('^$|^DV-[\\d]{4}$')]),
       serviceName: new FormControl('Sea Villa', [Validators.required, Validators.pattern('^([a-zA-Z]+[ ]?){1,250}$')]),
       serviceImage: new FormControl('', [Validators.required]),

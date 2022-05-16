@@ -1,9 +1,12 @@
 <app-header [title]="title"></app-header>
+<div style="display: flex; justify-content: center">
+  <a [routerLink]="['/contract/create']" class="button-gradient button-gradient-4" style="border: none;">Create Contract</a>
+</div>
 <div>
   <table class="table table-striped table-hover">
     <thead>
     <tr>
-      <th>ID</th>
+      <th>No.</th>
       <th>Contract Start Date</th>
       <th>Contract End Date</th>
       <th>Contract Deposit</th>

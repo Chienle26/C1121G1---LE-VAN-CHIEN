@@ -1,10 +1,9 @@
 <app-header [title]="title"></app-header>
-<div class="container-lg">
+<div class="container-lg" style="margin-top: 30px">
   <div class="row">
     <div class="col-md-8 mx-auto">
       <div class="contact-form">
         <form (ngSubmit)="onSubmit()" [formGroup]="customerForm" id="createFormVilla">
-          <input type="hidden" id="customerId" name="customerId" value="1" formControlName="customerId">
           <div class="form-group">
             <label for="serviceCodeCreateVilla">Customer code</label>
             <input type="text" class="form-control" id="serviceCodeCreateVilla"
@@ -37,6 +36,7 @@
                 <div
                   *ngIf="customerForm.controls.customerBirthday.invalid && (customerForm.controls.customerBirthday.dirty || customerForm.controls.customerBirthday.touched) || customerForm.controls.customerBirthday.errors?.empty">
                   <span *ngIf="customerForm.controls.customerBirthday.errors.required || customerForm.controls.customerBirthday.errors.empty" style="color: red">Please choose a date!</span>
+                  <span *ngIf="customerForm.controls.customerBirthday.errors.pattern" style="color: red">Birthday Wrong!</span>
                 </div>
               </div>
             </div>
@@ -130,7 +130,7 @@
               <button type="submit" class="button-gradient button-gradient-1" style="border: none;">
                 Create
               </button>
-              <a href="#" class="button-gradient button-gradient-5" style="border: none;">Cancel</a>
+              <a [routerLink]="['/customer/list']" class="button-gradient button-gradient-5" style="border: none;">Cancel</a>
             </div>
           </div>
         </form>

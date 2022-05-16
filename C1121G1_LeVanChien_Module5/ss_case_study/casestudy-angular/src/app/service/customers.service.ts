@@ -234,4 +234,8 @@ export class CustomersService {
   public getCustomers() {
     return this.customers;
   }
+
+  deleteCustomer(deleteCustomer: Customer) {
+    return null;
+  }
 }

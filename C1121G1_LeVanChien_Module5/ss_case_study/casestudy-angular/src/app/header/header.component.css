@@ -17,8 +17,8 @@ body {
 .header {
   /*min-height: 100rem;*/
   height: 200px;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(233, 131, 130, 0.8)), to(rgba(238, 216, 137, 0.8))), url("https://resortdanang.info/wp-content/uploads/2019/01/resort-furama-da-nang-1024x576.jpg") no-repeat center/cover;
-  background: linear-gradient(to bottom, rgba(233, 131, 130, 0.8), rgba(238, 216, 137, 0.8)), url("https://resortdanang.info/wp-content/uploads/2019/01/resort-furama-da-nang-1024x576.jpg") no-repeat center/cover;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(233, 131, 130, 0.8)), to(rgba(238, 216, 137, 0.8))), url("https://furamavietnam.com/wp-content/uploads/2018/10/Vietnam_Danang_Furama_Resort_Exterior_Courtyard-1.jpg") no-repeat center/cover;
+  background: linear-gradient(to bottom, rgba(233, 131, 130, 0.8), rgba(238, 216, 137, 0.8)), url("https://furamavietnam.com/wp-content/uploads/2018/10/Vietnam_Danang_Furama_Resort_Exterior_Courtyard-1.jpg") no-repeat center/cover;
   color: white; }
 .header-logo {
   font-weight: bold;
@@ -53,7 +53,7 @@ body {
   display: -ms-flexbox;
   display: flex; }
 .header-menu-item:not(:first-child) {
-  margin-left: 5rem; }
+  margin-left: 2rem; }
 .header-content {
   padding-top: 1rem;
   text-align: center;
@@ -138,4 +138,3 @@ body {
   max-width: 1230px;
   margin: 0 auto;
   padding: 0 15px; }
-

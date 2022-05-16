@@ -1,10 +1,10 @@
 <app-header [title]="title"></app-header>
-<div class="container-lg">
+<div class="container-lg" style="margin-top: 30px">
   <div class="row">
     <div class="col-md-8 mx-auto">
       <div class="contact-form">
         <form (ngSubmit)="onSubmit()" [formGroup]="editCustomerForm" id="createFormVilla">
-          <input type="hidden" id="customerId" name="customerId" value="1" formControlName="customerId">
+          <input type="hidden" id="customerId" name="customerId" formControlName="customerId">
           <div class="form-group">
             <label for="serviceCodeCreateVilla">Customer code</label>
             <input type="text" class="form-control" id="serviceCodeCreateVilla"
@@ -130,9 +130,9 @@
           <div class="submit-form">
             <div class="text-center submit-block">
               <button type="submit" class="button-gradient button-gradient-1" style="border: none;">
-                Create
+                Save
               </button>
-              <a href="#" class="button-gradient button-gradient-5" style="border: none;">Cancel</a>
+              <a [routerLink]="['/customer/list']" class="button-gradient button-gradient-5" style="border: none;">Cancel</a>
             </div>
           </div>
         </form>

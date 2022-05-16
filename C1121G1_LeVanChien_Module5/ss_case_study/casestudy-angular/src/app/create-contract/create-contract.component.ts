@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {gte} from '../service/gte';
 import {EmployeesService} from '../service/employees.service';
@@ -7,6 +7,7 @@ import {FacilitiesService} from '../service/facilities.service';
 import {Facility} from '../model/facility';
 import {Customer} from '../model/customer';
 import {Employee} from '../model/employee';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-contract',
@@ -19,9 +20,11 @@ export class CreateContractComponent implements OnInit {
   employees: Employee[] = [];
   customers: Customer[] = [];
   facilities: Facility[] = [];
-  constructor( private employeeService: EmployeesService,
-               private customerService: CustomersService,
-               private facilityService: FacilitiesService) {
+
+  constructor(private employeeService: EmployeesService,
+              private customerService: CustomersService,
+              private facilityService: FacilitiesService,
+              private router: Router) {
     this.employees = this.employeeService.getEmployees();
     this.customers = this.customerService.getCustomers();
     this.facilities = this.facilityService.getFacilities();
@@ -91,14 +94,22 @@ export class CreateContractComponent implements OnInit {
         this.services.setErrors({empty: 'Empty! Please choose!'});
       }
 
-      if (this.contractStartDate.value != '' && this.contractEndDate.value != ''){
+      if (this.contractStartDate.value != '' && this.contractEndDate.value != '') {
         const contractStartDateParse = new Date(this.contractStartDate.value);
         const contractEndDateParse = new Date(this.contractEndDate.value);
-        if (contractStartDateParse > contractEndDateParse){
+        // const currentDate = new Date(Date.now());
+        if (contractStartDateParse > contractEndDateParse) {
           this.contractStartDate.setErrors({dateErrors: 'Start date must be before end date! Please choose again!'});
           this.contractEndDate.setErrors({dateErrors: 'End date must be after start date! Please choose again!'});
         }
+
+        // if (contractEndDateParse < currentDate || contractStartDateParse < currentDate) {
+        //   this.contractStartDate.setErrors({dateErrors: 'Start date must be before current date! Please choose again!'});
+        //   this.contractEndDate.setErrors({dateErrors: 'End date must be after current date! Please choose again!'});
+        // }
       }
+
+      // this.router.navigate(['/contract/list']);
     }
   }
 }
