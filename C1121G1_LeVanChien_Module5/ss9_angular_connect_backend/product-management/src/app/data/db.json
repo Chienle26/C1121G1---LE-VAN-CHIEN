@@ -5,25 +5,10 @@
       "name": "Iphone 12",
       "price": 1000,
       "description": "Like New",
-      "category": "iphone"
-    },
-    {
-      "id": 2,
-      "name": "Iphone 13",
-      "price": 1500,
-      "description": "New"
-    },
-    {
-      "id": 3,
-      "name": "Iphone 14",
-      "price": 2000,
-      "description": "Like New"
-    },
-    {
-      "id": 123456,
-      "name": "Iphone 15",
-      "price": 2000,
-      "description": "Like New"
+      "category": {
+        "id": 1,
+        "name": "iphone"
+      }
     }
   ],
   "category": [
