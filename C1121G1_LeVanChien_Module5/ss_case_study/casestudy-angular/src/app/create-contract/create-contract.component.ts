@@ -26,7 +26,7 @@ export class CreateContractComponent implements OnInit {
               private facilityService: FacilitiesService,
               private router: Router) {
     this.employees = this.employeeService.getEmployees();
-    this.customers = this.customerService.getCustomers();
+    // this.customers = this.customerService.getCustomers();
     this.facilities = this.facilityService.getFacilities();
   }
 

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {CustomersService} from '../service/customers.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-customer',
@@ -9,9 +11,10 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class CreateCustomerComponent implements OnInit {
   title = 'Create Customer';
   customerForm = new FormGroup({
+    id: new FormControl(''),
     customerCode: new FormControl('', [Validators.required, Validators.pattern('^$|^KH-[\\d]{4}$')]),
-    customerName: new FormControl('', [Validators.required, Validators.pattern('^\\d{4}[\\-\\/\\s]?((((0[13578])|(1[02]))[\\-\\/\\s]?(([0-2][0-9])|(3[01])))|(((0[469])|(11))[\\-\\/\\s]?(([0-2][0-9])|(30)))|(02[\\-\\/\\s]?[0-2][0-9]))$')]),
-    customerBirthday: new FormControl('', Validators.required),
+    customerName: new FormControl('', [Validators.required]),
+    customerBirthday: new FormControl('', [Validators.required, Validators.pattern('^\\d{4}[\\-\\/\\s]?((((0[13578])|(1[02]))[\\-\\/\\s]?(([0-2][0-9])|(3[01])))|(((0[469])|(11))[\\-\\/\\s]?(([0-2][0-9])|(30)))|(02[\\-\\/\\s]?[0-2][0-9]))$')]),
     customerGender: new FormControl('', Validators.required),
     customerIdCard: new FormControl('', [Validators.required, Validators.pattern('^$|^\\d{9}$')]),
     customerPhone: new FormControl('', [Validators.required, Validators.pattern('^((090)|(091)|(\\+8490)|(\\+8491))\\d{7}$')]),
@@ -20,7 +23,8 @@ export class CreateCustomerComponent implements OnInit {
     customerTypeId: new FormControl('', Validators.required)
   });
 
-  constructor() {
+  constructor(private customersService: CustomersService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -57,6 +61,14 @@ export class CreateCustomerComponent implements OnInit {
       if (this.customerForm.controls.customerTypeId.value == '') {
         this.customerForm.controls.customerTypeId.setErrors({empty: 'Empty! Please input!'});
       }
+    } else {
+      const customer = this.customerForm.value;
+      this.customersService.createCustomer(customer).subscribe(() => {
+        alert('Thêm mới thành công!');
+        this.router.navigateByUrl('/customer/list');
+      }, error => {
+        console.log(error);
+      });
     }
   }
 }

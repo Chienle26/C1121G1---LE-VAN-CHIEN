@@ -13,20 +13,34 @@ export class ListCustomerComponent implements OnInit {
   customers: Customer[] = [];
   deleteCustomer: Customer;
   check = false;
-  constructor(private customersService: CustomersService) { }
+
+  constructor(private customersService: CustomersService) {
+  }
 
   ngOnInit(): void {
-   this.getAllCustomers();
+    this.getAllCustomers();
   }
 
 
-  getAllCustomers(){
-    this.customers = this.customersService.getCustomers();
+  getAllCustomers() {
+    this.customersService.getCustomers().subscribe((customers) => {
+      this.customers = customers;
+    }, error => {
+      console.log(error);
+    });
   }
 
-  onOpenEditModal(a: Customer) {
-    console.log('hhhhhh');
-    this.deleteCustomer = a;
+  delete(event) {
+    this.customersService.deleteCustomer( this.deleteCustomer.id).subscribe(() => {
+      event.click();
+      this.ngOnInit();
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  onOpenEditModal(customerChooseDelete: Customer) {
+    this.deleteCustomer = customerChooseDelete;
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
     button.type = 'button';
@@ -38,23 +52,4 @@ export class ListCustomerComponent implements OnInit {
     button.click();
   }
 
-  // delete(closeModal: HTMLButtonElement) {
-  //   this.customersService.deleteCustomer(this.deleteCustomer).subscribe((res: void) => {
-  //     closeModal.click();
-  //     this.ngOnInit();
-  //
-  //   }, (error: HttpErrorResponse) => {
-  //     alert('sai rồi');
-  //   });
-  // }
-  //
-  // onDeleteCustomer(customerId: number) {
-  //   this.customersService.deleteCustomer(this.deleteCustomer).subscribe((res: void) => {
-  //         closeModal.click();
-  //         this.ngOnInit();
-  //
-  //       }, (error: HttpErrorResponse) => {
-  //         alert('sai rồi');
-  //       });
-  // }
 }

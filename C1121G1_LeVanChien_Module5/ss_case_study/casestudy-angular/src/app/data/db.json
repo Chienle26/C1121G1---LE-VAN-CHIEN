@@ -1,0 +1,40 @@
+{
+  "customer": [
+    {
+      "id": 5,
+      "customerCode": "KH-0005",
+      "customerName": "Hoàng Trần Nhi Nhi",
+      "customerBirthday": "1995-12-09",
+      "customerGender": "0",
+      "customerIdCard": "795453345",
+      "customerPhone": "0312345678",
+      "customerEmail": "nhinhi123@gmail.com",
+      "customerAddress": "224 Lý Thái Tổ, Gia Lai",
+      "customerTypeId": 1
+    },
+    {
+      "id": 6,
+      "customerCode": "KH-0006",
+      "customerName": "Tôn Nữ Mộc Châu",
+      "customerBirthday": "2005-12-06",
+      "customerGender": "0",
+      "customerIdCard": "732434215",
+      "customerPhone": "0988888844",
+      "customerEmail": "thihao07@gmail.com",
+      "customerAddress": "23 Nguyễn Hoàng, Đà Nẵng",
+      "customerTypeId": 5
+    },
+    {
+      "id": 7,
+      "customerCode": "KH-0007",
+      "customerName": "Nguyễn Mỹ Kim",
+      "customerBirthday": "1984-04-08",
+      "customerGender": "0",
+      "customerIdCard": "856453123",
+      "customerPhone": "0912345698",
+      "customerEmail": "thihao07@gmail.com",
+      "customerAddress": "23 Nguyễn Hoàng, Đà Nẵng",
+      "customerTypeId": 4
+    }
+  ]
+}

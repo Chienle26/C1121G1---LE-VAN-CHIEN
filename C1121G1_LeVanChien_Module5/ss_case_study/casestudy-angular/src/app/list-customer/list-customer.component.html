@@ -40,7 +40,7 @@
           <span *ngSwitchCase="5">Member</span>
         </td>
         <td colspan="2" style="display: flex; justify-content: space-between">
-          <a [routerLink]="['/customer/edit',customer.customerId]" style="color: #4bc8c6"><i
+          <a [routerLink]="['/customer/edit',customer.id]" style="color: #4bc8c6"><i
             class="fas fa-edit"></i></a>
           <a (click)="onOpenEditModal(customer)" style="color: rgb(215, 100, 98);"><i
             class="fa-solid fa-trash-can"></i></a>
@@ -64,26 +64,21 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="staticBackdropLabel">Xóa khách hàng </h5>
-          <button style="border: none; background-color: transparent" type="button" class="btn-close" data-dismiss="modal" aria-label="Close">X</button>
-<!--                          <input type="hidden" id="customerDelete_id" name="customer_id">-->
+          <button style="border: none; background-color: transparent" type="button" class="btn-close"
+                  data-dismiss="modal" aria-label="Close">X
+          </button>
         </div>
         <div class="modal-body" id="customer_delete">
           <div class="modal-body">
             <div *ngIf="check">
-              <p>Bạn có muốn xóa khách hàng : {{deleteCustomer.customerName}}</p>
+              <p>Bạn có muốn xóa khách hàng : {{deleteCustomer.customerName}}</p> <br>
               <p>Khách hàng có mã là : {{deleteCustomer.customerCode}}</p>
             </div>
-
-<!--            <div class="modal-footer">-->
-<!--                          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>-->
-<!--                          <button class="btn btn-danger" data-dismiss="modal">Yes-->
-<!--                          </button>-->
-<!--            </div>-->
           </div>
         </div>
         <div class="modal-footer">
           <button #closeModal type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-danger" id="delete_customer_id">Xóa</button>
+          <button (click)="delete(closeModal)" type="button" class="btn btn-danger" id="delete_customer_id">Xóa</button>
         </div>
       </div>
     </div>

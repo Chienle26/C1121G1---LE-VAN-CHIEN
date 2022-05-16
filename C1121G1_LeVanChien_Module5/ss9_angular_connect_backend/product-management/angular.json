@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "casestudy-angular": {
+    "product-management": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/casestudy-angular",
+            "outputPath": "dist/product-management",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "casestudy-angular:build"
+            "browserTarget": "product-management:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "casestudy-angular:build:production"
+              "browserTarget": "product-management:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "casestudy-angular:build"
+            "browserTarget": "product-management:build"
           }
         },
         "test": {
@@ -110,19 +110,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "casestudy-angular:serve"
+            "devServerTarget": "product-management:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "casestudy-angular:serve:production"
+              "devServerTarget": "product-management:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "casestudy-angular",
+  "defaultProject": "product-management",
   "cli": {
-    "analytics": "65b4f6a7-a28d-4abf-8ffc-21b537b05b21"
+    "analytics": "876fff1a-11be-491b-b1dc-bf3e5ceaa97d"
   }
 }
