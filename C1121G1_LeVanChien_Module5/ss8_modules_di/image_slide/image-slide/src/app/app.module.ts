@@ -3,22 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {SharedModule} from './shared/shared.module';
-import {ProductModule} from './component/product/product.module';
-import {CategoryModule} from './component/category/category.module';
+import {ImgSliderModule} from "./img-slider/img-slider.module";
+import {GalleryConfig} from "./img-slider/token";
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
-    ProductModule,
-    CategoryModule
+    ImgSliderModule
   ],
-  providers: [],
+  providers: [
+    {provide: GalleryConfig, useValue: 3}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
