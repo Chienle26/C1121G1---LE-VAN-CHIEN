@@ -19,6 +19,8 @@
         <div class="container" id="villa">
           <form id="createFormVilla" method="POST" [formGroup]="createServiceForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
+              <input type="hidden" disabled formControlName="id">
+              <input type="hidden" disabled formControlName="serviceImage">
               <label for="serviceCodeCreateVilla">Service code</label>
               <input type="text" class="form-control" placeholder="Type new service code here"
                      id="serviceCodeCreateVilla" formControlName="serviceCode">
@@ -88,19 +90,19 @@
                 <div class="form-group">
                   <label for="rentTypeCreateVilla">Choose new rent type:</label>
                   <select id="rentTypeCreateVilla" class="form-control" formControlName="rentType">
-                    <option value="1">day</option>
-                    <option value="2">month</option>
-                    <option value="3">year</option>
-                    <option value="4">hour</option>
+                    <option [value]="1">day</option>
+                    <option [value]="2">month</option>
+                    <option [value]="3">year</option>
+                    <option [value]="4">hour</option>
                   </select>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="serviceTypeCreateVilla">Service type:</label>
-                  <input type="text" class="form-control" value="Villa" readonly>
-                  <input type="text" class="form-control" id="serviceTypeCreateVilla"
-                         formControlName="serviceType" hidden>
+                  <input formControlName type="text" class="form-control" value="Villa" readonly>
+                  <input type="hidden" class="form-control" id="serviceTypeCreateVilla"
+                         formControlName="serviceType" >
                 </div>
               </div>
             </div>
@@ -162,7 +164,7 @@
             </div>
             <div class="submit-form">
               <div class="text-center submit-block">
-                <button type="submit" class="button-gradient button-gradient-1" style="border: none;">
+                <button (click)="onSubmit()" type="submit" class="button-gradient button-gradient-1" style="border: none;">
                   Create
                 </button>
                 <a [routerLink]="['/facility/list']" class="button-gradient button-gradient-5" style="border: none;">Cancel</a>
@@ -177,6 +179,7 @@
       <div class="backgroundHouse">
         <div class="container" id="house">
           <form id="createFormHouse" method="POST" [formGroup]="createServiceForm" (ngSubmit)="onSubmit()">
+            <input *ngIf="check == 2" type="hidden" disabled formControlName="poolArea">
             <div class="form-group">
               <label for="serviceCodeCreateVilla">Service code</label>
               <input type="text" class="form-control" placeholder="Type new service code here"
@@ -309,7 +312,7 @@
             </div>
             <div class="submit-form">
               <div class="text-center submit-block">
-                <button type="submit" class="button-gradient button-gradient-1" style="border: none;">
+                <button (click)="onSubmit()" type="submit" class="button-gradient button-gradient-1" style="border: none;">
                   Create
                 </button>
                 <a [routerLink]="['/facility/list']" class="button-gradient button-gradient-5" style="border: none;">Cancel</a>
@@ -430,7 +433,7 @@
             </div>
             <div class="submit-form">
               <div class="text-center submit-block">
-                <button type="submit" class="button-gradient button-gradient-1" style="border: none;">
+                <button (click)="onSubmit()" type="submit" class="button-gradient button-gradient-1" style="border: none;">
                   Create
                 </button>
                 <a [routerLink]="['/facility/list']" class="button-gradient button-gradient-5" style="border: none;">Cancel</a>

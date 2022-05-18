@@ -13,6 +13,8 @@ export class ListCustomerComponent implements OnInit {
   customers: Customer[] = [];
   deleteCustomer: Customer;
   check = false;
+  p = 1;
+  nameSearch = '';
 
   constructor(private customersService: CustomersService) {
   }
@@ -50,6 +52,16 @@ export class ListCustomerComponent implements OnInit {
     container.appendChild(button);
     this.check = true;
     button.click();
+  }
+
+  search() {
+    if (this.nameSearch === ''){
+      this.ngOnInit();
+    } else {
+      this.customers = this.customers.filter(res => {
+        return res.customerName.toLocaleLowerCase().match(this.nameSearch.toLocaleLowerCase());
+      });
+    }
   }
 
 }

@@ -1,14 +1,5 @@
 <app-header [title]="title"></app-header>
-<div style="display: flex; justify-content: center; margin-top: 30px">
-  <select name="serviceType" id="createSelection" class="form-control mb-3" style="width: 550px;"
-          (change)="showFormCreate($event)">
-    <option value="0" selected>Select the type of service to edit</option>
-    <option value="1">Create villa</option>
-    <option value="2">Create house</option>
-    <option value="3">Create room</option>
-  </select>
-</div>
-<div id="background">
+<div id="background" style="margin-top: 30px">
   <div class="container"
        style="background-repeat: no-repeat;background-size: 100% 100%">
     <!--</form>-->
@@ -18,7 +9,7 @@
       <div class="backgroundVilla">
         <div class="container" id="villa">
           <form id="createFormVilla" method="POST" [formGroup]="createServiceForm" (ngSubmit)="onSubmit()">
-            <input type="hidden" formControlName="serviceId" name="serviceId">
+            <input type="hidden" formControlName="id" name="id">
             <div class="form-group">
               <label for="serviceCodeCreateVilla">Service code</label>
               <input type="text" class="form-control" placeholder="Type new service code here"
@@ -178,7 +169,7 @@
       <div class="backgroundHouse">
         <div class="container" id="house">
           <form id="createFormHouse" method="POST" [formGroup]="createServiceForm" (ngSubmit)="onSubmit()">
-            <input type="hidden" formControlName="serviceId" name="serviceId">
+            <input type="hidden" formControlName="id" name="id">
             <div class="form-group">
               <label for="serviceCodeCreateVilla">Service code</label>
               <input type="text" class="form-control" placeholder="Type new service code here"
@@ -326,7 +317,7 @@
       <div class="backgroundHouse">
         <div class="container" id="room">
           <form id="createFormRoom" method="POST" [formGroup]="createServiceForm" (ngSubmit)="onSubmit()">
-            <input type="hidden" formControlName="serviceId" name="serviceId">
+            <input type="hidden" formControlName="id" name="id">
             <div class="form-group">
               <label for="serviceCodeCreateRoom">Service code</label>
               <input type="text" class="form-control" placeholder="Type new service code here"

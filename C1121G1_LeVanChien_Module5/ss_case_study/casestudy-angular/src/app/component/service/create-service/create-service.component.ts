@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Facility} from '../../../model/facility';
 import {gte} from '../../../service/gte';
+import {FacilitiesService} from '../../../service/facilities.service';
+import {Router} from '@angular/router';
+import {RentTypeService} from '../../../service/rent-type.service';
+import {RentType} from '../../../model/rent-type';
 
 @Component({
   selector: 'app-create-service',
@@ -11,21 +15,25 @@ import {gte} from '../../../service/gte';
 export class CreateServiceComponent implements OnInit {
   title = 'Create Service';
   facility: Facility;
-  check = 0;
   createServiceForm: FormGroup;
+  check = 0;
+  img = 'https://furamavietnam.com/wp-content/uploads/2020/04/04-Facilities-Maintenance.jpg';
 
-  constructor() {
+  constructor(private facilitiesService: FacilitiesService,
+              private router: Router,
+              private rentTypeService: RentTypeService) {
     this.createServiceForm = new FormGroup({
+      id: new FormControl(''),
       serviceCode: new FormControl('', [Validators.required, Validators.pattern('^$|^DV-[\\d]{4}$')]),
       serviceName: new FormControl('', [Validators.required, Validators.pattern('^([a-zA-Z]+[ ]?){1,250}$')]),
-      serviceImage: new FormControl('', [Validators.required]),
+      serviceImage: new FormControl(this.img),
       serviceArea: new FormControl('', [Validators.required, gte]),
       serviceCost: new FormControl('', [Validators.required, gte]),
       serviceMaxPeople: new FormControl('', [Validators.required, gte]),
-      standardRoom: new FormControl('', [Validators.required]),
+      standardRoom: new FormControl(''),
       descriptionOtherConvenience: new FormControl('', [Validators.required]),
-      poolArea: new FormControl('', [Validators.required, gte]),
-      numberOfFloors: new FormControl('', [Validators.required, gte]),
+      poolArea: new FormControl('', [gte]),
+      numberOfFloors: new FormControl('', [gte]),
       rentType: new FormControl('1', [Validators.required]),
       serviceType: new FormControl('', [Validators.required]),
     });
@@ -37,6 +45,7 @@ export class CreateServiceComponent implements OnInit {
 
   showFormCreate(event) {
     this.check = event.target.value;
+    this.createServiceForm.controls.serviceType.setValue(this.check);
   }
 
   get serviceCode() {
@@ -91,8 +100,19 @@ export class CreateServiceComponent implements OnInit {
     return this.createServiceForm.get('serviceType');
   }
 
+  // // Ẩn validate
+  // hiddenPoolArea() {
+  //   this.createServiceForm.get('poolArea').disable();
+  // }
+  //
+  // // Hiện validate
+  // appearPoolArea() {
+  //   this.createServiceForm.get('poolArea').enable();
+  // }
 
   onSubmit() {
+    console.log(this.createServiceForm);
+
     if (this.createServiceForm.invalid) {
       if (this.serviceCode.value == '') {
         this.serviceCode.setErrors({empty: 'Empty! Please input!'});
@@ -127,6 +147,22 @@ export class CreateServiceComponent implements OnInit {
       if (this.serviceType.value == '') {
         this.serviceType.setErrors({empty: 'Empty! Please input!'});
       }
+      alert('Lỗi validate.');
+    } else {
+      this.facility = this.createServiceForm.value;
+      this.createFacility(this.facility);
     }
   }
+
+  createFacility(facility: Facility) {
+    this.facilitiesService.createFacility(facility).subscribe(() => {
+      alert('Thêm mới thành công!');
+      this.router.navigateByUrl('/facility/list');
+    }, error => {
+      alert('Thêm mới thất bại!');
+      console.log(error);
+    });
+  }
 }
+
+

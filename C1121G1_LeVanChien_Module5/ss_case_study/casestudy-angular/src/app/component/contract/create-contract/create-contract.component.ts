@@ -8,6 +8,8 @@ import {Facility} from '../../../model/facility';
 import {Customer} from '../../../model/customer';
 import {Employee} from '../../../model/employee';
 import {Router} from '@angular/router';
+import {Contract} from '../../../model/contract';
+import {ContractsService} from '../../../service/contracts.service';
 
 @Component({
   selector: 'app-create-contract',
@@ -20,14 +22,20 @@ export class CreateContractComponent implements OnInit {
   employees: Employee[] = [];
   customers: Customer[] = [];
   facilities: Facility[] = [];
+  contract: Contract;
 
   constructor(private employeeService: EmployeesService,
               private customerService: CustomersService,
               private facilityService: FacilitiesService,
+              private contractsService: ContractsService,
               private router: Router) {
     this.employees = this.employeeService.getEmployees();
-    // this.customers = this.customerService.getCustomers();
-    this.facilities = this.facilityService.getFacilities();
+    this.customerService.getCustomers().subscribe((customers) => {
+      this.customers = customers;
+    });
+    this.facilityService.getFacilities().subscribe((facilities) => {
+      this.facilities = facilities;
+    });
   }
 
   ngOnInit(): void {
@@ -71,6 +79,7 @@ export class CreateContractComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.contractCreateForm);
     if (this.contractCreateForm.invalid) {
       if (this.contractStartDate.value == '') {
         this.contractStartDate.setErrors({empty: 'Empty! Please choose!'});
@@ -110,6 +119,15 @@ export class CreateContractComponent implements OnInit {
       }
 
       // this.router.navigate(['/contract/list']);
+    } else {
+      this.contract = this.contractCreateForm.value;
+      this.contractsService.createContract(this.contract).subscribe(() => {
+        alert('Thêm mới thành công!');
+        this.router.navigate(['/contract/list']);
+      }, error => {
+        alert('Thêm mới thất bại!');
+        console.log(error);
+      });
     }
   }
 }

@@ -1,3 +1,6 @@
+<div id="main-container">
+
+
 <app-header [title]="title"></app-header>
 <div style="display: flex; justify-content: center">
   <a [routerLink]="['/facility/create']" class="button-gradient button-gradient-4" style="border: none;">Create Service</a>
@@ -30,14 +33,49 @@
           <br>
           <div class="button-block">
             <div class="table-remove button-action">
-              <a [routerLink]="['/facility/edit',facility.serviceId]" class="button-gradient button-gradient-1">Edit</a>
-              <a href="#" class="button-gradient button-gradient-5">Delete</a>
+              <a [routerLink]="['/facility/edit',facility.id]" class="button-gradient button-gradient-1">Edit</a>
+              <a (click)="onOpenEditModal(facility)" class="button-gradient button-gradient-5">Delete</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
 </section>
 
+  <!--Modal Delete-->
+  <div
+    class="modal fade"
+    id="deleteModal"
+    data-backdrop="static"
+    data-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Xóa khách hàng </h5>
+          <button style="border: none; background-color: transparent" type="button" class="btn-close"
+                  data-dismiss="modal" aria-label="Close">X
+          </button>
+        </div>
+        <div class="modal-body" id="customer_delete">
+          <div class="modal-body">
+            <div *ngIf="check">
+              <p>Bạn có muốn xóa khách hàng : {{deleteFacility.serviceName}}</p> <br>
+              <p>Khách hàng có mã là : {{deleteFacility.serviceCode}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button #closeModal type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          <button (click)="delete(closeModal)" type="button" class="btn btn-danger" id="delete_customer_id">Xóa</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
+</div>

@@ -13,11 +13,12 @@ import { EditCustomerComponent } from './component/customer/edit-customer/edit-c
 import { CreateCustomerComponent } from './component/customer/create-customer/create-customer.component';
 import { ListContractComponent } from './component/contract/list-contract/list-contract.component';
 import { CreateContractComponent } from './component/contract/create-contract/create-contract.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { CustomerComponent } from './component/customer/customer.component';
 import { ServiceComponent } from './component/service/service.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
     declarations: [
@@ -37,12 +38,14 @@ import { ServiceComponent } from './component/service/service.component';
         CustomerComponent,
         ServiceComponent
     ],
-    imports: [
-        BrowserModule,
-        ReactiveFormsModule,
-        AppRoutingModule,
-        HttpClientModule
-    ],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    NgxPaginationModule,
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

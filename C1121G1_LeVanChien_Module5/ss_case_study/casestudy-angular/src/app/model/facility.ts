@@ -1,5 +1,5 @@
 export class Facility {
-  serviceId: number;
+  id: number;
   serviceCode: string;
   serviceName: string;
   serviceArea: number;

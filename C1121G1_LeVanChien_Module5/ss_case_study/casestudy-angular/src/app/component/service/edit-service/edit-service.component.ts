@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Facility} from '../../../model/facility';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {gte} from '../../../service/gte';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {FacilitiesService} from '../../../service/facilities.service';
 
 @Component({
   selector: 'app-edit-service',
@@ -12,32 +14,49 @@ export class EditServiceComponent implements OnInit {
   title = 'Edit Service';
   facility: Facility;
   check = 0;
+  id: number;
   createServiceForm: FormGroup;
 
-  constructor() {
+  constructor(private activatedRoute: ActivatedRoute,
+              private facilitiesService: FacilitiesService,
+              private router: Router) {
     this.createServiceForm = new FormGroup({
-      serviceId: new FormControl(''),
-      serviceCode: new FormControl('DV-1234', [Validators.required, Validators.pattern('^$|^DV-[\\d]{4}$')]),
-      serviceName: new FormControl('Sea Villa', [Validators.required, Validators.pattern('^([a-zA-Z]+[ ]?){1,250}$')]),
+      id: new FormControl(''),
+      serviceCode: new FormControl('', [Validators.required, Validators.pattern('^$|^DV-[\\d]{4}$')]),
+      serviceName: new FormControl('', [Validators.required, Validators.pattern('^([a-zA-Z]+[ ]?){1,250}$')]),
       serviceImage: new FormControl('', [Validators.required]),
-      serviceArea: new FormControl('200', [Validators.required, gte]),
-      serviceCost: new FormControl('2000', [Validators.required, gte]),
-      serviceMaxPeople: new FormControl('10', [Validators.required, gte]),
-      standardRoom: new FormControl('5*', [Validators.required]),
-      descriptionOtherConvenience: new FormControl('Pool, Park,...', [Validators.required]),
-      poolArea: new FormControl('50', [Validators.required, gte]),
-      numberOfFloors: new FormControl('2', [Validators.required, gte]),
-      rentType: new FormControl('1', [Validators.required]),
-      serviceType: new FormControl('1', [Validators.required]),
+      serviceArea: new FormControl('', [Validators.required, gte]),
+      serviceCost: new FormControl('', [Validators.required, gte]),
+      serviceMaxPeople: new FormControl('', [Validators.required, gte]),
+      standardRoom: new FormControl(''),
+      descriptionOtherConvenience: new FormControl('', [Validators.required]),
+      poolArea: new FormControl('', [gte]),
+      numberOfFloors: new FormControl('', [gte]),
+      rentType: new FormControl('', [Validators.required]),
+      serviceType: new FormControl('', [Validators.required]),
     });
   }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
+      this.id = +paramMap.get('id');
+    });
+
+    this.facilitiesService.findFacilityById(this.id).subscribe((facility) => {
+      console.log(facility);
+      this.facility = facility;
+      this.check = facility.serviceType;
+      this.createServiceForm.patchValue(this.facility);
+    }, error => {
+      alert('Not find Facility!');
+      console.log(error);
+    });
   }
 
 
   showFormCreate(event) {
     this.check = event.target.value;
+    this.createServiceForm.controls.serviceType.setValue(this.check);
   }
 
   get serviceCode() {
@@ -94,6 +113,7 @@ export class EditServiceComponent implements OnInit {
 
 
   onSubmit() {
+    console.log(this.createServiceForm);
     if (this.createServiceForm.invalid) {
       if (this.serviceCode.value == '') {
         this.serviceCode.setErrors({empty: 'Empty! Please input!'});
@@ -128,6 +148,15 @@ export class EditServiceComponent implements OnInit {
       if (this.serviceType.value == '') {
         this.serviceType.setErrors({empty: 'Empty! Please input!'});
       }
+    } else {
+      this.facility = this.createServiceForm.value;
+      this.facilitiesService.editFacility(this.facility, this.id).subscribe(() => {
+        alert('Chỉnh sửa thành công');
+        this.router.navigateByUrl('/facility/list');
+      }, error => {
+        alert('Chỉnh sửa thất bại');
+        console.log(error);
+      });
     }
   }
 }

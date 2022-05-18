@@ -4,7 +4,7 @@
     <div class="col-md-8 mx-auto">
       <div class="contact-form">
         <form (ngSubmit)="onSubmit()" [formGroup]="editCustomerForm" id="createFormVilla">
-          <input type="hidden" id="customerId" name="customerId" formControlName="customerId">
+          <input type="hidden" name="id" formControlName="id">
           <div class="form-group">
             <label for="serviceCodeCreateVilla">Customer code</label>
             <input type="text" class="form-control" id="serviceCodeCreateVilla"
