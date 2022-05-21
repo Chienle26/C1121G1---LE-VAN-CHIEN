@@ -7,31 +7,53 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class CustomersService {
-  customerApi = 'http://localhost:3000/customer';
+  // customerApi = 'http://localhost:3000/customer';
+  customerApi = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {
   }
 
   private customers: Customer[] = [];
 
-  getCustomers(): Observable<Customer[]> {
-    return this.http.get<Customer[]>(this.customerApi);
+  getCustomersPage(page: number): Observable<any> {
+    return this.http.get<any>(this.customerApi + '/customer?page=' + page);
   }
 
-  createCustomer(customer: Customer): Observable<Customer> {
-    return this.http.post<Customer>(this.customerApi, customer);
+  getCustomers(): Observable<any> {
+    return this.http.get<any>(this.customerApi + '/customer/list');
   }
 
-  findCustomerById(id: number): Observable<Customer> {
-    return this.http.get<Customer>(this.customerApi + '/' + id);
+  deleteById(idDelete: number): Observable<Customer> {
+    return this.http.delete<Customer>(`${this.customerApi}/customer/delete/${idDelete}`);
   }
 
-  updateCustomer(id: number, customer: Customer): Observable<Customer> {
-    return this.http.put<Customer>(this.customerApi + '/' + id, customer);
+  save(customer: Customer): Observable<Customer> {
+    return this.http.post<Customer>(`${this.customerApi}/customer/create`, customer);
   }
 
-  deleteCustomer(id: number): Observable<Customer> {
-    return this.http.delete<Customer>(`${this.customerApi}/${id}`);
+  findById(id: number): Observable<Customer> {
+    return this.http.get<Customer>(`${this.customerApi}/customer/${id}`);
   }
+
+  editCustomer(customer: Customer): Observable<Customer> {
+    return this.http.put<Customer>(`${this.customerApi}/customer/edit/${customer.id}`, customer);
+  }
+
+
+  // createCustomer(customer: Customer): Observable<Customer> {
+  //   return this.http.post<Customer>(this.customerApi, customer);
+  // }
+  //
+  // findCustomerById(id: number): Observable<Customer> {
+  //   return this.http.get<Customer>(this.customerApi + '/' + id);
+  // }
+  //
+  // updateCustomer(id: number, customer: Customer): Observable<Customer> {
+  //   return this.http.put<Customer>(this.customerApi + '/' + id, customer);
+  // }
+  //
+  // deleteCustomer(id: number): Observable<Customer> {
+  //   return this.http.delete<Customer>(`${this.customerApi}/${id}`);
+  // }
 
 }

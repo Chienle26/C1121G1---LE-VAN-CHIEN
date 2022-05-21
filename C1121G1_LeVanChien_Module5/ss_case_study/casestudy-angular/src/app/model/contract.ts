@@ -2,8 +2,8 @@ import {Customer} from './customer';
 import {Facility} from './facility';
 import {Employee} from './employee';
 
-export class Contract {
-  contractId: number;
+export interface Contract {
+  id: number;
   contractStartDate: string;
   contractEndDate: string;
   contractDeposit: number;

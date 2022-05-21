@@ -1,0 +1,127 @@
+<app-header [title]="title"></app-header>
+
+<div id="main-container">
+  <!--  Title-->
+  <div style="display: flex; justify-content: space-between; align-items: center">
+    <!--    Create-->
+    <a [routerLink]="['/product/create']" class="button-gradient button-gradient-4" style="border: none;">Create
+      Product</a>
+    <!--      <a (click)="deleteMultiple()" class="button-gradient button-gradient-4" style="border: none;">Delete</a>-->
+    <button type="button" class="button-gradient button-gradient-4" style="border: none;" data-toggle="modal"
+            data-target="#staticBackdrop">
+      Deletes
+    </button>
+    <!--    Search-->
+    <div style="margin-right: 30px; display: flex; align-items: center">
+      <!--        <input type="text" class="form-control" id="search" name="name" [(ngModel)]="nameSearch" (ngModelChange)="search()"-->
+      <!--               placeholder="Enter name to search">-->
+      <input type="text" class="form-control" name="search" [(ngModel)]="nameSearch" (ngModelChange)="getAllProduct()"
+             placeholder="Enter name to search">
+      <input type="text" class="form-control" name="search" [(ngModel)]="priceSearch" (ngModelChange)="getAllProduct()"
+             placeholder="Enter price to search">
+      <label><i class="fa fa-search" style="margin-left: 10px"></i></label>
+    </div>
+  </div>
+<!--  Table-->
+  <div>
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th></th>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Color</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!--      Số trang-->
+      <!--      <tr *ngFor="let customer of customers | paginate : {itemsPerPage : 2 , currentPage :p}; index as i">-->
+      <tr *ngFor="let product of products | paginate : {itemsPerPage : 2 , currentPage :p}; index as i">
+        <td>
+          <input type="checkbox" [value]="product.id">
+        </td>
+        <td>{{i + 1}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.quantity | date:'dd/MM/yyyy'}}</td>
+        <td>{{product.color.name}}</td>
+        <td>{{product.category.name}}</td>
+        <td>{{product.desc}}</td>
+        <td colspan="2" style="display: flex">
+          <a [routerLink]="['/product/edit',product.id]" style="color: #4bc8c6"><i
+            class="fas fa-edit"></i></a>
+          <!--          Button xóa model-->
+          <!--          <a (click)="onOpenEditModal(product)" style="color: rgb(215, 100, 98);"><i-->
+          <a (click)="onOpenEditModal(product)" style="color: rgb(215, 100, 98); margin-left: 20px"><i
+            class="fa-solid fa-trash-can"></i></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <!--        Paging-->
+    <div style="display: flex; justify-content: flex-end">
+      <pagination-controls (pageChange)="p=$event"></pagination-controls>
+    </div>
+  </div>
+</div>
+
+<!--Modal Xóa 1 trường -->
+<div
+  class="modal fade"
+  id="deleteModal"
+  data-backdrop="static"
+  data-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Xóa sản phẩm </h5>
+        <button style="border: none; background-color: transparent" type="button" class="btn-close"
+                data-dismiss="modal" aria-label="Close">X
+        </button>
+      </div>
+      <div class="modal-body" id="customer_delete">
+        <div class="modal-body">
+          <div *ngIf="check">
+            <p>Bạn có muốn xóa sản phẩm : {{deleteProduct.name}}</p> <br>
+            <p>Sản phẩm có màu : {{deleteProduct.color.name}}</p> <br>
+            <p>Sản phẩm loại : {{deleteProduct.category.name}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button #closeModal type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <!--            <button (click)="delete(closeModal)" type="button" class="btn btn-danger" id="delete_customer_id">Xóa</button>-->
+        <button (click)="delete(closeModal)" type="button" class="btn btn-danger" id="delete_customer_id">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal xóa nhiều trường -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabels">Modal title</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn có chắc chắn muốn xóa nhiều sản phẩm không?
+      </div>
+      <div class="modal-footer">
+        <button #Close type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button (click)="deleteMulti(Close)" type="button" class="btn btn-primary">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

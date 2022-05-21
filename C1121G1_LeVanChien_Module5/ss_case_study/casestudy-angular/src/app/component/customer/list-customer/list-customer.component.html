@@ -27,7 +27,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let customer of customers | paginate : {itemsPerPage : 2 , currentPage :p}; index as i">
+      <tr *ngFor="let customer of customers; index as i">
         <td>{{i + 1}}</td>
         <td>{{customer.customerCode}}</td>
         <td>{{customer.customerName}}</td>
@@ -53,9 +53,28 @@
       </tr>
       </tbody>
     </table>
-    <div style="display: flex; justify-content: flex-end">
-      <pagination-controls (pageChange)="p=$event"></pagination-controls>
+    <!--Pagination-->
+    <div class="d-flex flex-center">
+      <nav class="mt-2" aria-label="...">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" (click)="previous()">Previous</a>
+          </li>
+          <li class="page-item active" aria-current="page">
+            <span class="page-link">{{number + 1}}</span>
+          </li>
+          <li class="page-item">
+            <a class="page-link">{{totalPages}}</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="next()">Next</a>
+          </li>
+        </ul>
+      </nav>
     </div>
+<!--    <div style="display: flex; justify-content: flex-end">-->
+<!--      <pagination-controls (pageChange)="p=$event"></pagination-controls>-->
+<!--    </div>-->
   </div>
 
   <!--Modal Delete-->

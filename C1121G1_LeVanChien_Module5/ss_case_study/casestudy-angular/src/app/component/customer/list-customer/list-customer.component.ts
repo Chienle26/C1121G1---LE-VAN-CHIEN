@@ -15,6 +15,8 @@ export class ListCustomerComponent implements OnInit {
   check = false;
   p = 1;
   nameSearch = '';
+  number = 0;
+  totalPages = 0;
 
   constructor(private customersService: CustomersService) {
   }
@@ -25,12 +27,39 @@ export class ListCustomerComponent implements OnInit {
 
 
   getAllCustomers() {
-    this.customersService.getCustomers().subscribe((customers) => {
-      this.customers = customers;
-    }, error => {
-      console.log(error);
-    });
+    this.customersService.getCustomersPage(this.number).subscribe((customers) => {
+        this.customers = customers.content;
+        this.number = customers.number;
+        this.totalPages = customers.totalPages;
+      }, err => console.log(err)
+    );
   }
+
+  next() {
+    if (this.number < this.totalPages - 1) {
+      this.customersService.getCustomersPage(this.number + 1).subscribe(
+        customers => {
+          this.customers = customers.content;
+          this.number = customers.number;
+          console.log(customers);
+        }, err => console.log(err)
+      );
+    }
+
+  }
+
+  previous() {
+    if (this.number > 0) {
+      this.customersService.getCustomersPage(this.number - 1).subscribe(
+        customers => {
+          this.customers = customers.content;
+          this.number = customers.number;
+          console.log(customers);
+        }, err => console.log(err)
+      );
+    }
+  }
+
 
   delete(event) {
     this.customersService.deleteCustomer( this.deleteCustomer.id).subscribe(() => {

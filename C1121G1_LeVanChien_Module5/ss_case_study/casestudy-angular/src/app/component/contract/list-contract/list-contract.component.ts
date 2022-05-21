@@ -9,8 +9,8 @@ import {ContractsService} from '../../../service/contracts.service';
 })
 export class ListContractComponent implements OnInit {
   title = 'List Contract';
-  // @ts-ignore
-  contracts = Array[Contract] = [];
+
+  contracts: Contract[] = [];
 
   constructor(private contractsService: ContractsService) {
   }

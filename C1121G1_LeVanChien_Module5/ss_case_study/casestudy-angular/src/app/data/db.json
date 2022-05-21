@@ -35,6 +35,18 @@
       "customerEmail": "thihao07@gmail.com",
       "customerAddress": "23 Nguyễn Hoàng, Đà Nẵng",
       "customerTypeId": "1"
+    },
+    {
+      "id": 8,
+      "customerCode": "KH-1231",
+      "customerName": "Nguyễn Thị Anh Đào",
+      "customerBirthday": "2022-05-12",
+      "customerGender": "0",
+      "customerIdCard": "123132131",
+      "customerPhone": "0908888845",
+      "customerEmail": "chienle@gmail.com",
+      "customerAddress": "224 Lý Thái Tổ, Gia Lai",
+      "customerTypeId": "5"
     }
   ],
   "service": [

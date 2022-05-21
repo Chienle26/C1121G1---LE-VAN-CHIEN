@@ -1,0 +1,8 @@
+.paging {
+  display: flex;
+  justify-content: flex-end;
+}
+
+th {
+  font-weight: bold;
+}

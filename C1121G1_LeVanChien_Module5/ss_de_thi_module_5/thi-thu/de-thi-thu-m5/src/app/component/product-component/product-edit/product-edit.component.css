@@ -1,0 +1,8 @@
+.submit-form {
+  display: flex;
+  justify-content: center;
+}
+
+input select {
+  padding: 15px;
+}

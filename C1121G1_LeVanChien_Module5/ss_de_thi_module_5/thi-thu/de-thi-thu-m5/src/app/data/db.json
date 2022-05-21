@@ -1,0 +1,197 @@
+{
+  "product": [
+    {
+      "id": 5,
+      "name": "666666666",
+      "price": "66666666666",
+      "quantity": "666666666",
+      "color": {
+        "id": 2,
+        "name": "blue"
+      },
+      "category": {
+        "id": 1,
+        "name": "phone"
+      },
+      "desc": "6666666666"
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "phone"
+    },
+    {
+      "id": 2,
+      "name": "tablet"
+    },
+    {
+      "id": 3,
+      "name": "laptop"
+    }
+  ],
+  "color": [
+    {
+      "id": 1,
+      "name": "red"
+    },
+    {
+      "id": 2,
+      "name": "blue"
+    },
+    {
+      "id": 3,
+      "name": "black"
+    },
+    {
+      "id": 4,
+      "name": "white"
+    },
+    {
+      "id": 5,
+      "name": "yellow"
+    }
+  ],
+  "batdongsan": [
+    {
+      "id": 1,
+      "danhMuc": {
+        "id": 1,
+        "ten": "Nhà đất"
+      },
+      "vungMien": "Đà Nẵng",
+      "banLa": "Cá nhân",
+      "dangTin": "Cần mua",
+      "tinhTrang": "Mới",
+      "diaChi": "Liên Chiểu",
+      "dienTich": 100,
+      "huong": "Đông",
+      "tuaDe": "Cần mua gấp",
+      "noiDung": "Nhà mới 100%",
+      "gia": 100000000000,
+      "hinhAnh": "https://furamavietnam.com/wp-content/uploads/2018/10/Vietnam_Danang_Furama_Resort_Exterior_Courtyard-1.jpg"
+    },
+    {
+      "id": 2,
+      "danhMuc": {
+        "id": 1,
+        "ten": "Nhà đất"
+      },
+      "vungMien": "Hồ Chí Minh",
+      "banLa": "Tổ chức",
+      "dangTin": "Cần bán",
+      "tinhTrang": "Cũ",
+      "diaChi": "Tân Bình",
+      "dienTich": 200,
+      "huong": "Tây",
+      "tuaDe": "Cần bán gấp",
+      "noiDung": "Nhà mới 100%",
+      "gia": 200000000000,
+      "hinhAnh": "https://furamavietnam.com/wp-content/uploads/2018/10/Vietnam_Danang_Furama_Resort_Exterior_Courtyard-1.jpg"
+    },
+    {
+      "id": 3,
+      "danhMuc": {
+        "id": 2,
+        "ten": "Nhà cho thuê"
+      },
+      "vungMien": "Hà Nội",
+      "banLa": "Cá nhân",
+      "dangTin": "Cần thuê",
+      "tinhTrang": "Mới",
+      "diaChi": "Hai Bà Trưng",
+      "dienTich": 100,
+      "huong": "Bắc",
+      "tuaDe": "Cần thuê gấp",
+      "noiDung": "Nhà mới 100%",
+      "gia": 30000000,
+      "hinhAnh": "https://furamavietnam.com/wp-content/uploads/2018/10/Vietnam_Danang_Furama_Resort_Exterior_Courtyard-1.jpg"
+    },
+    {
+      "id": 4,
+      "danhMuc": {
+        "id": 2,
+        "ten": "Nhà cho thuê"
+      },
+      "vungMien": "Hà Nội",
+      "banLa": "Cá nhân",
+      "dangTin": "Cần thuê",
+      "tinhTrang": "Mới",
+      "diaChi": "Hai Bà Trưng",
+      "dienTich": 100,
+      "huong": "Bắc",
+      "tuaDe": "Cần thuê gấp",
+      "noiDung": "Nhà mới 100%",
+      "gia": 30000000,
+      "hinhAnh": "https://furamavietnam.com/wp-content/uploads/2018/10/Vietnam_Danang_Furama_Resort_Exterior_Courtyard-1.jpg"
+    },
+    {
+      "id": 5,
+      "danhMuc": {
+        "id": 1,
+        "ten": "Nhà đất"
+      },
+      "vungMien": "Đà Nẵng",
+      "banLa": "Công ty",
+      "dangTin": "Cần mua",
+      "tinhTrang": "Mới",
+      "diaChi": "Đà Nẵng",
+      "dienTich": "121",
+      "huong": "Tây",
+      "tuaDe": "Chiến Cần mua nhà",
+      "noiDung": "Gấp",
+      "gia": "10000000000",
+      "hinhAnh": ""
+    },
+    {
+      "id": 6,
+      "danhMuc": {
+        "id": 1,
+        "ten": "Nhà đất"
+      },
+      "vungMien": "Hồ Chí Minh",
+      "banLa": "Cá nhân",
+      "dangTin": "Cần bán",
+      "tinhTrang": "Đã sử dụng",
+      "diaChi": "202 Bach Dang",
+      "dienTich": "220",
+      "huong": "Đông",
+      "tuaDe": "Ban nha mat pho",
+      "noiDung": "Ban nha mat pho",
+      "gia": "1000000000",
+      "hinhAnh": ""
+    },
+    {
+      "id": 7,
+      "danhMuc": {
+        "id": 1,
+        "ten": "Nhà đất"
+      },
+      "vungMien": "Hồ Chí Minh",
+      "banLa": "Cá nhân",
+      "dangTin": "Cần bán",
+      "tinhTrang": "Đã sử dụng",
+      "diaChi": "202 Bach Dang",
+      "dienTich": "220",
+      "huong": "Đông",
+      "tuaDe": "Ban nha mat pho",
+      "noiDung": "Ban nha mat pho",
+      "gia": "1000000000",
+      "hinhAnh": ""
+    }
+  ],
+  "danhmuc": [
+    {
+      "id": 1,
+      "ten": "Nhà đất"
+    },
+    {
+      "id": 2,
+      "ten": "Nhà cho thuê"
+    },
+    {
+      "id": 3,
+      "ten": "Chung cư"
+    }
+  ]
+}
