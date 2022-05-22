@@ -57,7 +57,7 @@
       "id": 1,
       "danhMuc": {
         "id": 1,
-        "ten": "Nhà đất"
+        "name": "Nhà đất"
       },
       "vungMien": "Đà Nẵng",
       "banLa": "Cá nhân",
@@ -75,7 +75,7 @@
       "id": 2,
       "danhMuc": {
         "id": 1,
-        "ten": "Nhà đất"
+        "name": "Nhà đất"
       },
       "vungMien": "Hồ Chí Minh",
       "banLa": "Tổ chức",
@@ -93,7 +93,7 @@
       "id": 3,
       "danhMuc": {
         "id": 2,
-        "ten": "Nhà cho thuê"
+        "name": "Nhà cho thuê"
       },
       "vungMien": "Hà Nội",
       "banLa": "Cá nhân",
@@ -111,7 +111,7 @@
       "id": 4,
       "danhMuc": {
         "id": 2,
-        "ten": "Nhà cho thuê"
+        "name": "Nhà cho thuê"
       },
       "vungMien": "Hà Nội",
       "banLa": "Cá nhân",
@@ -129,7 +129,7 @@
       "id": 5,
       "danhMuc": {
         "id": 1,
-        "ten": "Nhà đất"
+        "name": "Nhà đất"
       },
       "vungMien": "Đà Nẵng",
       "banLa": "Công ty",
@@ -147,7 +147,7 @@
       "id": 6,
       "danhMuc": {
         "id": 1,
-        "ten": "Nhà đất"
+        "name": "Nhà đất"
       },
       "vungMien": "Hồ Chí Minh",
       "banLa": "Cá nhân",
@@ -165,7 +165,7 @@
       "id": 7,
       "danhMuc": {
         "id": 1,
-        "ten": "Nhà đất"
+        "name": "Nhà đất"
       },
       "vungMien": "Hồ Chí Minh",
       "banLa": "Cá nhân",
@@ -183,15 +183,15 @@
   "danhmuc": [
     {
       "id": 1,
-      "ten": "Nhà đất"
+      "name": "Nhà đất"
     },
     {
       "id": 2,
-      "ten": "Nhà cho thuê"
+      "name": "Nhà cho thuê"
     },
     {
       "id": 3,
-      "ten": "Chung cư"
+      "name": "Chung cư"
     }
   ]
 }

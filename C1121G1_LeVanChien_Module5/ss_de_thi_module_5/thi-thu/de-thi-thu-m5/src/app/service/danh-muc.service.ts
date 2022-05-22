@@ -12,6 +12,6 @@ export class DanhMucService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<DanhMuc[]> {
-    return this.http.get<DanhMuc[]>('http://localhost:3000/danhmuc');
+    return this.http.get<DanhMuc[]>('http://localhost:8080/danh-muc/list');
   }
 }

@@ -6,18 +6,18 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class CustomerType {
+public class DanhMuc {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String name;
 
+    @OneToMany(mappedBy = "danhMuc")
     @JsonBackReference
-    @OneToMany(mappedBy = "customerType")
-    Set<Customer> customers;
+    private Set<BatDongSan> batDongSans;
 
-    public CustomerType() {
+    public DanhMuc() {
     }
 
     public Integer getId() {
@@ -36,11 +36,11 @@ public class CustomerType {
         this.name = name;
     }
 
-    public Set<Customer> getCustomers() {
-        return customers;
+    public Set<BatDongSan> getBatDongSans() {
+        return batDongSans;
     }
 
-    public void setCustomers(Set<Customer> customers) {
-        this.customers = customers;
+    public void setBatDongSans(Set<BatDongSan> batDongSans) {
+        this.batDongSans = batDongSans;
     }
 }

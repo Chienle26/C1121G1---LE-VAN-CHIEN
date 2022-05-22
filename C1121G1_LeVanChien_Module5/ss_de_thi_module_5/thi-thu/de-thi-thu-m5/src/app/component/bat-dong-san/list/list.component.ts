@@ -22,8 +22,17 @@ export class ListComponent implements OnInit {
     this.getAll();
   }
 
+  // getAll() {
+  //   this.batDongSanService.getAll(this.dienTich, this.gia, this.huong).subscribe((batDongSans) => {
+  //     this.batDongSans = batDongSans;
+  //   }, error => {
+  //     console.log('not find list product');
+  //     console.log(error);
+  //   });
+  // }
+
   getAll() {
-    this.batDongSanService.getAll(this.dienTich, this.gia, this.huong).subscribe((batDongSans) => {
+    this.batDongSanService.getAll().subscribe((batDongSans) => {
       this.batDongSans = batDongSans;
     }, error => {
       console.log('not find list product');
