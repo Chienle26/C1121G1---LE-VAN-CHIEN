@@ -1,3 +1,6 @@
+
+/*Header*/
+
 .header-item-login {
   font-size: 16px;
 }
@@ -5,7 +8,7 @@
 .header-item {
   display: flex;
   align-items: center;
-  cursor: pointer;
+  /*cursor: pointer;*/
 }
 
 .header-icon i {
@@ -92,8 +95,8 @@ header {
 .sub-menu {
   position: absolute;
   background-color: white;
-  width: 150px;
-  height: 150px;
+  width: 220px;
+  /*height: 150px;*/
   left: 0;
   top: 120%;
   padding: 10px;

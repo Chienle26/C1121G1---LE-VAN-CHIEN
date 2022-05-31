@@ -12,6 +12,7 @@ import {InvoiceModule} from './component/invoice/invoice.module';
 import {SupplierModule} from './component/supplier/supplier.module';
 import {StorageModule} from './component/storage/storage.module';
 import {HomepageModule} from './component/homepage/homepage.module';
+import {ReportModule} from "./component/report/report.module";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {HomepageModule} from './component/homepage/homepage.module';
     InvoiceModule,
     SupplierModule,
     StorageModule,
-    HomepageModule
+    HomepageModule,
+    ReportModule
   ],
   providers: [],
   bootstrap: [AppComponent]
