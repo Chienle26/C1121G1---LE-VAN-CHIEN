@@ -1,5 +1,9 @@
-
 /*Header*/
+
+.logo img {
+  width: 120px;
+  /*padding-top: 10px;*/
+}
 
 .header-item-login {
   font-size: 16px;
@@ -31,6 +35,8 @@
 
 header {
   background-color: #D70018;
+  padding: 10px 0;
+  margin-bottom: 20px;
 }
 
 .menu-bar-content > ul {
@@ -131,9 +137,9 @@ header {
   visibility: visible;
 }
 
-.menu-bar-content ul {
-  margin-bottom: 20px;
-}
+/*.menu-bar-content ul {*/
+/*    margin-bottom: 20px;*/
+/*}*/
 
 .sub-menu ul li a {
   color: black;
@@ -175,4 +181,8 @@ header {
 
 .sub-menu ul {
   margin-bottom: 0;
+}
+
+.menu-bar-content ul {
+  margin: 0;
 }
